@@ -1,0 +1,7 @@
+name: FitnessMobile
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dev_dependencies:
+  melos: ^4.0.0
