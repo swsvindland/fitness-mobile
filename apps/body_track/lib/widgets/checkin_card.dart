@@ -39,12 +39,15 @@ class CheckInCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const Divider(),
                 preferences.sex == 'male'
                     ? Text('BodyFat: ${bfMale.toStringAsFixed(2)}%')
                     : data.hip != null
                         ? Text('BodyFat: ${bfFemale.toStringAsFixed(2)}%')
                         : const SizedBox(height: 0),
-                Wrap(
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Neck: ${data.neck}\t\t\t'),
                     Text('Shoulders: ${data.shoulders}\t\t\t'),
