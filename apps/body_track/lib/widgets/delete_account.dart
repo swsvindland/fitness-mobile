@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../utils/constants.dart';
 
 class DeleteAccount extends StatelessWidget {
-  const DeleteAccount({Key? key}) : super(key: key);
+  const DeleteAccount({super.key});
 
   handleDeleteAccount() {
     try {
@@ -50,13 +50,12 @@ class DeleteAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return FilledButton(
       onPressed: () {
         showAlertDialog(context);
       },
       child: Text(
         AppLocalizations.of(context)!.deleteAccount,
-        style: const TextStyle(color: Colors.red),
       ),
     );
   }
