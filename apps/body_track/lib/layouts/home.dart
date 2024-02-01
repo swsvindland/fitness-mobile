@@ -74,13 +74,12 @@ class _HomeState extends State<HomePage> {
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home_outlined),
-            label: 'Home',
+            icon: Icon(Icons.monitor_weight),
+            label: 'Weight',
           ),
           NavigationDestination(
-            icon: Icon(Icons.insights),
-            label: 'All',
+            icon: Icon(Icons.straighten),
+            label: 'Body',
           ),
           NavigationDestination(
             icon: Icon(Icons.settings),
