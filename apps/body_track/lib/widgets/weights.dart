@@ -21,7 +21,6 @@ class Weights extends StatelessWidget {
           child: Center(
             child: Text(
               'Looks like you have no weigh ins. Click the scale icon to get started.',
-              style: TextStyle(color: textSecondary),
             ),
           ),
         ),
@@ -54,14 +53,14 @@ class Weights extends StatelessWidget {
     return [
       charts.Series<TimeSeriesWeight, DateTime>(
         id: 'WeighIns',
-        colorFn: (_, __) => charts.ColorUtil.fromDartColor(secondary),
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(primary),
         domainFn: (TimeSeriesWeight sales, _) => sales.time,
         measureFn: (TimeSeriesWeight sales, _) => sales.weight,
         data: data,
       ),
       charts.Series<TimeSeriesWeight, DateTime>(
         id: 'Average',
-        colorFn: (_, __) => charts.ColorUtil.fromDartColor(ternary),
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(secondary),
         domainFn: (TimeSeriesWeight sales, _) => sales.time,
         measureFn: (TimeSeriesWeight sales, _) => sales.weight,
         data: regression,

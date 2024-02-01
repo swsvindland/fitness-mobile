@@ -27,22 +27,22 @@ class AboutPage extends StatelessWidget {
             children: <Widget>[
               Text(
                 'Designed and Built by',
-                style: TextStyle(color: secondary, fontSize: 16),
+                style: TextStyle(fontSize: 16),
               ),
               Text(
                 'Sam Svindland',
-                style: TextStyle(color: ternary, fontSize: 12),
+                style: TextStyle(fontSize: 12),
               ),
               SizedBox(
                 height: 45,
               ),
               Text(
                 'Version',
-                style: TextStyle(color: secondary, fontSize: 16),
+                style: TextStyle( fontSize: 16),
               ),
               Text(
                 '1.10.0',
-                style: TextStyle(color: ternary, fontSize: 12),
+                style: TextStyle(fontSize: 12),
               ),
             ],
           ),

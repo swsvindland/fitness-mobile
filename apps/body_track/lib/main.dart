@@ -56,73 +56,13 @@ class App extends StatelessWidget {
         ],
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          colorSchemeSeed: primary,
-          brightness: Brightness.light,
+          colorScheme: ColorScheme.fromSeed(seedColor: primary),
           textTheme: GoogleFonts.oswaldTextTheme(),
-          useMaterial3: true,
-          backgroundColor: background,
-          scaffoldBackgroundColor: background,
-          appBarTheme: const AppBarTheme(
-              backgroundColor: background, foregroundColor: textPrimary),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ButtonStyle(
-              fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
-              backgroundColor: MaterialStateProperty.all<Color>(primary),
-              foregroundColor: MaterialStateProperty.all<Color>(textPrimary),
-            ),
-          ),
-          textButtonTheme: TextButtonThemeData(
-            style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all<Color>(textPrimary),
-            ),
-          ),
-          cardTheme: const CardTheme(
-            color: card
-          ),
-          listTileTheme: const ListTileThemeData(
-            textColor: textSecondary
-          ),
-          dialogTheme: const DialogTheme(
-            backgroundColor: card,
-            titleTextStyle: TextStyle(color: textPrimary),
-            contentTextStyle: TextStyle(color: textSecondary)
-          ),
-          popupMenuTheme: const PopupMenuThemeData(
-            color: card,
-            textStyle: TextStyle(color: textSecondary),
-          ),
-          timePickerTheme: const TimePickerThemeData(
-            backgroundColor: card,
-            hourMinuteTextColor: textPrimary,
-            dialTextColor: textSecondary,
-            helpTextStyle: TextStyle(color: textSecondary),
-            entryModeIconColor: textSecondary
-          )
         ),
         darkTheme: ThemeData(
-          colorSchemeSeed: primary,
-          brightness: Brightness.dark,
-          useMaterial3: true,
-          backgroundColor: Colors.black,
-          scaffoldBackgroundColor: Colors.black,
-          appBarTheme: const AppBarTheme(
-              backgroundColor: Colors.black, foregroundColor: textPrimary),
-            elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ButtonStyle(
-                fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
-                backgroundColor: MaterialStateProperty.all<Color>(primary),
-                foregroundColor: MaterialStateProperty.all<Color>(textPrimary),
-              ),
-            ),
-            listTileTheme: const ListTileThemeData(
-                textColor: textSecondary
-            ),
-            timePickerTheme: const TimePickerThemeData(
-                hourMinuteTextColor: textPrimary,
-                dialTextColor: textSecondary,
-                helpTextStyle: TextStyle(color: textSecondary),
-                entryModeIconColor: textSecondary
-            )
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: primary, brightness: Brightness.dark),
+          textTheme: GoogleFonts.oswaldTextTheme(ThemeData.dark().textTheme),
         ),
         themeMode: ThemeMode.system,
         navigatorKey: navigatorKey,

@@ -33,7 +33,7 @@ class CheckInCard extends StatelessWidget {
               DateFormat.MMMMd(Localizations.localeOf(context).languageCode)
                   .format(data.date),
               textAlign: TextAlign.left,
-              style: const TextStyle(fontSize: 20, color: textPrimary),
+              style: const TextStyle(fontSize: 20),
             ),
             subtitle: Column(
               mainAxisAlignment: MainAxisAlignment.center,

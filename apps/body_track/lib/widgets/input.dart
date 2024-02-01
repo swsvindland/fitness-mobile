@@ -18,7 +18,6 @@ class Input extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var color = variant == null ? secondary : ternary;
 
     return Padding(
       padding: const EdgeInsets.all(4),
@@ -26,19 +25,10 @@ class Input extends StatelessWidget {
         controller: controller,
         // The validator receives the text that the user has entered.
         validator: validator,
-        style: TextStyle(color: color),
         decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              // width: 0.0 produces a thin "hairline" border
-              borderSide: BorderSide(color: color),
-            ),
-            focusedBorder: OutlineInputBorder(
-              // width: 0.0 produces a thin "hairline" border
-              borderSide: BorderSide(color: color),
-            ),
             border: const OutlineInputBorder(),
             labelText: label,
-            labelStyle: TextStyle(color: color)),
+        ),
         keyboardType: TextInputType.numberWithOptions(
             decimal: decimal ?? true),
       ),
