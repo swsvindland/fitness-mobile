@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>718751552748-d5eouhavqmlbe1glea6vcieaig2mj1i5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.718751552748-d5eouhavqmlbe1glea6vcieaig2mj1i5</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>718751552748-g7jjoui28ecfok2lehauiecp2n43c4bk.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDX8ZHKbTDNDSv8mD4SlwCWM05iDNKaPw8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>718751552748</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.svindland.bodytrack</string>
+	<key>PROJECT_ID</key>
+	<string>bodytrack-4805f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bodytrack-4805f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:718751552748:ios:1e88a4f239a688927c41c9</string>
+</dict>
+</plist>

@@ -1,0 +1,70 @@
+{
+  "project_info": {
+    "project_number": "346843181874",
+    "project_id": "bptrack-63405",
+    "storage_bucket": "bptrack-63405.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:346843181874:android:500caaf28fe58f07cc9d2b",
+        "android_client_info": {
+          "package_name": "com.svindland.bptrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "346843181874-10a8an4t5c3asbccjo17m19um93hb3e5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svindland.bptrack",
+            "certificate_hash": "b6a03c14212d8ac47413f54f3ee18c9e3bfb438f"
+          }
+        },
+        {
+          "client_id": "346843181874-hmcvpuftqkrougjj89ip04ag9m4jhdha.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svindland.bptrack",
+            "certificate_hash": "bfec50f8eac61dfdeb5f13f1cb99f3a25592c0c5"
+          }
+        },
+        {
+          "client_id": "346843181874-je7lkns8i6c3o6ggv7m9te98rndk4sfp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svindland.bptrack",
+            "certificate_hash": "1363226da8610ce9756ae3560839d70eeb3fa3dc"
+          }
+        },
+        {
+          "client_id": "346843181874-nsopdopjope15v30npqfni9627i71ok2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgDwkAfomkkflA72nUDOjVGvvCQbsWxYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "346843181874-nsopdopjope15v30npqfni9627i71ok2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "346843181874-46mcop9vv562he1rrrp0b4u86tnqoqii.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.svindland.bptrack"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

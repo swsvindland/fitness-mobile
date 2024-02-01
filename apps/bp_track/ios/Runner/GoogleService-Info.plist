@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>346843181874-46mcop9vv562he1rrrp0b4u86tnqoqii.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.346843181874-46mcop9vv562he1rrrp0b4u86tnqoqii</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDJ4KoJQIj1GkC-g5hicyf0K9lBkjTM3_E</string>
+	<key>GCM_SENDER_ID</key>
+	<string>346843181874</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.svindland.bptrack</string>
+	<key>PROJECT_ID</key>
+	<string>bptrack-63405</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bptrack-63405.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:346843181874:ios:12ba361e9624ad79cc9d2b</string>
+</dict>
+</plist>
