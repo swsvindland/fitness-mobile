@@ -1,3 +1,4 @@
+import 'package:bp_track/models/blood_pressure.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +10,9 @@ import '../utils/helper.dart';
 import 'input.dart';
 
 class CheckInForm extends StatefulWidget {
-  const CheckInForm({super.key});
+  final BloodPressure? data;
+
+  const CheckInForm({super.key, this.data});
 
   @override
   State<CheckInForm> createState() => _CheckInState();
@@ -21,6 +24,17 @@ class _CheckInState extends State<CheckInForm> {
   final systolicController = TextEditingController();
   final diastolicController = TextEditingController();
   final heartRateController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.data != null) {
+      systolicController.text = widget.data!.systolic.toString();
+      diastolicController.text = widget.data!.diastolic.toString();
+      heartRateController.text = widget.data!.heartRate?.toString() ?? '';
+    }
+  }
 
   @override
   void dispose() {
@@ -37,6 +51,16 @@ class _CheckInState extends State<CheckInForm> {
 
     submit() async {
       if (user == null) return;
+
+      if (widget.data != null && widget.data!.id != null) {
+        await db.updateBloodPressure(
+            widget.data!.id!,
+            user.uid,
+            int.parse(systolicController.text),
+            int.parse(diastolicController.text),
+            int.tryParse(heartRateController.text));
+        return;
+      }
 
       await db.addBloodPressure(
           user.uid,

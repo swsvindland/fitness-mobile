@@ -11,7 +11,46 @@ class DatabaseService {
         .collection('bps')
         .where("uid", isEqualTo: id)
         .snapshots()
-        .map((event) => event.docs.map((e) => BloodPressure.fromMap(e.data())));
+        .map((event) => event.docs.map((e) => BloodPressure.fromMap({
+              "id": e.id,
+              "uid": e.data()["uid"],
+              "systolic": e.data()["systolic"],
+              "diastolic": e.data()["diastolic"],
+              "heartRate": e.data()["heartRate"],
+              "date": e.data()["date"]
+            })));
+  }
+
+  Future<void> deleteBloodPressure(DateTime date, String id) {
+    return _db
+        .collection('bps')
+        .where('uid', isEqualTo: id)
+        .where('date', isEqualTo: date)
+        .get()
+        .then((value) {
+      for (var element in value.docs) {
+        element.reference.delete();
+      }
+    });
+  }
+
+  Future<void> updateBloodPressure(String id, String uid, int systolic,
+      int diastolic, int? heartRate) async {
+    return _db
+        .collection('bps')
+        .where(FieldPath.documentId, isEqualTo: id)
+        .get()
+        .then((value) => {
+              for (var element in value.docs)
+                {
+                  element.reference.update({
+                    "uid": uid,
+                    "systolic": systolic,
+                    "diastolic": diastolic,
+                    "heartRate": heartRate
+                  })
+                }
+            });
   }
 
   Future<void> addBloodPressure(

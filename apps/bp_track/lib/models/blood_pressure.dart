@@ -1,15 +1,17 @@
 class BloodPressure {
+  String? id;
   String uid;
   int systolic;
   int diastolic;
   int? heartRate;
   DateTime date;
 
-  BloodPressure({required this.uid, required this.systolic, required this.diastolic, this.heartRate, required this.date});
+  BloodPressure({this.id, required this.uid, required this.systolic, required this.diastolic, this.heartRate, required this.date});
 
   factory BloodPressure.fromMap(Map data) {
     data = data;
     return BloodPressure(
+      id: data['id'],
       uid: data['uid'],
       systolic: data['systolic'],
       diastolic: data['diastolic'],
@@ -21,6 +23,7 @@ class BloodPressure {
   static Map<String, dynamic> toMap(BloodPressure data) {
     data = data;
     return {
+      'id': data.id,
       'uid': data.uid,
       'systolic': data.systolic,
       'diastolic': data.diastolic,
