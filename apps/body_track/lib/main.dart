@@ -9,6 +9,7 @@ import 'package:body_track/layouts/layouts.dart';
 import 'package:body_track/services/graph_animation_provider.dart';
 import 'package:body_track/utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 import 'firebase_options.dart';
 
@@ -21,10 +22,15 @@ void main() async {
 }
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
+
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  static FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
 
   @override
   Widget build(BuildContext context) {
+    analytics.logEvent(name: 'app_started');
+
     return MultiProvider(
       providers: [
         StreamProvider<User?>.value(
@@ -66,6 +72,7 @@ class App extends StatelessWidget {
         ),
         themeMode: ThemeMode.system,
         navigatorKey: navigatorKey,
+        navigatorObservers: <NavigatorObserver>[observer],
         initialRoute: '/',
         routes: {
           '/': (context) => const SplashScreenPage(),
