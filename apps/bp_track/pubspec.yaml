@@ -19,10 +19,10 @@ environment:
 
 dependencies:
   community_charts_flutter: ^1.0.1
-  cloud_firestore: ^4.15.0
+  cloud_firestore: ^4.15.3
   crypto: ^3.0.3
-  firebase_auth: ^4.6.1
-  firebase_core: ^2.25.0
+  firebase_auth: ^4.17.3
+  firebase_core: ^2.25.3
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -34,6 +34,7 @@ dependencies:
   os_detect: ^2.0.1
   provider: ^6.0.5
   sign_in_with_apple: ^5.0.0
+  in_app_purchase: ^3.1.13
 
 dev_dependencies:
   flutter_test:
