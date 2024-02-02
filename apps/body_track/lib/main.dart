@@ -70,11 +70,10 @@ class App extends StatelessWidget {
         routes: {
           '/': (context) => const SplashScreenPage(),
           '/login': (context) => const LoginPage(),
-          '/home': (context) => HomePage(),
+          '/home': (context) => const HomePage(),
           '/weigh-in': (context) => const WeighIn(),
           '/check-in': (context) => const CheckIn(),
           '/about': (context) => const AboutPage(),
-          '/settings': (context) => const SettingsPage()
         },
       ),
     );

@@ -1,12 +1,9 @@
 import 'package:body_track/widgets/app_bar_ad.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:body_track/models/models.dart';
 import 'package:body_track/services/database_service.dart';
-import 'package:body_track/services/sign_in.dart';
 import 'package:body_track/utils/constants.dart';
 import 'package:provider/provider.dart';
-import 'package:body_track/widgets/weights.dart';
 import 'package:body_track/widgets/settings.dart';
 import 'package:body_track/widgets/all.dart';
 import 'package:body_track/widgets/home.dart';

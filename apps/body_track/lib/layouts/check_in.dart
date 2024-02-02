@@ -19,7 +19,6 @@ class _CheckInState extends State<CheckIn> {
         title: const Text("Check In"),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          color: Colors.white,
           onPressed: () {
             navigatorKey.currentState!.pop();
           },

@@ -42,7 +42,6 @@ class _WeighInState extends State<WeighIn> {
         title: const Text("Weigh In"),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          color: Colors.white,
           onPressed: () {
             navigatorKey.currentState!.pop();
           },
