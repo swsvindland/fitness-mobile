@@ -21,11 +21,10 @@ class DatabaseService {
             })));
   }
 
-  Future<void> deleteBloodPressure(DateTime date, String id) {
+  Future<void> deleteBloodPressure(String id) {
     return _db
         .collection('bps')
-        .where('uid', isEqualTo: id)
-        .where('date', isEqualTo: date)
+        .where(FieldPath.documentId, isEqualTo: id)
         .get()
         .then((value) {
       for (var element in value.docs) {

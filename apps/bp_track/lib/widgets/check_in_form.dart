@@ -49,6 +49,12 @@ class _CheckInState extends State<CheckInForm> {
   Widget build(BuildContext context) {
     var user = Provider.of<User?>(context);
 
+    delete() async {
+      if (widget.data != null && widget.data!.id != null) {
+        await db.deleteBloodPressure(widget.data!.id!);
+      }
+    }
+
     submit() async {
       if (user == null) return;
 
@@ -99,6 +105,18 @@ class _CheckInState extends State<CheckInForm> {
               }
             },
             child: Text(AppLocalizations.of(context)!.submit),
+          ),
+          OutlinedButton(
+            onPressed: () async {
+              if (_formKey.currentState!.validate()) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(AppLocalizations.of(context)!.saving)),
+                );
+                await delete();
+                navigatorKey.currentState!.pop();
+              }
+            },
+            child: Text(AppLocalizations.of(context)!.delete),
           ),
         ],
       ),
