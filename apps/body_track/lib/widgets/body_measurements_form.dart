@@ -124,15 +124,13 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                width: 150,
+              Expanded(
                 child: Input(
                     label: 'Left Bicep',
                     controller: leftBicepController,
                     validator: checkInValidator),
               ),
-              SizedBox(
-                width: 150,
+              Expanded(
                 child: Input(
                     label: 'Right Bicep',
                     controller: rightBicepController,
@@ -156,15 +154,13 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                width: 150,
+              Expanded(
                 child: Input(
                     label: 'Left Thigh',
                     controller: leftThighController,
                     validator: checkInValidator),
               ),
-              SizedBox(
-                width: 150,
+              Expanded(
                 child: Input(
                     label: 'Right Thigh',
                     controller: rightThighController,
@@ -176,15 +172,13 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                width: 150,
+              Expanded(
                 child: Input(
                     label: 'Left Calf',
                     controller: leftCalfController,
                     validator: checkInValidator),
               ),
-              SizedBox(
-                width: 150,
+              Expanded(
                 child: Input(
                     label: 'Right Calf',
                     controller: rightCalfController,

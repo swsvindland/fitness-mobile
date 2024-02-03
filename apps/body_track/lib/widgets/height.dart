@@ -62,8 +62,7 @@ class _HeightState extends State<Height> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(
-                    width: 100,
+                  Expanded(
                     child: Input(
                         label: 'Feet',
                         decimal: false,
@@ -71,8 +70,7 @@ class _HeightState extends State<Height> {
                         controller: feetController,
                         validator: checkInValidator),
                   ),
-                  SizedBox(
-                    width: 100,
+                  Expanded(
                     child: Input(
                         label: 'Inches',
                         decimal: false,
