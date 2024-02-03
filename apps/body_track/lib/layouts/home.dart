@@ -25,6 +25,50 @@ class _HomeState extends State<HomePage> {
     navigatorKey.currentState!.pushNamed('/check-in');
   }
 
+  handleAction() {
+    showModalBottomSheet<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return SizedBox(
+            height: 200,
+            child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    FilledButton.tonal(
+                      onPressed: handleWeighIn,
+                      child:
+                      const Padding(
+                        padding: EdgeInsets.all(24),
+                        child: Row(
+                          children: [
+                            Icon(Icons.monitor_weight),
+                            Text('Weigh In'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    FilledButton.tonal(
+                      onPressed: handleCheckIn,
+                      child:
+                      const Padding(
+                        padding: EdgeInsets.all(24),
+                        child: Row(
+                          children: [
+                            Icon(Icons.straighten),
+                            Text('Check In'),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,8 +81,8 @@ class _HomeState extends State<HomePage> {
         child: currentPageIndex == 0
             ? Home()
             : currentPageIndex == 1
-            ? All()
-            : Settings(),
+                ? All()
+                : Settings(),
       ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -46,15 +90,8 @@ class _HomeState extends State<HomePage> {
         children: [
           FloatingActionButton(
             heroTag: "WeighIn",
-            onPressed: handleWeighIn,
-            child: const Icon(Icons.monitor_weight),
-          ),
-          const SizedBox(width: 16),
-          FloatingActionButton.extended(
-            heroTag: "CheckIn",
-            onPressed: handleCheckIn,
-            label: const Text('Check In'),
-            icon: const Icon(Icons.straighten),
+            onPressed: handleAction,
+            child: const Icon(Icons.add),
           ),
         ],
       ),
