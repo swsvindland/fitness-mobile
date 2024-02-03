@@ -1,3 +1,4 @@
+import 'package:body_track/models/checkin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -8,7 +9,9 @@ import '../utils/helper.dart';
 import 'input.dart';
 
 class BodyMeasurementForm extends StatefulWidget {
-  const BodyMeasurementForm({super.key});
+  final CheckIn? data;
+
+  const BodyMeasurementForm({super.key, this.data});
 
   @override
   State<BodyMeasurementForm> createState() => _BodyMeasurementFormState();
@@ -30,7 +33,25 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
   final leftCalfController = TextEditingController();
   final rightCalfController = TextEditingController();
 
-  bool showBloodPressureInput = false;
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.data != null) {
+      neckController.text = widget.data!.neck.toString();
+      shouldersController.text = widget.data!.shoulders.toString();
+      chestController.text = widget.data!.chest.toString();
+      leftBicepController.text = widget.data!.leftBicep.toString();
+      rightBicepController.text = widget.data!.rightBicep.toString();
+      navelController.text = widget.data!.navel.toString();
+      waistController.text = widget.data!.waist.toString();
+      hipController.text = widget.data!.hip.toString();
+      leftThighController.text = widget.data!.leftThigh.toString();
+      rightThighController.text = widget.data!.rightThigh.toString();
+      leftCalfController.text = widget.data!.leftCalf.toString();
+      rightCalfController.text = widget.data!.rightCalf.toString();
+    }
+  }
 
   @override
   void dispose() {
@@ -54,6 +75,12 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
   @override
   Widget build(BuildContext context) {
     var user = Provider.of<User?>(context);
+
+    delete() async {
+      if (widget.data != null && widget.data!.id != null) {
+        await db.deleteCheckIn(widget.data!.id!);
+      }
+    }
 
     submit() async {
       if (user == null) return;
@@ -165,24 +192,38 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(4),
-            child: ElevatedButton(
-              onPressed: () async {
-                // Validate returns true if the form is valid, or false otherwise.
-                if (_formKey.currentState!.validate()) {
-                  // If the form is valid, display a snackbar. In the real world,
-                  // you'd often call a server or save the information in a database.
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Processing Data')),
-                  );
-                  await submit();
-                  navigatorKey.currentState!.pop();
-                }
-              },
-              child: const Text('Submit'),
-            ),
+          FilledButton(
+            onPressed: () async {
+              // Validate returns true if the form is valid, or false otherwise.
+              if (_formKey.currentState!.validate()) {
+                // If the form is valid, display a snackbar. In the real world,
+                // you'd often call a server or save the information in a database.
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Processing Data')),
+                );
+                await submit();
+                navigatorKey.currentState!.pop();
+              }
+            },
+            child: const Text('Submit'),
           ),
+          widget.data != null
+              ? OutlinedButton(
+                  onPressed: () async {
+                    // Validate returns true if the form is valid, or false otherwise.
+                    if (_formKey.currentState!.validate()) {
+                      // If the form is valid, display a snackbar. In the real world,
+                      // you'd often call a server or save the information in a database.
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Processing Data')),
+                      );
+                      await delete();
+                      navigatorKey.currentState!.pop();
+                    }
+                  },
+                  child: const Text('Delete'),
+                )
+              : const SizedBox(),
         ],
       ),
     );

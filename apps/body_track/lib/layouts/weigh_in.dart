@@ -26,8 +26,8 @@ class _WeighInState extends State<WeighIn> {
           },
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(24),
+      body: const Padding(
+        padding: EdgeInsets.all(24),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: WeighInForm()

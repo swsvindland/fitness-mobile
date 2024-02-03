@@ -66,13 +66,63 @@ class DatabaseService {
     });
   }
 
+  Future<void> updateCheckIn(
+      String id,
+      double neck,
+      double shoulders,
+      double chest,
+      double leftBicep,
+      double rightBicep,
+      double navel,
+      double waist,
+      double hip,
+      double leftThigh,
+      double rightThigh,
+      double leftCalf,
+      double rightCalf) {
+    return _db.collection('checkIns').doc(id).update({
+      "date": DateTime.now(),
+      "neck": neck,
+      "shoulders": shoulders,
+      "chest": chest,
+      "leftBicep": leftBicep,
+      "rightBicep": rightBicep,
+      "navel": navel,
+      "waist": waist,
+      "hip": hip,
+      "leftThigh": leftThigh,
+      "rightThigh": rightThigh,
+      "leftCalf": leftCalf,
+      "rightCalf": rightCalf
+    });
+  }
+
+  Future<void> deleteCheckIn(String id) {
+    return _db.collection('checkIns').doc(id).delete();
+  }
+
   Stream<Iterable<CheckIn>> streamCheckIns(String id) {
     return _db
         .collection('checkIns')
         .where("uid", isEqualTo: id)
         .orderBy("date", descending: true)
         .snapshots()
-        .map((event) => event.docs.map((e) => CheckIn.fromMap(e.data())));
+        .map((event) => event.docs.map((e) => CheckIn.fromMap({
+              "id": e.id,
+              "date": e.data()["date"],
+              "neck": e.data()["neck"],
+              "shoulders": e.data()["shoulders"],
+              "chest": e.data()["chest"],
+              "leftBicep": e.data()["leftBicep"],
+              "rightBicep": e.data()["rightBicep"],
+              "navel": e.data()["navel"],
+              "waist": e.data()["waist"],
+              "hip": e.data()["hip"],
+              "leftThigh": e.data()["leftThigh"],
+              "rightThigh": e.data()["rightThigh"],
+              "leftCalf": e.data()["leftCalf"],
+              "rightCalf": e.data()["rightCalf"],
+            })));
   }
 
   Stream<Preferences> streamPreferences(String id) {

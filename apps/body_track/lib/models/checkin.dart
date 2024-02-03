@@ -1,4 +1,5 @@
 class CheckIn {
+  String? id;
   DateTime date;
   double neck;
   double shoulders;
@@ -16,7 +17,9 @@ class CheckIn {
   double? diastolic;
 
   CheckIn(
-      {required this.date,
+      {
+      this.id,
+        required this.date,
       required this.neck,
       required this.shoulders,
       required this.chest,
@@ -35,6 +38,7 @@ class CheckIn {
   factory CheckIn.fromMap(Map data) {
     data = data;
     return CheckIn(
+      id: data['id'],
       date: data['date'].toDate(),
       neck: data['neck'],
       shoulders: data['shoulders'],
@@ -56,6 +60,7 @@ class CheckIn {
   static Map<String, dynamic> toMap(CheckIn data) {
     data = data;
     return {
+      'id': data.id,
       'date': data.date,
       'neck': data.neck,
       'shoulders': data.shoulders,
