@@ -122,7 +122,6 @@ class _AppState extends State<App> {
           '/home': (context) => const HomePage(),
           '/weigh-in': (context) => const WeighIn(),
           '/check-in': (context) => const CheckIn(),
-          '/about': (context) => const AboutPage(),
         },
       ),
     );
