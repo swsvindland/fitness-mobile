@@ -1,47 +1,40 @@
-import 'package:bp_track/models/blood_pressure.dart';
+import 'package:body_track/models/models.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../services/database_service.dart';
 import '../utils/constants.dart';
 import '../utils/helper.dart';
 import 'input.dart';
 
-class CheckInForm extends StatefulWidget {
-  final BloodPressure? data;
+class WeighInForm extends StatefulWidget {
+  final Weight? data;
 
-  const CheckInForm({super.key, this.data});
+  const WeighInForm({super.key, this.data});
 
   @override
-  State<CheckInForm> createState() => _CheckInState();
+  State<WeighInForm> createState() => _WeighInFormState();
 }
 
-class _CheckInState extends State<CheckInForm> {
+class _WeighInFormState extends State<WeighInForm> {
   final db = DatabaseService();
   final _formKey = GlobalKey<FormState>();
-  final systolicController = TextEditingController();
-  final diastolicController = TextEditingController();
-  final heartRateController = TextEditingController();
+  final weightController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
 
     if (widget.data != null) {
-      systolicController.text = widget.data!.systolic.toString();
-      diastolicController.text = widget.data!.diastolic.toString();
-      heartRateController.text = widget.data!.heartRate?.toString() ?? '';
+      weightController.text = widget.data!.weight.toString();
     }
   }
 
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
-    systolicController.dispose();
-    diastolicController.dispose();
-    heartRateController.dispose();
+    weightController.dispose();
     super.dispose();
   }
 
@@ -51,7 +44,7 @@ class _CheckInState extends State<CheckInForm> {
 
     delete() async {
       if (widget.data != null && widget.data!.id != null) {
-        await db.deleteBloodPressure(widget.data!.id!);
+        await db.deleteWeighIn(widget.data!.id!);
       }
     }
 
@@ -59,20 +52,15 @@ class _CheckInState extends State<CheckInForm> {
       if (user == null) return;
 
       if (widget.data != null && widget.data!.id != null) {
-        await db.updateBloodPressure(
-            widget.data!.id!,
-            user.uid,
-            int.parse(systolicController.text),
-            int.parse(diastolicController.text),
-            int.tryParse(heartRateController.text));
+        await db.updateWeighIn(
+            widget.data!.id!, double.parse(weightController.text));
+
         return;
       }
 
-      await db.addBloodPressure(
-          user.uid,
-          int.parse(systolicController.text),
-          int.parse(diastolicController.text),
-          int.tryParse(heartRateController.text));
+      print(double.parse(weightController.text));
+
+      await db.addWeighIn(user.uid, double.parse(weightController.text));
     }
 
     return Form(
@@ -82,29 +70,23 @@ class _CheckInState extends State<CheckInForm> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Input(
-              label: AppLocalizations.of(context)!.systolic,
-              controller: systolicController,
+              label: 'Weight',
+              controller: weightController,
               validator: checkInValidator),
-          Input(
-              label: AppLocalizations.of(context)!.diastolic,
-              controller: diastolicController,
-              validator: checkInValidator),
-          Input(
-            label: AppLocalizations.of(context)!.heartRate,
-            controller: heartRateController,
-            validator: optionalCheckInIntValidator,
-          ),
           FilledButton(
             onPressed: () async {
+              // Validate returns true if the form is valid, or false otherwise.
               if (_formKey.currentState!.validate()) {
+                // If the form is valid, display a snackbar. In the real world,
+                // you'd often call a server or save the information in a database.
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(AppLocalizations.of(context)!.saving)),
+                  const SnackBar(content: Text('Processing Data')),
                 );
                 await submit();
                 navigatorKey.currentState!.pop();
               }
             },
-            child: Text(AppLocalizations.of(context)!.submit),
+            child: const Text('Submit'),
           ),
           widget.data != null
               ? OutlinedButton(
@@ -120,7 +102,7 @@ class _CheckInState extends State<CheckInForm> {
                       navigatorKey.currentState!.pop();
                     }
                   },
-                  child: Text(AppLocalizations.of(context)!.delete),
+                  child: const Text('Delete'),
                 )
               : const SizedBox(),
         ],

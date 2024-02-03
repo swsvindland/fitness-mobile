@@ -10,15 +10,28 @@ class DatabaseService {
     return _db
         .collection('weight')
         .where("uid", isEqualTo: id)
+        .orderBy("date", descending: true)
         .snapshots()
-        .map((event) => event.docs.map((e) => Weight.fromMap(e.data())));
+        .map((event) => event.docs.map((e) => Weight.fromMap({
+              "id": e.id,
+              "weight": e.data()["weight"],
+              "date": e.data()["date"]
+            })));
   }
 
-  Future<void> addWeighIn(String id, double weight) {
+  Future<void> addWeighIn(String uid, double weight) {
     return _db
         .collection('weight')
         .doc()
-        .set({"uid": id, "date": DateTime.now(), "weight": weight});
+        .set({"uid": uid, "date": DateTime.now(), "weight": weight});
+  }
+
+  Future<void> deleteWeighIn(String id) {
+    return _db.collection('weight').doc(id).delete();
+  }
+
+  Future<void> updateWeighIn(String id, double weight) {
+    return _db.collection('weight').doc(id).update({"weight": weight});
   }
 
   Future<void> addCheckIn(

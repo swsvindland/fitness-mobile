@@ -1,7 +1,7 @@
 import 'package:body_track/models/models.dart';
+import 'package:body_track/widgets/weigh_in_form.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 
 class WeightCard extends StatelessWidget {
   const WeightCard({super.key, required this.data});
@@ -9,8 +9,25 @@ class WeightCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
+    handleAction() {
+      showModalBottomSheet<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return SizedBox(
+            height: 250,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: WeighInForm(data: data),
+            ),
+          );
+        },
+      );
+    }
+
+    return InkWell(
+      onTap: handleAction,
+      child: Card(
+        child: Padding(
           padding: const EdgeInsets.all(24),
           child: ListTile(
             title: Text(
@@ -22,12 +39,11 @@ class WeightCard extends StatelessWidget {
             subtitle: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Divider(),
-                Text('Weight: ${data.weight}')
-              ],
+              children: [const Divider(), Text('Weight: ${data.weight}')],
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
