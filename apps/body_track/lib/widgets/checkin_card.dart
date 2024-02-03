@@ -1,4 +1,3 @@
-import 'package:body_track/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +9,7 @@ import '../models/preferences.dart';
 double log10(num x) => log(x) / ln10;
 
 class CheckInCard extends StatelessWidget {
-  const CheckInCard({Key? key, required this.data}) : super(key: key);
+  const CheckInCard({super.key, required this.data});
   final CheckIn data;
 
   @override

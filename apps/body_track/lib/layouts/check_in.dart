@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../utils/constants.dart';
 
 class CheckIn extends StatefulWidget {
-  const CheckIn({Key? key}) : super(key: key);
+  const CheckIn({super.key});
 
   @override
   State<CheckIn> createState() => _CheckInState();

@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import '../models/weight.dart';
 
 class Weights extends StatelessWidget {
-  const Weights({Key? key}) : super(key: key);
+  const Weights({super.key});
 
   @override
   Widget build(BuildContext context) {

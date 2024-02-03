@@ -1,5 +1,4 @@
 import 'package:body_track/models/checkin.dart';
-import 'package:body_track/widgets/checkin_list.dart';
 import 'package:body_track/widgets/weight_list.dart';
 import 'package:body_track/widgets/weights.dart';
 import 'package:firebase_auth/firebase_auth.dart';

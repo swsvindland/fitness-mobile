@@ -1,15 +1,13 @@
-import 'package:body_track/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Input extends StatelessWidget {
   const Input(
-      {Key? key,
+      {super.key,
       required this.label,
       this.validator,
       this.controller,
       this.decimal,
-      this.variant})
-      : super(key: key);
+      this.variant});
   final String label;
   final FormFieldValidator<String>? validator;
   final TextEditingController? controller;

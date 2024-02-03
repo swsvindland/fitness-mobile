@@ -1,4 +1,3 @@
-import 'package:body_track/utils/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +10,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:body_track/utils/helper.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();

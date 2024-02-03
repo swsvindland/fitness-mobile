@@ -5,7 +5,7 @@ import 'package:body_track/models/models.dart';
 import 'package:body_track/services/database_service.dart';
 
 class Notifications extends StatefulWidget {
-  const Notifications({Key? key}) : super(key: key);
+  const Notifications({super.key});
 
   @override
   State<Notifications> createState() => _NotificationsState();

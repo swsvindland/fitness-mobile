@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../utils/ad_helper.dart';
 
 class AppBarAd extends StatefulWidget {
-  const AppBarAd({Key? key}) : super(key: key);
+  const AppBarAd({super.key});
 
   @override
   State<AppBarAd> createState() => _AppBarAdState();

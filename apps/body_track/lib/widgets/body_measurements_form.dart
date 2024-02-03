@@ -8,7 +8,7 @@ import '../utils/helper.dart';
 import 'input.dart';
 
 class BodyMeasurementForm extends StatefulWidget {
-  const BodyMeasurementForm({Key? key}) : super(key: key);
+  const BodyMeasurementForm({super.key});
 
   @override
   State<BodyMeasurementForm> createState() => _BodyMeasurementFormState();

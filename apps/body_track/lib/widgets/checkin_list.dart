@@ -5,7 +5,7 @@ import '../models/models.dart';
 import 'checkin_card.dart';
 
 class CheckInList extends StatelessWidget {
-  const CheckInList({Key? key}) : super(key: key);
+  const CheckInList({super.key});
 
   @override
   Widget build(BuildContext context) {

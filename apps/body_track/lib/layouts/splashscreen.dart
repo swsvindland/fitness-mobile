@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:body_track/utils/colors.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -9,7 +8,7 @@ import 'package:body_track/utils/helper.dart';
 import "package:os_detect/os_detect.dart" as platform;
 
 class SplashScreenPage extends StatefulWidget {
-  const SplashScreenPage({Key? key}) : super(key: key);
+  const SplashScreenPage({super.key});
 
   @override
   State<SplashScreenPage> createState() => _SplashScreenPageState();

@@ -1,9 +1,8 @@
-import 'package:body_track/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:body_track/utils/constants.dart';
 
 class AboutPage extends StatelessWidget {
-  const AboutPage({Key? key}) : super(key: key);
+  const AboutPage({super.key});
 
   @override
   Widget build(BuildContext context) {

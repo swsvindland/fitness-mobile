@@ -1,9 +1,7 @@
 import 'package:body_track/widgets/app_bar_ad.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:body_track/services/database_service.dart';
 import 'package:body_track/utils/constants.dart';
-import 'package:provider/provider.dart';
 import 'package:body_track/widgets/settings.dart';
 import 'package:body_track/widgets/all.dart';
 import 'package:body_track/widgets/home.dart';
@@ -29,8 +27,6 @@ class _HomeState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var user = Provider.of<User?>(context);
-
     return Scaffold(
       appBar: AppBar(
         title: const AppBarAd(),

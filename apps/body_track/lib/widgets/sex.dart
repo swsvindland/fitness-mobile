@@ -5,7 +5,7 @@ import 'package:body_track/models/models.dart';
 import 'package:body_track/services/database_service.dart';
 
 class Sex extends StatefulWidget {
-  const Sex({Key? key}) : super(key: key);
+  const Sex({super.key});
 
   @override
   State<Sex> createState() => _SexState();

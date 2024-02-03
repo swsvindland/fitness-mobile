@@ -8,7 +8,7 @@ import '../utils/helper.dart';
 import 'input.dart';
 
 class Height extends StatefulWidget {
-  const Height({Key? key}) : super(key: key);
+  const Height({super.key});
 
   @override
   State<Height> createState() => _HeightState();

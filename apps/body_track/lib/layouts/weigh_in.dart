@@ -8,7 +8,7 @@ import '../utils/helper.dart';
 import '../widgets/input.dart';
 
 class WeighIn extends StatefulWidget {
-  const WeighIn({Key? key}) : super(key: key);
+  const WeighIn({super.key});
 
   @override
   State<WeighIn> createState() => _WeighInState();
