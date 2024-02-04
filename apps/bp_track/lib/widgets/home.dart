@@ -1,3 +1,5 @@
+import 'package:bp_track/widgets/avg_blood_pressure.dart';
+import 'package:bp_track/widgets/avg_heart_rate.dart';
 import 'package:bp_track/widgets/heart_rate_chart.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +32,8 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              AvgBloodPressure(),
+              AvgHeartRate(),
               SizedBox(
                 height: 300,
                 child: Padding(
