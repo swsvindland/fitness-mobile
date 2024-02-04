@@ -1,41 +1,45 @@
+import 'package:body_track/widgets/settings/sex/sex.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:body_track/models/models.dart';
-import 'package:body_track/services/database_service.dart';
 
-class Sex extends StatefulWidget {
-  const Sex({super.key});
+import '../../../models/preferences.dart';
+import '../../../services/database_service.dart';
+
+class SexForm extends StatefulWidget {
+  final Preferences preferences;
+
+  const SexForm({super.key, required this.preferences});
 
   @override
-  State<Sex> createState() => _SexState();
+  State<SexForm> createState() => _SexFormState();
 }
 
-class _SexState extends State<Sex> {
+class _SexFormState extends State<SexForm> {
   final db = DatabaseService();
   SexOptions? _sex = SexOptions.male;
   bool set = false;
 
-  void update(User? user, Preferences preferences) {
-    preferences.setSex(_sex == SexOptions.male ? 'male' : 'female');
+  void update(User? user) {
+    widget.preferences.setSex(_sex == SexOptions.male ? 'male' : 'female');
     set = false;
-    db.updatePreferences(user!.uid, preferences);
+    db.updatePreferences(user!.uid, widget.preferences);
   }
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<User?>(context);
-    final preferences = Provider.of<Preferences>(context);
+    var user = Provider.of<User?>(context);
 
     setState(() {
       if (!set) {
-        _sex = preferences.sex == 'male' ? SexOptions.male : SexOptions.female;
+        _sex = widget.preferences.sex == 'male' ? SexOptions.male : SexOptions.female;
       }
     });
 
-    return Card(
+    return SizedBox(
+      height: 250,
       child: Padding(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             ListTile(
@@ -65,9 +69,9 @@ class _SexState extends State<Sex> {
               ),
             ),
             const SizedBox(height: 16),
-            ElevatedButton(
+            FilledButton(
               onPressed: () {
-                update(user, preferences);
+                update(user);
               },
               child: const Text(
                 'Update',
@@ -79,5 +83,3 @@ class _SexState extends State<Sex> {
     );
   }
 }
-
-enum SexOptions { male, female }
