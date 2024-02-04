@@ -4,17 +4,19 @@ import 'package:provider/provider.dart';
 import 'package:body_track/models/models.dart';
 import 'package:body_track/services/database_service.dart';
 
-import '../utils/helper.dart';
-import 'input.dart';
+import '../../../utils/helper.dart';
+import '../../input.dart';
 
-class Height extends StatefulWidget {
-  const Height({super.key});
+class HeightForm extends StatefulWidget {
+  final Preferences preferences;
+
+  const HeightForm({super.key, required this.preferences});
 
   @override
-  State<Height> createState() => _HeightState();
+  State<HeightForm> createState() => _HeightFormState();
 }
 
-class _HeightState extends State<Height> {
+class _HeightFormState extends State<HeightForm> {
   final db = DatabaseService();
   final _formKey = GlobalKey<FormState>();
   final feetController = TextEditingController();
@@ -30,35 +32,34 @@ class _HeightState extends State<Height> {
     super.dispose();
   }
 
-  void update(User? user, Preferences preferences) {
-    preferences.setHeight(
+  void update(User? user) {
+    widget.preferences.setHeight(
         int.parse(feetController.text), int.parse(inchesController.text));
     set = false;
 
-    db.updatePreferences(user!.uid, preferences);
+    db.updatePreferences(user!.uid, widget.preferences);
   }
 
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User?>(context);
-    final preferences = Provider.of<Preferences>(context);
 
     setState(() {
       if (!set) {
-        feetController.text = (preferences.height / 12).floor().toString();
-        inchesController.text = (preferences.height % 12).toString();
+        feetController.text =
+            (widget.preferences.height / 12).floor().toString();
+        inchesController.text = (widget.preferences.height % 12).toString();
       }
     });
 
-    return Card(
+    return SizedBox(
+      height: 250,
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Form(
           key: _formKey,
           child: Column(
             children: [
-              const Text('Height'),
-              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -81,9 +82,9 @@ class _HeightState extends State<Height> {
                 ],
               ),
               const SizedBox(height: 16),
-              ElevatedButton(
+              FilledButton(
                 onPressed: () {
-                  update(user, preferences);
+                  update(user);
                 },
                 child: const Text(
                   'Update',
