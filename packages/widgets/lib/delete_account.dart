@@ -1,11 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:utils/constants.dart';
 
 
 class DeleteAccount extends StatelessWidget {
-  const DeleteAccount({super.key});
+  final String title;
+  final String content;
+  final String accept;
+  final String cancel;
+
+  const DeleteAccount({super.key, required this.title, required this.content, required this.accept, required this.cancel});
 
   handleDeleteAccount() {
     try {
@@ -21,19 +25,19 @@ class DeleteAccount extends StatelessWidget {
   showAlertDialog(BuildContext context) {
     // set up the buttons
     Widget cancelButton = TextButton(
-      child: Text(AppLocalizations.of(context)!.cancel),
+      child: Text(cancel),
       onPressed:  () {
         Navigator.of(context).pop();
       },
     );
     Widget continueButton = TextButton(
       onPressed: handleDeleteAccount,
-      child: Text(AppLocalizations.of(context)!.delete),
+      child: Text(accept),
     );
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text(AppLocalizations.of(context)!.deleteAccount),
-      content: Text(AppLocalizations.of(context)!.deleteAccountConfirm),
+      title: Text(title),
+      content: Text(content),
       actions: [
         cancelButton,
         continueButton,
@@ -56,7 +60,7 @@ class DeleteAccount extends StatelessWidget {
         showAlertDialog(context);
       },
       child: Text(
-        AppLocalizations.of(context)!.deleteAccount,
+        accept,
       ),
     );
   }

@@ -40,6 +40,7 @@ dependencies:
   utils: ^1.0.0+1
   models: ^1.0.0+1
   api: ^1.0.0+1
+  widgets: ^1.0.0+1
 
 dev_dependencies:
   flutter_test:
