@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:body_track/services/sign_in.dart';
+import 'package:utils/sign_in.dart';
 import 'package:body_track/utils/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import "package:os_detect/os_detect.dart" as platform;

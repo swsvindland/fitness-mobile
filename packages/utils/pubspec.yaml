@@ -1,0 +1,22 @@
+name: utils
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.2.5 <4.0.0"
+  flutter: "3.16.5"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_auth: ^4.17.0
+  firebase_core: ^2.25.0
+  google_sign_in: ^6.1.0
+  sign_in_with_apple: ^5.0.0
+  crypto: ^3.0.3
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.1

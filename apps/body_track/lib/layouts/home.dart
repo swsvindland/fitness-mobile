@@ -27,46 +27,46 @@ class _HomeState extends State<HomePage> {
 
   handleAction() {
     showModalBottomSheet<void>(
-        context: context,
-        builder: (BuildContext context) {
-          return SizedBox(
-            height: 200,
-            child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    FilledButton.tonal(
-                      onPressed: handleWeighIn,
-                      child:
-                      const Padding(
-                        padding: EdgeInsets.all(24),
-                        child: Row(
-                          children: [
-                            Icon(Icons.monitor_weight),
-                            Text('Weigh In'),
-                          ],
-                        ),
-                      ),
+      context: context,
+      builder: (BuildContext context) {
+        return SizedBox(
+          height: 200,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                FilledButton.tonal(
+                  onPressed: handleWeighIn,
+                  child: const Padding(
+                    padding: EdgeInsets.all(24),
+                    child: Row(
+                      children: [
+                        Icon(Icons.monitor_weight),
+                        Text('Weigh In'),
+                      ],
                     ),
-                    FilledButton.tonal(
-                      onPressed: handleCheckIn,
-                      child:
-                      const Padding(
-                        padding: EdgeInsets.all(24),
-                        child: Row(
-                          children: [
-                            Icon(Icons.straighten),
-                            Text('Check In'),
-                          ],
-                        ),
-                      ),
+                  ),
+                ),
+                FilledButton.tonal(
+                  onPressed: handleCheckIn,
+                  child: const Padding(
+                    padding: EdgeInsets.all(24),
+                    child: Row(
+                      children: [
+                        Icon(Icons.straighten),
+                        Text('Check In'),
+                      ],
                     ),
-                  ],
-                )),
-          );
-        });
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override

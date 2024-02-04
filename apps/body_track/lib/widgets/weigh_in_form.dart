@@ -58,8 +58,6 @@ class _WeighInFormState extends State<WeighInForm> {
         return;
       }
 
-      print(double.parse(weightController.text));
-
       await db.addWeighIn(user.uid, double.parse(weightController.text));
     }
 
