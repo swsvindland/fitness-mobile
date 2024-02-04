@@ -21,7 +21,7 @@ class Settings extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Column(
         children: <Widget>[
-          FilledButton(onPressed: handleSignOut, child: const Text("Sign Out")),
+          FilledButton(onPressed: handleSignOut, child: Text(AppLocalizations.of(context)!.logOut)),
           DeleteAccount(
             title: AppLocalizations.of(context)!.deleteAccount,
             content: AppLocalizations.of(context)!.deleteAccountConfirm,

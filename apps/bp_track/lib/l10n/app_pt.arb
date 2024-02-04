@@ -20,5 +20,13 @@
   "deleteAccount": "Deletar conta",
   "deleteAccountConfirm": "Isso excluirá sua conta e todos os dados do usuário para sempre. Tem certeza?",
   "delete": "Excluir",
-  "cancel": "Cancelar"
+  "cancel": "Cancelar",
+  "noHeartDate": "Parece que você não tem frequência cardíaca. Clique no ícone de adição para começar.",
+  "noBloodPressureData": "Parece que você não tem dados de pressão arterial. Clique no ícone de adição para começar.",
+  "processingData": "Processando dados...",
+  "avgHeartRate": "Frequência cardíaca média",
+  "avgBloodPressure": "Pressão Arterial Média",
+  "last30": "Últimos 30 dias",
+  "home": "Lar",
+  "all": "Todos"
 }

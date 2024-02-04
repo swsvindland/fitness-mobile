@@ -1,6 +1,6 @@
 {
   "@@locale": "fr",
-  "bpTrack": "Suivi de la pression artérielle",
+  "bpTrack": "Suivi de la tension artérielle",
   "settings": "Paramètres",
   "about": "À propos",
   "aboutPageCredits": "Conçu et construit par",
@@ -20,5 +20,13 @@
   "deleteAccount": "Supprimer le compte",
   "deleteAccountConfirm": "Cela supprimera définitivement votre compte et toutes les données utilisateur. Es-tu sûr?",
   "delete": "Supprimer",
-  "cancel": "Annuler"
+  "cancel": "Annuler",
+  "noHeartDate": "On dirait que vous n'avez pas de fréquence cardiaque. Cliquez sur l'icône plus pour commencer.",
+  "noBloodPressureData": "On dirait que vous n'avez aucune donnée sur votre tension artérielle. Cliquez sur l'icône plus pour commencer.",
+  "processingData": "Données en cours...",
+  "avgHeartRate": "Fréquence cardiaque moyenne",
+  "avgBloodPressure": "Pression artérielle moyenne",
+  "last30": "Les 30 derniers jours",
+  "home": "Maison",
+  "all": "Tous"
 }

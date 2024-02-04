@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AvgBloodPressure extends StatelessWidget {
   const AvgBloodPressure({super.key});
@@ -28,12 +29,12 @@ class AvgBloodPressure extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: ListTile(
-            title: const Text(
-              "Average Blood Pressure",
+            title: Text(
+              AppLocalizations.of(context)!.avgBloodPressure,
               textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
-            subtitle: const Text("Last 30 Days"),
+            subtitle: Text(AppLocalizations.of(context)!.last30),
           trailing: Text("$avgSystolic/$avgDiastolic", style: const TextStyle(fontSize: 16)),
         ),
       ),

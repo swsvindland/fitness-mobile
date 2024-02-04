@@ -1,6 +1,7 @@
 import 'package:api/body_database_service.dart';
 import 'package:bp_track/widgets/app_bar_ad.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../widgets/all.dart';
 import '../widgets/check_in_form.dart';
@@ -58,19 +59,19 @@ class _HomeState extends State<HomePage> {
           });
         },
         selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
+        destinations: <Widget>[
           NavigationDestination(
             selectedIcon: Icon(Icons.home),
             icon: Icon(Icons.home_outlined),
-            label: 'Home',
+            label: AppLocalizations.of(context)!.home,
           ),
           NavigationDestination(
             icon: Icon(Icons.insights),
-            label: 'All',
+            label: AppLocalizations.of(context)!.all,
           ),
           NavigationDestination(
             icon: Icon(Icons.settings),
-            label: 'Settings',
+            label: AppLocalizations.of(context)!.settings,
           ),
         ],
       ),

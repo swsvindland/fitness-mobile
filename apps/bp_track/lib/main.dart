@@ -101,6 +101,31 @@ class _AppState extends State<App> {
           Locale('ja', ''), // Japanese
           Locale('ar', ''), // Arabic
           Locale('hi', ''), // Hindi
+          Locale('ru', ''), // Russian
+          Locale('tr', ''), // Turkish
+          Locale('vi', ''), // Vietnamese
+          Locale('th', ''), // Thai
+          Locale('id', ''), // Indonesian
+          Locale('ms', ''), // Malay
+          Locale('fil', ''), // Filipino
+          Locale('pl', ''), // Polish
+          Locale('nl', ''), // Dutch
+          Locale('sv', ''), // Swedish
+          Locale('da', ''), // Danish
+          Locale('fi', ''), // Finnish
+          Locale('nb', ''), // Norwegian
+          Locale('el', ''), // Greek
+          Locale('hu', ''), // Hungarian
+          Locale('cs', ''), // Czech
+          Locale('he', ''), // Hebrew
+          Locale('ro', ''), // Romanian
+          Locale('sk', ''), // Slovak
+          Locale('uk', ''), // Ukrainian
+          Locale('hr', ''), // Croatian
+          Locale('ca', ''), // Catalan
+          Locale('eu', ''), // Basque
+          Locale('gl', ''), // Galician
+          Locale('fa', ''), // Persian
         ],
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

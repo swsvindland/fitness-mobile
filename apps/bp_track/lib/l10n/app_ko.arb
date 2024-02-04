@@ -1,6 +1,6 @@
 {
   "@@locale": "ko",
-  "bpTrack": "혈압 추적",
+  "bpTrack": "혈압 트랙",
   "settings": "설정",
   "about": "에 대한",
   "aboutPageCredits": "설계 및 제작:",
@@ -20,5 +20,13 @@
   "deleteAccount": "계정 삭제",
   "deleteAccountConfirm": "이렇게 하면 귀하의 계정과 모든 사용자 데이터가 영구적으로 삭제됩니다. 확실합니까?",
   "delete": "삭제",
-  "cancel": "취소"
+  "cancel": "취소",
+  "noHeartDate": "심박수가 없는 것 같습니다. 시작하려면 더하기 아이콘을 클릭하세요.",
+  "noBloodPressureData": "혈압 데이터가 없는 것 같습니다. 시작하려면 더하기 아이콘을 클릭하세요.",
+  "processingData": "데이터 처리 중...",
+  "avgHeartRate": "평균 심박수",
+  "avgBloodPressure": "평균 혈압",
+  "last30": "지난 30일",
+  "home": "집",
+  "all": "모두"
 }

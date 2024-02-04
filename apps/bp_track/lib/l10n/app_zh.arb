@@ -1,6 +1,6 @@
 {
   "@@locale": "zh",
-  "bpTrack": "血压追踪器",
+  "bpTrack": "血压追踪",
   "settings": "设置",
   "about": "关于",
   "aboutPageCredits": "设计和建造",
@@ -20,5 +20,13 @@
   "deleteAccount": "删除帐户",
   "deleteAccountConfirm": "这将永远删除您的帐户和所有用户数据。你确定吗？",
   "delete": "删除",
-  "cancel": "取消"
+  "cancel": "取消",
+  "noHeartDate": "您似乎没有心率。单击加号图标即可开始。",
+  "noBloodPressureData": "您似乎没有血压数据。单击加号图标即可开始。",
+  "processingData": "处理数据...",
+  "avgHeartRate": "平均心率",
+  "avgBloodPressure": "平均血压",
+  "last30": "过去 30 天",
+  "home": "家",
+  "all": "全部"
 }

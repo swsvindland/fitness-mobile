@@ -1,6 +1,6 @@
 {
   "@@locale": "de",
-  "bpTrack": "BloodPressureTrack",
+  "bpTrack": "Blutdruckspur",
   "settings": "Einstellungen",
   "about": "Um",
   "aboutPageCredits": "Entworfen und gebaut von",
@@ -20,5 +20,13 @@
   "deleteAccount": "Konto löschen",
   "deleteAccountConfirm": "Dadurch werden Ihr Konto und alle Benutzerdaten für immer gelöscht. Bist du sicher?",
   "delete": "Löschen",
-  "cancel": "Stornieren"
+  "cancel": "Stornieren",
+  "noHeartDate": "Sieht so aus, als hätten Sie keine Herzfrequenz. Klicken Sie auf das Plus-Symbol, um zu beginnen.",
+  "noBloodPressureData": "Anscheinend haben Sie keine Blutdruckdaten. Klicken Sie auf das Plus-Symbol, um zu beginnen.",
+  "processingData": "Daten verarbeiten...",
+  "avgHeartRate": "Durchschnittliche Herzfrequenz",
+  "avgBloodPressure": "Durchschnittlicher Blutdruck",
+  "last30": "Letzte 30 Tage",
+  "home": "Heim",
+  "all": "Alle"
 }

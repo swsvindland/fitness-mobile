@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AvgHeartRate extends StatelessWidget {
   const AvgHeartRate({super.key});
@@ -26,12 +27,12 @@ class AvgHeartRate extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: ListTile(
-            title: const Text(
-              "Average Heart Rate",
+            title: Text(
+              AppLocalizations.of(context)!.avgHeartRate,
               textAlign: TextAlign.left,
               style: TextStyle(fontSize: 20),
             ),
-            subtitle: const Text("Last 30 Days"),
+            subtitle: Text(AppLocalizations.of(context)!.last30),
           trailing: Text(avg, style: const TextStyle(fontSize: 16)),
         ),
       ),

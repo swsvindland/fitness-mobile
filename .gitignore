@@ -120,3 +120,6 @@ app.*.symbols
 
 # Melos
 pubspec_overrides.yaml
+
+# Secrets
+google_translate_key.txt
