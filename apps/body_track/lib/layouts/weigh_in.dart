@@ -1,7 +1,6 @@
 import 'package:body_track/widgets/weigh_in_form.dart';
 import 'package:flutter/material.dart';
-
-import '../utils/constants.dart';
+import 'package:utils/constants.dart';
 
 class WeighIn extends StatefulWidget {
   const WeighIn({super.key});

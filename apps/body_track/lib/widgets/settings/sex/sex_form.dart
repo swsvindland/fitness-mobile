@@ -1,10 +1,9 @@
+import 'package:api/body_database_service.dart';
 import 'package:body_track/widgets/settings/sex/sex.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../../models/preferences.dart';
-import '../../../services/database_service.dart';
+import 'package:models/models.dart';
 
 class SexForm extends StatefulWidget {
   final Preferences preferences;
@@ -16,7 +15,7 @@ class SexForm extends StatefulWidget {
 }
 
 class _SexFormState extends State<SexForm> {
-  final db = DatabaseService();
+  final db = BodyDatabaseService();
   SexOptions? _sex = SexOptions.male;
   bool set = false;
 

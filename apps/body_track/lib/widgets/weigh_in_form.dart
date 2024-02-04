@@ -1,10 +1,10 @@
-import 'package:body_track/models/models.dart';
+import 'package:api/body_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:models/models.dart';
+import 'package:utils/constants.dart';
 
-import '../services/database_service.dart';
-import '../utils/constants.dart';
 import '../utils/helper.dart';
 import 'input.dart';
 
@@ -18,7 +18,7 @@ class WeighInForm extends StatefulWidget {
 }
 
 class _WeighInFormState extends State<WeighInForm> {
-  final db = DatabaseService();
+  final db = BodyDatabaseService();
   final _formKey = GlobalKey<FormState>();
   final weightController = TextEditingController();
 

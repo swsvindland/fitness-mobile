@@ -1,13 +1,13 @@
+import 'package:api/blood_pressure_database_service.dart';
+import 'package:utils/constants.dart';
 import 'package:utils/sign_in.dart';
-import 'package:bp_track/utils/constants.dart';
 import 'package:bp_track/widgets/delete_account.dart';
 import 'package:flutter/material.dart';
 
-import '../services/database_service.dart';
 
 class Settings extends StatelessWidget {
   Settings({super.key});
-  final db = DatabaseService();
+  final db = BloodPressureDatabaseService();
 
   handleSignOut() {
     signOut();

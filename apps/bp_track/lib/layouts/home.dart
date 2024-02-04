@@ -1,6 +1,6 @@
+import 'package:api/body_database_service.dart';
 import 'package:bp_track/widgets/app_bar_ad.dart';
 import 'package:flutter/material.dart';
-import 'package:bp_track/services/database_service.dart';
 
 import '../widgets/all.dart';
 import '../widgets/check_in_form.dart';
@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomeState extends State<HomePage> {
   int currentPageIndex = 0;
-  final db = DatabaseService();
+  final db = BodyDatabaseService();
 
   handleAction() {
     showModalBottomSheet<void>(

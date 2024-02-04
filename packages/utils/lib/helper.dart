@@ -1,17 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
-void updateUserData(FirebaseFirestore db, User user) async {
-  DocumentReference ref = db.collection('users').doc(user.uid);
-
-  return ref.set({
-    'uid': user.uid,
-    'email': user.email,
-    'displayName': user.displayName,
-    'lastSeen': DateTime.now()
-  });
-}
-
 bool isNumeric(String? num) {
   if (num == null) {
     return false;

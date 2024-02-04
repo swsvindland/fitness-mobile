@@ -2,8 +2,7 @@ import 'package:body_track/utils/colors.dart';
 import 'package:community_charts_flutter/community_charts_flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../models/weight.dart';
+import 'package:models/models.dart';
 
 class Weights extends StatelessWidget {
   const Weights({super.key});

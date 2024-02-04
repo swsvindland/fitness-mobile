@@ -1,16 +1,13 @@
+import 'package:api/body_database_service.dart';
 import 'package:body_track/widgets/checkin_list.dart';
-import 'package:body_track/models/checkin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:models/models.dart';
 import 'package:provider/provider.dart';
-
-import '../models/preferences.dart';
-import '../models/weight.dart';
-import '../services/database_service.dart';
 
 class AllWeights extends StatelessWidget {
   AllWeights({super.key});
-  final db = DatabaseService();
+  final db = BodyDatabaseService();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +23,7 @@ class AllWeights extends StatelessWidget {
             initialData: Preferences.empty(),
             value: db.streamPreferences(user.uid),
           ),
-          StreamProvider<Iterable<CheckIn>>.value(
+          StreamProvider<Iterable<CheckInModel>>.value(
             initialData: const [],
             value: db.streamCheckIns(user.uid),
           ),

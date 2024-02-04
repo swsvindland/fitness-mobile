@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:body_track/models/models.dart';
+import 'package:models/models.dart';
 import 'dart:async';
 
-class DatabaseService {
+class BodyDatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   var date = DateTime.now();
 
@@ -101,13 +101,13 @@ class DatabaseService {
     return _db.collection('checkIns').doc(id).delete();
   }
 
-  Stream<Iterable<CheckIn>> streamCheckIns(String id) {
+  Stream<Iterable<CheckInModel>> streamCheckIns(String id) {
     return _db
         .collection('checkIns')
         .where("uid", isEqualTo: id)
         .orderBy("date", descending: true)
         .snapshots()
-        .map((event) => event.docs.map((e) => CheckIn.fromMap({
+        .map((event) => event.docs.map((e) => CheckInModel.fromMap({
               "id": e.id,
               "date": e.data()["date"],
               "neck": e.data()["neck"],

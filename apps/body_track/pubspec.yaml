@@ -38,6 +38,8 @@ dependencies:
   provider: ^6.0.5
   sign_in_with_apple: ^5.0.0
   utils: ^1.0.0+1
+  models: ^1.0.0+1
+  api: ^1.0.0+1
 
 
 dev_dependencies:

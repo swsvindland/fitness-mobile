@@ -1,4 +1,4 @@
-class CheckIn {
+class CheckInModel {
   String? id;
   DateTime date;
   double neck;
@@ -16,7 +16,7 @@ class CheckIn {
   double? systolic;
   double? diastolic;
 
-  CheckIn(
+  CheckInModel(
       {
       this.id,
         required this.date,
@@ -35,9 +35,9 @@ class CheckIn {
       this.systolic,
       this.diastolic});
 
-  factory CheckIn.fromMap(Map data) {
+  factory CheckInModel.fromMap(Map data) {
     data = data;
-    return CheckIn(
+    return CheckInModel(
       id: data['id'],
       date: data['date'].toDate(),
       neck: data['neck'],
@@ -57,7 +57,7 @@ class CheckIn {
     );
   }
 
-  static Map<String, dynamic> toMap(CheckIn data) {
+  static Map<String, dynamic> toMap(CheckInModel data) {
     data = data;
     return {
       'id': data.id,

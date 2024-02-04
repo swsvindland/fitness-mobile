@@ -1,8 +1,7 @@
 import 'package:body_track/widgets/weight_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../models/models.dart';
+import 'package:models/models.dart';
 
 class WeightList extends StatelessWidget {
   const WeightList({super.key});

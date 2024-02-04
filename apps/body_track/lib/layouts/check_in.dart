@@ -1,7 +1,6 @@
 import 'package:body_track/widgets/body_measurements_form.dart';
 import 'package:flutter/material.dart';
-
-import '../utils/constants.dart';
+import 'package:utils/constants.dart';
 
 class CheckIn extends StatefulWidget {
   const CheckIn({super.key});

@@ -1,10 +1,10 @@
 import 'package:body_track/widgets/app_bar_ad.dart';
 import 'package:flutter/material.dart';
-import 'package:body_track/services/database_service.dart';
-import 'package:body_track/utils/constants.dart';
+import 'package:utils/constants.dart';
 import 'package:body_track/widgets/settings/settings.dart';
 import 'package:body_track/widgets/all.dart';
 import 'package:body_track/widgets/home.dart';
+import 'package:api/body_database_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomeState extends State<HomePage> {
   int currentPageIndex = 0;
-  final db = DatabaseService();
+  final db = BodyDatabaseService();
 
   handleWeighIn() {
     navigatorKey.currentState!.pushNamed('/weigh-in');

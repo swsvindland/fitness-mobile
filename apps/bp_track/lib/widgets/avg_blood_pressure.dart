@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../models/blood_pressure.dart';
+import 'package:models/models.dart';
 
 class AvgBloodPressure extends StatelessWidget {
   const AvgBloodPressure({super.key});

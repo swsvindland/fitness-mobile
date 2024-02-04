@@ -10,10 +10,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:body_track/layouts/layouts.dart';
-import 'package:body_track/services/graph_animation_provider.dart';
-import 'package:body_track/utils/constants.dart';
+import 'package:utils/graph_animation_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:utils/constants.dart';
 
 import 'firebase_options.dart';
 

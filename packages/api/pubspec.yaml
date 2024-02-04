@@ -1,0 +1,22 @@
+name: api
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.2.5 <4.0.0"
+  flutter: "3.16.5"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cloud_firestore: ^4.15.3
+  firebase_core: ^2.25.0
+  firebase_auth: ^4.17.0
+  utils: ^1.0.0+1
+  models: ^1.0.0+1
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.1

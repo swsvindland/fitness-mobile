@@ -1,7 +1,7 @@
 import 'package:body_track/widgets/settings/notification/notification_form.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:body_track/models/models.dart';
+import 'package:models/models.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({super.key});

@@ -2,8 +2,7 @@ import 'package:bp_track/utils/colors.dart';
 import 'package:community_charts_flutter/community_charts_flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../models/blood_pressure.dart';
+import 'package:models/models.dart';
 
 class BloodPressureChart extends StatelessWidget {
   const BloodPressureChart({super.key});

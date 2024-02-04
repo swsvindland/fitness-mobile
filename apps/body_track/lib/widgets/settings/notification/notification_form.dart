@@ -1,8 +1,8 @@
+import 'package:api/body_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:body_track/models/models.dart';
-import 'package:body_track/services/database_service.dart';
+import 'package:models/models.dart';
 
 class NotificationForm extends StatefulWidget {
   final Preferences preferences;
@@ -14,7 +14,7 @@ class NotificationForm extends StatefulWidget {
 }
 
 class _NotificationFormState extends State<NotificationForm> {
-  final db = DatabaseService();
+  final db = BodyDatabaseService();
   late int start;
   bool set = false;
 

@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'dart:math';
-
-import '../models/checkin.dart';
-import '../models/preferences.dart';
+import 'package:models/models.dart';
 
 double log10(num x) => log(x) / ln10;
 
 class CheckInCard extends StatelessWidget {
   const CheckInCard({super.key, required this.data});
-  final CheckIn data;
+  final CheckInModel data;
 
   @override
   Widget build(BuildContext context) {

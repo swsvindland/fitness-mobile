@@ -1,9 +1,8 @@
 import 'dart:async';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:api/user_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:bp_track/utils/constants.dart';
-import 'package:bp_track/utils/helper.dart';
+import 'package:utils/constants.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
@@ -13,7 +12,7 @@ class SplashScreenPage extends StatefulWidget {
 }
 
 class _SplashScreenPageState extends State<SplashScreenPage> {
-  final FirebaseFirestore _db = FirebaseFirestore.instance;
+  final _db = UserDatabaseService();
   late StreamSubscription iosSubscription;
 
   @override
@@ -33,7 +32,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
       Timer(
         const Duration(milliseconds: 500),
         () {
-          updateUserData(_db, currentUser);
+          _db.updateUserData(currentUser);
           navigatorKey.currentState!.pushNamedAndRemoveUntil(
               '/home', (Route<dynamic> route) => false);
         },

@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:bp_track/models/models.dart';
+import 'package:models/models.dart';
 import 'dart:async';
 
-class DatabaseService {
+class BloodPressureDatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   var date = DateTime.now();
 

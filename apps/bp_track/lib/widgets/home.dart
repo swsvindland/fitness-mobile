@@ -1,17 +1,17 @@
+import 'package:api/blood_pressure_database_service.dart';
 import 'package:bp_track/widgets/avg_blood_pressure.dart';
 import 'package:bp_track/widgets/avg_heart_rate.dart';
 import 'package:bp_track/widgets/heart_rate_chart.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:models/models.dart';
 
-import '../models/blood_pressure.dart';
-import '../services/database_service.dart';
 import 'blood_pressure_chart.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
-  final db = DatabaseService();
+  final db = BloodPressureDatabaseService();
 
   @override
   Widget build(BuildContext context) {

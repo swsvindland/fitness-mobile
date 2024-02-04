@@ -1,8 +1,8 @@
+import 'package:api/body_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:body_track/models/models.dart';
-import 'package:body_track/services/database_service.dart';
+import 'package:models/models.dart';
 
 import '../../../utils/helper.dart';
 import '../../input.dart';
@@ -17,7 +17,7 @@ class HeightForm extends StatefulWidget {
 }
 
 class _HeightFormState extends State<HeightForm> {
-  final db = DatabaseService();
+  final db = BodyDatabaseService();
   final _formKey = GlobalKey<FormState>();
   final feetController = TextEditingController();
   final inchesController = TextEditingController();
