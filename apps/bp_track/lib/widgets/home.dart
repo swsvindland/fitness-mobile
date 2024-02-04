@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import '../models/blood_pressure.dart';
 import '../services/database_service.dart';
 import 'blood_pressure_chart.dart';
-import 'checkin_list.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
