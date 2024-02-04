@@ -11,7 +11,6 @@ class Sex extends StatefulWidget {
 }
 
 class _SexState extends State<Sex> {
-
   @override
   Widget build(BuildContext context) {
     final preferences = Provider.of<Preferences>(context);
@@ -27,18 +26,18 @@ class _SexState extends State<Sex> {
 
     return Card(
       child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: ListTile(
-              title: const Text("Sex"),
-              subtitle: Text(preferences.sex),
-              trailing: FilledButton(
-                onPressed: handleAction,
-                child: const Text(
-                  'Update',
-                ),
-              ))
-
+        padding: const EdgeInsets.all(24),
+        child: ListTile(
+          title: const Text("Sex"),
+          subtitle: Text(preferences.sex),
+          trailing: FilledButton(
+            onPressed: handleAction,
+            child: const Text(
+              'Update',
+            ),
           ),
+        ),
+      ),
     );
   }
 }

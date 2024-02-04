@@ -4,37 +4,39 @@ import 'package:provider/provider.dart';
 import 'package:body_track/models/models.dart';
 import 'package:body_track/services/database_service.dart';
 
-class Notifications extends StatefulWidget {
-  const Notifications({super.key});
+class NotificationForm extends StatefulWidget {
+  final Preferences preferences;
+
+  const NotificationForm({super.key, required this.preferences});
 
   @override
-  State<Notifications> createState() => _NotificationsState();
+  State<NotificationForm> createState() => _NotificationFormState();
 }
 
-class _NotificationsState extends State<Notifications> {
+class _NotificationFormState extends State<NotificationForm> {
   final db = DatabaseService();
   late int start;
   bool set = false;
 
-  void update(User? user, Preferences preferences) {
-    preferences.setStartTime(start);
+  void update(User? user) {
+    widget.preferences.setStartTime(start);
     set = false;
 
-    db.updatePreferences(user!.uid, preferences);
+    db.updatePreferences(user!.uid, widget.preferences);
   }
 
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User?>(context);
-    final preferences = Provider.of<Preferences>(context);
 
     setState(() {
       if (!set) {
-        start = preferences.start;
+        start = widget.preferences.start;
       }
     });
 
-    return Card(
+    return SizedBox(
+      height: 250,
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
@@ -73,9 +75,9 @@ class _NotificationsState extends State<Notifications> {
               ],
             ),
             const SizedBox(height: 16),
-            ElevatedButton(
+            FilledButton(
               onPressed: () {
-                update(user, preferences);
+                update(user);
               },
               child: const Text(
                 'Update',

@@ -9,8 +9,7 @@ import 'package:provider/provider.dart';
 
 import '../../models/preferences.dart';
 import '../../services/database_service.dart';
-import 'height/height_form.dart';
-import '../notifications.dart';
+import 'notification/notification.dart';
 
 class Settings extends StatelessWidget {
   Settings({super.key});

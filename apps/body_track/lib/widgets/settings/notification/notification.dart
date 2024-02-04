@@ -1,16 +1,17 @@
 import 'package:body_track/widgets/settings/height/height_form.dart';
+import 'package:body_track/widgets/settings/notification/notification_form.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:body_track/models/models.dart';
 
-class Height extends StatefulWidget {
-  const Height({super.key});
+class Notifications extends StatefulWidget {
+  const Notifications({super.key});
 
   @override
-  State<Height> createState() => _HeightState();
+  State<Notifications> createState() => _NotificationState();
 }
 
-class _HeightState extends State<Height> {
+class _NotificationState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
     final preferences = Provider.of<Preferences>(context);
@@ -19,7 +20,7 @@ class _HeightState extends State<Height> {
       showModalBottomSheet<void>(
         context: context,
         builder: (BuildContext context) {
-          return HeightForm(preferences: preferences);
+          return NotificationForm(preferences: preferences);
         },
       );
     }
@@ -28,9 +29,8 @@ class _HeightState extends State<Height> {
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: ListTile(
-          title: const Text("Height"),
-          subtitle: Text(
-              "Feet: ${(preferences.height / 12).floor()} Inches: ${(preferences.height % 12).floor()}"),
+          title: const Text("Reminder Notification"),
+          subtitle: Text("${(preferences.start)}:00"),
           trailing: FilledButton(
             onPressed: handleAction,
             child: const Text(
