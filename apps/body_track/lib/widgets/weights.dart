@@ -3,6 +3,7 @@ import 'package:community_charts_flutter/community_charts_flutter.dart' as chart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Weights extends StatelessWidget {
   const Weights({super.key});
@@ -12,14 +13,14 @@ class Weights extends StatelessWidget {
     var weights = Provider.of<Iterable<Weight>>(context).toList();
 
     if (weights.isEmpty) {
-      return const SizedBox(
+      return SizedBox(
         height: 300,
         width: 600,
         child: Padding(
-          padding: EdgeInsets.all(12),
+          padding: const EdgeInsets.all(12),
           child: Center(
             child: Text(
-              'Looks like you have no weigh ins. Click the scale icon to get started.',
+              AppLocalizations.of(context)!.noWeightData,
             ),
           ),
         ),

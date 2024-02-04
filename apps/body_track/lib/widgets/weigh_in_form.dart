@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:models/models.dart';
 import 'package:utils/constants.dart';
 import 'package:widgets/widgets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../utils/helper.dart';
 
@@ -68,7 +69,7 @@ class _WeighInFormState extends State<WeighInForm> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Input(
-              label: 'Weight',
+              label: AppLocalizations.of(context)!.weight,
               controller: weightController,
               validator: checkInValidator),
           FilledButton(
@@ -78,13 +79,13 @@ class _WeighInFormState extends State<WeighInForm> {
                 // If the form is valid, display a snackbar. In the real world,
                 // you'd often call a server or save the information in a database.
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Processing Data')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.processingData)),
                 );
                 await submit();
                 navigatorKey.currentState!.pop();
               }
             },
-            child: const Text('Submit'),
+            child: Text(AppLocalizations.of(context)!.submit),
           ),
           widget.data != null
               ? OutlinedButton(
@@ -94,13 +95,13 @@ class _WeighInFormState extends State<WeighInForm> {
                       // If the form is valid, display a snackbar. In the real world,
                       // you'd often call a server or save the information in a database.
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Processing Data')),
+                        SnackBar(content: Text(AppLocalizations.of(context)!.processingData)),
                       );
                       await delete();
                       navigatorKey.currentState!.pop();
                     }
                   },
-                  child: const Text('Delete'),
+                  child: Text(AppLocalizations.of(context)!.delete),
                 )
               : const SizedBox(),
         ],

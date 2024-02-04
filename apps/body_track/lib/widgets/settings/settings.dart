@@ -41,7 +41,7 @@ class Settings extends StatelessWidget {
             const Sex(),
             const Height(),
             const Notifications(),
-            FilledButton(onPressed: handleSignOut, child: const Text("Sign Out")),
+            FilledButton(onPressed: handleSignOut, child: Text(AppLocalizations.of(context)!.logOut)),
             DeleteAccount(
                 title: AppLocalizations.of(context)!.deleteAccount,
                 content: AppLocalizations.of(context)!.deleteAccountConfirm,

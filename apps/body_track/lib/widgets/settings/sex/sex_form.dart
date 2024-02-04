@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SexForm extends StatefulWidget {
   final Preferences preferences;
@@ -42,7 +43,7 @@ class _SexFormState extends State<SexForm> {
         child: Column(
           children: [
             ListTile(
-              title: const Text('Male'),
+              title: Text(AppLocalizations.of(context)!.male),
               leading: Radio<SexOptions>(
                 value: SexOptions.male,
                 groupValue: _sex,
@@ -55,7 +56,7 @@ class _SexFormState extends State<SexForm> {
               ),
             ),
             ListTile(
-              title: const Text('Female'),
+              title: Text(AppLocalizations.of(context)!.female),
               leading: Radio<SexOptions>(
                 value: SexOptions.female,
                 groupValue: _sex,
@@ -72,8 +73,8 @@ class _SexFormState extends State<SexForm> {
               onPressed: () {
                 update(user);
               },
-              child: const Text(
-                'Update',
+              child: Text(
+                AppLocalizations.of(context)!.update,
               ),
             )
           ],

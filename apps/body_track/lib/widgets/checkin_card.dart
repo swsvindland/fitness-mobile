@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'dart:math';
 import 'package:models/models.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 double log10(num x) => log(x) / ln10;
 
@@ -63,20 +64,20 @@ class CheckInCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Neck: ${data.neck}\t\t\t'),
-                    Text('Shoulders: ${data.shoulders}\t\t\t'),
-                    Text('Chest: ${data.chest}\t\t\t'),
-                    Text('Left Bicep: ${data.leftBicep}\t\t\t'),
-                    Text('Right Bicep: ${data.rightBicep}\t\t\t'),
-                    Text('Navel: ${data.navel}\t\t\t'),
-                    Text('Waist: ${data.waist}\t\t\t'),
+                    Text('${AppLocalizations.of(context)!.neck}: ${data.neck}\t\t\t'),
+                    Text('${AppLocalizations.of(context)!.shoulders}: ${data.shoulders}\t\t\t'),
+                    Text('${AppLocalizations.of(context)!.chest}: ${data.chest}\t\t\t'),
+                    Text('${AppLocalizations.of(context)!.leftBicep}: ${data.leftBicep}\t\t\t'),
+                    Text('${AppLocalizations.of(context)!.rightBicep}: ${data.rightBicep}\t\t\t'),
+                    Text('${AppLocalizations.of(context)!.navel}: ${data.navel}\t\t\t'),
+                    Text('${AppLocalizations.of(context)!.waist}: ${data.waist}\t\t\t'),
                     data.hip != null
-                        ? Text('Hip: ${data.hip}\t\t\t')
+                        ? Text('${AppLocalizations.of(context)!.hip}: ${data.hip}\t\t\t')
                         : const SizedBox(width: 0),
-                    Text('Left Thigh: ${data.leftThigh}\t\t\t'),
-                    Text('Right Thigh: ${data.rightThigh}\t\t\t'),
-                    Text('Left Calf: ${data.leftCalf}\t\t\t'),
-                    Text('Right Calf: ${data.rightCalf}\t\t\t'),
+                    Text('${AppLocalizations.of(context)!.leftThigh}: ${data.leftThigh}\t\t\t'),
+                    Text('${AppLocalizations.of(context)!.rightThigh}: ${data.rightThigh}\t\t\t'),
+                    Text('${AppLocalizations.of(context)!.leftCalf}: ${data.leftCalf}\t\t\t'),
+                    Text('${AppLocalizations.of(context)!.rightCalf}: ${data.rightCalf}\t\t\t'),
                   ],
                 ),
               ],

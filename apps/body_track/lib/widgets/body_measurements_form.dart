@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:models/models.dart';
 import 'package:utils/constants.dart';
 import 'package:widgets/widgets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../utils/helper.dart';
 
@@ -109,15 +110,15 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Input(
-              label: 'Neck',
+              label: AppLocalizations.of(context)!.neck,
               controller: neckController,
               validator: checkInValidator),
           Input(
-              label: 'Shoulders',
+              label: AppLocalizations.of(context)!.shoulders,
               controller: shouldersController,
               validator: checkInValidator),
           Input(
-              label: 'Chest',
+              label: AppLocalizations.of(context)!.chest,
               controller: chestController,
               validator: checkInValidator),
           Row(
@@ -126,28 +127,28 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
             children: [
               Expanded(
                 child: Input(
-                    label: 'Left Bicep',
+                    label: AppLocalizations.of(context)!.leftBicep,
                     controller: leftBicepController,
                     validator: checkInValidator),
               ),
               Expanded(
                 child: Input(
-                    label: 'Right Bicep',
+                    label: AppLocalizations.of(context)!.rightBicep,
                     controller: rightBicepController,
                     validator: checkInValidator),
               ),
             ],
           ),
           Input(
-              label: 'Navel',
+              label: AppLocalizations.of(context)!.navel,
               controller: navelController,
               validator: checkInValidator),
           Input(
-              label: 'Waist',
+              label: AppLocalizations.of(context)!.waist,
               controller: waistController,
               validator: checkInValidator),
           Input(
-              label: 'Hip',
+              label: AppLocalizations.of(context)!.hip,
               controller: hipController,
               validator: checkInValidator),
           Row(
@@ -156,13 +157,13 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
             children: [
               Expanded(
                 child: Input(
-                    label: 'Left Thigh',
+                    label: AppLocalizations.of(context)!.leftThigh,
                     controller: leftThighController,
                     validator: checkInValidator),
               ),
               Expanded(
                 child: Input(
-                    label: 'Right Thigh',
+                    label: AppLocalizations.of(context)!.rightThigh,
                     controller: rightThighController,
                     validator: checkInValidator),
               ),
@@ -174,13 +175,13 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
             children: [
               Expanded(
                 child: Input(
-                    label: 'Left Calf',
+                    label: AppLocalizations.of(context)!.leftCalf,
                     controller: leftCalfController,
                     validator: checkInValidator),
               ),
               Expanded(
                 child: Input(
-                    label: 'Right Calf',
+                    label: AppLocalizations.of(context)!.rightCalf,
                     controller: rightCalfController,
                     validator: checkInValidator),
               ),
@@ -193,13 +194,13 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
                 // If the form is valid, display a snackbar. In the real world,
                 // you'd often call a server or save the information in a database.
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Processing Data')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.processingData)),
                 );
                 await submit();
                 navigatorKey.currentState!.pop();
               }
             },
-            child: const Text('Submit'),
+            child: Text(AppLocalizations.of(context)!.submit),
           ),
           widget.data != null
               ? OutlinedButton(
@@ -209,13 +210,13 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
                       // If the form is valid, display a snackbar. In the real world,
                       // you'd often call a server or save the information in a database.
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Processing Data')),
+                        SnackBar(content: Text(AppLocalizations.of(context)!.processingData)),
                       );
                       await delete();
                       navigatorKey.currentState!.pop();
                     }
                   },
-                  child: const Text('Delete'),
+                  child: Text(AppLocalizations.of(context)!.delete),
                 )
               : const SizedBox(),
         ],

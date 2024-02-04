@@ -2,6 +2,7 @@ import 'package:body_track/widgets/settings/notification/notification_form.dart'
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({super.key});
@@ -28,12 +29,12 @@ class _NotificationState extends State<Notifications> {
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: ListTile(
-          title: const Text("Reminder Notification"),
+          title: Text(AppLocalizations.of(context)!.reminderNotification),
           subtitle: Text("${(preferences.start)}:00"),
           trailing: FilledButton(
             onPressed: handleAction,
-            child: const Text(
-              'Update',
+            child: Text(
+              AppLocalizations.of(context)!.update,
             ),
           ),
         ),

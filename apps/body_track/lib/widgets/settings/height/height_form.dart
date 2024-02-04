@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
 import 'package:widgets/widgets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../utils/helper.dart';
 
@@ -65,17 +66,15 @@ class _HeightFormState extends State<HeightForm> {
                 children: [
                   Expanded(
                     child: Input(
-                        label: 'Feet',
+                        label: AppLocalizations.of(context)!.feet,
                         decimal: false,
-                        variant: "secondary",
                         controller: feetController,
                         validator: checkInValidator),
                   ),
                   Expanded(
                     child: Input(
-                        label: 'Inches',
+                        label: AppLocalizations.of(context)!.reminderNotification,
                         decimal: false,
-                        variant: "secondary",
                         controller: inchesController,
                         validator: checkInValidator),
                   ),
@@ -86,8 +85,8 @@ class _HeightFormState extends State<HeightForm> {
                 onPressed: () {
                   update(user);
                 },
-                child: const Text(
-                  'Update',
+                child: Text(
+                  AppLocalizations.of(context)!.update,
                 ),
               )
             ],

@@ -5,6 +5,7 @@ import 'package:body_track/widgets/settings/settings.dart';
 import 'package:body_track/widgets/all.dart';
 import 'package:body_track/widgets/home.dart';
 import 'package:api/body_database_service.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -39,24 +40,24 @@ class _HomeState extends State<HomePage> {
               children: [
                 FilledButton.tonal(
                   onPressed: handleWeighIn,
-                  child: const Padding(
-                    padding: EdgeInsets.all(24),
+                  child: Padding(
+                    padding: const EdgeInsets.all(24),
                     child: Row(
                       children: [
-                        Icon(Icons.monitor_weight),
-                        Text('Weigh In'),
+                        const Icon(Icons.monitor_weight),
+                        Text(AppLocalizations.of(context)!.weighIn),
                       ],
                     ),
                   ),
                 ),
                 FilledButton.tonal(
                   onPressed: handleCheckIn,
-                  child: const Padding(
-                    padding: EdgeInsets.all(24),
+                  child: Padding(
+                    padding: const EdgeInsets.all(24),
                     child: Row(
                       children: [
-                        Icon(Icons.straighten),
-                        Text('Check In'),
+                        const Icon(Icons.straighten),
+                        Text(AppLocalizations.of(context)!.checkIn),
                       ],
                     ),
                   ),
@@ -102,18 +103,18 @@ class _HomeState extends State<HomePage> {
           });
         },
         selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
+        destinations: <Widget>[
           NavigationDestination(
-            icon: Icon(Icons.monitor_weight),
-            label: 'Weight',
+            icon: const Icon(Icons.monitor_weight),
+            label: AppLocalizations.of(context)!.weight,
           ),
           NavigationDestination(
-            icon: Icon(Icons.straighten),
-            label: 'Body',
+            icon: const Icon(Icons.straighten),
+            label: AppLocalizations.of(context)!.body,
           ),
           NavigationDestination(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: const Icon(Icons.settings),
+            label: AppLocalizations.of(context)!.settings,
           ),
         ],
       ),

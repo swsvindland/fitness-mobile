@@ -2,6 +2,7 @@ import 'package:body_track/widgets/settings/height/height_form.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Height extends StatefulWidget {
   const Height({super.key});
@@ -28,13 +29,13 @@ class _HeightState extends State<Height> {
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: ListTile(
-          title: const Text("Height"),
+          title: Text(AppLocalizations.of(context)!.height),
           subtitle: Text(
-              "Feet: ${(preferences.height / 12).floor()} Inches: ${(preferences.height % 12).floor()}"),
+              "${AppLocalizations.of(context)!.feet}: ${(preferences.height / 12).floor()} ${AppLocalizations.of(context)!.inches}: ${(preferences.height % 12).floor()}"),
           trailing: FilledButton(
             onPressed: handleAction,
-            child: const Text(
-              'Update',
+            child: Text(
+              AppLocalizations.of(context)!.update,
             ),
           ),
         ),
