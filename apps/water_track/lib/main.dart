@@ -10,7 +10,6 @@ import 'package:water_track/utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'firebase_options.dart';
-import 'layouts/about.dart';
 import 'layouts/home.dart';
 import 'layouts/login.dart';
 import 'layouts/splashscreen.dart';
@@ -88,11 +87,6 @@ class App extends StatelessWidget {
           drawerTheme: const DrawerThemeData(
             backgroundColor: primaryVeryLight
           ),
-          bottomNavigationBarTheme: BottomNavigationBarThemeData(
-            backgroundColor: primaryVeryLight,
-            selectedLabelStyle: GoogleFonts.quicksand(fontSize: 12, letterSpacing: 1),
-            unselectedLabelStyle: GoogleFonts.quicksand(fontSize: 12, letterSpacing: 1),
-          ),
           cardTheme: const CardTheme(color: primaryDark),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
@@ -137,11 +131,6 @@ class App extends StatelessWidget {
             unselectedLabelTextStyle: TextStyle(fontFamily: GoogleFonts.oswald().fontFamily),
             useIndicator: false,
           ),
-          bottomNavigationBarTheme: BottomNavigationBarThemeData(
-            selectedLabelStyle: GoogleFonts.quicksand(color: background, fontSize: 12, letterSpacing: 1),
-            selectedIconTheme: const IconThemeData(color: primaryLight),
-            unselectedLabelStyle: GoogleFonts.quicksand(color: background, fontSize: 12, letterSpacing: 1),
-          ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
               foregroundColor: MaterialStateProperty.all<Color>(primaryVeryLight),
@@ -176,7 +165,6 @@ class App extends StatelessWidget {
           '/': (context) => const SplashscreenPage(),
           '/login': (context) => const LoginPage(),
           '/home': (context) => const HomePage(),
-          '/about': (context) => const AboutPage(),
         },
       ),
     );
