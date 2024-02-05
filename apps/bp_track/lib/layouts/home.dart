@@ -61,16 +61,15 @@ class _HomeState extends State<HomePage> {
         selectedIndex: currentPageIndex,
         destinations: <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home_outlined),
+            icon: const Icon(Icons.home),
             label: AppLocalizations.of(context)!.home,
           ),
           NavigationDestination(
-            icon: Icon(Icons.insights),
+            icon: const Icon(Icons.insights),
             label: AppLocalizations.of(context)!.all,
           ),
           NavigationDestination(
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
             label: AppLocalizations.of(context)!.settings,
           ),
         ],

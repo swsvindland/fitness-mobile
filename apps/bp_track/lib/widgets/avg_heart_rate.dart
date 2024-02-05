@@ -30,7 +30,7 @@ class AvgHeartRate extends StatelessWidget {
             title: Text(
               AppLocalizations.of(context)!.avgHeartRate,
               textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
             subtitle: Text(AppLocalizations.of(context)!.last30),
           trailing: Text(avg, style: const TextStyle(fontSize: 16)),

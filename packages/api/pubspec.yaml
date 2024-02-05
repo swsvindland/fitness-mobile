@@ -9,8 +9,11 @@ dependencies:
   flutter:
     sdk: flutter
   cloud_firestore: ^4.15.3
+  firebase_messaging: ^14.7.11
   firebase_core: ^2.25.0
   firebase_auth: ^4.17.0
+  os_detect: ^2.0.1
+
   utils: ^1.0.0+1
   models: ^1.0.0+1
 

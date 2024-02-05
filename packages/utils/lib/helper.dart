@@ -31,3 +31,10 @@ String? optionalCheckInIntValidator(String? value) {
   }
   return null;
 }
+
+String? heightValidator(String? value) {
+  if (value == null || value.isEmpty || !isInt(value)) {
+    return 'Please enter a measurement';
+  }
+  return null;
+}
