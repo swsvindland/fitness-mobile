@@ -76,17 +76,6 @@ class App extends StatelessWidget {
             backgroundColor: background,
             foregroundColor: Colors.white,
           ),
-          navigationRailTheme: NavigationRailThemeData(
-            backgroundColor: primaryVeryLight,
-            selectedLabelTextStyle: GoogleFonts.quicksand(color: primaryDark, fontSize: 12, letterSpacing: 1),
-            selectedIconTheme: const IconThemeData(color: primaryDark),
-            unselectedLabelTextStyle: GoogleFonts.quicksand(color: textSecondary, fontSize: 12, letterSpacing: 1),
-            unselectedIconTheme: const IconThemeData(color: textSecondary),
-            useIndicator: false,
-          ),
-          drawerTheme: const DrawerThemeData(
-            backgroundColor: primaryVeryLight
-          ),
           cardTheme: const CardTheme(color: primaryDark),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
@@ -125,12 +114,6 @@ class App extends StatelessWidget {
           scaffoldBackgroundColor: Colors.black,
           appBarTheme: const AppBarTheme(
               backgroundColor: Colors.black, foregroundColor: Colors.white),
-          navigationRailTheme: NavigationRailThemeData(
-            selectedLabelTextStyle: TextStyle(color: primaryLight, fontFamily: GoogleFonts.oswald().fontFamily),
-            selectedIconTheme: const IconThemeData(color: primaryLight),
-            unselectedLabelTextStyle: TextStyle(fontFamily: GoogleFonts.oswald().fontFamily),
-            useIndicator: false,
-          ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
               foregroundColor: MaterialStateProperty.all<Color>(primaryVeryLight),

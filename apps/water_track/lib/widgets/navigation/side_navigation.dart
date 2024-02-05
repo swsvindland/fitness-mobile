@@ -14,7 +14,8 @@ class SideNavigation extends StatelessWidget {
     return NavigationRail(
       selectedIndex: selectedIndex,
       onDestinationSelected: onItemTapped,
-      extended: true,
+      extended: false,
+      labelType: NavigationRailLabelType.all,
       leading: Padding(
         padding: const EdgeInsets.symmetric(vertical: 32),
         child: Row(
@@ -22,9 +23,6 @@ class SideNavigation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset('images/logo-alt.png', width: 48, height: 48),
-            const SizedBox(width: 16),
-            Text(AppLocalizations.of(context)!.waterTrack,
-                style: const TextStyle(fontSize: 24, color: primaryDark)),
           ],
         ),
       ),
@@ -44,15 +42,6 @@ class SideNavigation extends StatelessWidget {
           icon: const Icon(Icons.settings),
           label: Text(AppLocalizations.of(context)!.settings),
         ),
-        NavigationRailDestination(
-          padding: const EdgeInsets.all(8),
-          icon: const Icon(Icons.info),
-          label: Text(AppLocalizations.of(context)!.about),
-        ),
-        NavigationRailDestination(
-            padding: const EdgeInsets.all(8),
-            icon: const Icon(Icons.logout),
-            label: Text(AppLocalizations.of(context)!.logOut)),
       ],
     );
   }
