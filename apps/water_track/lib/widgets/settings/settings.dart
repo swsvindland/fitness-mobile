@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:water_track/services/sign_in.dart';
+import 'package:utils/sign_in.dart';
 import 'package:water_track/widgets/settings/delete_account.dart';
 import 'package:water_track/widgets/settings/unit_switch.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -7,7 +7,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../utils/constants.dart';
 import 'goals.dart';
 import 'notifications.dart';
-import '../../services/sign_in.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});

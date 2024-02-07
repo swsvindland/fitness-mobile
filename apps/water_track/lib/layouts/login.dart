@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:water_track/services/sign_in.dart';
 import 'package:water_track/utils/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import "package:os_detect/os_detect.dart" as platform;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:water_track/utils/helper.dart';
+import 'package:utils/sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -30,9 +30,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    var brightness = MediaQuery.of(context).platformBrightness;
-    var isDarkMode = brightness == Brightness.dark;
-
     return Scaffold(
       body: Center(
         child: Padding(

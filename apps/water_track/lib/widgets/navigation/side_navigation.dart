@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:water_track/utils/constants.dart';
 
 class SideNavigation extends StatelessWidget {
   const SideNavigation(

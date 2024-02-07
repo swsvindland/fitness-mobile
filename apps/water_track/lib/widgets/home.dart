@@ -4,9 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:water_track/services/database_service.dart';
 
 import '../models/drink.dart';
-import '../models/preferences.dart';
-import '../utils/constants.dart';
-import 'app_bar_ad.dart';
 import 'buttons/buttons.dart';
 import 'graph.dart';
 
@@ -17,7 +14,6 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     var db = DatabaseService();
     var user = Provider.of<User?>(context);
-    var preferences = Provider.of<Preferences>(context);
 
     return MultiProvider(
       providers: [
@@ -32,9 +28,6 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              preferences.adFree || MediaQuery.of(context).size.width < md
-                  ? const SizedBox(height: 0)
-                  : const AppBarAd(),
               const Graph(),
               const SizedBox(height: 16),
               Buttons()

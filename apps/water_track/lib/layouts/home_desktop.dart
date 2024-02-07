@@ -2,9 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../services/sign_in.dart';
-import '../utils/constants.dart';
-import '../widgets/about.dart';
 import '../widgets/home.dart';
 import '../widgets/navigation/side_navigation.dart';
 import '../widgets/reports.dart';
@@ -21,12 +18,6 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
-    if (index == 4) {
-      signOut();
-      navigatorKey.currentState!
-          .pushNamedAndRemoveUntil('/login', (route) => false);
-    }
-
     setState(() {
       _selectedIndex = index;
     });
@@ -49,15 +40,12 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
               selectedIndex: _selectedIndex, onItemTapped: _onItemTapped),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(24),
-              child: _selectedIndex == 0
-                  ? const Home()
-                  : _selectedIndex == 1
-                      ? const Reports()
-                      : _selectedIndex == 2
-                          ? const Settings()
-                          : const About(),
-            ),
+                padding: const EdgeInsets.all(24),
+                child: _selectedIndex == 0
+                    ? const Home()
+                    : _selectedIndex == 1
+                        ? const Reports()
+                        : const Settings()),
           ),
         ],
       ),
