@@ -45,11 +45,11 @@ class _UnitSwitchState extends State<UnitSwitch> {
       children: [
         Text(
           AppLocalizations.of(context)!.imperial,
-          style: GoogleFonts.quicksand(color: primaryVeryLight, fontSize: 12, letterSpacing: 1),
+          style: GoogleFonts.quicksand(fontSize: 12, letterSpacing: 1),
         ),
         Text(
           AppLocalizations.of(context)!.metric,
-          style: GoogleFonts.quicksand(color: primaryVeryLight, fontSize: 12, letterSpacing: 1),
+          style: GoogleFonts.quicksand(fontSize: 12, letterSpacing: 1),
         )
       ],
     );

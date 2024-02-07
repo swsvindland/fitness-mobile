@@ -52,7 +52,7 @@ class _NotificationsState extends State<Notifications> {
         padding: const EdgeInsets.all(24),
         child: Column(
           children: [
-            Text(AppLocalizations.of(context)!.reminderNotification, style: GoogleFonts.quicksand(color: primaryVeryLight, fontSize: 16, letterSpacing: 1),),
+            Text(AppLocalizations.of(context)!.reminderNotification, style: GoogleFonts.quicksand(fontSize: 16, letterSpacing: 1),),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +63,7 @@ class _NotificationsState extends State<Notifications> {
                     Text(
                       AppLocalizations.of(context)!.start,
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.quicksand(color: primaryVeryLight, fontSize: 24, letterSpacing: 1),
+                      style: GoogleFonts.quicksand( fontSize: 24, letterSpacing: 1),
                     ),
                     OutlinedButton(
                       onPressed: () async {
@@ -84,7 +84,7 @@ class _NotificationsState extends State<Notifications> {
                           set = true;
                         });
                       },
-                      child: Text('$start:00', style: GoogleFonts.quicksand(color: primaryVeryLight, fontSize: 12, letterSpacing: 1),),
+                      child: Text('$start:00', style: GoogleFonts.quicksand(fontSize: 12, letterSpacing: 1),),
                     ),
                   ],
                 ),
@@ -94,7 +94,7 @@ class _NotificationsState extends State<Notifications> {
                     Text(
                       AppLocalizations.of(context)!.end,
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.quicksand(color: primaryVeryLight, fontSize: 24, letterSpacing: 1),
+                      style: GoogleFonts.quicksand(fontSize: 24, letterSpacing: 1),
                     ),
                     OutlinedButton(
                       onPressed: () async {
@@ -115,7 +115,7 @@ class _NotificationsState extends State<Notifications> {
                           set = true;
                         });
                       },
-                      child: Text('$end:00', style: GoogleFonts.quicksand(color: primaryVeryLight, fontSize: 12, letterSpacing: 1),),
+                      child: Text('$end:00', style: GoogleFonts.quicksand(fontSize: 12, letterSpacing: 1),),
                     )
                   ],
                 )
@@ -128,11 +128,10 @@ class _NotificationsState extends State<Notifications> {
               },
               child: Text(
                 AppLocalizations.of(context)!.update.toUpperCase(),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14.0,
                   letterSpacing: 2.5,
                   fontWeight: FontWeight.w100,
-                  color: isDarkMode ? primaryVeryLight : textPrimary,
                 ),
               ),
             ),

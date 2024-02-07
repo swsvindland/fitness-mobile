@@ -29,8 +29,6 @@ class ReportCard extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 14.0,
                 letterSpacing: 2.5,
-                fontWeight: FontWeight.w100,
-                color: primaryVeryLight,
               ),
             ),
             const Divider(),
