@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:models/models.dart';
 import 'package:water_track/services/database_service.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:water_track/utils/constants.dart';
 
 class Goals extends StatefulWidget {
   const Goals({super.key});
@@ -45,8 +44,6 @@ class _GoalsState extends State<Goals> {
   Widget build(BuildContext context) {
     final user = Provider.of<User?>(context);
     final preferences = Provider.of<Preferences>(context);
-    var brightness = MediaQuery.of(context).platformBrightness;
-    var isDarkMode = brightness == Brightness.dark;
 
     return Card(
       elevation: 2,

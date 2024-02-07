@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../utils/constants.dart';
+import 'package:water_track/widgets/progress_bar.dart';
 
 class ReportCard extends StatelessWidget {
   const ReportCard({super.key, required this.drink});
@@ -15,6 +12,21 @@ class ReportCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var preferences = Provider.of<Preferences>(context);
+
+    var water = drink.water.toDouble() / preferences.waterGoal.toDouble();
+    var total = (drink.water +
+        drink.energyDrink +
+        drink.dietEnergyDrink +
+        drink.preWorkout +
+        drink.tea +
+        drink.milk +
+        drink.coffee +
+        drink.sparklingWater +
+        drink.soda +
+        drink.dietSoda +
+        drink.juice +
+        drink.sportsDrink +
+        drink.dietSportsDrink.toDouble()) / preferences.totalGoal.toDouble();
 
     return Card(
       child: Padding(
@@ -33,44 +45,14 @@ class ReportCard extends StatelessWidget {
             ),
             const Divider(),
             const SizedBox(height: 8),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * .85,
-              height: 16,
-              child: FAProgressBar(
-                direction: Axis.horizontal,
-                maxValue: preferences.waterGoal.toDouble(),
-                currentValue: drink.water.toDouble(),
-                displayText: preferences.unit == 'imperial' ? AppLocalizations.of(context)!.reportOfWaterOz : AppLocalizations.of(context)!.reportOfWaterMl,
-                displayTextStyle: GoogleFonts.quicksand(color: background, fontSize: 12, letterSpacing: 1),
-                backgroundColor: primary,
-                progressColor: primaryLight,
-              ),
+            Text('${AppLocalizations.of(context)!.water} ${(water * 100).round()}%'),
+            ProgressBar(
+              value: water,
             ),
             const SizedBox(height: 16),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * .85,
-              height: 16,
-              child: FAProgressBar(
-                direction: Axis.horizontal,
-                maxValue: preferences.totalGoal.toDouble(),
-                currentValue: drink.water +
-                    drink.energyDrink +
-                    drink.dietEnergyDrink +
-                    drink.preWorkout +
-                    drink.tea +
-                    drink.milk +
-                    drink.coffee +
-                    drink.sparklingWater +
-                    drink.soda +
-                    drink.dietSoda +
-                    drink.juice +
-                    drink.sportsDrink +
-                    drink.dietSportsDrink.toDouble(),
-                displayText: preferences.unit == 'imperial' ? AppLocalizations.of(context)!.reportOfDrinkOz : AppLocalizations.of(context)!.reportOfDrinkMl,
-                displayTextStyle: GoogleFonts.quicksand(color: background, fontSize: 12, letterSpacing: 1),
-                backgroundColor: primary,
-                progressColor: primaryLight,
-              ),
+            Text('${AppLocalizations.of(context)!.total} ${(total * 100).round()}%'),
+            ProgressBar(
+              value: total,
             ),
           ],
         ),

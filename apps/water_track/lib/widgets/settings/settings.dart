@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:utils/sign_in.dart';
-import 'package:water_track/widgets/settings/delete_account.dart';
+import 'package:widgets/delete_account.dart';
 import 'package:water_track/widgets/settings/unit_switch.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -30,19 +30,18 @@ class Settings extends StatelessWidget {
                 const SizedBox(height: 16),
                 const Notifications(),
                 const SizedBox(height: 16),
-                ElevatedButton(
+                FilledButton(
                   onPressed: signOut,
                   child: Text(
-                    AppLocalizations.of(context)!.logOut.toUpperCase(),
-                    style: const TextStyle(
-                      fontSize: 14.0,
-                      letterSpacing: 2.5,
-                      fontWeight: FontWeight.w100,
-                    ),
+                    AppLocalizations.of(context)!.logOut,
                   ),
                 ),
-                const SizedBox(height: 16),
-                const DeleteAccount()
+                DeleteAccount(
+                  title: AppLocalizations.of(context)!.deleteAccount,
+                  content: AppLocalizations.of(context)!.deleteAccountConfirm,
+                  accept: AppLocalizations.of(context)!.delete,
+                  cancel: AppLocalizations.of(context)!.cancel,
+                )
               ],
             ),
           ),

@@ -43,7 +43,6 @@ class _CarouselState extends State<Carousel> {
               carouselController: _controller,
               options: CarouselOptions(
                 enlargeCenterPage: true,
-                aspectRatio: 2.0,
                 onPageChanged: (index, reason) {
                   setState(() {
                     _current = index;

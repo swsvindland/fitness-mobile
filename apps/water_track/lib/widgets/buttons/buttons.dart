@@ -42,7 +42,7 @@ class Buttons extends StatelessWidget {
         DrinkButton(
             title: AppLocalizations.of(context)!.sparklingWater,
             color: sparklingWater,
-            textColor: textPrimary,
+            textColor: Colors.black,
             inc: () => incDrink(user, drinks, 'sparklingWater', graphAnimation,
                 preferences.drinkSize),
             dec: () => decDrink(user, drinks, 'sparklingWater', graphAnimation,
@@ -51,7 +51,7 @@ class Buttons extends StatelessWidget {
         DrinkButton(
             title: AppLocalizations.of(context)!.sportsDrink,
             color: sportsDrink,
-            textColor: textPrimary,
+            textColor: Colors.black,
             inc: () => incDrink(user, drinks, 'sportsDrink', graphAnimation,
                 preferences.drinkSize),
             dec: () => decDrink(user, drinks, 'sportsDrink', graphAnimation,
@@ -60,7 +60,7 @@ class Buttons extends StatelessWidget {
         DrinkButton(
             title: AppLocalizations.of(context)!.dietSportsDrink,
             color: dietSportsDrink,
-            textColor: textPrimary,
+            textColor: Colors.black,
             inc: () => incDrink(user, drinks, 'dietSportsDrink', graphAnimation,
                 preferences.drinkSize),
             dec: () => decDrink(user, drinks, 'dietSportsDrink', graphAnimation,
@@ -138,7 +138,7 @@ class Buttons extends StatelessWidget {
         DrinkButton(
             title: AppLocalizations.of(context)!.dietEnergyDrink,
             color: dietEnergyDrink,
-            textColor: textPrimary,
+            textColor: Colors.black,
             inc: () => incDrink(user, drinks, 'dietEnergyDrink', graphAnimation,
                 preferences.drinkSize),
             dec: () => decDrink(user, drinks, 'dietEnergyDrink', graphAnimation,

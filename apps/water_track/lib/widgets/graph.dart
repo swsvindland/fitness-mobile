@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:community_charts_flutter/community_charts_flutter.dart' as charts;
 import 'package:models/models.dart';
 import 'package:utils/graph_animation_provider.dart';
 import 'package:water_track/utils/constants.dart';
+import 'package:water_track/widgets/progress_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Graph extends StatelessWidget {
@@ -60,9 +59,27 @@ class Graph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final drinks = Provider.of<Drinks>(context);
+    final drink = Provider.of<Drinks>(context);
     final preferences = Provider.of<Preferences>(context);
-    var graphData = _createData(drinks);
+    var graphData = _createData(drink);
+
+    var water = drink.water.toDouble() / preferences.waterGoal.toDouble();
+    var totalAmount = drink.water +
+        drink.energyDrink +
+        drink.dietEnergyDrink +
+        drink.preWorkout +
+        drink.tea +
+        drink.milk +
+        drink.coffee +
+        drink.sparklingWater +
+        drink.soda +
+        drink.dietSoda +
+        drink.juice +
+        drink.sportsDrink +
+        drink.dietSportsDrink;
+    var total = totalAmount / preferences.totalGoal.toDouble();
+
+    var unit = preferences.unit == 'imperial' ? 'oz' : 'ml';
 
     return Padding(
       padding: const EdgeInsets.all(12),
@@ -76,52 +93,23 @@ class Graph extends StatelessWidget {
                   width: 200,
                   child: charts.PieChart<String>(graphData,
                       animate: context.watch<GraphAnimationProvider>().animate,
-                      animationDuration: const Duration(milliseconds: 300),
+                      animationDuration: const Duration(milliseconds: 500),
                       defaultRenderer: charts.ArcRendererConfig(arcWidth: 180)))
               : Container(),
-          const SizedBox(height: 8),
-          SizedBox(
-            width: 300,
-            height: 16,
-            child: FAProgressBar(
-              maxValue: preferences.waterGoal.toDouble(),
-              currentValue: drinks.water.toDouble(),
-              displayText: preferences.unit == 'imperial'
-                  ? AppLocalizations.of(context)!.reportOfWaterOz
-                  : AppLocalizations.of(context)!.reportOfWaterMl,
-              displayTextStyle: GoogleFonts.quicksand(
-                  color: background, fontSize: 12, letterSpacing: 1),
-              backgroundColor: primary,
-              progressColor: primaryLight,
-            ),
-          ),
-          const SizedBox(height: 8),
-          SizedBox(
-            width: 300,
-            height: 16,
-            child: FAProgressBar(
-              maxValue: preferences.totalGoal.toDouble(),
-              currentValue: drinks.water +
-                  drinks.energyDrink +
-                  drinks.dietEnergyDrink +
-                  drinks.preWorkout +
-                  drinks.tea +
-                  drinks.milk +
-                  drinks.coffee +
-                  drinks.sparklingWater +
-                  drinks.soda +
-                  drinks.dietSoda +
-                  drinks.juice +
-                  drinks.sportsDrink +
-                  drinks.dietSportsDrink.toDouble(),
-              displayText: preferences.unit == 'imperial'
-                  ? AppLocalizations.of(context)!.reportOfDrinkOz
-                  : AppLocalizations.of(context)!.reportOfDrinkMl,
-              displayTextStyle: GoogleFonts.quicksand(
-                  color: background, fontSize: 12, letterSpacing: 1),
-              backgroundColor: primary,
-              progressColor: primaryLight,
-            ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('${AppLocalizations.of(context)!.water} ${(drink.water).round()} $unit'),
+              ProgressBar(
+                value: water,
+              ),
+              const SizedBox(height: 8),
+              Text('${AppLocalizations.of(context)!.total} ${(totalAmount).round()} $unit'),
+              ProgressBar(
+                value: total,
+              ),
+            ],
           ),
         ],
       ),

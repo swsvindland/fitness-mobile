@@ -6,8 +6,6 @@ import 'package:water_track/services/database_service.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:models/models.dart';
 
-import '../../utils/constants.dart';
-
 class Notifications extends StatefulWidget {
   const Notifications({super.key});
 
@@ -33,8 +31,6 @@ class _NotificationsState extends State<Notifications> {
   Widget build(BuildContext context) {
     final user = Provider.of<User?>(context);
     final preferences = Provider.of<Preferences>(context);
-    var brightness = MediaQuery.of(context).platformBrightness;
-    var isDarkMode = brightness == Brightness.dark;
 
     setState(() {
       if (!set) {

@@ -24,15 +24,18 @@ class Home extends StatelessWidget {
       ],
       child: Center(
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              const Graph(),
-              const SizedBox(height: 16),
-              Buttons(),
-              const DrinkSize(),
-            ],
+          child: SizedBox(
+            width: 600,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                const Graph(),
+                const SizedBox(height: 16),
+                Buttons(),
+                const DrinkSize(),
+              ],
+            ),
           ),
         ),
       ),

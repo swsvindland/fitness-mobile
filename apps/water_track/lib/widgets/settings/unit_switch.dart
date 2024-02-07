@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:water_track/services/database_service.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:water_track/utils/constants.dart';
 import 'package:models/models.dart';
 
 class UnitSwitch extends StatefulWidget {
@@ -41,7 +40,6 @@ class _UnitSwitchState extends State<UnitSwitch> {
         onPressed(user, preferences);
       },
       isSelected: isSelected,
-      selectedBorderColor: primaryVeryLight,
       children: [
         Text(
           AppLocalizations.of(context)!.imperial,

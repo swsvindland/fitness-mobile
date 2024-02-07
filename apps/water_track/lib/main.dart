@@ -70,9 +70,6 @@ class App extends StatelessWidget {
           textTheme: GoogleFonts.oswaldTextTheme(),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all<Color>(primaryVeryLight),
-              foregroundColor: MaterialStateProperty.all<Color>(textPrimary),
               fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
@@ -87,8 +84,6 @@ class App extends StatelessWidget {
           textTheme: GoogleFonts.oswaldTextTheme(ThemeData.dark().textTheme),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all<Color>(primaryVeryLight),
-              backgroundColor: MaterialStateProperty.all<Color>(background),
               fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
