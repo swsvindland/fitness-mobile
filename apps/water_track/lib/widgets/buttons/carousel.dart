@@ -19,7 +19,6 @@ class _CarouselState extends State<Carousel> {
     return SizedBox(
       width: 600,
       child: Card(
-        color: primary,
         child: Column(
           children: [
             Row(
@@ -34,7 +33,7 @@ class _CarouselState extends State<Carousel> {
                         vertical: 8.0, horizontal: 4.0),
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: _current == entry.key ? background : primaryVeryLight),
+                        color: _current == entry.key ? primaryDark : primary),
                   ),
                 );
               }).toList(),
@@ -43,13 +42,14 @@ class _CarouselState extends State<Carousel> {
               items: widget.items.toList(),
               carouselController: _controller,
               options: CarouselOptions(
-                  enlargeCenterPage: true,
-                  aspectRatio: 2.0,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _current = index;
-                    });
-                  }),
+                enlargeCenterPage: true,
+                aspectRatio: 2.0,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _current = index;
+                  });
+                },
+              ),
             ),
           ],
         ),

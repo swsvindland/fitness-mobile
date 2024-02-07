@@ -66,17 +66,8 @@ class App extends StatelessWidget {
           Locale('no', ''), // Norwegian
         ],
         theme: ThemeData(
-          colorSchemeSeed: background,
-          brightness: Brightness.light,
-          useMaterial3: true,
-          textTheme: GoogleFonts.oswaldTextTheme(
-              ThemeData(brightness: Brightness.dark).textTheme),
-          scaffoldBackgroundColor: background,
-          appBarTheme: const AppBarTheme(
-            backgroundColor: background,
-            foregroundColor: Colors.white,
-          ),
-          cardTheme: const CardTheme(color: primaryDark),
+          colorScheme: ColorScheme.fromSeed(seedColor: primary),
+          textTheme: GoogleFonts.oswaldTextTheme(),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
               backgroundColor:
@@ -90,30 +81,10 @@ class App extends StatelessWidget {
               ),
             ),
           ),
-          outlinedButtonTheme: OutlinedButtonThemeData(
-            style: ButtonStyle(
-              foregroundColor:
-                  MaterialStateProperty.all<Color>(primaryVeryLight),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
-              ),
-              side: MaterialStateProperty.all(
-                const BorderSide(color: primaryVeryLight),
-              ),
-            ),
-          ),
         ),
         darkTheme: ThemeData(
-          colorSchemeSeed: background,
-          brightness: Brightness.dark,
-          useMaterial3: true,
-          textTheme: GoogleFonts.oswaldTextTheme(
-              ThemeData(brightness: Brightness.light).textTheme),
-          scaffoldBackgroundColor: Colors.black,
-          appBarTheme: const AppBarTheme(
-              backgroundColor: Colors.black, foregroundColor: Colors.white),
+          colorScheme: ColorScheme.fromSeed(seedColor: primary, brightness: Brightness.dark),
+          textTheme: GoogleFonts.oswaldTextTheme(ThemeData.dark().textTheme),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
               foregroundColor: MaterialStateProperty.all<Color>(primaryVeryLight),
@@ -123,20 +94,6 @@ class App extends StatelessWidget {
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
                 ),
-              ),
-            ),
-          ),
-          outlinedButtonTheme: OutlinedButtonThemeData(
-            style: ButtonStyle(
-              foregroundColor:
-                  MaterialStateProperty.all<Color>(primaryVeryLight),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
-              ),
-              side: MaterialStateProperty.all(
-                const BorderSide(color: primaryVeryLight),
               ),
             ),
           ),

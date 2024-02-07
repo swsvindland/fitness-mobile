@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Image.asset('images/logo.png', width: 96, height: 96),
+                Image.asset('images/logo-alt.png', width: 96, height: 96),
                 const SizedBox(height: 40),
                 loggingIn
                     ? const CircularProgressIndicator()
@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          ElevatedButton(
+                          FilledButton(
                             onPressed: () {
                               setState(() {
                                 loggingIn = true;
@@ -78,20 +78,16 @@ class _LoginPageState extends State<LoginPage> {
                                     width: 24, height: 24),
                                 const SizedBox(width: 8),
                                 Text(
-                                  AppLocalizations.of(context)!.googleSignIn.toUpperCase(),
-                                  style: TextStyle(
-                                    fontSize: 14.0,
-                                    letterSpacing: 2.5,
-                                    fontWeight: FontWeight.w100,
-                                    color: isDarkMode ? primaryVeryLight : textPrimary,
-                                  ),
+                                  AppLocalizations.of(context)!
+                                      .googleSignIn
+                                      .toUpperCase(),
                                 ),
                               ],
                             ),
                           ),
                           const SizedBox(height: 16),
                           platform.isIOS
-                              ? ElevatedButton(
+                              ? FilledButton(
                                   onPressed: () {
                                     setState(() {
                                       loggingIn = true;
@@ -121,13 +117,8 @@ class _LoginPageState extends State<LoginPage> {
                                       const SizedBox(width: 8),
                                       Text(
                                         AppLocalizations.of(context)!
-                                            .appleSignIn.toUpperCase(),
-                                        style: TextStyle(
-                                          fontSize: 14.0,
-                                          letterSpacing: 2.5,
-                                          fontWeight: FontWeight.w100,
-                                          color: isDarkMode ? primaryVeryLight : textPrimary,
-                                        ),
+                                            .appleSignIn
+                                            .toUpperCase(),
                                       ),
                                     ],
                                   ),
@@ -154,13 +145,9 @@ class _LoginPageState extends State<LoginPage> {
                               });
                             },
                             child: Text(
-                              AppLocalizations.of(context)!.anonSignIn.toUpperCase(),
-                              style: const TextStyle(
-                                fontSize: 14.0,
-                                letterSpacing: 2.5,
-                                fontWeight: FontWeight.w100,
-                                color: primaryVeryLight,
-                              ),
+                              AppLocalizations.of(context)!
+                                  .anonSignIn
+                                  .toUpperCase(),
                             ),
                           ),
                         ],
