@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
 import 'package:water_track/services/database_service.dart';
-import 'package:water_track/services/graph_animation_provider.dart';
+import 'package:utils/graph_animation_provider.dart';
 import 'package:water_track/widgets/buttons/carousel.dart';
 import '../../utils/constants.dart';
 import 'drink_button.dart';
