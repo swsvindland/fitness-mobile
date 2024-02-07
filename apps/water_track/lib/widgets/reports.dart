@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:water_track/services/database_service.dart';
 import 'package:water_track/widgets/reports_list.dart';
 
-import '../models/drink.dart';
+import 'package:models/models.dart';
 import '../utils/constants.dart';
 
 class Reports extends StatelessWidget {

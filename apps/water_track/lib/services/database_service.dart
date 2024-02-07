@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:water_track/models/models.dart';
+import 'package:models/models.dart';
 import 'dart:async';
 
 class DatabaseService {

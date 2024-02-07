@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:water_track/models/drink.dart';
+import 'package:models/models.dart';
 import 'package:water_track/widgets/report_card.dart';
 
 class ReportsList extends StatelessWidget {

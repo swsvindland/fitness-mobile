@@ -13,7 +13,7 @@ import 'firebase_options.dart';
 import 'layouts/home.dart';
 import 'layouts/login.dart';
 import 'layouts/splashscreen.dart';
-import 'models/preferences.dart';
+import 'package:models/models.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

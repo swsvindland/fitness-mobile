@@ -1,17 +1,25 @@
 class Preferences {
-  int start;
   int height;
   String sex;
+  String unit;
+  int waterGoal;
+  int totalGoal;
+  int drinkSize;
+  int start;
+  int end;
+  bool adFree;
 
   Preferences({
-    required this.start,
     required this.height,
     required this.sex,
+    required this.unit,
+    required this.waterGoal,
+    required this.totalGoal,
+    required this.drinkSize,
+    required this.start,
+    required this.end,
+    required this.adFree,
   });
-
-  void setStartTime(int value) {
-    start = value;
-  }
 
   void setHeight(int feet, int inches) {
     height = (12 * feet) + inches;
@@ -25,26 +33,76 @@ class Preferences {
     sex = value;
   }
 
+  void setWaterGoal(int value) {
+    waterGoal = value;
+  }
+
+  void setTotalGoal(int value) {
+    totalGoal = value;
+  }
+
+  void setDrinkSize(int value) {
+    drinkSize = value;
+  }
+
+  void setStartTime(int value) {
+    start = value;
+  }
+
+  void setEndTime(int value) {
+    end = value;
+  }
+
+  void changeUnit() {
+    if (unit == 'imperial') {
+      unit = 'metric';
+      waterGoal = 3000;
+      totalGoal = 4000;
+      drinkSize = 200;
+    } else {
+      unit = 'imperial';
+      waterGoal = 96;
+      totalGoal = 128;
+      drinkSize = 8;
+    }
+  }
+
   static Preferences empty() {
-    return Preferences(start: 7, height: 66, sex: 'male');
+    return Preferences(start: 7, height: 66, sex: 'male', adFree: false, unit: 'imperial', waterGoal: 96, totalGoal: 128, drinkSize: 8, end: 20);
   }
 
   factory Preferences.fromMap(Map data) {
     data = data;
 
     return Preferences(
-        start: data['start'].toDate().hour,
         height: data['height'],
-        sex: data['sex']);
+        sex: data['sex'],
+        unit: data['unit'] ?? 'imperial',
+        waterGoal:
+            data['waterGoal'] ?? (data['unit'] == 'imperial' ? 96 : 3000),
+        totalGoal:
+            data['totalGoal'] ?? (data['unit'] == 'imperial' ? 128 : 4000),
+        drinkSize: data['drinkSize'] ?? 8,
+        start: data['start'] ?? 7,
+        end: data['end'] ?? 20,
+        adFree: data['adFree'] ?? false,
+    );
   }
 
   static Map<String, dynamic> toMap(Preferences data) {
     data = data;
     return {
+      'height': data.height,
+      'sex': data.sex,
+      'unit': data.unit,
+      'waterGoal': data.waterGoal,
+      'totalGoal': data.totalGoal,
+      'drinkSize': data.drinkSize,
       'start': DateTime.parse(
           '2000-01-01 ${data.start.toString().padLeft(2, '0')}:00:00'),
-      'height': data.height,
-      'sex': data.sex
+      'end': DateTime.parse(
+          '2000-01-01 ${data.end.toString().padLeft(2, '0')}:00:00'),
+      'adFree': data.adFree,
     };
   }
 }

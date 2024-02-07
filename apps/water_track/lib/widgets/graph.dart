@@ -3,7 +3,7 @@ import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.da
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:community_charts_flutter/community_charts_flutter.dart' as charts;
-import 'package:water_track/models/models.dart';
+import 'package:models/models.dart';
 import 'package:water_track/services/graph_animation_provider.dart';
 import 'package:water_track/utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
