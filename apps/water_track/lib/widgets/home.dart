@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:water_track/services/database_service.dart';
 import 'package:models/models.dart';
 import 'buttons/buttons.dart';
+import 'drink_size.dart';
 import 'graph.dart';
 
 class Home extends StatelessWidget {
@@ -29,7 +30,8 @@ class Home extends StatelessWidget {
             children: <Widget>[
               const Graph(),
               const SizedBox(height: 16),
-              Buttons()
+              Buttons(),
+              const DrinkSize(),
             ],
           ),
         ),
