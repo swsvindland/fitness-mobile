@@ -1,11 +1,9 @@
 import 'dart:async';
-import 'package:api/user_database_service.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:water_track/utils/constants.dart';
-import 'package:water_track/utils/helper.dart';
+import 'package:api/api.dart';
 import "package:os_detect/os_detect.dart" as platform;
 
 class SplashscreenPage extends StatefulWidget {
@@ -17,8 +15,9 @@ class SplashscreenPage extends StatefulWidget {
 
 class _SplashscreenPageState extends State<SplashscreenPage> {
   final _udb = UserDatabaseService();
-  final FirebaseFirestore _db = FirebaseFirestore.instance;
-  final FirebaseMessaging _fcm = FirebaseMessaging.instance;
+  final _db = WaterDatabaseService();
+  final _fdb = FCMDatabaseService();
+  final _fcm = FirebaseMessaging.instance;
   late StreamSubscription iosSubscription;
 
   @override
@@ -51,8 +50,8 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
         const Duration(milliseconds: 500),
         () {
           _udb.updateUserData(currentUser);
-          createDefaultPreferences(_db, currentUser);
-          setFCMData(_db, _fcm, currentUser);
+          _db.createDefaultPreferences(currentUser);
+          _fdb.setFCMData(currentUser);
           navigatorKey.currentState!.pushNamedAndRemoveUntil(
               '/home', (Route<dynamic> route) => false);
         },

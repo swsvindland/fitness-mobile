@@ -1,13 +1,10 @@
-import 'package:api/user_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:water_track/utils/constants.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import "package:os_detect/os_detect.dart" as platform;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:water_track/utils/helper.dart';
 import 'package:utils/sign_in.dart';
+import 'package:api/api.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -18,8 +15,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _udb = UserDatabaseService();
-  final FirebaseFirestore _db = FirebaseFirestore.instance;
-  final FirebaseMessaging _fcm = FirebaseMessaging.instance;
+  final _db = WaterDatabaseService();
+  final _fdb = FCMDatabaseService();
   late bool loggingIn;
 
   @override
@@ -58,8 +55,8 @@ class _LoginPageState extends State<LoginPage> {
                               signInWithGoogle().then((User? user) {
                                 if (user != null) {
                                   _udb.updateUserData(user);
-                                  createDefaultPreferences(_db, user);
-                                  setFCMData(_db, _fcm, user);
+                                  _db.createDefaultPreferences(user);
+                                  _fdb.setFCMData(user);
                                   navigatorKey.currentState!
                                       .pushNamedAndRemoveUntil('/home',
                                           (Route<dynamic> route) => false);
@@ -94,8 +91,8 @@ class _LoginPageState extends State<LoginPage> {
                                     signInWithApple().then((User? user) {
                                       if (user != null) {
                                         _udb.updateUserData(user);
-                                        createDefaultPreferences(_db, user);
-                                        setFCMData(_db, _fcm, user);
+                                        _db.createDefaultPreferences(user);
+                                        _fdb.setFCMData(user);
                                         navigatorKey.currentState!
                                             .pushNamedAndRemoveUntil(
                                                 '/home',
@@ -132,8 +129,8 @@ class _LoginPageState extends State<LoginPage> {
                               signInAnon().then((User? user) {
                                 if (user != null) {
                                   _udb.updateUserData(user);
-                                  createDefaultPreferences(_db, user);
-                                  setFCMData(_db, _fcm, user);
+                                  _db.createDefaultPreferences(user);
+                                  _fdb.setFCMData(user);
                                   navigatorKey.currentState!
                                       .pushNamedAndRemoveUntil('/home',
                                           (Route<dynamic> route) => false);

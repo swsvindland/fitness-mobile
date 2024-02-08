@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
-import 'package:water_track/services/database_service.dart';
+import 'package:api/api.dart';
 import 'package:utils/graph_animation_provider.dart';
 import 'package:water_track/widgets/buttons/carousel.dart';
 import '../../utils/constants.dart';
@@ -12,7 +12,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Buttons extends StatelessWidget {
   Buttons({super.key});
 
-  final db = DatabaseService();
+  final db = WaterDatabaseService();
 
   void incDrink(User? user, Drinks drinks, String drink,
       GraphAnimationProvider graphAnimationProvider, int value) async {

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:water_track/services/database_service.dart';
+import 'package:api/api.dart';
 import 'package:water_track/utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:utils/graph_animation_provider.dart';
@@ -25,7 +25,7 @@ void main() async {
 
 class App extends StatelessWidget {
   App({super.key});
-  final db = DatabaseService();
+  final db = WaterDatabaseService();
 
   @override
   Widget build(BuildContext context) {

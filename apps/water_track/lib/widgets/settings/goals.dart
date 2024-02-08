@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
-import 'package:water_track/services/database_service.dart';
+import 'package:api/api.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Goals extends StatefulWidget {
@@ -14,7 +14,7 @@ class Goals extends StatefulWidget {
 }
 
 class _GoalsState extends State<Goals> {
-  final db = DatabaseService();
+  final db = WaterDatabaseService();
   late String waterGoal;
   late String totalGoal;
   late String drinkSize;
