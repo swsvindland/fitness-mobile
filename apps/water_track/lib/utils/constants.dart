@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
 
-final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
-const int xs = 370;
-const int sm = 600;
-const int md = 900;
-const int lg = 1200;
-const int xl = 1536;
-
 const primary = Color(0xff4198B5);
 const primaryDark = Color(0xff155E83);
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:water_track/layouts/home_desktop.dart';
 import 'package:water_track/layouts/home_mobile.dart';
 import 'package:provider/provider.dart';
-import 'package:water_track/utils/constants.dart';
+import 'package:utils/constants.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

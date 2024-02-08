@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:water_track/utils/constants.dart';
+import 'package:utils/constants.dart';
 import 'package:api/api.dart';
 import "package:os_detect/os_detect.dart" as platform;
 

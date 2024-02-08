@@ -5,7 +5,7 @@ import 'package:api/api.dart';
 import 'package:water_track/widgets/reports_list.dart';
 
 import 'package:models/models.dart';
-import '../utils/constants.dart';
+import 'package:utils/constants.dart';
 
 class Reports extends StatelessWidget {
   const Reports({super.key});

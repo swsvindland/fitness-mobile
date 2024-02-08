@@ -8,6 +8,7 @@ import 'package:api/api.dart';
 import 'package:water_track/utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:utils/graph_animation_provider.dart';
+import 'package:utils/constants.dart';
 
 import 'firebase_options.dart';
 import 'layouts/home.dart';

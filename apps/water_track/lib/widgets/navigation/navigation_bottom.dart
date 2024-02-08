@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:water_track/utils/constants.dart';
+import 'package:utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NavigationBottom extends StatelessWidget {
