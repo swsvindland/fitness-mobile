@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:api/user_database_service.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,6 +16,7 @@ class SplashscreenPage extends StatefulWidget {
 }
 
 class _SplashscreenPageState extends State<SplashscreenPage> {
+  final _udb = UserDatabaseService();
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   final FirebaseMessaging _fcm = FirebaseMessaging.instance;
   late StreamSubscription iosSubscription;
@@ -48,7 +50,7 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
       Timer(
         const Duration(milliseconds: 500),
         () {
-          updateUserData(_db, currentUser);
+          _udb.updateUserData(currentUser);
           createDefaultPreferences(_db, currentUser);
           setFCMData(_db, _fcm, currentUser);
           navigatorKey.currentState!.pushNamedAndRemoveUntil(

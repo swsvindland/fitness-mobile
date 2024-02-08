@@ -1,3 +1,4 @@
+import 'package:api/user_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _udb = UserDatabaseService();
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   final FirebaseMessaging _fcm = FirebaseMessaging.instance;
   late bool loggingIn;
@@ -55,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                               });
                               signInWithGoogle().then((User? user) {
                                 if (user != null) {
-                                  updateUserData(_db, user);
+                                  _udb.updateUserData(user);
                                   createDefaultPreferences(_db, user);
                                   setFCMData(_db, _fcm, user);
                                   navigatorKey.currentState!
@@ -91,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                                     });
                                     signInWithApple().then((User? user) {
                                       if (user != null) {
-                                        updateUserData(_db, user);
+                                        _udb.updateUserData(user);
                                         createDefaultPreferences(_db, user);
                                         setFCMData(_db, _fcm, user);
                                         navigatorKey.currentState!
@@ -129,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                               });
                               signInAnon().then((User? user) {
                                 if (user != null) {
-                                  updateUserData(_db, user);
+                                  _udb.updateUserData(user);
                                   createDefaultPreferences(_db, user);
                                   setFCMData(_db, _fcm, user);
                                   navigatorKey.currentState!

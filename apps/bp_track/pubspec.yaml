@@ -15,7 +15,7 @@ version: 2.0.0+20
 
 environment:
   sdk: ">=3.2.6 <4.0.0"
-  flutter: "3.16.5"
+  flutter: "3.16.9"
 
 dependencies:
   community_charts_flutter: ^1.0.1

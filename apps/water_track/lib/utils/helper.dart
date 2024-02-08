@@ -38,13 +38,3 @@ void createDefaultPreferences(FirebaseFirestore db, User user) async {
   }
 }
 
-void updateUserData(FirebaseFirestore db, User user) async {
-  DocumentReference ref = db.collection('users').doc(user.uid);
-
-  return ref.set({
-    'uid': user.uid,
-    'email': user.email,
-    'displayName': user.displayName,
-    'lastSeen': DateTime.now()
-  });
-}
