@@ -41,6 +41,7 @@ dependencies:
   models: ^1.0.0+1
   api: ^1.0.0+1
   widgets: ^1.0.0+1
+  firebase_app_check: ^0.2.1+13
 
 dev_dependencies:
   flutter_test:

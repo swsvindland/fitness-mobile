@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -26,6 +27,14 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  await FirebaseAppCheck.instance.activate(
+    // You can also use a `ReCaptchaEnterpriseProvider` provider instance as an
+    // argument for `webProvider`
+    webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
+    androidProvider: AndroidProvider.playIntegrity,
+    appleProvider: AppleProvider.appAttest,
   );
 
   // Non-async exceptions
