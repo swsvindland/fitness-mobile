@@ -4,9 +4,7 @@ import 'package:utils/sign_in.dart';
 import 'package:utils/constants.dart';
 import "package:os_detect/os_detect.dart" as platform;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:api/body_database_service.dart';
-import 'package:api/fcm_database_service.dart';
-import 'package:api/user_database_service.dart';
+import 'package:api/api.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -17,7 +15,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _fdb = FCMDatabaseService();
-  final _db = BodyDatabaseService();
+  final _pdb = PreferencesDatabaseService();
   final _udb = UserDatabaseService();
   late bool loggingIn;
 
@@ -57,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                               signInWithGoogle().then((User? user) {
                                 if (user != null) {
                                   _udb.updateUserData(user);
-                                  _db.createDefaultPreferences(user);
+                                  _pdb.createDefaultPreferences(user);
                                   _fdb.setFCMData(user);
                                   navigatorKey.currentState!
                                       .pushNamedAndRemoveUntil('/home',
@@ -90,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                                     signInWithApple().then((User? user) {
                                       if (user != null) {
                                         _udb.updateUserData(user);
-                                        _db.createDefaultPreferences(user);
+                                        _pdb.createDefaultPreferences(user);
                                         _fdb.setFCMData(user);
                                         navigatorKey.currentState!
                                             .pushNamedAndRemoveUntil(
@@ -130,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                               signInAnon().then((User? user) {
                                 if (user != null) {
                                   _udb.updateUserData(user);
-                                  _db.createDefaultPreferences(user);
+                                  _pdb.createDefaultPreferences(user);
                                   _fdb.setFCMData(user);
                                   navigatorKey.currentState!
                                       .pushNamedAndRemoveUntil('/home',

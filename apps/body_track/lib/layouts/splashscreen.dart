@@ -1,7 +1,5 @@
 import 'dart:async';
-import 'package:api/body_database_service.dart';
-import 'package:api/user_database_service.dart';
-import 'package:api/fcm_database_service.dart';
+import 'package:api/api.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +15,7 @@ class SplashScreenPage extends StatefulWidget {
 
 class _SplashScreenPageState extends State<SplashScreenPage> {
   final _udb = UserDatabaseService();
-  final _db = BodyDatabaseService();
+  final _pdb = PreferencesDatabaseService();
   final _fdb = FCMDatabaseService();
   final FirebaseMessaging _fcm = FirebaseMessaging.instance;
   late StreamSubscription iosSubscription;
@@ -52,7 +50,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         const Duration(milliseconds: 500),
         () {
           _udb.updateUserData(currentUser);
-          _db.createDefaultPreferences(currentUser);
+          _pdb.createDefaultPreferences(currentUser);
           _fdb.setFCMData(currentUser);
           navigatorKey.currentState!.pushNamedAndRemoveUntil(
               '/home', (Route<dynamic> route) => false);

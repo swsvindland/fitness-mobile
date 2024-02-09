@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:models/models.dart';
 import 'dart:async';
 
@@ -124,34 +123,5 @@ class BodyDatabaseService {
               "leftCalf": e.data()["leftCalf"],
               "rightCalf": e.data()["rightCalf"],
             })));
-  }
-
-  Stream<Preferences> streamPreferences(String id) {
-    return _db
-        .collection('preferences')
-        .doc(id)
-        .snapshots()
-        .map((snap) => Preferences.fromMap(snap.data()!));
-  }
-
-  Future<void> updatePreferences(String id, Preferences preferences) {
-    return _db
-        .collection('preferences')
-        .doc(id)
-        .set(Preferences.toMap(preferences));
-  }
-
-  void createDefaultPreferences(User user) async {
-    DocumentSnapshot snapshot =
-        await _db.collection('preferences').doc(user.uid).get();
-
-    if (!snapshot.exists) {
-      snapshot.reference.set({
-        'start':
-            DateTime.parse('2000-01-01 ${7.toString().padLeft(2, '0')}:00:00'),
-        'height': 66,
-        'sex': 'male'
-      });
-    }
   }
 }

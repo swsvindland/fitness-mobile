@@ -40,5 +40,8 @@
     "sex": "Sex",
     "noWeightData": "Looks like you have no weigh ins. Click the plus icon to get started.",
     "settings": "Settings",
-    "body": "Body"
+    "body": "Body",
+    "units": "Units",
+    "imperial": "Imperial",
+    "metric": "Metric"
 }

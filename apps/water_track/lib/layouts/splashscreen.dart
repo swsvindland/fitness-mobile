@@ -15,7 +15,7 @@ class SplashscreenPage extends StatefulWidget {
 
 class _SplashscreenPageState extends State<SplashscreenPage> {
   final _udb = UserDatabaseService();
-  final _db = WaterDatabaseService();
+  final _pdb = PreferencesDatabaseService();
   final _fdb = FCMDatabaseService();
   final _fcm = FirebaseMessaging.instance;
   late StreamSubscription iosSubscription;
@@ -50,7 +50,7 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
         const Duration(milliseconds: 500),
         () {
           _udb.updateUserData(currentUser);
-          _db.createDefaultPreferences(currentUser);
+          _pdb.createDefaultPreferences(currentUser);
           _fdb.setFCMData(currentUser);
           navigatorKey.currentState!.pushNamedAndRemoveUntil(
               '/home', (Route<dynamic> route) => false);

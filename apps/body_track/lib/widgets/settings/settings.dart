@@ -1,3 +1,4 @@
+import 'package:body_track/widgets/settings/units/unit.dart';
 import 'package:utils/sign_in.dart';
 import 'package:utils/constants.dart';
 import 'package:body_track/widgets/settings/height/height.dart';
@@ -24,6 +25,7 @@ class Settings extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          const Unit(),
           const Sex(),
           const Height(),
           const Notifications(),

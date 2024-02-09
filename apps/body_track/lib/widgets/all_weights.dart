@@ -1,4 +1,4 @@
-import 'package:api/body_database_service.dart';
+import 'package:api/api.dart';
 import 'package:body_track/widgets/checkin_list.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 class AllWeights extends StatelessWidget {
   AllWeights({super.key});
+  final pdb = PreferencesDatabaseService();
   final db = BodyDatabaseService();
 
   @override
@@ -21,7 +22,7 @@ class AllWeights extends StatelessWidget {
           ),
           StreamProvider<Preferences>.value(
             initialData: Preferences.empty(),
-            value: db.streamPreferences(user.uid),
+            value: pdb.streamPreferences(user.uid),
           ),
           StreamProvider<Iterable<CheckInModel>>.value(
             initialData: const [],

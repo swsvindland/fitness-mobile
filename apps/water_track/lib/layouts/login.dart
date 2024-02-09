@@ -15,8 +15,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _udb = UserDatabaseService();
-  final _db = WaterDatabaseService();
   final _fdb = FCMDatabaseService();
+  final _pdb = PreferencesDatabaseService();
   late bool loggingIn;
 
   @override
@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                               signInWithGoogle().then((User? user) {
                                 if (user != null) {
                                   _udb.updateUserData(user);
-                                  _db.createDefaultPreferences(user);
+                                  _pdb.createDefaultPreferences(user);
                                   _fdb.setFCMData(user);
                                   navigatorKey.currentState!
                                       .pushNamedAndRemoveUntil('/home',
@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                                     signInWithApple().then((User? user) {
                                       if (user != null) {
                                         _udb.updateUserData(user);
-                                        _db.createDefaultPreferences(user);
+                                        _pdb.createDefaultPreferences(user);
                                         _fdb.setFCMData(user);
                                         navigatorKey.currentState!
                                             .pushNamedAndRemoveUntil(
@@ -129,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                               signInAnon().then((User? user) {
                                 if (user != null) {
                                   _udb.updateUserData(user);
-                                  _db.createDefaultPreferences(user);
+                                  _pdb.createDefaultPreferences(user);
                                   _fdb.setFCMData(user);
                                   navigatorKey.currentState!
                                       .pushNamedAndRemoveUntil('/home',

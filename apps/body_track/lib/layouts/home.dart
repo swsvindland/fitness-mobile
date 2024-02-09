@@ -10,7 +10,7 @@ import 'package:utils/constants.dart';
 import 'package:body_track/widgets/settings/settings.dart';
 import 'package:body_track/widgets/all.dart';
 import 'package:body_track/widgets/home.dart';
-import 'package:api/body_database_service.dart';
+import 'package:api/api.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../widgets/navigation/navigation_bottom.dart';
@@ -25,6 +25,7 @@ class HomePage extends StatefulWidget {
 class _HomeState extends State<HomePage> {
   int currentPageIndex = 0;
   final db = BodyDatabaseService();
+  final pdb = PreferencesDatabaseService();
 
   handleWeighIn() {
     navigatorKey.currentState!.pushNamed('/weigh-in');
@@ -90,7 +91,7 @@ class _HomeState extends State<HomePage> {
         ),
         StreamProvider<Preferences>.value(
           initialData: Preferences.empty(),
-          value: db.streamPreferences(user.uid),
+          value: pdb.streamPreferences(user.uid),
         ),
         StreamProvider<Iterable<CheckInModel>>.value(
           initialData: const [],

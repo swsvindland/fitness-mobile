@@ -1,4 +1,4 @@
-import 'package:api/body_database_service.dart';
+import 'package:api/api.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +17,7 @@ class GoalForm extends StatefulWidget {
 }
 
 class _GoalFormState extends State<GoalForm> {
-  final db = BodyDatabaseService();
+  final db = PreferencesDatabaseService();
   final _formKey = GlobalKey<FormState>();
   final water = TextEditingController();
   final total = TextEditingController();
