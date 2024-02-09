@@ -1,11 +1,19 @@
 import 'package:body_track/widgets/app_bar_ad.dart';
+import 'package:body_track/widgets/navigation/side_navigation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:models/checkin.dart';
+import 'package:models/preferences.dart';
+import 'package:models/weight.dart';
+import 'package:provider/provider.dart';
 import 'package:utils/constants.dart';
 import 'package:body_track/widgets/settings/settings.dart';
 import 'package:body_track/widgets/all.dart';
 import 'package:body_track/widgets/home.dart';
 import 'package:api/body_database_service.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../widgets/navigation/navigation_bottom.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -72,51 +80,74 @@ class _HomeState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const AppBarAd(),
-        elevation: 0,
-      ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
-        child: currentPageIndex == 0
-            ? Home()
-            : currentPageIndex == 1
-                ? All()
-                : Settings(),
-      ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          FloatingActionButton(
-            heroTag: "WeighIn",
-            onPressed: handleAction,
-            child: const Icon(Icons.add),
-          ),
-        ],
-      ),
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
-        selectedIndex: currentPageIndex,
-        destinations: <Widget>[
-          NavigationDestination(
-            icon: const Icon(Icons.monitor_weight),
-            label: AppLocalizations.of(context)!.weight,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.straighten),
-            label: AppLocalizations.of(context)!.body,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.settings),
-            label: AppLocalizations.of(context)!.settings,
-          ),
-        ],
+    var user = Provider.of<User?>(context);
+
+    return MultiProvider(
+      providers: [
+        StreamProvider<Iterable<Weight>>.value(
+          initialData: const [],
+          value: db.streamWeighIns(user!.uid),
+        ),
+        StreamProvider<Preferences>.value(
+          initialData: Preferences.empty(),
+          value: db.streamPreferences(user.uid),
+        ),
+        StreamProvider<Iterable<CheckInModel>>.value(
+          initialData: const [],
+          value: db.streamCheckIns(user.uid),
+        ),
+      ],
+      child: Scaffold(
+        appBar: AppBar(
+          title: const AppBarAd(),
+          elevation: 0,
+        ),
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SideNavigation(
+              selectedIndex: currentPageIndex,
+              onItemTapped: (index) {
+                setState(() {
+                  currentPageIndex = index;
+                });
+              },
+            ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: SizedBox(
+                  width: 600,
+                  child: currentPageIndex == 0
+                      ? Home()
+                      : currentPageIndex == 1
+                          ? const All()
+                          : const Settings(),
+                ),
+              ),
+            ),
+          ],
+        ),
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            FloatingActionButton(
+              heroTag: "WeighIn",
+              onPressed: handleAction,
+              child: const Icon(Icons.add),
+            ),
+          ],
+        ),
+        bottomNavigationBar: NavigationBottom(
+          selectedIndex: currentPageIndex,
+          onItemTapped: (index) {
+            setState(() {
+              currentPageIndex = index;
+            });
+          },
+        ),
       ),
     );
   }
