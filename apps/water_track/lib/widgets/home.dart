@@ -1,8 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:api/api.dart';
-import 'package:models/models.dart';
 import 'buttons/buttons.dart';
 import 'drink_size.dart';
 import 'graph.dart';
@@ -12,30 +8,19 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var db = WaterDatabaseService();
-    var user = Provider.of<User?>(context);
-
-    return MultiProvider(
-      providers: [
-        StreamProvider<Drinks>.value(
-            initialData: Drinks.empty(),
-            value: db.streamDrinks(user!.uid),
-            catchError: (_, err) => Drinks.empty()),
-      ],
-      child: Center(
-        child: SingleChildScrollView(
-          child: SizedBox(
-            width: 600,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const Graph(),
-                const SizedBox(height: 16),
-                Buttons(),
-                const DrinkSize(),
-              ],
-            ),
+    return Center(
+      child: SingleChildScrollView(
+        child: SizedBox(
+          width: 600,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              const Graph(),
+              const SizedBox(height: 16),
+              Buttons(),
+              const DrinkSize(),
+            ],
           ),
         ),
       ),

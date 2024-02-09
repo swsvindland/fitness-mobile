@@ -8,7 +8,9 @@ class WaterDatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   var date = DateTime.now();
 
-  Stream<Drinks> streamDrinks(String id) {
+  Stream<Drinks> streamDrinks(String? id) {
+    if (id == null) return Stream.error('User ID is null');
+
     try {
       return _db
           .collection('drinks')
@@ -35,7 +37,9 @@ class WaterDatabaseService {
     }
   }
 
-  Stream<Iterable<Drinks>> streamAllDrinks(String id) {
+  Stream<Iterable<Drinks>> streamAllDrinks(String? id) {
+    if (id == null) return Stream.error('User ID is null');
+
     try {
       return _db
           .collection('drinks')
@@ -49,35 +53,25 @@ class WaterDatabaseService {
   }
 
   Stream<Preferences> streamPreferences(String? id) {
-    if (id == null) {
-      return Stream.value(Preferences.empty());
-    }
+    if (id == null) return Stream.error('User ID is null');
 
-    try {
-      return _db
-          .collection('preferences')
-          .doc(id)
-          .snapshots()
-          .map((snap) => Preferences.fromMap(snap.data()!));
-    } catch (err) {
-      return Stream.error(err);
-    }
+    return _db
+        .collection('preferences')
+        .doc(id)
+        .snapshots()
+        .map((snap) => Preferences.fromMap(snap.data()!));
   }
 
   Future<void> updatePreferences(String id, Preferences preferences) {
-    try {
-      return _db
-          .collection('preferences')
-          .doc(id)
-          .set(Preferences.toMap(preferences));
-    } catch (err) {
-      return Future.error(err);
-    }
+    return _db
+        .collection('preferences')
+        .doc(id)
+        .set(Preferences.toMap(preferences));
   }
 
   void createDefaultPreferences(User user) async {
     DocumentSnapshot snapshot =
-    await _db.collection('preferences').doc(user.uid).get();
+        await _db.collection('preferences').doc(user.uid).get();
 
     if (!snapshot.exists) {
       snapshot.reference.set({
@@ -86,9 +80,9 @@ class WaterDatabaseService {
         'totalGoal': 128,
         'drinkSize': 8,
         'start':
-        DateTime.parse('2000-01-01 ${7.toString().padLeft(2, '0')}:00:00'),
+            DateTime.parse('2000-01-01 ${7.toString().padLeft(2, '0')}:00:00'),
         'end':
-        DateTime.parse('2000-01-01 ${20.toString().padLeft(2, '0')}:00:00'),
+            DateTime.parse('2000-01-01 ${20.toString().padLeft(2, '0')}:00:00'),
       });
     }
   }

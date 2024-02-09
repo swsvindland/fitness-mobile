@@ -19,10 +19,8 @@ import 'firebase_options.dart';
 import 'layouts/home.dart';
 import 'layouts/login.dart';
 import 'layouts/splashscreen.dart';
-import 'package:models/models.dart';
 
 const _kTestingCrashlytics = false;
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -86,10 +84,6 @@ class _AppState extends State<App> {
             value: FirebaseAuth.instance.authStateChanges()),
         ChangeNotifierProvider<GraphAnimationProvider>(
             create: (_) => GraphAnimationProvider()),
-        StreamProvider<Preferences>.value(
-            initialData: Preferences.empty(),
-            value: db.streamPreferences(FirebaseAuth.instance.currentUser?.uid),
-            catchError: (_, err) => Preferences.empty()),
       ],
       child: MaterialApp(
         title: 'WaterTrack',
@@ -173,7 +167,7 @@ class _AppState extends State<App> {
         routes: {
           '/': (context) => const SplashscreenPage(),
           '/login': (context) => const LoginPage(),
-          '/home': (context) => const HomePage(),
+          '/home': (context) => HomePage(),
         },
       ),
     );
