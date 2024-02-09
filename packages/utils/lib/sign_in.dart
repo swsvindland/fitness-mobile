@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:crypto/crypto.dart';
+import 'package:utils/constants.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn _googleSignIn = GoogleSignIn();
@@ -75,4 +77,5 @@ Future<User?> signInAnon() async {
 void signOut() async {
   await _googleSignIn.signOut();
   await _auth.signOut();
+  navigatorKey.currentState!.pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
 }

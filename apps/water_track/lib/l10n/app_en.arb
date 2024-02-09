@@ -44,5 +44,6 @@
     "deleteAccountConfirm": "This will delete your account and all user data forever. Are you sure?",
     "delete": "Delete",
     "cancel": "Cancel",
-    "units": "Units"
+    "units": "Units",
+    "goals": "Goals"
 }
