@@ -1,5 +1,5 @@
 {
-  "@@locale": "no",
+  "@@locale": "nb",
   "waterTrack": "WaterTrack",
   "water": "Vann",
   "coffee": "Kaffe",
@@ -21,9 +21,8 @@
   "drinkSize": "Drikkestørrelse",
   "imperial": "Imperial",
   "metric": "Metrisk",
-  "waterGoalField": "Angi daglig vannmål",
-  "fluidGoalField": "Angi daglig væskemål",
-  "drinkSizeField": "Skriv inn drikkestørrelsen din",
+  "waterGoalField": "Daglig vannmål",
+  "fluidGoalField": "Daglig flytende mål",
   "reminderNotification": "Påminnelsesvarsling",
   "start": "Start",
   "end": "Slutt",
@@ -44,5 +43,7 @@
   "deleteAccount": "Slett konto",
   "deleteAccountConfirm": "Dette vil slette kontoen din og alle brukerdata for alltid. Er du sikker?",
   "delete": "Slett",
-  "cancel": "Avbryt"
+  "cancel": "Avbryt",
+  "units": "Enheter",
+  "goals": "Mål"
 }

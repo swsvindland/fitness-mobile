@@ -1,5 +1,10 @@
+import 'dart:ui';
+
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,17 +21,61 @@ import 'layouts/login.dart';
 import 'layouts/splashscreen.dart';
 import 'package:models/models.dart';
 
+const _kTestingCrashlytics = false;
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(App());
+
+  // Non-async exceptions
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
+  };
+  // Async exceptions
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack);
+    return true;
+  };
+
+  runApp(const App());
 }
 
-class App extends StatelessWidget {
-  App({super.key});
+class App extends StatefulWidget {
+  const App({super.key});
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
   final db = WaterDatabaseService();
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  static FirebaseAnalyticsObserver observer =
+  FirebaseAnalyticsObserver(analytics: analytics);
+
+  Future<void> _initializeFlutterFire() async {
+    if (_kTestingCrashlytics) {
+      // Force enable crashlytics collection enabled if we're testing it.
+      await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+    } else {
+      // Else only enable it in non-debug builds.
+      // You could additionally extend this to allow users to opt-in.
+      await FirebaseCrashlytics.instance
+          .setCrashlyticsCollectionEnabled(kReleaseMode);
+    }
+
+    analytics.logEvent(name: 'app_started');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    _initializeFlutterFire();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +113,30 @@ class App extends StatelessWidget {
           Locale('ar', ''), // Arabic
           Locale('hi', ''), // Hindi
           Locale('ru', ''), // Russian
-          Locale('no', ''), // Norwegian
+          Locale('tr', ''), // Turkish
+          Locale('vi', ''), // Vietnamese
+          Locale('th', ''), // Thai
+          Locale('id', ''), // Indonesian
+          Locale('ms', ''), // Malay
+          Locale('fil', ''), // Filipino
+          Locale('pl', ''), // Polish
+          Locale('nl', ''), // Dutch
+          Locale('sv', ''), // Swedish
+          Locale('da', ''), // Danish
+          Locale('fi', ''), // Finnish
+          Locale('nb', ''), // Norwegian
+          Locale('el', ''), // Greek
+          Locale('hu', ''), // Hungarian
+          Locale('cs', ''), // Czech
+          Locale('he', ''), // Hebrew
+          Locale('ro', ''), // Romanian
+          Locale('sk', ''), // Slovak
+          Locale('uk', ''), // Ukrainian
+          Locale('hr', ''), // Croatian
+          Locale('ca', ''), // Catalan
+          Locale('eu', ''), // Basque
+          Locale('gl', ''), // Galician
+          Locale('fa', ''), // Persian
         ],
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: primary),
@@ -97,6 +169,7 @@ class App extends StatelessWidget {
         themeMode: ThemeMode.system,
         initialRoute: '/',
         navigatorKey: navigatorKey,
+        navigatorObservers: <NavigatorObserver>[observer],
         routes: {
           '/': (context) => const SplashscreenPage(),
           '/login': (context) => const LoginPage(),

@@ -32,8 +32,10 @@ dependencies:
   crypto: ^3.0.3
   os_detect: ^2.0.1
   google_mobile_ads: ^4.0.0
-  firebase_core: ^2.25.3
   firebase_auth: ^4.17.3
+  firebase_core: ^2.25.3
+  firebase_analytics: ^10.8.4
+  firebase_crashlytics: ^3.4.13
   google_sign_in: ^6.1.5
   sign_in_with_apple: ^5.0.0
   cloud_firestore: ^4.15.3
