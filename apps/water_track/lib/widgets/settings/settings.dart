@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:utils/sign_in.dart';
+import 'package:water_track/widgets/settings/units/unit.dart';
 import 'package:widgets/delete_account.dart';
-import 'package:water_track/widgets/settings/unit_switch.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:utils/constants.dart';
 import 'goals.dart';
-import 'notifications.dart';
+import 'notification/notification.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -24,7 +24,7 @@ class Settings extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const UnitSwitch(),
+                const Unit(),
                 const SizedBox(height: 16),
                 const Goals(),
                 const SizedBox(height: 16),

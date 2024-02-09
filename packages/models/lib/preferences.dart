@@ -33,6 +33,10 @@ class Preferences {
     sex = value;
   }
 
+  void setUnit(String value) {
+    unit = value;
+  }
+
   void setWaterGoal(int value) {
     waterGoal = value;
   }
