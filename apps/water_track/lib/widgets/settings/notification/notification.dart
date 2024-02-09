@@ -31,7 +31,15 @@ class _NotificationState extends State<Notifications> {
         padding: const EdgeInsets.all(24),
         child: ListTile(
           title: Text(AppLocalizations.of(context)!.reminderNotification),
-          subtitle: Text("Start: ${(preferences.start)}:00 End: ${(preferences.end)}:00"),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                  "${AppLocalizations.of(context)!.start}: ${preferences.start}:00"),
+              Text(
+                  "${AppLocalizations.of(context)!.end}: ${preferences.end}:00")
+            ],
+          ),
           trailing: FilledButton(
             onPressed: handleAction,
             child: Text(

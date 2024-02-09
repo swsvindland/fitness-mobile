@@ -30,8 +30,15 @@ class _GoalState extends State<Goal> {
         padding: const EdgeInsets.all(24),
         child: ListTile(
           title: Text(AppLocalizations.of(context)!.goals),
-          subtitle: Text(
-              "${AppLocalizations.of(context)!.waterGoalField}: ${preferences.waterGoal} ${AppLocalizations.of(context)!.fluidGoalField}: ${preferences.totalGoal}"),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                  "${AppLocalizations.of(context)!.waterGoalField}: ${preferences.waterGoal}"),
+              Text(
+                  "${AppLocalizations.of(context)!.fluidGoalField}: ${preferences.totalGoal}")
+            ],
+          ),
           trailing: FilledButton(
             onPressed: handleAction,
             child: Text(
