@@ -654,7 +654,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
               },
               style: ButtonStyle(
                 foregroundColor:
-                    MaterialStateProperty.all<Color>(secondaryLight),
+                MaterialStateProperty.all<Color>(secondaryLight),
                 backgroundColor: MaterialStateProperty.all<Color>(primaryDark),
               ),
               child: Text(
