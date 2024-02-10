@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:period_track/layouts/home_desktop.dart';
 import 'package:period_track/layouts/home_mobile.dart';
-import 'package:period_track/layouts/home_tablet.dart';
 import 'package:period_track/models/preferences.dart';
 import 'package:period_track/services/database_service.dart';
 import 'package:provider/provider.dart';
@@ -65,12 +64,8 @@ class _HomePageState extends State<HomePage> {
       Future.delayed(Duration.zero, () => _showDisclaimerDialog(context, user, preferences, _db));
     }
 
-    if (MediaQuery.of(context).size.width < sm) {
-      return const HomePageMobile();
-    }
-
     if (MediaQuery.of(context).size.width < md) {
-      return const HomePageTablet();
+      return const HomePageMobile();
     }
 
     return const HomePageDesktop();

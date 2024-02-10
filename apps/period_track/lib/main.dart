@@ -127,19 +127,12 @@ class _AppState extends State<App> {
             Locale('no', ''), // Norwegian
           ],
           theme: ThemeData(
-            colorSchemeSeed: primary,
-            brightness: Brightness.light,
-            useMaterial3: true,
+            colorScheme: ColorScheme.fromSeed(seedColor: primary),
             textTheme: GoogleFonts.josefinSansTextTheme(),
             scaffoldBackgroundColor: primary,
             appBarTheme: const AppBarTheme(
               backgroundColor: primary,
               foregroundColor: secondary,
-            ),
-            bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-              backgroundColor: primaryDark,
-              unselectedItemColor: secondary,
-              selectedItemColor: secondaryLight,
             ),
             drawerTheme: const DrawerThemeData(
               backgroundColor: primaryDark,
@@ -149,16 +142,22 @@ class _AppState extends State<App> {
               selectedLabelTextStyle: TextStyle(
                   color: secondaryLight,
                   fontFamily: GoogleFonts.josefinSans().fontFamily),
-              selectedIconTheme: const IconThemeData(color: secondaryLight),
               unselectedLabelTextStyle: TextStyle(
                   color: secondary,
                   fontFamily: GoogleFonts.josefinSans().fontFamily),
               unselectedIconTheme: const IconThemeData(color: secondary),
-              useIndicator: false,
+            ),
+            navigationBarTheme: NavigationBarThemeData(
+              backgroundColor: primaryDark,
+              labelTextStyle: const MaterialStatePropertyAll(TextStyle(color: secondary)),
+              iconTheme: MaterialStateProperty.resolveWith((states) {
+                if (states.contains(MaterialState.selected)) {
+                  return const IconThemeData(color: primaryDark);
+                }
+                return const IconThemeData(color: secondary);
+              }),
             ),
             cardTheme: const CardTheme(color: primaryAlt),
-            floatingActionButtonTheme: const FloatingActionButtonThemeData(
-                backgroundColor: callToAction, foregroundColor: primaryDark),
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
                 fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
@@ -191,37 +190,11 @@ class _AppState extends State<App> {
             ),
           ),
           darkTheme: ThemeData(
-            colorSchemeSeed: primary,
-            brightness: Brightness.dark,
-            useMaterial3: true,
-            textTheme: GoogleFonts.josefinSansTextTheme(
-                ThemeData(brightness: Brightness.dark).textTheme),
-            scaffoldBackgroundColor: Colors.black,
-            appBarTheme: const AppBarTheme(
-              backgroundColor: Colors.black,
-              foregroundColor: Colors.white,
-            ),
-            bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-              unselectedItemColor: secondary,
-              selectedItemColor: secondaryLight,
-            ),
-            navigationRailTheme: NavigationRailThemeData(
-              selectedLabelTextStyle: TextStyle(
-                  color: secondaryLight,
-                  fontFamily: GoogleFonts.josefinSans().fontFamily),
-              selectedIconTheme: const IconThemeData(color: secondaryLight),
-              unselectedLabelTextStyle: TextStyle(
-                  color: secondary,
-                  fontFamily: GoogleFonts.josefinSans().fontFamily),
-              unselectedIconTheme: const IconThemeData(color: secondary),
-              useIndicator: false,
-            ),
+            colorScheme: ColorScheme.fromSeed(
+                seedColor: primary, brightness: Brightness.dark),
+            textTheme: GoogleFonts.josefinSansTextTheme(ThemeData.dark().textTheme),
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all<Color>(const Color(0xff7c2946)),
-                foregroundColor:
-                    MaterialStateProperty.all<Color>(const Color(0xffffd9e2)),
                 fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
@@ -233,8 +206,6 @@ class _AppState extends State<App> {
             outlinedButtonTheme: OutlinedButtonThemeData(
               style: ButtonStyle(
                 fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
-                foregroundColor:
-                    MaterialStateProperty.all<Color>(const Color(0xffffd9e2)),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25),
@@ -244,6 +215,10 @@ class _AppState extends State<App> {
                   const BorderSide(color: Color(0xff7c2946)),
                 ),
               ),
+            ),
+            bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+              unselectedItemColor: secondary,
+              selectedItemColor: secondaryLight,
             ),
             inputDecorationTheme: const InputDecorationTheme(
               border: OutlineInputBorder(),

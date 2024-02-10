@@ -30,7 +30,7 @@ class Note extends StatelessWidget {
                 arguments: {"id": DateUtils.dateOnly(title).toIso8601String()});
           },
           title: Text(
-              DateFormat.MMMMd(Localizations.localeOf(context).languageCode)
+              DateFormat.MMMd(Localizations.localeOf(context).languageCode)
                   .format(title)),
           subtitle: Column(
             mainAxisAlignment: MainAxisAlignment.start,

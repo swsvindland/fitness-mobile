@@ -9,32 +9,31 @@ class NavigationBottom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (MediaQuery.of(context).size.width > sm) {
+    if (MediaQuery.of(context).size.width > md) {
       return const SizedBox();
     }
 
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
+    return NavigationBar(
+      destinations: <Widget>[
+        NavigationDestination(
           icon: const Icon(Icons.calendar_today),
           label: AppLocalizations.of(context)!.calendar,
         ),
-        BottomNavigationBarItem(
+        NavigationDestination(
           icon: const Icon(Icons.note_add),
           label: AppLocalizations.of(context)!.notes,
         ),
-        BottomNavigationBarItem(
+        NavigationDestination(
           icon: const Icon(Icons.insights),
           label: AppLocalizations.of(context)!.statistics,
         ),
-        BottomNavigationBarItem(
+        NavigationDestination(
           icon: const Icon(Icons.settings),
           label: AppLocalizations.of(context)!.settings,
         ),
       ],
-      currentIndex: selectedIndex,
-      onTap: onItemTapped,
+      selectedIndex: selectedIndex,
+      onDestinationSelected: onItemTapped,
     );
   }
 }

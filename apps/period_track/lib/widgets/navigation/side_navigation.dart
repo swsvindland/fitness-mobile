@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import '../../utils/colors.dart';
+import '../../utils/constants.dart';
 
 class SideNavigation extends StatelessWidget {
   const SideNavigation(
@@ -12,10 +12,15 @@ class SideNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (MediaQuery.of(context).size.width < md) {
+      return const SizedBox();
+    }
+
     return NavigationRail(
       selectedIndex: selectedIndex,
       onDestinationSelected: onItemTapped,
-      extended: true,
+      extended: false,
+      labelType: NavigationRailLabelType.all,
       leading: Padding(
         padding: const EdgeInsets.symmetric(vertical: 32),
         child: Row(
@@ -23,9 +28,6 @@ class SideNavigation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset('images/logo-alt.png', height: 36),
-            const SizedBox(width: 16),
-            Text(AppLocalizations.of(context)!.periodTrack,
-                style: const TextStyle(fontSize: 24, color: text)),
           ],
         ),
       ),
