@@ -36,7 +36,6 @@ dependencies:
   os_detect: ^2.0.1
   provider: ^6.0.5
   sign_in_with_apple: ^5.0.0
-  in_app_purchase: ^3.1.13
   utils: ^1.0.0+1
   models: ^1.0.0+1
   api: ^1.0.0+1
