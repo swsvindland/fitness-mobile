@@ -232,7 +232,6 @@ class _AppState extends State<App> {
             '/': (context) => const SplashscreenPage(),
             '/login': (context) => const LoginPage(),
             '/home': (context) => const HomePage(),
-            '/about': (context) => const AboutPage(),
             '/add-note': (context) => AddNotePage()
           },
         ),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:period_track/widgets/app_bar_ad.dart';
 import 'package:provider/provider.dart';
 import 'package:period_track/services/database_service.dart';
-import 'package:period_track/services/sign_in.dart';
 import 'package:period_track/utils/constants.dart';
 import 'package:period_track/widgets/navigation/navigation_bottom.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -44,39 +43,8 @@ class _HomePageMobileState extends State<HomePageMobile> {
     return Scaffold(
       appBar: AppBar(
         title:
-            preferences.adFree ? const Text('PeriodTrack') : const AppBarAd(),
-        elevation: 0,
-        actions: <Widget>[
-          PopupMenuButton<Popup>(
-            onSelected: (Popup result) {
-              if (result == Popup.about) {
-                navigatorKey.currentState!.pushNamed('/about');
-              }
-              if (result == Popup.logOut) {
-                signOut();
-                navigatorKey.currentState!
-                    .pushNamedAndRemoveUntil('/login', (route) => false);
-              }
-            },
-            icon: const Icon(Icons.more_vert),
-            itemBuilder: (BuildContext context) => <PopupMenuEntry<Popup>>[
-              PopupMenuItem<Popup>(
-                value: Popup.about,
-                child: ListTile(
-                  leading: const Icon(Icons.info),
-                  title: Text(AppLocalizations.of(context)!.about),
-                ),
-              ),
-              PopupMenuItem<Popup>(
-                value: Popup.logOut,
-                child: ListTile(
-                  leading: const Icon(Icons.exit_to_app),
-                  title: Text(AppLocalizations.of(context)!.logOut),
-                ),
-              ),
-            ].toList(),
-          ),
-        ],
+            preferences.adFree ? Text(AppLocalizations.of(context)!.periodTrack) : const AppBarAd(),
+        elevation: 0
       ),
       body: MultiProvider(
         providers: [

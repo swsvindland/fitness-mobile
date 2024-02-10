@@ -7,7 +7,6 @@ import 'package:period_track/utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../models/note.dart';
-import '../services/sign_in.dart';
 import '../widgets/about.dart';
 import '../widgets/home/home.dart';
 import '../widgets/notes.dart';
@@ -25,12 +24,6 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
-    if (index == 5) {
-      signOut();
-      navigatorKey.currentState!
-          .pushNamedAndRemoveUntil('/login', (route) => false);
-    }
-
     setState(() {
       _selectedIndex = index;
     });

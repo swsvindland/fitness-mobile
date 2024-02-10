@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:period_track/services/sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:period_track/widgets/delete_account.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../models/preferences.dart';
 import '../utils/constants.dart';
@@ -33,7 +35,21 @@ class Settings extends StatelessWidget {
                     : const SizedBox(height: 0),
                 const DefaultCycle(),
                 const SizedBox(height: 16),
-                const DeleteAccount()
+                ElevatedButton(
+                  onPressed: () async {
+                    signOut();
+                    navigatorKey.currentState!
+                        .pushNamedAndRemoveUntil('/login', (route) => false);
+                  },
+                  child: Text(
+                    AppLocalizations.of(context)!.logOut,
+                    style: const TextStyle(
+                      fontSize: 16.0,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                const DeleteAccount(),
               ],
             ),
           ),

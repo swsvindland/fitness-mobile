@@ -52,15 +52,6 @@ class SideNavigation extends StatelessWidget {
           icon: const Icon(Icons.settings),
           label: Text(AppLocalizations.of(context)!.settings),
         ),
-        NavigationRailDestination(
-          padding: const EdgeInsets.all(8),
-          icon: const Icon(Icons.info),
-          label: Text(AppLocalizations.of(context)!.about),
-        ),
-        NavigationRailDestination(
-            padding: const EdgeInsets.all(8),
-            icon: const Icon(Icons.logout),
-            label: Text(AppLocalizations.of(context)!.logOut)),
       ],
     );
   }
