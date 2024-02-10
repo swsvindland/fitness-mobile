@@ -1,0 +1,79 @@
+{
+    "periodTrack": "PeriodTrack",
+
+    "calendar": "Calendar",
+    "notes": "Notes",
+    "statistics": "Statistics",
+    "settings": "Settings",
+
+    "reminderNotification": "Reminder Notification",
+    "time": "Time",
+    "update": "Update",
+
+    "about": "About",
+    "aboutPageCreditsDesigned": "Designed by",
+    "aboutPageCreditsBuilt": "Built by",
+    "aboutPageVersion": "Version",
+    "logOut": "Log Out",
+
+    "googleSignIn": "Continue with Google",
+    "appleSignIn": "Continue with Apple",
+    "anonSignIn": "Continue without Account",
+
+    "deleteAccount": "Delete Account",
+    "deleteAccountConfirm": "This will delete your account and all user data forever. Are you sure?",
+
+    "noNotesError": "Looks like you have not recorded a period yet. Add a new note to get started.",
+
+    "cycleBegin": "cycle begins",
+    "estOvulation": "est. ovulation",
+    "period": "period",
+    "estFertileDays": "est. fertile days",
+    "estCycle": "est. cycle start day",
+
+    "defaultLength": "Default Cycle Length",
+    "periodLength": "Cycle Length",
+    "flowLength": "Flow Length",
+
+    "disclaimer": "Disclaimer",
+    "disclaimerLine1": "PeriodTrack is an informational app designed to be used for personal convenience. It is NOT a substitute for medical advice given by medical professionals. If you have any questions regarding your reproductive health and/or reproductive goals, please contact your primary care physician, obstetrician/gynecologist, or another medically licensed professional.",
+    "iAgree": "I Understand",
+
+    "newEntry": "New Entry",
+    "periodStart": "Period Start",
+    "intimacy": "Intimacy",
+    "flow": "Flow",
+    "note": "Note",
+    "date": "Date",
+    "submit": "Submit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+
+    "mood": "Mood",
+    "calm": "Calm",
+    "happy": "Happy",
+    "energetic": "Energetic",
+    "frisky": "Frisky",
+    "irritated": "Irritated",
+    "angry": "Angry",
+    "sad": "Sad",
+    "anxious": "Anxious",
+    "apathetic": "Apathetic",
+    "confused": "Confused",
+    "guilty": "Guilty",
+    "overwhelmed": "Overwhelmed",
+
+    "symptoms": "Symptoms",
+    "cramps": "Cramps",
+    "acne": "Acne",
+    "tenderBreasts": "Tender Breasts",
+    "headache": "Headache",
+    "constipation": "Constipation",
+    "diarrhea": "Diarrhea",
+    "fatigue": "Fatigue",
+    "nausea": "Nausea",
+    "cravings": "Cravings",
+    "bloating": "Bloating",
+    "backache": "Backache",
+    "perineumPain": "Perineum Pain"
+}
