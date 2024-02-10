@@ -131,7 +131,7 @@ class _AppState extends State<App> {
             textTheme: GoogleFonts.josefinSansTextTheme(),
             scaffoldBackgroundColor: primary,
             appBarTheme: const AppBarTheme(
-              backgroundColor: primary,
+              backgroundColor: primaryDark,
               foregroundColor: secondary,
             ),
             drawerTheme: const DrawerThemeData(

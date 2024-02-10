@@ -13,17 +13,10 @@ class Reports extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var preferences = Provider.of<Preferences>(context);
 
     return SingleChildScrollView(
       child: Column(
         children: [
-          preferences.adFree || MediaQuery.of(context).size.width < md
-              ? const SizedBox(height: 0)
-              : const AppBarAd(),
-          MediaQuery.of(context).size.width > md
-              ? const SizedBox(height: 36)
-              : const SizedBox(height: 0),
           Center(
             child: SizedBox(
               height: 350,

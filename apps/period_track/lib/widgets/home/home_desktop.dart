@@ -20,8 +20,6 @@ class _HomeDesktopState extends State<HomeDesktop> {
 
   @override
   Widget build(BuildContext context) {
-    var preferences = Provider.of<Preferences>(context);
-
     return Padding(
       padding: const EdgeInsets.all(12),
       child: SingleChildScrollView(
@@ -29,9 +27,6 @@ class _HomeDesktopState extends State<HomeDesktop> {
           alignment: Alignment.topCenter,
           child: Column(
             children: [
-              preferences.adFree || MediaQuery.of(context).size.width < md
-                  ? const SizedBox(height: 0)
-                  : const AppBarAd(),
               const SizedBox(height: 24),
               const Calendar(),
               const SizedBox(height: 24),

@@ -7,7 +7,8 @@ import 'package:period_track/utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../models/note.dart';
-import '../widgets/about.dart';
+import '../models/preferences.dart';
+import '../widgets/app_bar_ad.dart';
 import '../widgets/home/home.dart';
 import '../widgets/notes.dart';
 import '../widgets/reports/reports.dart';
@@ -33,12 +34,18 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
   Widget build(BuildContext context) {
     var db = DatabaseService();
     var user = Provider.of<User?>(context);
+    var preferences = Provider.of<Preferences>(context);
 
     if (user == null) {
       return const CircularProgressIndicator();
     }
 
     return Scaffold(
+      appBar: AppBar(
+          title:
+          preferences.adFree ? Text(AppLocalizations.of(context)!.periodTrack) : const AppBarAd(),
+          elevation: 0
+      ),
       body: MultiProvider(
         providers: [
           StreamProvider<Iterable<NoteModel>>.value(
@@ -62,22 +69,19 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                         ? const Notes()
                         : _selectedIndex == 2
                             ? const Reports()
-                            : _selectedIndex == 3
-                                ? const Settings()
-                                : const About(),
+                            : const Settings()
               ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
+      floatingActionButton: FloatingActionButton(
         onPressed: () {
           navigatorKey.currentState!.pushNamed('/add-note', arguments: {
             "id": DateUtils.dateOnly(DateTime.now()).toIso8601String()
           });
         },
-        icon: const Icon(Icons.note_add),
-        label: Text(AppLocalizations.of(context)!.newEntry),
+        child: const Icon(Icons.note_add),
       ),
     );
   }
