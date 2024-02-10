@@ -3,7 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:period_track/utils/constants.dart';
+import 'package:utils/constants.dart';
 import 'package:period_track/utils/helper.dart';
 import "package:os_detect/os_detect.dart" as platform;
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:period_track/models/note.dart';
 import 'package:period_track/services/database_service.dart';
-import 'package:period_track/utils/constants.dart';
+import 'package:utils/constants.dart';
 import 'package:period_track/widgets/date_field.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

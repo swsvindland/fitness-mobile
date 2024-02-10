@@ -3,7 +3,7 @@ import 'package:period_track/services/sign_in.dart';
 import 'package:period_track/widgets/delete_account.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../utils/constants.dart';
+import 'package:utils/constants.dart';
 import 'default_cycle.dart';
 
 class Settings extends StatelessWidget {

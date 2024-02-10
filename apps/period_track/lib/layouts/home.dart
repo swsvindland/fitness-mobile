@@ -5,7 +5,7 @@ import 'package:period_track/layouts/home_mobile.dart';
 import 'package:period_track/models/preferences.dart';
 import 'package:period_track/services/database_service.dart';
 import 'package:provider/provider.dart';
-import 'package:period_track/utils/constants.dart';
+import 'package:utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {

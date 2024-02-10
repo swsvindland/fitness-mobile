@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:period_track/models/note.dart';
 import 'package:period_track/utils/colors.dart';
-import 'package:period_track/utils/constants.dart';
+import 'package:utils/constants.dart';
 
 class Note extends StatelessWidget {
   const Note(

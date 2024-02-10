@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../models/preferences.dart';
-import '../../utils/constants.dart';
+import 'package:utils/constants.dart';
 
 class Calendar extends StatefulWidget {
   const Calendar({Key? key}) : super(key: key);

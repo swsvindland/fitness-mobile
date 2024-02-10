@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:period_track/utils/colors.dart';
-import 'package:period_track/utils/constants.dart';
+import 'package:utils/constants.dart';
 import 'package:period_track/widgets/add_note_form.dart';
 import 'package:provider/provider.dart';
 
