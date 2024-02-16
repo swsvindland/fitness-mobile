@@ -8,8 +8,6 @@ class PreferencesDatabaseService {
 
   Stream<Preferences> streamPreferences(String? id) {
     if (id == null) return Stream.error('User ID is null');
-    
-    print(id);
 
     return _db
         .collection('preferences')
