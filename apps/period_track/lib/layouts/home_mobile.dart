@@ -12,7 +12,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../widgets/home/home.dart';
 import '../widgets/notes.dart';
 import '../widgets/reports/reports.dart';
-import '../widgets/settings.dart';
+import '../widgets/settings/settings.dart';
 
 class HomePageMobile extends StatefulWidget {
   const HomePageMobile({Key? key}) : super(key: key);

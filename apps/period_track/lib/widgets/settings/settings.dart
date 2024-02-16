@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:utils/constants.dart';
 import 'package:utils/sign_in.dart';
-import 'default_cycle.dart';
+import 'cycle/default_cycle.dart';
 
 class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);
