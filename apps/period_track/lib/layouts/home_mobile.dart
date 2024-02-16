@@ -1,4 +1,5 @@
 import 'package:api/period_database_service.dart';
+import 'package:api/preferences_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:models/note.dart';
@@ -13,6 +14,7 @@ import '../widgets/home/home.dart';
 import '../widgets/notes.dart';
 import '../widgets/reports/reports.dart';
 import '../widgets/settings/settings.dart';
+import '../widgets/disclaimer_dialog.dart';
 
 class HomePageMobile extends StatefulWidget {
   const HomePageMobile({Key? key}) : super(key: key);
@@ -33,11 +35,16 @@ class _HomePageMobileState extends State<HomePageMobile> {
   @override
   Widget build(BuildContext context) {
     var db = PeriodDatabaseService();
+    var pdb = PreferencesDatabaseService();
     var user = Provider.of<User?>(context);
     var preferences = Provider.of<Preferences>(context);
 
     if (user == null) {
       return const CircularProgressIndicator();
+    }
+
+    if (preferences.disclaimer == false) {
+      Future.delayed(Duration.zero, () => showDisclaimerDialog(context, user, preferences, pdb));
     }
 
     return Scaffold(

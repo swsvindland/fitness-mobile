@@ -103,8 +103,8 @@ class Preferences {
         totalGoal:
             data['totalGoal'] ?? (data['unit'] == 'imperial' ? 128 : 4000),
         drinkSize: data['drinkSize'] ?? 8,
-        start: data['start'] ?? 7,
-        end: data['end'] ?? 20,
+        start: data['start'].toDate().hour,
+        end: data['end'].toDate().hour,
         adFree: data['adFree'] ?? false,
         defaultCycleLength: data['defaultCycleLength'] ?? 28,
         disclaimer: data['disclaimer'] ?? true,

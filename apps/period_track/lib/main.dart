@@ -92,10 +92,6 @@ class _AppState extends State<App> {
         StreamProvider<User?>.value(
             initialData: FirebaseAuth.instance.currentUser,
             value: FirebaseAuth.instance.authStateChanges()),
-        StreamProvider<Preferences>.value(
-            initialData: Preferences.empty(),
-            value: db.streamPreferences(FirebaseAuth.instance.currentUser?.uid),
-            catchError: (_, err) => Preferences.empty()),
       ],
       child: GestureDetector(
         // close keyboard if tap anywhere

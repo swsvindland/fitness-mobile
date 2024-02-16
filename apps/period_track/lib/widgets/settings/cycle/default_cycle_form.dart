@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:utils/constants.dart';
 
 class DefaultCycleForm extends StatefulWidget {
   final Preferences preferences;
@@ -40,17 +41,18 @@ class _DefaultCycleFormState extends State<DefaultCycleForm> {
     set = false;
 
     db.updatePreferences(user!.uid, preferences);
+
+    navigatorKey.currentState!.pop();
   }
 
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User?>(context);
-    final preferences = Provider.of<Preferences>(context);
 
     setState(() {
       if (!set) {
-        defaultCycleLength = preferences.defaultCycleLength;
-        controller.text = preferences.defaultCycleLength.toString();
+        defaultCycleLength = widget.preferences.defaultCycleLength;
+        controller.text = widget.preferences.defaultCycleLength.toString();
       }
     });
 
@@ -72,7 +74,7 @@ class _DefaultCycleFormState extends State<DefaultCycleForm> {
               const SizedBox(height: 16),
               FilledButton(
                 onPressed: () {
-                  update(user, preferences);
+                  update(user, widget.preferences);
                 },
                 child: Text(
                   AppLocalizations.of(context)!.update,

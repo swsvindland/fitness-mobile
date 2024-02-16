@@ -8,6 +8,8 @@ class PreferencesDatabaseService {
 
   Stream<Preferences> streamPreferences(String? id) {
     if (id == null) return Stream.error('User ID is null');
+    
+    print(id);
 
     return _db
         .collection('preferences')
@@ -27,17 +29,10 @@ class PreferencesDatabaseService {
     DocumentSnapshot snapshot =
     await _db.collection('preferences').doc(user.uid).get();
 
+    var empty = Preferences.empty();
+
     if (!snapshot.exists) {
-      snapshot.reference.set({
-        'unit': 'imperial',
-        'waterGoal': 96,
-        'totalGoal': 128,
-        'drinkSize': 8,
-        'start':
-        DateTime.parse('2000-01-01 ${7.toString().padLeft(2, '0')}:00:00'),
-        'end':
-        DateTime.parse('2000-01-01 ${20.toString().padLeft(2, '0')}:00:00'),
-      });
+      snapshot.reference.set(Preferences.toMap(empty));
     }
   }
 }

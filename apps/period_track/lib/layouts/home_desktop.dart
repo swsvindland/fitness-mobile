@@ -1,4 +1,5 @@
 import 'package:api/period_database_service.dart';
+import 'package:api/preferences_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:models/note.dart';
@@ -9,6 +10,7 @@ import 'package:utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../widgets/app_bar_ad.dart';
+import '../widgets/disclaimer_dialog.dart';
 import '../widgets/home/home.dart';
 import '../widgets/notes.dart';
 import '../widgets/reports/reports.dart';
@@ -33,11 +35,16 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
   @override
   Widget build(BuildContext context) {
     var db = PeriodDatabaseService();
+    var pdb = PreferencesDatabaseService();
     var user = Provider.of<User?>(context);
     var preferences = Provider.of<Preferences>(context);
 
     if (user == null) {
       return const CircularProgressIndicator();
+    }
+
+    if (preferences.disclaimer == false) {
+      Future.delayed(Duration.zero, () => showDisclaimerDialog(context, user, preferences, pdb));
     }
 
     return Scaffold(
