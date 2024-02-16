@@ -36,8 +36,20 @@ class Note extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(body),
-              const SizedBox(height: 8),
+              const Divider(color: primaryDark),
+              body.isEmpty ? const SizedBox() :
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 8),
+                  Text(
+                    body,
+                  ),
+                  const SizedBox(height: 8),
+                  const Divider(color: primaryDark),
+                ],
+              ),
               Row(
                 children: [
                   periodStart
