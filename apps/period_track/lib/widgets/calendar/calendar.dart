@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:period_track/models/note.dart';
+import 'package:models/note.dart';
+import 'package:models/preferences.dart';
 import 'package:period_track/utils/colors.dart';
 import 'package:period_track/utils/helper.dart';
 import 'package:period_track/widgets/calendar/calendar_header.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-import '../../models/preferences.dart';
 import 'package:utils/constants.dart';
 
 class Calendar extends StatefulWidget {

@@ -9,17 +9,17 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:period_track/services/database_service.dart';
+import 'package:models/models.dart';
 import 'package:period_track/utils/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:period_track/layouts/layouts.dart';
 import 'package:utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:api/preferences_database_service.dart';
 
 import 'firebase_options.dart';
 import 'layouts/add_note.dart';
-import 'models/preferences.dart';
 
 const _kTestingCrashlytics = false;
 
@@ -60,7 +60,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  final db = DatabaseService();
+  final db = PreferencesDatabaseService();
   static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   static FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
 

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:models/note.dart';
 import 'package:period_track/utils/colors.dart';
 import 'package:period_track/widgets/note.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../models/note.dart';
 
 class Notes extends StatelessWidget {
   const Notes({Key? key}) : super(key: key);

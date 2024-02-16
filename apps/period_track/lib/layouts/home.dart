@@ -1,9 +1,9 @@
+import 'package:api/preferences_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:models/preferences.dart';
 import 'package:period_track/layouts/home_desktop.dart';
 import 'package:period_track/layouts/home_mobile.dart';
-import 'package:period_track/models/preferences.dart';
-import 'package:period_track/services/database_service.dart';
 import 'package:provider/provider.dart';
 import 'package:utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -16,9 +16,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _db = DatabaseService();
+  final _db = PreferencesDatabaseService();
 
-  Future<void> _showDisclaimerDialog(BuildContext context, User user, Preferences preferences, DatabaseService db) async {
+  Future<void> _showDisclaimerDialog(BuildContext context, User user, Preferences preferences, PreferencesDatabaseService db) async {
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!

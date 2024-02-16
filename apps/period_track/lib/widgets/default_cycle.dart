@@ -1,10 +1,10 @@
+import 'package:api/preferences_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:models/preferences.dart';
 import 'package:provider/provider.dart';
-import 'package:period_track/services/database_service.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../models/preferences.dart';
 import '../utils/colors.dart';
 
 class DefaultCycle extends StatefulWidget {
@@ -15,7 +15,7 @@ class DefaultCycle extends StatefulWidget {
 }
 
 class _DefaultCycleState extends State<DefaultCycle> {
-  final db = DatabaseService();
+  final db = PreferencesDatabaseService();
   late int defaultCycleLength;
   bool set = false;
   late TextEditingController controller;

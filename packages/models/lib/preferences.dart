@@ -8,6 +8,8 @@ class Preferences {
   int start;
   int end;
   bool adFree;
+  int defaultCycleLength;
+  bool disclaimer;
 
   Preferences({
     required this.height,
@@ -19,6 +21,8 @@ class Preferences {
     required this.start,
     required this.end,
     required this.adFree,
+    required this.defaultCycleLength,
+    required this.disclaimer,
   });
 
   void setHeight(int feet, int inches) {
@@ -57,6 +61,18 @@ class Preferences {
     end = value;
   }
 
+  void setAdFree(bool value) {
+    adFree = value;
+  }
+
+  void setDefaultCycleLength(int value) {
+    defaultCycleLength = value;
+  }
+
+  void agreeToDisclaimer() {
+    disclaimer = true;
+  }
+
   void changeUnit() {
     if (unit == 'imperial') {
       unit = 'metric';
@@ -72,7 +88,7 @@ class Preferences {
   }
 
   static Preferences empty() {
-    return Preferences(start: 7, height: 66, sex: 'male', adFree: false, unit: 'imperial', waterGoal: 96, totalGoal: 128, drinkSize: 8, end: 20);
+    return Preferences(start: 7, height: 66, sex: 'male', adFree: false, unit: 'imperial', waterGoal: 96, totalGoal: 128, drinkSize: 8, end: 20, defaultCycleLength: 28, disclaimer: true);
   }
 
   factory Preferences.fromMap(Map data) {
@@ -90,6 +106,8 @@ class Preferences {
         start: data['start'] ?? 7,
         end: data['end'] ?? 20,
         adFree: data['adFree'] ?? false,
+        defaultCycleLength: data['defaultCycleLength'] ?? 28,
+        disclaimer: data['disclaimer'] ?? true,
     );
   }
 
@@ -107,6 +125,8 @@ class Preferences {
       'end': DateTime.parse(
           '2000-01-01 ${data.end.toString().padLeft(2, '0')}:00:00'),
       'adFree': data.adFree,
+      'defaultCycleLength': data.defaultCycleLength,
+      'disclaimer': data.disclaimer
     };
   }
 }

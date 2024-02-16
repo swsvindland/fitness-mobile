@@ -1,14 +1,14 @@
+import 'package:api/period_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:models/note.dart';
+import 'package:models/preferences.dart';
 import 'package:period_track/widgets/app_bar_ad.dart';
 import 'package:provider/provider.dart';
-import 'package:period_track/services/database_service.dart';
 import 'package:utils/constants.dart';
 import 'package:period_track/widgets/navigation/navigation_bottom.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../models/note.dart';
-import '../models/preferences.dart';
 import '../widgets/home/home.dart';
 import '../widgets/notes.dart';
 import '../widgets/reports/reports.dart';
@@ -32,7 +32,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
 
   @override
   Widget build(BuildContext context) {
-    var db = DatabaseService();
+    var db = PeriodDatabaseService();
     var user = Provider.of<User?>(context);
     var preferences = Provider.of<Preferences>(context);
 

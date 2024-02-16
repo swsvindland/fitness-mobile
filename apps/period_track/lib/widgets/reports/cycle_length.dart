@@ -1,8 +1,8 @@
 import 'package:community_charts_flutter/community_charts_flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:period_track/models/note.dart';
-import 'package:period_track/models/preferences.dart';
+import 'package:models/note.dart';
+import 'package:models/preferences.dart';
 import 'package:period_track/utils/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

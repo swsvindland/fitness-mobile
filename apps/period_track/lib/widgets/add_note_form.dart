@@ -1,8 +1,8 @@
+import 'package:api/period_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:period_track/models/note.dart';
-import 'package:period_track/services/database_service.dart';
+import 'package:models/note.dart';
 import 'package:utils/constants.dart';
 import 'package:period_track/widgets/date_field.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +19,7 @@ class AddNoteForm extends StatefulWidget {
 }
 
 class _AddNoteFormState extends State<AddNoteForm> {
-  final _db = DatabaseService();
+  final _db = PeriodDatabaseService();
   final _formKey = GlobalKey<FormState>();
 
   // note

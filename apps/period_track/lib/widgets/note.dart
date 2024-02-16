@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:period_track/models/note.dart';
+import 'package:models/note.dart';
 import 'package:period_track/utils/colors.dart';
 import 'package:utils/constants.dart';
 

@@ -1,16 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:models/models.dart';
 import 'package:period_track/utils/colors.dart';
 import 'package:utils/constants.dart';
 import 'package:period_track/widgets/add_note_form.dart';
 import 'package:provider/provider.dart';
+import 'package:api/period_database_service.dart';
 
-import '../models/note.dart';
-import '../services/database_service.dart';
 
 class AddNotePage extends StatelessWidget {
   AddNotePage({Key? key}) : super(key: key);
-  final db = DatabaseService();
+  final db = PeriodDatabaseService();
 
   @override
   Widget build(BuildContext context) {
