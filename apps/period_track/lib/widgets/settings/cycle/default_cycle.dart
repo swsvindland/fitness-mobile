@@ -17,10 +17,12 @@ class _DefaultCycleState extends State<DefaultCycle> {
     final preferences = Provider.of<Preferences>(context);
 
     handleAction() {
-      showModalBottomSheet<void>(
+      showDialog(
         context: context,
         builder: (BuildContext context) {
-          return DefaultCycleForm(preferences: preferences);
+          return DefaultCycleForm(
+            preferences: preferences,
+          );
         },
       );
     }

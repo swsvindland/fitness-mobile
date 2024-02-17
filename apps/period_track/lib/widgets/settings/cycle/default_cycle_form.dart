@@ -41,8 +41,6 @@ class _DefaultCycleFormState extends State<DefaultCycleForm> {
     set = false;
 
     db.updatePreferences(user!.uid, preferences);
-
-    navigatorKey.currentState!.pop();
   }
 
   @override
@@ -56,34 +54,38 @@ class _DefaultCycleFormState extends State<DefaultCycleForm> {
       }
     });
 
-    return SizedBox(
-      height: 250,
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              TextFormField(
-                controller: controller,
-                decoration: InputDecoration(
-                  labelText: AppLocalizations.of(context)!.defaultLength,
-                ),
-                keyboardType: const TextInputType.numberWithOptions(),
-              ),
-              const SizedBox(height: 16),
-              FilledButton(
-                onPressed: () {
-                  update(user, widget.preferences);
-                },
-                child: Text(
-                  AppLocalizations.of(context)!.update,
-                  style: const TextStyle(fontSize: 16),
-                ),
-              ),
-            ],
+    return Form(
+      key: _formKey,
+      child: AlertDialog(
+        content: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 24.0),
+          child: TextFormField(
+            controller: controller,
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.defaultLength,
+            ),
+            keyboardType: const TextInputType.numberWithOptions(),
           ),
         ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              navigatorKey.currentState!.pop();
+            },
+            child: Text(
+              AppLocalizations.of(context)!.cancel,
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              update(user, widget.preferences);
+              navigatorKey.currentState!.pop();
+            },
+            child: Text(
+              AppLocalizations.of(context)!.update,
+            ),
+          ),
+        ],
       ),
     );
   }

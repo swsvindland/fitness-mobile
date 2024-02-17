@@ -9,7 +9,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:models/models.dart';
 import 'package:period_track/utils/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:period_track/layouts/layouts.dart';

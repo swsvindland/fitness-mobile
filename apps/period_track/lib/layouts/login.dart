@@ -2,7 +2,6 @@ import 'package:api/fcm_database_service.dart';
 import 'package:api/preferences_database_service.dart';
 import 'package:api/user_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:period_track/utils/colors.dart';
 import 'package:utils/constants.dart';
@@ -22,7 +21,6 @@ class _LoginPageState extends State<LoginPage> {
   final _db = UserDatabaseService();
   final _pdb = PreferencesDatabaseService();
   final _fdb = FCMDatabaseService();
-  final FirebaseMessaging _fcm = FirebaseMessaging.instance;
   late bool loggingIn;
 
   @override
