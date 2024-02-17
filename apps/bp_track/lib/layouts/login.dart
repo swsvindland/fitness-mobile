@@ -1,6 +1,7 @@
 import 'package:api/user_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:utils/constants.dart';
 import 'package:utils/sign_in.dart';
 import "package:os_detect/os_detect.dart" as platform;
@@ -85,7 +86,12 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const Icon(Icons.monitor_heart, size: 96.0),
+                SvgPicture.asset(
+                    'images/logo.svg',
+                    semanticsLabel: 'Blood Pressure Track Logo',
+                    width: 200,
+                    height: 200
+                ),
                 const SizedBox(height: 40),
                 loggingIn
                     ? const CircularProgressIndicator()

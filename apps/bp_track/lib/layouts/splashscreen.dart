@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:api/user_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:utils/constants.dart';
 
 class SplashScreenPage extends StatefulWidget {
@@ -42,17 +43,22 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(24),
+          padding: const EdgeInsets.all(24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Icon(Icons.monitor_heart, size: 96.0),
-              SizedBox(height: 75),
-              CircularProgressIndicator()
+              SvgPicture.asset(
+                  'images/logo.svg',
+                  semanticsLabel: 'Blood Pressure Track Logo',
+                  width: 200,
+                  height: 200
+              ),
+              const SizedBox(height: 75),
+              const CircularProgressIndicator()
             ],
           ),
         ),
