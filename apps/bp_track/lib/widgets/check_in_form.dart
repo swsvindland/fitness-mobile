@@ -74,56 +74,78 @@ class _CheckInState extends State<CheckInForm> {
           int.tryParse(heartRateController.text));
     }
 
-    return Form(
-      key: _formKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Input(
-              label: AppLocalizations.of(context)!.systolic,
-              controller: systolicController,
-              validator: checkInValidator),
-          Input(
-              label: AppLocalizations.of(context)!.diastolic,
-              controller: diastolicController,
-              validator: checkInValidator),
-          Input(
-            label: AppLocalizations.of(context)!.heartRate,
-            controller: heartRateController,
-            validator: optionalCheckInIntValidator,
+    return AlertDialog(
+      content: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        child: Form(
+          key: _formKey,
+          child: SizedBox(
+            height: 225,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Input(
+                    label: AppLocalizations.of(context)!.systolic,
+                    controller: systolicController,
+                    validator: checkInValidator),
+                Input(
+                    label: AppLocalizations.of(context)!.diastolic,
+                    controller: diastolicController,
+                    validator: checkInValidator),
+                Input(
+                  label: AppLocalizations.of(context)!.heartRate,
+                  controller: heartRateController,
+                  validator: optionalCheckInIntValidator,
+                ),
+              ],
+            ),
           ),
-          FilledButton(
-            onPressed: () async {
-              if (_formKey.currentState!.validate()) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(AppLocalizations.of(context)!.saving)),
-                );
-                await submit();
-                navigatorKey.currentState!.pop();
-              }
-            },
-            child: Text(AppLocalizations.of(context)!.submit),
-          ),
-          widget.data != null
-              ? OutlinedButton(
-                  onPressed: () async {
-                    // Validate returns true if the form is valid, or false otherwise.
-                    if (_formKey.currentState!.validate()) {
-                      // If the form is valid, display a snackbar. In the real world,
-                      // you'd often call a server or save the information in a database.
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(AppLocalizations.of(context)!.processingData)),
-                      );
-                      await delete();
-                      navigatorKey.currentState!.pop();
-                    }
-                  },
-                  child: Text(AppLocalizations.of(context)!.delete),
-                )
-              : const SizedBox(),
-        ],
+        ),
       ),
+      actions: [
+        widget.data != null
+            ? TextButton(
+                onPressed: () async {
+                  // Validate returns true if the form is valid, or false otherwise.
+                  if (_formKey.currentState!.validate()) {
+                    // If the form is valid, display a snackbar. In the real world,
+                    // you'd often call a server or save the information in a database.
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                          content: Text(
+                              AppLocalizations.of(context)!.processingData)),
+                    );
+                    await delete();
+                    navigatorKey.currentState!.pop();
+                  }
+                },
+                child: Text(AppLocalizations.of(context)!.delete),
+              )
+            : const SizedBox(),
+        TextButton(
+          onPressed: () {
+            navigatorKey.currentState!.pop();
+          },
+          child: Text(AppLocalizations.of(context)!.cancel),
+        ),
+        TextButton(
+          onPressed: () async {
+            if (_formKey.currentState!.validate()) {
+              // If the form is valid, display a snackbar. In the real world,
+              // you'd often call a server or save the information in a database.
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                    content:
+                        Text(AppLocalizations.of(context)!.processingData)),
+              );
+              await submit();
+              navigatorKey.currentState!.pop();
+            }
+          },
+          child: Text(AppLocalizations.of(context)!.submit),
+        ),
+      ],
     );
   }
 }

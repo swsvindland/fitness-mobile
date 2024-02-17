@@ -12,16 +12,10 @@ class CheckInCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     handleAction() {
-      showModalBottomSheet<void>(
+      showDialog(
           context: context,
           builder: (BuildContext context) {
-            return SizedBox(
-              height: 400,
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: CheckInForm(data: data),
-              ),
-            );
+            return CheckInForm(data: data);
           });
     }
 

@@ -21,16 +21,10 @@ class _HomeState extends State<HomePage> {
   final db = BodyDatabaseService();
 
   handleAction() {
-    showModalBottomSheet<void>(
+    showDialog(
         context: context,
         builder: (BuildContext context) {
-          return const SizedBox(
-            height: 400,
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: CheckInForm(),
-            ),
-          );
+          return const CheckInForm();
         });
   }
 
