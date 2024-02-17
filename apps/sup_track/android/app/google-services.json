@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "799108724870",
+    "project_id": "suptrack-c8f9f",
+    "storage_bucket": "suptrack-c8f9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799108724870:android:e35e4e3110df2f35e47907",
+        "android_client_info": {
+          "package_name": "com.example.sup_track"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799108724870-1i7go81vu00kboe7m60rdgc1s88m6rce.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6nOh_0S6lxJ-JcFW7_O91dOhPygLyD9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799108724870-1i7go81vu00kboe7m60rdgc1s88m6rce.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "799108724870-04u1uam5qjdqg37e1dt884fj81o0425g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.supTrack"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

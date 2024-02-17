@@ -1,0 +1,37 @@
+{
+    "bpTrack": "Blood Pressure Track",
+    "settings": "Settings",
+    "about": "About",
+    "aboutPageCredits": "Designed and Built by",
+    "aboutPageVersion": "Version",
+    "logOut": "Log Out",
+    "googleSignIn": "Continue with Google",
+    "appleSignIn": "Continue with Apple",
+    "anonSignIn": "Continue without Account",
+    "checkIn": "Check In",
+
+    "systolic": "Systolic",
+    "diastolic": "Diastolic",
+    "heartRate": "Heart Rate",
+    "goBack": "Go Back",
+    "formInputError": "Please enter a measurement",
+    "submit": "Submit",
+    "saving": "Saving...",
+
+    "deleteAccount": "Delete Account",
+    "deleteAccountConfirm": "This will delete your account and all user data forever. Are you sure?",
+    "delete": "Delete",
+    "cancel": "Cancel",
+
+    "noHeartDate": "Looks like you have no heart rates. Click the plus icon to get started.",
+   "noBloodPressureData": "Looks like you have no blood pressure data. Click the plus icon to get started.",
+   "processingData": "Processing Data...",
+
+   "avgHeartRate": "Average Heart Rate",
+   "avgBloodPressure": "Average Blood Pressure",
+   "last30": "Last 30 Days",
+
+   "home": "Home",
+   "all": "All",
+   "settings": "Settings"
+}
