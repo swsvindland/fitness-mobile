@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "8878044441-9ioi1h7nonv53q1l5vrp7fbqia2g2j38.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svindland.periodtrack",
+            "certificate_hash": "ea11cf94007630919007f53cf7d39ba288eca60c"
+          }
+        },
+        {
           "client_id": "8878044441-lqg81h4naba3vvusarg17g593ak21bdj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
