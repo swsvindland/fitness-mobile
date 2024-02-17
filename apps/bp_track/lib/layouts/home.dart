@@ -39,7 +39,6 @@ class _HomeState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const AppBarAd(),
-        elevation: 0,
       ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
