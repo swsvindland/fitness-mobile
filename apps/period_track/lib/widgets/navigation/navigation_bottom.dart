@@ -3,7 +3,7 @@ import 'package:utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NavigationBottom extends StatelessWidget {
-  const NavigationBottom({Key? key, required this.selectedIndex, required this.onItemTapped}) : super(key: key);
+  const NavigationBottom({super.key, required this.selectedIndex, required this.onItemTapped});
   final int selectedIndex;
   final Function(int) onItemTapped;
 

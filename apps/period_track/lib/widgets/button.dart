@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
-  const Button({Key? key, required this.onPressed, required this.child, this.variant})
-      : super(key: key);
+  const Button({super.key, required this.onPressed, required this.child, this.variant});
 
   final VoidCallback? onPressed;
   final Widget child;

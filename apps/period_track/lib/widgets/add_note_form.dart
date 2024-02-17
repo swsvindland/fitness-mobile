@@ -11,7 +11,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../utils/colors.dart';
 
 class AddNoteForm extends StatefulWidget {
-  const AddNoteForm({Key? key, required this.date}) : super(key: key);
+  const AddNoteForm({super.key, required this.date});
   final DateTime? date;
 
   @override

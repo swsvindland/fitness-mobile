@@ -4,7 +4,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../utils/ad_helper.dart';
 
 class AppBarAd extends StatefulWidget {
-  const AppBarAd({Key? key}) : super(key: key);
+  const AppBarAd({super.key});
 
   @override
   State<AppBarAd> createState() => _AppBarAdState();

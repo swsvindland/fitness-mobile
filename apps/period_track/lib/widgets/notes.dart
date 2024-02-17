@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Notes extends StatelessWidget {
-  const Notes({Key? key}) : super(key: key);
+  const Notes({super.key});
 
   @override
   Widget build(BuildContext context) {

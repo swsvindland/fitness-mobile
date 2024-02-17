@@ -4,8 +4,7 @@ import 'package:utils/constants.dart';
 
 class SideNavigation extends StatelessWidget {
   const SideNavigation(
-      {Key? key, required this.selectedIndex, required this.onItemTapped})
-      : super(key: key);
+      {super.key, required this.selectedIndex, required this.onItemTapped});
 
   final int selectedIndex;
   final Function(int) onItemTapped;

@@ -4,7 +4,7 @@ import 'package:period_track/utils/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CalendarKey extends StatelessWidget {
-  const CalendarKey({Key? key}) : super(key: key);
+  const CalendarKey({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +79,7 @@ class CalendarKey extends StatelessWidget {
 }
 
 class CalendarKeyItem extends StatelessWidget {
-  const CalendarKeyItem({Key? key, required this.icon, required this.text})
-      : super(key: key);
+  const CalendarKeyItem({super.key, required this.icon, required this.text});
   final Widget icon;
   final String text;
 
@@ -112,8 +111,7 @@ class CalendarKeyItem extends StatelessWidget {
 }
 
 class CalendarKeyItemIconCircle extends StatelessWidget {
-  const CalendarKeyItemIconCircle({Key? key, required this.color})
-      : super(key: key);
+  const CalendarKeyItemIconCircle({super.key, required this.color});
   final Color color;
 
   @override
@@ -128,8 +126,7 @@ class CalendarKeyItemIconCircle extends StatelessWidget {
 }
 
 class CalendarKeyItemIconOutlinedCircle extends StatelessWidget {
-  const CalendarKeyItemIconOutlinedCircle({Key? key, required this.color})
-      : super(key: key);
+  const CalendarKeyItemIconOutlinedCircle({super.key, required this.color});
   final Color color;
 
   @override
@@ -143,8 +140,7 @@ class CalendarKeyItemIconOutlinedCircle extends StatelessWidget {
 }
 
 class CalendarKeyItemIconDot extends StatelessWidget {
-  const CalendarKeyItemIconDot({Key? key, required this.color})
-      : super(key: key);
+  const CalendarKeyItemIconDot({super.key, required this.color});
   final Color color;
 
   @override

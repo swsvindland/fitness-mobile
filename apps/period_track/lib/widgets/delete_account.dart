@@ -5,7 +5,7 @@ import 'package:period_track/widgets/button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DeleteAccount extends StatelessWidget {
-  const DeleteAccount({Key? key}) : super(key: key);
+  const DeleteAccount({super.key});
 
   handleDeleteAccount() {
     try {

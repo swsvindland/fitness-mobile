@@ -6,7 +6,7 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../calendar/calendar.dart';
 
 class HomeMobile extends StatefulWidget {
-  const HomeMobile({Key? key}) : super(key: key);
+  const HomeMobile({super.key});
 
   @override
   State<HomeMobile> createState() => _HomeMobileState();

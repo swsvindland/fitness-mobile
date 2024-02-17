@@ -6,13 +6,12 @@ import 'package:utils/constants.dart';
 
 class Note extends StatelessWidget {
   const Note(
-      {Key? key,
+      {super.key,
       required this.title,
       required this.body,
       required this.flow,
       required this.periodStart,
-      required this.intimacy})
-      : super(key: key);
+      required this.intimacy});
   final DateTime title;
   final String body;
   final FlowRate? flow;
@@ -74,7 +73,7 @@ class Note extends StatelessWidget {
 }
 
 class FlowIndicator extends StatelessWidget {
-  const FlowIndicator({Key? key, required this.flow}) : super(key: key);
+  const FlowIndicator({super.key, required this.flow});
   final FlowRate? flow;
 
   @override

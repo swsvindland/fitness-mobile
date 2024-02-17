@@ -10,7 +10,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../utils/helper.dart';
 
 class CycleLength extends StatelessWidget {
-  const CycleLength({Key? key}) : super(key: key);
+  const CycleLength({super.key});
 
   @override
   Widget build(BuildContext context) {

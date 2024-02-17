@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DateField extends StatelessWidget {
-  DateField({Key? key, required this.controller, required this.onChanged}) : super(key: key);
+  DateField({super.key, required this.controller, required this.onChanged});
   final TextEditingController controller;
   final Function(DateTime?)? onChanged;
 

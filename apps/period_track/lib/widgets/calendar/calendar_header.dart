@@ -9,11 +9,11 @@ class CalendarHeader extends StatelessWidget {
   final VoidCallback onRightArrowTap;
 
   const CalendarHeader({
-    Key? key,
+    super.key,
     required this.focusedDay,
     required this.onLeftArrowTap,
     required this.onRightArrowTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:period_track/widgets/calendar/calendar_key.dart';
 import '../calendar/calendar.dart';
 
 class HomeDesktop extends StatefulWidget {
-  const HomeDesktop({Key? key}) : super(key: key);
+  const HomeDesktop({super.key});
 
   @override
   State<HomeDesktop> createState() => _HomeDesktopState();

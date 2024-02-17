@@ -10,7 +10,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../utils/helper.dart';
 
 class FlowLength extends StatelessWidget {
-  const FlowLength({Key? key}) : super(key: key);
+  const FlowLength({super.key});
 
   @override
   Widget build(BuildContext context) {

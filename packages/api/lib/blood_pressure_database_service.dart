@@ -39,7 +39,7 @@ class BloodPressureDatabaseService {
         .collection('bps')
         .where(FieldPath.documentId, isEqualTo: id)
         .get()
-        .then((value) => {
+        .then((value) {
               for (var element in value.docs)
                 {
                   element.reference.update({
@@ -47,8 +47,8 @@ class BloodPressureDatabaseService {
                     "systolic": systolic,
                     "diastolic": diastolic,
                     "heartRate": heartRate
-                  })
-                }
+                  });
+                };
             });
   }
 

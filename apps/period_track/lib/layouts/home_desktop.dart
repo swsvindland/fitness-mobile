@@ -17,7 +17,7 @@ import '../widgets/reports/reports.dart';
 import '../widgets/settings/settings.dart';
 
 class HomePageDesktop extends StatefulWidget {
-  const HomePageDesktop({Key? key}) : super(key: key);
+  const HomePageDesktop({super.key});
 
   @override
   State<HomePageDesktop> createState() => _HomePageDesktopState();

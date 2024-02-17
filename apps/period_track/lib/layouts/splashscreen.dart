@@ -7,7 +7,7 @@ import 'package:utils/constants.dart';
 import "package:os_detect/os_detect.dart" as platform;
 
 class SplashscreenPage extends StatefulWidget {
-  const SplashscreenPage({Key? key}) : super(key: key);
+  const SplashscreenPage({super.key});
 
   @override
   State<SplashscreenPage> createState() => _SplashscreenPageState();

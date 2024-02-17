@@ -9,7 +9,7 @@ import 'package:api/period_database_service.dart';
 
 
 class AddNotePage extends StatelessWidget {
-  AddNotePage({Key? key}) : super(key: key);
+  AddNotePage({super.key});
   final db = PeriodDatabaseService();
 
   @override

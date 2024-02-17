@@ -5,7 +5,7 @@ import 'package:period_track/widgets/reports/flow_length.dart';
 import 'cycle_length.dart';
 
 class Reports extends StatelessWidget {
-  const Reports({Key? key}) : super(key: key);
+  const Reports({super.key});
 
   @override
   Widget build(BuildContext context) {

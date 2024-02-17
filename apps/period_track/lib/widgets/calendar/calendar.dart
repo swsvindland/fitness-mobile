@@ -11,7 +11,7 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:utils/constants.dart';
 
 class Calendar extends StatefulWidget {
-  const Calendar({Key? key}) : super(key: key);
+  const Calendar({super.key});
 
   @override
   State<Calendar> createState() => _CalendarState();
@@ -221,7 +221,7 @@ class _CalendarState extends State<Calendar> {
 
 class CalendarDay extends StatelessWidget {
   const CalendarDay(
-      {Key? key,
+      {super.key,
       required this.day,
       required this.day2,
       required this.periodStartDate,
@@ -229,8 +229,7 @@ class CalendarDay extends StatelessWidget {
       required this.keyedNotes,
       required this.predictedPeriodDays,
       required this.fertileDays
-      })
-      : super(key: key);
+      });
   final DateTime day;
   final DateTime day2;
   final Map<DateTime, DateTime> periodStartDate;

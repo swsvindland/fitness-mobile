@@ -17,7 +17,7 @@ import '../widgets/settings/settings.dart';
 import '../widgets/disclaimer_dialog.dart';
 
 class HomePageMobile extends StatefulWidget {
-  const HomePageMobile({Key? key}) : super(key: key);
+  const HomePageMobile({super.key});
 
   @override
   State<HomePageMobile> createState() => _HomePageMobileState();
