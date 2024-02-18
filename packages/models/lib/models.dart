@@ -4,3 +4,6 @@ export 'checkin.dart';
 export 'drink.dart';
 export 'blood_pressure.dart';
 export 'note.dart';
+export 'supplement.dart';
+export 'user_supplement.dart';
+export 'user.dart';

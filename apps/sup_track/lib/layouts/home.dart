@@ -43,9 +43,9 @@ class _HomeState extends State<HomePage> {
               child: SizedBox(
                 width: 600,
                 child: currentPageIndex == 0
-                    ? const Home()
+                    ? Home()
                     : currentPageIndex == 1
-                    ? const All()
+                    ? All()
                     : Settings(),
               ),
             ),
