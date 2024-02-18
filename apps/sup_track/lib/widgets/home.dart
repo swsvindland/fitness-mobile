@@ -2,7 +2,7 @@ import 'package:api/supplement_database_service.dart';
 import 'package:flutter/material.dart';
 import 'package:models/models.dart';
 import 'package:provider/provider.dart';
-
+import 'package:sup_track/widgets/user_supplement_list.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
@@ -10,25 +10,24 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        StreamProvider<Iterable<UserSupplement>>.value(
-          value: db.streamUserSupplements(),
-          initialData: const [],
-        )
-      ],
-      child: const Align(
-        alignment: Alignment.topCenter,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Text("Hello World")
-            ],
-          ),
-        ),
-      ),
-    );
+    return FutureBuilder(
+        future: db.streamUserSupplements(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return MultiProvider(
+              providers: [
+                StreamProvider<Iterable<UserSupplement>>.value(
+                  value: snapshot.data as Stream<Iterable<UserSupplement>>,
+                  initialData: const [],
+                  catchError: (context, error) => const [],
+                ),
+              ],
+              child: const Align(
+                  alignment: Alignment.topCenter, child: UserSupplementList()),
+            );
+          } else {
+            return const CircularProgressIndicator();
+          }
+        });
   }
 }

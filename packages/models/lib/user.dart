@@ -13,7 +13,7 @@ class UserModel {
       id: data['id'],
       displayName: data['displayName'],
       email: data['email'],
-      lastSeen: data['lastSeen'],
+      lastSeen: data['lastSeen'].toDate(),
       uid: data['uid'],
     );
   }

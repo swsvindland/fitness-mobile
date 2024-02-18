@@ -25,15 +25,21 @@ class SupplementDatabaseService {
     });
   }
 
-  Stream<Iterable<UserSupplement>> streamUserSupplements() {
-    return _db
-        .collection('supplements')
-        .snapshots()
-        .map((event) => event.docs.map((e) => UserSupplement.fromMap({
-              "id": e.id,
-              "uid": e.data()['uid'],
-              "supplementId": e.data()['supplementId'],
-              "date": e.data()['date'],
-            })));
+  Future<Stream<Iterable<UserSupplement>>> streamUserSupplements() async {
+    return _db.collection('userSupplements').snapshots().asyncMap((element) {
+      return Stream.fromIterable(element.docs).asyncMap((e) async {
+        var user =
+            await _db.doc(e.data()['user']).get().then((value) => value.data());
+        var supplement =
+            await _db.doc(e.data()['supplement']).get().then((value) => value.data());
+
+        return UserSupplement.fromMap({
+          "id": e.id,
+          "user": user != null ? UserModel.fromMap(user) : null,
+          "supplement": supplement != null ? Supplement.fromMap(supplement) : null,
+          "date": e.data()['date']
+        });
+      }).toList();
+    });
   }
 }
