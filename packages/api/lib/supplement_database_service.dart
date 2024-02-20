@@ -30,16 +30,34 @@ class SupplementDatabaseService {
       return Stream.fromIterable(element.docs).asyncMap((e) async {
         var user =
             await _db.doc(e.data()['user']).get().then((value) => value.data());
-        var supplement =
-            await _db.doc(e.data()['supplement']).get().then((value) => value.data());
+        var supplement = await _db
+            .doc(e.data()['supplement'])
+            .get()
+            .then((value) => value.data());
 
         return UserSupplement.fromMap({
           "id": e.id,
           "user": user != null ? UserModel.fromMap(user) : null,
-          "supplement": supplement != null ? Supplement.fromMap(supplement) : null,
+          "supplement":
+              supplement != null ? Supplement.fromMap(supplement) : null,
           "date": e.data()['date']
         });
       }).toList();
     });
+  }
+
+  Stream<Iterable<UserSupplementActivity>> streamUserSupplementActivity(
+      String uid, String? supplementId) {
+    if (supplementId == null) return List.empty() as Stream<Iterable<UserSupplementActivity>>;
+
+    var supplementRef = _db.doc('userSupplements/$supplementId');
+
+    return _db
+        .collection('userSupplementActivity')
+        .where('uid', isEqualTo: uid)
+        .where('userSupplement', isEqualTo: supplementRef)
+        .snapshots()
+        .map((event) => event.docs.map((e) => UserSupplementActivity.fromMap(e.data())));
+
   }
 }

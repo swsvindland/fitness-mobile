@@ -11,23 +11,26 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: db.streamUserSupplements(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return MultiProvider(
-              providers: [
-                StreamProvider<Iterable<UserSupplement>>.value(
-                  value: snapshot.data as Stream<Iterable<UserSupplement>>,
-                  initialData: const [],
-                  catchError: (context, error) => const [],
-                ),
-              ],
-              child: const Align(
-                  alignment: Alignment.topCenter, child: UserSupplementList()),
-            );
-          } else {
-            return const CircularProgressIndicator();
-          }
-        });
+      future: db.streamUserSupplements(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return MultiProvider(
+            providers: [
+              StreamProvider<Iterable<UserSupplement>>.value(
+                value: snapshot.data as Stream<Iterable<UserSupplement>>,
+                initialData: const [],
+                catchError: (context, error) => const [],
+              ),
+            ],
+            child: const Align(
+                alignment: Alignment.topCenter, child: UserSupplementList()),
+          );
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
+    );
   }
 }

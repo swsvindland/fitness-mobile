@@ -20,7 +20,13 @@ class SupplementList extends StatelessWidget {
       itemCount: supplements.length,
       itemBuilder: (context, index) {
         var supplement = supplements.elementAt(index);
-        return SupplementCard(name: supplement.name, brand: supplement.brand, uid: user.uid, supplementId: supplement.id);
+        return SupplementCard(
+          name: supplement.name,
+          brand: supplement.brand,
+          uid: user.uid,
+          supplementId: supplement.id,
+          user: false,
+        );
       },
     );
   }

@@ -25,6 +25,8 @@ class UserSupplementList extends StatelessWidget {
           name: userSupplement.supplement?.name ?? '',
           brand: userSupplement.supplement?.brand ?? '',
           uid: user.uid,
+          supplementId: userSupplement.id,
+          user: true,
         );
       },
     );

@@ -7,3 +7,4 @@ export 'note.dart';
 export 'supplement.dart';
 export 'user_supplement.dart';
 export 'user.dart';
+export 'user_supplement_activity.dart';
