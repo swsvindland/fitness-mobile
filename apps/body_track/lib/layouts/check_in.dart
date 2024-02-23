@@ -24,11 +24,7 @@ class _CheckInState extends State<CheckIn> {
           },
         ),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(24),
-        child: SingleChildScrollView(
-            scrollDirection: Axis.vertical, child: BodyMeasurementForm()),
-      ),
+      body: const BodyMeasurementForm(),
     );
   }
 }

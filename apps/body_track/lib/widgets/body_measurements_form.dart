@@ -8,7 +8,6 @@ import 'package:utils/helper.dart';
 import 'package:widgets/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
 class BodyMeasurementForm extends StatefulWidget {
   final CheckInModel? data;
 
@@ -103,123 +102,132 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
       );
     }
 
-    return Form(
-      key: _formKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Input(
-              label: AppLocalizations.of(context)!.neck,
-              controller: neckController,
-              validator: checkInValidator),
-          Input(
-              label: AppLocalizations.of(context)!.shoulders,
-              controller: shouldersController,
-              validator: checkInValidator),
-          Input(
-              label: AppLocalizations.of(context)!.chest,
-              controller: chestController,
-              validator: checkInValidator),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.all(24),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Expanded(
-                child: Input(
-                    label: AppLocalizations.of(context)!.leftBicep,
-                    controller: leftBicepController,
-                    validator: checkInValidator),
+              Input(
+                  label: AppLocalizations.of(context)!.neck,
+                  controller: neckController,
+                  validator: checkInValidator),
+              Input(
+                  label: AppLocalizations.of(context)!.shoulders,
+                  controller: shouldersController,
+                  validator: checkInValidator),
+              Input(
+                  label: AppLocalizations.of(context)!.chest,
+                  controller: chestController,
+                  validator: checkInValidator),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Input(
+                        label: AppLocalizations.of(context)!.leftBicep,
+                        controller: leftBicepController,
+                        validator: checkInValidator),
+                  ),
+                  Expanded(
+                    child: Input(
+                        label: AppLocalizations.of(context)!.rightBicep,
+                        controller: rightBicepController,
+                        validator: checkInValidator),
+                  ),
+                ],
               ),
-              Expanded(
-                child: Input(
-                    label: AppLocalizations.of(context)!.rightBicep,
-                    controller: rightBicepController,
-                    validator: checkInValidator),
+              Input(
+                  label: AppLocalizations.of(context)!.navel,
+                  controller: navelController,
+                  validator: checkInValidator),
+              Input(
+                  label: AppLocalizations.of(context)!.waist,
+                  controller: waistController,
+                  validator: checkInValidator),
+              Input(
+                  label: AppLocalizations.of(context)!.hip,
+                  controller: hipController,
+                  validator: checkInValidator),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Input(
+                        label: AppLocalizations.of(context)!.leftThigh,
+                        controller: leftThighController,
+                        validator: checkInValidator),
+                  ),
+                  Expanded(
+                    child: Input(
+                        label: AppLocalizations.of(context)!.rightThigh,
+                        controller: rightThighController,
+                        validator: checkInValidator),
+                  ),
+                ],
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Input(
+                        label: AppLocalizations.of(context)!.leftCalf,
+                        controller: leftCalfController,
+                        validator: checkInValidator),
+                  ),
+                  Expanded(
+                    child: Input(
+                        label: AppLocalizations.of(context)!.rightCalf,
+                        controller: rightCalfController,
+                        validator: checkInValidator),
+                  ),
+                ],
+              ),
+              FilledButton(
+                onPressed: () async {
+                  // Validate returns true if the form is valid, or false otherwise.
+                  if (_formKey.currentState!.validate()) {
+                    // If the form is valid, display a snackbar. In the real world,
+                    // you'd often call a server or save the information in a database.
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                          content: Text(
+                              AppLocalizations.of(context)!.processingData)),
+                    );
+                    await submit();
+                    navigatorKey.currentState!.pop();
+                  }
+                },
+                child: Text(AppLocalizations.of(context)!.submit),
+              ),
+              widget.data != null
+                  ? OutlinedButton(
+                      onPressed: () async {
+                        // Validate returns true if the form is valid, or false otherwise.
+                        if (_formKey.currentState!.validate()) {
+                          // If the form is valid, display a snackbar. In the real world,
+                          // you'd often call a server or save the information in a database.
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                                content: Text(AppLocalizations.of(context)!
+                                    .processingData)),
+                          );
+                          await delete();
+                          navigatorKey.currentState!.pop();
+                        }
+                      },
+                      child: Text(AppLocalizations.of(context)!.delete),
+                    )
+                  : const SizedBox(),
             ],
           ),
-          Input(
-              label: AppLocalizations.of(context)!.navel,
-              controller: navelController,
-              validator: checkInValidator),
-          Input(
-              label: AppLocalizations.of(context)!.waist,
-              controller: waistController,
-              validator: checkInValidator),
-          Input(
-              label: AppLocalizations.of(context)!.hip,
-              controller: hipController,
-              validator: checkInValidator),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Input(
-                    label: AppLocalizations.of(context)!.leftThigh,
-                    controller: leftThighController,
-                    validator: checkInValidator),
-              ),
-              Expanded(
-                child: Input(
-                    label: AppLocalizations.of(context)!.rightThigh,
-                    controller: rightThighController,
-                    validator: checkInValidator),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Input(
-                    label: AppLocalizations.of(context)!.leftCalf,
-                    controller: leftCalfController,
-                    validator: checkInValidator),
-              ),
-              Expanded(
-                child: Input(
-                    label: AppLocalizations.of(context)!.rightCalf,
-                    controller: rightCalfController,
-                    validator: checkInValidator),
-              ),
-            ],
-          ),
-          FilledButton(
-            onPressed: () async {
-              // Validate returns true if the form is valid, or false otherwise.
-              if (_formKey.currentState!.validate()) {
-                // If the form is valid, display a snackbar. In the real world,
-                // you'd often call a server or save the information in a database.
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(AppLocalizations.of(context)!.processingData)),
-                );
-                await submit();
-                navigatorKey.currentState!.pop();
-              }
-            },
-            child: Text(AppLocalizations.of(context)!.submit),
-          ),
-          widget.data != null
-              ? OutlinedButton(
-                  onPressed: () async {
-                    // Validate returns true if the form is valid, or false otherwise.
-                    if (_formKey.currentState!.validate()) {
-                      // If the form is valid, display a snackbar. In the real world,
-                      // you'd often call a server or save the information in a database.
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(AppLocalizations.of(context)!.processingData)),
-                      );
-                      await delete();
-                      navigatorKey.currentState!.pop();
-                    }
-                  },
-                  child: Text(AppLocalizations.of(context)!.delete),
-                )
-              : const SizedBox(),
-        ],
+        ),
       ),
     );
   }

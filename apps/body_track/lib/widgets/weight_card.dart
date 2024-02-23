@@ -25,10 +25,7 @@ class WeightCard extends StatelessWidget {
                 },
               ),
             ),
-            body: Align(
-              alignment: Alignment.topCenter,
-              child: WeighInForm(data: data),
-            ),
+            body: WeighInForm(data: data),
           ),
         ),
       );

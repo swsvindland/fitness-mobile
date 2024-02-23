@@ -17,16 +17,23 @@ class CheckInCard extends StatelessWidget {
     final preferences = Provider.of<Preferences>(context);
 
     handleAction() {
-      showModalBottomSheet<void>(
-        context: context,
-        builder: (BuildContext context) {
-          return Padding(
-            padding: const EdgeInsets.all(16),
-            child: SingleChildScrollView(
-              child: BodyMeasurementForm(data: data),
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Scaffold(
+            appBar: AppBar(
+              elevation: 0,
+              title: Text(AppLocalizations.of(context)!.weighIn),
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
             ),
-          );
-        },
+            body: BodyMeasurementForm(data: data),
+          ),
+        ),
       );
     }
 
@@ -64,20 +71,32 @@ class CheckInCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${AppLocalizations.of(context)!.neck}: ${data.neck}\t\t\t'),
-                    Text('${AppLocalizations.of(context)!.shoulders}: ${data.shoulders}\t\t\t'),
-                    Text('${AppLocalizations.of(context)!.chest}: ${data.chest}\t\t\t'),
-                    Text('${AppLocalizations.of(context)!.leftBicep}: ${data.leftBicep}\t\t\t'),
-                    Text('${AppLocalizations.of(context)!.rightBicep}: ${data.rightBicep}\t\t\t'),
-                    Text('${AppLocalizations.of(context)!.navel}: ${data.navel}\t\t\t'),
-                    Text('${AppLocalizations.of(context)!.waist}: ${data.waist}\t\t\t'),
+                    Text(
+                        '${AppLocalizations.of(context)!.neck}: ${data.neck}\t\t\t'),
+                    Text(
+                        '${AppLocalizations.of(context)!.shoulders}: ${data.shoulders}\t\t\t'),
+                    Text(
+                        '${AppLocalizations.of(context)!.chest}: ${data.chest}\t\t\t'),
+                    Text(
+                        '${AppLocalizations.of(context)!.leftBicep}: ${data.leftBicep}\t\t\t'),
+                    Text(
+                        '${AppLocalizations.of(context)!.rightBicep}: ${data.rightBicep}\t\t\t'),
+                    Text(
+                        '${AppLocalizations.of(context)!.navel}: ${data.navel}\t\t\t'),
+                    Text(
+                        '${AppLocalizations.of(context)!.waist}: ${data.waist}\t\t\t'),
                     data.hip != null
-                        ? Text('${AppLocalizations.of(context)!.hip}: ${data.hip}\t\t\t')
+                        ? Text(
+                            '${AppLocalizations.of(context)!.hip}: ${data.hip}\t\t\t')
                         : const SizedBox(width: 0),
-                    Text('${AppLocalizations.of(context)!.leftThigh}: ${data.leftThigh}\t\t\t'),
-                    Text('${AppLocalizations.of(context)!.rightThigh}: ${data.rightThigh}\t\t\t'),
-                    Text('${AppLocalizations.of(context)!.leftCalf}: ${data.leftCalf}\t\t\t'),
-                    Text('${AppLocalizations.of(context)!.rightCalf}: ${data.rightCalf}\t\t\t'),
+                    Text(
+                        '${AppLocalizations.of(context)!.leftThigh}: ${data.leftThigh}\t\t\t'),
+                    Text(
+                        '${AppLocalizations.of(context)!.rightThigh}: ${data.rightThigh}\t\t\t'),
+                    Text(
+                        '${AppLocalizations.of(context)!.leftCalf}: ${data.leftCalf}\t\t\t'),
+                    Text(
+                        '${AppLocalizations.of(context)!.rightCalf}: ${data.rightCalf}\t\t\t'),
                   ],
                 ),
               ],
