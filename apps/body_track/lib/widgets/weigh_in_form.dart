@@ -61,49 +61,56 @@ class _WeighInFormState extends State<WeighInForm> {
       await db.addWeighIn(user.uid, double.parse(weightController.text));
     }
 
-    return Form(
-      key: _formKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Input(
-              label: AppLocalizations.of(context)!.weight,
-              controller: weightController,
-              validator: checkInValidator),
-          FilledButton(
-            onPressed: () async {
-              // Validate returns true if the form is valid, or false otherwise.
-              if (_formKey.currentState!.validate()) {
-                // If the form is valid, display a snackbar. In the real world,
-                // you'd often call a server or save the information in a database.
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(AppLocalizations.of(context)!.processingData)),
-                );
-                await submit();
-                navigatorKey.currentState!.pop();
-              }
-            },
-            child: Text(AppLocalizations.of(context)!.submit),
-          ),
-          widget.data != null
-              ? OutlinedButton(
-                  onPressed: () async {
-                    // Validate returns true if the form is valid, or false otherwise.
-                    if (_formKey.currentState!.validate()) {
-                      // If the form is valid, display a snackbar. In the real world,
-                      // you'd often call a server or save the information in a database.
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(AppLocalizations.of(context)!.processingData)),
-                      );
-                      await delete();
-                      navigatorKey.currentState!.pop();
-                    }
-                  },
-                  child: Text(AppLocalizations.of(context)!.delete),
-                )
-              : const SizedBox(),
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(24),
+      child: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Input(
+                label: AppLocalizations.of(context)!.weight,
+                controller: weightController,
+                validator: checkInValidator),
+            FilledButton(
+              onPressed: () async {
+                // Validate returns true if the form is valid, or false otherwise.
+                if (_formKey.currentState!.validate()) {
+                  // If the form is valid, display a snackbar. In the real world,
+                  // you'd often call a server or save the information in a database.
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                        content:
+                            Text(AppLocalizations.of(context)!.processingData)),
+                  );
+                  await submit();
+                  navigatorKey.currentState!.pop();
+                }
+              },
+              child: Text(AppLocalizations.of(context)!.submit),
+            ),
+            widget.data != null
+                ? OutlinedButton(
+                    onPressed: () async {
+                      // Validate returns true if the form is valid, or false otherwise.
+                      if (_formKey.currentState!.validate()) {
+                        // If the form is valid, display a snackbar. In the real world,
+                        // you'd often call a server or save the information in a database.
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                              content: Text(AppLocalizations.of(context)!
+                                  .processingData)),
+                        );
+                        await delete();
+                        navigatorKey.currentState!.pop();
+                      }
+                    },
+                    child: Text(AppLocalizations.of(context)!.delete),
+                  )
+                : const SizedBox(),
+          ],
+        ),
       ),
     );
   }

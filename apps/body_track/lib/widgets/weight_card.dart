@@ -11,17 +11,26 @@ class WeightCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     handleAction() {
-      showModalBottomSheet<void>(
-        context: context,
-        builder: (BuildContext context) {
-          return SizedBox(
-            height: 250,
-            child: Padding(
-              padding: const EdgeInsets.all(16),
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Scaffold(
+            appBar: AppBar(
+              elevation: 0,
+              title: Text(AppLocalizations.of(context)!.weighIn),
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            body: Align(
+              alignment: Alignment.topCenter,
               child: WeighInForm(data: data),
             ),
-          );
-        },
+          ),
+        ),
       );
     }
 
@@ -40,7 +49,10 @@ class WeightCard extends StatelessWidget {
             subtitle: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [const Divider(), Text('${AppLocalizations.of(context)!.weight}: ${data.weight}')],
+              children: [
+                const Divider(),
+                Text('${AppLocalizations.of(context)!.weight}: ${data.weight}')
+              ],
             ),
           ),
         ),
