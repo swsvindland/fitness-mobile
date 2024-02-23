@@ -9,7 +9,7 @@
   "reminderNotification": "Upozornenie na pripomenutie",
   "update": "Aktualizovať",
   "about": "O",
-  "aboutPageCredits": "Navrhol a postavil",
+  "aboutPageCredits": "Navrhnuté a postavené",
   "aboutPageVersion": "Verzia",
   "logOut": "Odhlásiť sa",
   "googleSignIn": "Pokračujte so službou Google",
@@ -22,7 +22,7 @@
   "neck": "Krk",
   "shoulders": "Ramená",
   "chest": "Hrudník",
-  "leftBicep": "Vľavo Biceps",
+  "leftBicep": "Ľavý biceps",
   "rightBicep": "Správny biceps",
   "navel": "Pupok",
   "waist": "Pás",
@@ -41,5 +41,8 @@
   "sex": "Sex",
   "noWeightData": "Zdá sa, že nemáte žiadne váhy. Začnite kliknutím na ikonu plus.",
   "settings": "nastavenie",
-  "body": "Telo"
+  "body": "Telo",
+  "units": "Jednotky",
+  "imperial": "cisársky",
+  "metric": "Metrické"
 }

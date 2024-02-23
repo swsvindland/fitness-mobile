@@ -41,5 +41,8 @@
   "sex": "Seks",
   "noWeightData": "Görünüşe göre hiç tartıya girmemişsin. Başlamak için artı simgesini tıklayın.",
   "settings": "Ayarlar",
-  "body": "Vücut"
+  "body": "Vücut",
+  "units": "Birimler",
+  "imperial": "İmparatorluk",
+  "metric": "Metrik"
 }

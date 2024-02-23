@@ -41,5 +41,8 @@
   "sex": "Seks",
   "noWeightData": "Wygląda na to, że nie masz żadnych ważeń. Kliknij ikonę plusa, aby rozpocząć.",
   "settings": "Ustawienia",
-  "body": "Ciało"
+  "body": "Ciało",
+  "units": "Jednostki",
+  "imperial": "Cesarski",
+  "metric": "Metryczny"
 }

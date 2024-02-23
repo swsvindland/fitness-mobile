@@ -38,8 +38,11 @@
   "delete": "Poistaa",
   "cancel": "Peruuttaa",
   "processingData": "Käsitellään tietoja...",
-  "sex": "seksiä",
+  "sex": "Seksiä",
   "noWeightData": "Näyttää siltä, että sinulla ei ole punnitustietoja. Aloita napsauttamalla pluskuvaketta.",
   "settings": "asetukset",
-  "body": "Runko"
+  "body": "Runko",
+  "units": "Yksiköt",
+  "imperial": "Keisarillinen",
+  "metric": "Metrinen"
 }

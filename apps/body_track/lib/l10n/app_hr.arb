@@ -41,5 +41,8 @@
   "sex": "Seks",
   "noWeightData": "Čini se da nemate vaganje. Za početak kliknite ikonu plusa.",
   "settings": "postavke",
-  "body": "Tijelo"
+  "body": "Tijelo",
+  "units": "Jedinice",
+  "imperial": "Carski",
+  "metric": "Metrički"
 }

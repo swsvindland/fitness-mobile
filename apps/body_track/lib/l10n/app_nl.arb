@@ -41,5 +41,8 @@
   "sex": "Seks",
   "noWeightData": "Het lijkt erop dat je geen weegmomenten hebt. Klik op het pluspictogram om aan de slag te gaan.",
   "settings": "Instellingen",
-  "body": "Lichaam"
+  "body": "Lichaam",
+  "units": "Eenheden",
+  "imperial": "Imperiaal",
+  "metric": "Metriek"
 }

@@ -1,6 +1,6 @@
 {
   "@@locale": "nb",
-  "bodyTrack": "Kroppsspor",
+  "bodyTrack": "Body Track",
   "male": "Mann",
   "female": "Hunn",
   "height": "Høyde",
@@ -41,5 +41,8 @@
   "sex": "Kjønn",
   "noWeightData": "Det ser ut til at du ikke har noen vekter. Klikk på plussikonet for å komme i gang.",
   "settings": "Innstillinger",
-  "body": "Kropp"
+  "body": "Kropp",
+  "units": "Enheter",
+  "imperial": "Imperial",
+  "metric": "Metrisk"
 }

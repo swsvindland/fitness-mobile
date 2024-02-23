@@ -41,5 +41,8 @@
   "sex": "Sex",
   "noWeightData": "Sieht so aus, als hätten Sie keine Waage. Klicken Sie auf das Plus-Symbol, um zu beginnen.",
   "settings": "Einstellungen",
-  "body": "Körper"
+  "body": "Körper",
+  "units": "Einheiten",
+  "imperial": "Kaiserliche",
+  "metric": "Metrisch"
 }

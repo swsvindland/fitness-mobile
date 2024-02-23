@@ -41,5 +41,8 @@
   "sex": "Seks",
   "noWeightData": "Nampaknya anda tidak mempunyai timbangan. Klik ikon tambah untuk bermula.",
   "settings": "tetapan",
-  "body": "Badan"
+  "body": "Badan",
+  "units": "Unit",
+  "imperial": "Imperial",
+  "metric": "Metrik"
 }

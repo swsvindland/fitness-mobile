@@ -41,5 +41,8 @@
   "sex": "Sex",
   "noWeightData": "Se pare că nu ai cântăriri. Faceți clic pe pictograma plus pentru a începe.",
   "settings": "Setări",
-  "body": "Corp"
+  "body": "Corp",
+  "units": "Unități",
+  "imperial": "Imperial",
+  "metric": "Metric"
 }

@@ -41,5 +41,8 @@
   "sex": "性别",
   "noWeightData": "看来你没有称重。单击加号图标即可开始。",
   "settings": "设置",
-  "body": "身体"
+  "body": "身体",
+  "units": "单位",
+  "imperial": "帝国",
+  "metric": "公制"
 }

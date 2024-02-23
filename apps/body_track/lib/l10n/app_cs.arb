@@ -41,5 +41,8 @@
   "sex": "Sex",
   "noWeightData": "Vypadá to, že nemáte žádné váhy. Začněte kliknutím na ikonu plus.",
   "settings": "Nastavení",
-  "body": "Tělo"
+  "body": "Tělo",
+  "units": "Jednotky",
+  "imperial": "Císařský",
+  "metric": "Metrický"
 }

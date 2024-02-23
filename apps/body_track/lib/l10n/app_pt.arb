@@ -41,5 +41,8 @@
   "sex": "Sexo",
   "noWeightData": "Parece que você não tem pesagem. Clique no ícone de adição para começar.",
   "settings": "Configurações",
-  "body": "Corpo"
+  "body": "Corpo",
+  "units": "Unidades",
+  "imperial": "Imperial",
+  "metric": "Métrica"
 }

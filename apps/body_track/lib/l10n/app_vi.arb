@@ -41,5 +41,8 @@
   "sex": "Tình dục",
   "noWeightData": "Có vẻ như bạn không có cân nặng nào. Nhấp vào biểu tượng dấu cộng để bắt đầu.",
   "settings": "Cài đặt",
-  "body": "Thân hình"
+  "body": "Thân hình",
+  "units": "Các đơn vị",
+  "imperial": "thành nội",
+  "metric": "Hệ mét"
 }

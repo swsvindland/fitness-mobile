@@ -41,5 +41,8 @@
   "sex": "Seks",
   "noWeightData": "Sepertinya Anda tidak punya beban. Klik ikon plus untuk memulai.",
   "settings": "Pengaturan",
-  "body": "Tubuh"
+  "body": "Tubuh",
+  "units": "Satuan",
+  "imperial": "Imperial",
+  "metric": "Metrik"
 }

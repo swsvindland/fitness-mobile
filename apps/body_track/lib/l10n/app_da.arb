@@ -41,5 +41,8 @@
   "sex": "Køn",
   "noWeightData": "Det ser ud til, at du ikke har nogen veje. Klik på plusikonet for at komme i gang.",
   "settings": "Indstillinger",
-  "body": "Legeme"
+  "body": "Legeme",
+  "units": "Enheder",
+  "imperial": "Kejserlig",
+  "metric": "Metrisk"
 }

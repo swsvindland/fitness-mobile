@@ -41,5 +41,8 @@
   "sex": "Sex",
   "noWeightData": "Du verkar inte ha några invägningar. Klicka på plusikonen för att komma igång.",
   "settings": "inställningar",
-  "body": "Kropp"
+  "body": "Kropp",
+  "units": "Enheter",
+  "imperial": "Kejserlig",
+  "metric": "Metrisk"
 }

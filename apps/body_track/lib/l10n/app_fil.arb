@@ -22,7 +22,7 @@
   "neck": "leeg",
   "shoulders": "Mga balikat",
   "chest": "Dibdib",
-  "leftBicep": "Umalis sa Bicep",
+  "leftBicep": "Iniwan si Bicep",
   "rightBicep": "Tama Bicep",
   "navel": "Pusod",
   "waist": "baywang",
@@ -41,5 +41,8 @@
   "sex": "kasarian",
   "noWeightData": "Mukhang wala kang timbang. I-click ang icon na plus para makapagsimula.",
   "settings": "Mga setting",
-  "body": "Katawan"
+  "body": "Katawan",
+  "units": "Mga yunit",
+  "imperial": "Imperial",
+  "metric": "Sukatan"
 }

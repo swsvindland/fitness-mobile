@@ -41,5 +41,8 @@
   "sex": "Sexe",
   "noWeightData": "On dirait que vous n'avez pas de pesée. Cliquez sur l'icône plus pour commencer.",
   "settings": "Paramètres",
-  "body": "Corps"
+  "body": "Corps",
+  "units": "Unités",
+  "imperial": "Impérial",
+  "metric": "Métrique"
 }

@@ -41,5 +41,8 @@
   "sex": "Szex",
   "noWeightData": "Úgy tűnik, nincs mérlegelésed. A kezdéshez kattintson a plusz ikonra.",
   "settings": "Beállítások",
-  "body": "Test"
+  "body": "Test",
+  "units": "Egységek",
+  "imperial": "Császári",
+  "metric": "Metrikus"
 }

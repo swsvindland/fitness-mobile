@@ -41,5 +41,8 @@
   "sex": "섹스",
   "noWeightData": "체중 측정이 없는 것 같습니다. 시작하려면 더하기 아이콘을 클릭하세요.",
   "settings": "설정",
-  "body": "몸"
+  "body": "몸",
+  "units": "단위",
+  "imperial": "장엄한",
+  "metric": "미터법"
 }
