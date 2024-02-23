@@ -17,7 +17,7 @@ class _UnitState extends State<Unit> {
     final preferences = Provider.of<Preferences>(context);
 
     handleAction() {
-      showModalBottomSheet<void>(
+      showDialog<void>(
         context: context,
         builder: (BuildContext context) {
           return UnitForm(preferences: preferences);

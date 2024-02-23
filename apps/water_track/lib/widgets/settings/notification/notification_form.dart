@@ -39,85 +39,92 @@ class _NotificationFormState extends State<NotificationForm> {
       }
     });
 
-    return SizedBox(
-      height: 250,
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          children: [
-            const Text('Reminder Notification'),
-            const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  children: [
-                    const Text('Start'),
-                    OutlinedButton(
-                      onPressed: () async {
-                        TimeOfDay? picked = await showTimePicker(
-                          context: context,
-                          initialTime: const TimeOfDay(hour: 12, minute: 00),
-                          builder: (BuildContext context, Widget? child) {
-                            return MediaQuery(
-                              data: MediaQuery.of(context)
-                                  .copyWith(alwaysUse24HourFormat: true),
-                              child: child ?? const Text('error'),
-                            );
-                          },
-                        );
+    return AlertDialog(
+      title: Text(AppLocalizations.of(context)!.reminderNotification),
+      content: SizedBox(
+        height: 100,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      const Text('Start'),
+                      OutlinedButton(
+                        onPressed: () async {
+                          TimeOfDay? picked = await showTimePicker(
+                            context: context,
+                            initialTime: const TimeOfDay(hour: 12, minute: 00),
+                            builder: (BuildContext context, Widget? child) {
+                              return MediaQuery(
+                                data: MediaQuery.of(context)
+                                    .copyWith(alwaysUse24HourFormat: true),
+                                child: child ?? const Text('error'),
+                              );
+                            },
+                          );
 
-                        setState(() {
-                          start = picked!.hour;
-                          set = true;
-                        });
-                      },
-                      child: Text('$start:00'),
-                    ),
-                  ],
-                ),
-                const SizedBox(width: 16),
-                Column(
-                  children: [
-                    const Text('End'),
-                    OutlinedButton(
-                      onPressed: () async {
-                        TimeOfDay? picked = await showTimePicker(
-                          context: context,
-                          initialTime: const TimeOfDay(hour: 12, minute: 00),
-                          builder: (BuildContext context, Widget? child) {
-                            return MediaQuery(
-                              data: MediaQuery.of(context)
-                                  .copyWith(alwaysUse24HourFormat: true),
-                              child: child ?? const Text('error'),
-                            );
-                          },
-                        );
+                          setState(() {
+                            start = picked!.hour;
+                            set = true;
+                          });
+                        },
+                        child: Text('$start:00'),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(width: 16),
+                  Column(
+                    children: [
+                      const Text('End'),
+                      OutlinedButton(
+                        onPressed: () async {
+                          TimeOfDay? picked = await showTimePicker(
+                            context: context,
+                            initialTime: const TimeOfDay(hour: 12, minute: 00),
+                            builder: (BuildContext context, Widget? child) {
+                              return MediaQuery(
+                                data: MediaQuery.of(context)
+                                    .copyWith(alwaysUse24HourFormat: true),
+                                child: child ?? const Text('error'),
+                              );
+                            },
+                          );
 
-                        setState(() {
-                          end = picked!.hour;
-                          set = true;
-                        });
-                      },
-                      child: Text('$end:00'),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            FilledButton(
-              onPressed: () {
-                update(user);
-              },
-              child: Text(
-                AppLocalizations.of(context)!.update,
+                          setState(() {
+                            end = picked!.hour;
+                            set = true;
+                          });
+                        },
+                        child: Text('$end:00'),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(AppLocalizations.of(context)!.cancel),
+        ),
+        TextButton(
+          onPressed: () {
+            update(user);
+            Navigator.of(context).pop();
+          },
+          child: Text(AppLocalizations.of(context)!.update),
+        ),
+      ],
     );
   }
 }

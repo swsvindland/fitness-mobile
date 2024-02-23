@@ -51,37 +51,46 @@ class _GoalFormState extends State<GoalForm> {
       }
     });
 
-    return SizedBox(
-      height: 300,
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              Input(
-                  label: AppLocalizations.of(context)!.waterGoalField,
-                  decimal: false,
-                  controller: water,
-                  validator: checkInValidator),
-              Input(
-                  label: AppLocalizations.of(context)!.waterGoalField,
-                  decimal: false,
-                  controller: total,
-                  validator: checkInValidator),
-              const SizedBox(height: 16),
-              FilledButton(
-                onPressed: () {
-                  update(user);
-                },
-                child: Text(
-                  AppLocalizations.of(context)!.update,
-                ),
-              )
-            ],
+    return AlertDialog(
+      title: Text(AppLocalizations.of(context)!.goals),
+      content: SizedBox(
+        height: 200,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                Input(
+                    label: AppLocalizations.of(context)!.waterGoalField,
+                    decimal: false,
+                    controller: water,
+                    validator: checkInValidator),
+                Input(
+                    label: AppLocalizations.of(context)!.waterGoalField,
+                    decimal: false,
+                    controller: total,
+                    validator: checkInValidator),
+              ],
+            ),
           ),
         ),
       ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(AppLocalizations.of(context)!.cancel),
+        ),
+        TextButton(
+          onPressed: () {
+            update(user);
+            Navigator.of(context).pop();
+          },
+          child: Text(AppLocalizations.of(context)!.update),
+        ),
+      ],
     );
   }
 }
