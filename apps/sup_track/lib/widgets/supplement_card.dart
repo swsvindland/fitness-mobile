@@ -25,7 +25,7 @@ class SupplementCard extends StatelessWidget {
   handleTap() {
     if (supplementId == null) return;
     if (user) {
-      // TODO: Add supplement activity
+      db.toggleUserSupplementActivity(uid, supplementId!);
     } else {
       db.addUserSupplement(uid, supplementId!);
     }
@@ -68,6 +68,8 @@ class CheckedIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     var userSupplementActivity =
         Provider.of<Iterable<UserSupplementActivity>>(context);
+
+    print(userSupplementActivity.isNotEmpty);
 
     if (userSupplementActivity.isNotEmpty) {
       return const Icon(Icons.check_circle_outline, color: primary);

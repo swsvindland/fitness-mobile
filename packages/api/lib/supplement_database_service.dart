@@ -6,6 +6,9 @@ class SupplementDatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   var date = DateTime.now();
 
+  final Timestamp today = Timestamp.fromDate(DateTime.now());
+  final Timestamp yesterday = Timestamp.fromDate(DateTime.now().subtract(Duration(days: 1)));
+
   Stream<Iterable<Supplement>> streamAllSupplements() {
     return _db
         .collection('supplements')
@@ -52,12 +55,58 @@ class SupplementDatabaseService {
 
     var supplementRef = _db.doc('userSupplements/$supplementId');
 
+    print(supplementId);
+    print(supplementRef);
+
     return _db
         .collection('userSupplementActivity')
         .where('uid', isEqualTo: uid)
         .where('userSupplement', isEqualTo: supplementRef)
+        .where('date', isGreaterThanOrEqualTo: yesterday)
         .snapshots()
         .map((event) => event.docs.map((e) => UserSupplementActivity.fromMap(e.data())));
+  }
 
+  Future<void> addUserSupplementActivity(String uid, String supplementId) {
+    var supplementRef = _db.doc('userSupplements/$supplementId');
+
+    return _db.collection('userSupplementActivity').add({
+      "uid": uid,
+      "userSupplement": supplementRef,
+      "date": date,
+    });
+  }
+
+  Future<void> removeUserSupplementActivity(String uid, String supplementId) {
+    var supplementRef = _db.doc('userSupplements/$supplementId');
+
+    return _db
+        .collection('userSupplementActivity')
+        .where('uid', isEqualTo: uid)
+        .where('userSupplement', isEqualTo: supplementRef)
+        .where('date', isGreaterThanOrEqualTo: yesterday)
+        .get()
+        .then((value) => value.docs.forEach((element) {
+              _db.collection('userSupplementActivity').doc(element.id).delete();
+            }));
+  }
+
+  Future<void> toggleUserSupplementActivity(String uid, String supplementId) async {
+    var supplementRef = _db.doc('userSupplements/$supplementId');
+
+    var activity = await _db
+        .collection('userSupplementActivity')
+        .where('uid', isEqualTo: uid)
+        .where('userSupplement', isEqualTo: supplementRef)
+        .where('date', isGreaterThanOrEqualTo: yesterday)
+        .get();
+
+    print(activity.docs.isEmpty);
+
+    if (activity.docs.isEmpty) {
+      addUserSupplementActivity(uid, supplementId);
+    } else {
+      removeUserSupplementActivity(uid, supplementId);
+    }
   }
 }
