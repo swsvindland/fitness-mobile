@@ -46,7 +46,7 @@ class _AppBarAdState extends State<AppBarAd> {
   @override
   Widget build(BuildContext context) {
     // if (_bannerAd == null || !_isBannerAdReady) {
-      return Text(AppLocalizations.of(context)!.bpTrack);
+      return Text(AppLocalizations.of(context)!.supTrack);
     // }
     //
     // return SizedBox(

@@ -1,5 +1,5 @@
 {
-    "bpTrack": "Blood Pressure Track",
+    "supTrack": "Supplement Track",
     "settings": "Settings",
     "about": "About",
     "aboutPageCredits": "Designed and Built by",
@@ -32,6 +32,5 @@
    "last30": "Last 30 Days",
 
    "home": "Home",
-   "all": "All",
-   "settings": "Settings"
+   "all": "All"
 }
