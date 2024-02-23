@@ -20,11 +20,12 @@ class SupplementDatabaseService {
             })));
   }
 
-  Future<void> addUserSupplement(String uid, String supplementId) {
+  Future<void> addUserSupplement(String uid, String supplementId, String time) {
     return _db.collection('userSupplements').add({
       "user": '/users/$uid',
       "supplement": '/supplements/$supplementId',
       "date": date,
+      "time": time,
     });
   }
 
@@ -54,9 +55,6 @@ class SupplementDatabaseService {
     if (supplementId == null) return List.empty() as Stream<Iterable<UserSupplementActivity>>;
 
     var supplementRef = _db.doc('userSupplements/$supplementId');
-
-    print(supplementId);
-    print(supplementRef);
 
     return _db
         .collection('userSupplementActivity')

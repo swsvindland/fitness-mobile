@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:models/user_supplement_activity.dart';
 import 'package:provider/provider.dart';
 import 'package:sup_track/utils/colors.dart';
+import 'package:sup_track/widgets/add_supplement.dart';
 
 class SupplementCard extends StatelessWidget {
   final String name;
@@ -22,18 +23,28 @@ class SupplementCard extends StatelessWidget {
 
   final db = SupplementDatabaseService();
 
-  handleTap() {
-    if (supplementId == null) return;
-    if (user) {
-      db.toggleUserSupplementActivity(uid, supplementId!);
-    } else {
-      db.addUserSupplement(uid, supplementId!);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     var user = Provider.of<User?>(context);
+
+    handleOpenDialog() {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AddSupplement(uid: uid, supplementId: supplementId!);
+        },
+      );
+    }
+
+    handleTap() {
+      if (supplementId == null) return;
+      if (this.user) {
+        db.toggleUserSupplementActivity(uid, supplementId!);
+      } else {
+        handleOpenDialog();
+        // db.addUserSupplement(uid, supplementId!);
+      }
+    }
 
     if (user == null) {
       return const CircularProgressIndicator();
