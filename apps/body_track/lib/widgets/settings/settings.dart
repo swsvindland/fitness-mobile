@@ -1,4 +1,3 @@
-import 'package:body_track/widgets/settings/units/unit.dart';
 import 'package:utils/sign_in.dart';
 import 'package:utils/constants.dart';
 import 'package:body_track/widgets/settings/height/height.dart';

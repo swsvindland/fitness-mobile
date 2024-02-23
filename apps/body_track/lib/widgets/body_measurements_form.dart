@@ -104,7 +104,7 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
 
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         child: Form(
           key: _formKey,
           child: Column(
