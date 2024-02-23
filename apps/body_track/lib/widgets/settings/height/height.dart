@@ -17,7 +17,7 @@ class _HeightState extends State<Height> {
     final preferences = Provider.of<Preferences>(context);
 
     handleAction() {
-      showModalBottomSheet<void>(
+      showDialog<void>(
         context: context,
         builder: (BuildContext context) {
           return HeightForm(preferences: preferences);

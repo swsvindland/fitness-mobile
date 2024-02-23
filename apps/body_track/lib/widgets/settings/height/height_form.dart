@@ -52,10 +52,10 @@ class _HeightFormState extends State<HeightForm> {
       }
     });
 
-    return SizedBox(
-      height: 250,
-      child: Padding(
-        padding: const EdgeInsets.all(24),
+    return AlertDialog(
+      title: Text(AppLocalizations.of(context)!.height),
+      content: SizedBox(
+        height: 100,
         child: Form(
           key: _formKey,
           child: Column(
@@ -72,26 +72,33 @@ class _HeightFormState extends State<HeightForm> {
                   ),
                   Expanded(
                     child: Input(
-                        label: AppLocalizations.of(context)!.reminderNotification,
+                        label:
+                            AppLocalizations.of(context)!.inches,
                         decimal: false,
                         controller: inchesController,
                         validator: checkInValidator),
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
-              FilledButton(
-                onPressed: () {
-                  update(user);
-                },
-                child: Text(
-                  AppLocalizations.of(context)!.update,
-                ),
-              )
             ],
           ),
         ),
       ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(AppLocalizations.of(context)!.cancel),
+        ),
+        TextButton(
+          onPressed: () {
+            update(user);
+            Navigator.of(context).pop();
+          },
+          child: Text(AppLocalizations.of(context)!.update),
+        ),
+      ],
     );
   }
 }

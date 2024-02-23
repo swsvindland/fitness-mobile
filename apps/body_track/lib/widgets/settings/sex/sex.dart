@@ -17,7 +17,7 @@ class _SexState extends State<Sex> {
     final preferences = Provider.of<Preferences>(context);
 
     handleAction() {
-      showModalBottomSheet<void>(
+      showDialog(
         context: context,
         builder: (BuildContext context) {
           return SexForm(preferences: preferences);

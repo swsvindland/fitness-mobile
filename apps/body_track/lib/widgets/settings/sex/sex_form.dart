@@ -32,14 +32,16 @@ class _SexFormState extends State<SexForm> {
 
     setState(() {
       if (!set) {
-        _sex = widget.preferences.sex == 'male' ? SexOptions.male : SexOptions.female;
+        _sex = widget.preferences.sex == 'male'
+            ? SexOptions.male
+            : SexOptions.female;
       }
     });
 
-    return SizedBox(
-      height: 250,
-      child: Padding(
-        padding: const EdgeInsets.all(16),
+    return AlertDialog(
+      title: Text(AppLocalizations.of(context)!.sex),
+      content: SizedBox(
+        height: 125,
         child: Column(
           children: [
             ListTile(
@@ -68,18 +70,24 @@ class _SexFormState extends State<SexForm> {
                 },
               ),
             ),
-            const SizedBox(height: 16),
-            FilledButton(
-              onPressed: () {
-                update(user);
-              },
-              child: Text(
-                AppLocalizations.of(context)!.update,
-              ),
-            )
           ],
         ),
       ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text(AppLocalizations.of(context)!.cancel),
+        ),
+        TextButton(
+          onPressed: () {
+            update(user);
+            Navigator.pop(context);
+          },
+          child: Text(AppLocalizations.of(context)!.update),
+        ),
+      ],
     );
   }
 }

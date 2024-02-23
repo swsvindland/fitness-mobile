@@ -21,7 +21,8 @@ class _UnitFormState extends State<UnitForm> {
   bool set = false;
 
   void update(User? user) {
-    widget.preferences.setUnit(_unit == UnitOptions.imperial ? 'imperial' : 'metric');
+    widget.preferences
+        .setUnit(_unit == UnitOptions.imperial ? 'imperial' : 'metric');
     set = false;
     db.updatePreferences(user!.uid, widget.preferences);
   }
@@ -32,54 +33,65 @@ class _UnitFormState extends State<UnitForm> {
 
     setState(() {
       if (!set) {
-        _unit = widget.preferences.unit == 'imperial' ? UnitOptions.imperial : UnitOptions.metric;
+        _unit = widget.preferences.unit == 'imperial'
+            ? UnitOptions.imperial
+            : UnitOptions.metric;
       }
     });
 
-    return SizedBox(
-      height: 250,
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            ListTile(
-              title: Text(AppLocalizations.of(context)!.imperial),
-              leading: Radio<UnitOptions>(
-                value: UnitOptions.imperial,
-                groupValue: _unit,
-                onChanged: (UnitOptions? value) {
-                  setState(() {
-                    _unit = value;
-                    set = true;
-                  });
-                },
+    return AlertDialog(
+      title: Text(AppLocalizations.of(context)!.units),
+      content: SizedBox(
+        height: 250,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              ListTile(
+                title: Text(AppLocalizations.of(context)!.imperial),
+                leading: Radio<UnitOptions>(
+                  value: UnitOptions.imperial,
+                  groupValue: _unit,
+                  onChanged: (UnitOptions? value) {
+                    setState(() {
+                      _unit = value;
+                      set = true;
+                    });
+                  },
+                ),
               ),
-            ),
-            ListTile(
-              title: Text(AppLocalizations.of(context)!.metric),
-              leading: Radio<UnitOptions>(
-                value: UnitOptions.metric,
-                groupValue: _unit,
-                onChanged: (UnitOptions? value) {
-                  setState(() {
-                    _unit = value;
-                    set = true;
-                  });
-                },
+              ListTile(
+                title: Text(AppLocalizations.of(context)!.metric),
+                leading: Radio<UnitOptions>(
+                  value: UnitOptions.metric,
+                  groupValue: _unit,
+                  onChanged: (UnitOptions? value) {
+                    setState(() {
+                      _unit = value;
+                      set = true;
+                    });
+                  },
+                ),
               ),
-            ),
-            const SizedBox(height: 16),
-            FilledButton(
-              onPressed: () {
-                update(user);
-              },
-              child: Text(
-                AppLocalizations.of(context)!.update,
-              ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text(AppLocalizations.of(context)!.cancel),
+        ),
+        TextButton(
+          onPressed: () {
+            update(user);
+            Navigator.pop(context);
+          },
+          child: Text(AppLocalizations.of(context)!.update),
+        ),
+      ],
     );
   }
 }

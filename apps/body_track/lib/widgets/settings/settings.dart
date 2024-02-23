@@ -25,7 +25,7 @@ class Settings extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          const Unit(),
+          // const Unit(),
           const Sex(),
           const Height(),
           const Notifications(),

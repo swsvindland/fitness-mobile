@@ -17,7 +17,7 @@ class _NotificationState extends State<Notifications> {
     final preferences = Provider.of<Preferences>(context);
 
     handleAction() {
-      showModalBottomSheet<void>(
+      showDialog<void>(
         context: context,
         builder: (BuildContext context) {
           return NotificationForm(preferences: preferences);
