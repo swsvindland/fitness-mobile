@@ -49,12 +49,12 @@ class _AddSupplementState extends State<AddSupplement> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Add Supplement'),
+      title: const Text('Add Supplement'),
       content: SizedBox(
         height: 425,
         child: Column(
           children: <Widget>[
-            Text('Would you like to add this supplement to your list?'),
+            const Text('Would you like to add this supplement to your list?'),
             ListTile(
               title: const Text('Morning'),
               trailing: Switch(

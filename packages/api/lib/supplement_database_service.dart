@@ -44,7 +44,8 @@ class SupplementDatabaseService {
           "user": user != null ? UserModel.fromMap(user) : null,
           "supplement":
               supplement != null ? Supplement.fromMap(supplement) : null,
-          "date": e.data()['date']
+          "date": e.data()['date'],
+          "time": e.data()['time'],
         });
       }).toList();
     });

@@ -1,34 +1,25 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:models/models.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-import 'package:sup_track/widgets/supplement_card.dart';
+import 'package:sup_track/widgets/user_supplement_list_by_time.dart';
 
 class UserSupplementList extends StatelessWidget {
   const UserSupplementList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var userSupplements = Provider.of<Iterable<UserSupplement>>(context);
-    var user = Provider.of<User?>(context);
-
-    if (user == null) {
-      return const CircularProgressIndicator();
-    }
-
-    return ListView.builder(
-      itemCount: userSupplements.length,
-      itemBuilder: (context, index) {
-        var userSupplement = userSupplements.elementAt(index);
-
-        return SupplementCard(
-          name: userSupplement.supplement?.name ?? '',
-          brand: userSupplement.supplement?.brand ?? '',
-          uid: user.uid,
-          supplementId: userSupplement.id,
-          user: true,
-        );
-      },
+    return const SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          UserSupplementListByTime(time: 'morning'),
+          UserSupplementListByTime(time: 'breakfast'),
+          UserSupplementListByTime(time: 'lunch'),
+          UserSupplementListByTime(time: 'preWorkout'),
+          UserSupplementListByTime(time: 'postWorkout'),
+          UserSupplementListByTime(time: 'dinner'),
+          UserSupplementListByTime(time: 'evening'),
+        ],
+      ),
     );
   }
 }

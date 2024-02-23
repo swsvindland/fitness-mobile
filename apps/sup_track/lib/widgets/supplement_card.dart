@@ -80,8 +80,6 @@ class CheckedIcon extends StatelessWidget {
     var userSupplementActivity =
         Provider.of<Iterable<UserSupplementActivity>>(context);
 
-    print(userSupplementActivity.isNotEmpty);
-
     if (userSupplementActivity.isNotEmpty) {
       return const Icon(Icons.check_circle_outline, color: primary);
     }
