@@ -14,11 +14,43 @@
       },
       "oauth_client": [
         {
+          "client_id": "718751552748-4r3fclb271osohrjvb4i8ljo6f8gogg6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svindland.bodytrack",
+            "certificate_hash": "1363226da8610ce9756ae3560839d70eeb3fa3dc"
+          }
+        },
+        {
+          "client_id": "718751552748-g7jjoui28ecfok2lehauiecp2n43c4bk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svindland.bodytrack",
+            "certificate_hash": "8dd5a4809c52154c40157130c3323cf2c6435067"
+          }
+        },
+        {
           "client_id": "718751552748-h7vvl5ste38kvge940p3rvduhl23orld.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.svindland.bodytrack",
             "certificate_hash": "a99e839a78a2a487beddf0382b36dc3a989688bd"
+          }
+        },
+        {
+          "client_id": "718751552748-lt7omnc41977lbtvnu2b4kk796esrg8b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svindland.bodytrack",
+            "certificate_hash": "ea11cf94007630919007f53cf7d39ba288eca60c"
+          }
+        },
+        {
+          "client_id": "718751552748-penk9f1dnsvp3a5sblfiugs6ntphhbgs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svindland.bodytrack",
+            "certificate_hash": "4e335544906a24049dc39253868ca9d9409716e2"
           }
         },
         {
