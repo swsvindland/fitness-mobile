@@ -51,6 +51,23 @@ class SupplementDatabaseService {
     });
   }
 
+  Future<Iterable<UserSupplement>> getUserSupplementTimes(String uid, String supplementId) async {
+    var userSupplements = await _db
+        .collection('userSupplements')
+        .where('user', isEqualTo: '/users/$uid')
+        .where('supplement', isEqualTo: '/supplements/$supplementId')
+        .get()
+        .then((value) => value.docs.map((e) => UserSupplement.fromMap({
+              "id": e.id,
+              "user": null,
+              "supplement": null,
+              "date": e.data()['date'],
+              "time": e.data()['time'],
+            })));
+
+    return userSupplements;
+  }
+
   Stream<Iterable<UserSupplementActivity>> streamUserSupplementActivity(
       String uid, String? supplementId) {
     if (supplementId == null) return List.empty() as Stream<Iterable<UserSupplementActivity>>;
@@ -74,6 +91,17 @@ class SupplementDatabaseService {
       "userSupplement": supplementRef,
       "date": date,
     });
+  }
+
+  Future<void> removeUserSupplement(String uid, String supplementId) {
+    return _db
+        .collection('userSupplements')
+        .where('user', isEqualTo: '/users/$uid')
+        .where('supplement', isEqualTo: '/supplements/$supplementId')
+        .get()
+        .then((value) => value.docs.forEach((element) {
+              _db.collection('userSupplements').doc(element.id).delete();
+            }));
   }
 
   Future<void> removeUserSupplementActivity(String uid, String supplementId) {

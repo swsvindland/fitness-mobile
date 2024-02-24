@@ -22,7 +22,9 @@ class _AddSupplementState extends State<AddSupplement> {
 
   final db = SupplementDatabaseService();
 
-  handleSupplementAdd() {
+  handleSupplementAdd() async {
+    await db.removeUserSupplement(widget.uid, widget.supplementId);
+
     if (morning) {
       db.addUserSupplement(widget.uid, widget.supplementId, 'morning');
     }
@@ -44,6 +46,56 @@ class _AddSupplementState extends State<AddSupplement> {
     if (evening) {
       db.addUserSupplement(widget.uid, widget.supplementId, 'evening');
     }
+  }
+
+  void handleTimes() async {
+    var userSupplements = await db.getUserSupplementTimes(widget.uid, widget.supplementId);
+    for (var element in userSupplements) {
+      switch (element.time) {
+        case 'morning':
+          setState(() {
+            morning = true;
+          });
+          break;
+        case 'breakfast':
+          setState(() {
+            breakfast = true;
+          });
+          break;
+        case 'lunch':
+          setState(() {
+            lunch = true;
+          });
+          break;
+        case 'preWorkout':
+          setState(() {
+            preWorkout = true;
+          });
+          break;
+        case 'postWorkout':
+          setState(() {
+            postWorkout = true;
+          });
+          break;
+        case 'dinner':
+          setState(() {
+            dinner = true;
+          });
+          break;
+        case 'evening':
+          setState(() {
+            evening = true;
+          });
+          break;
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    handleTimes();
   }
 
   @override
@@ -143,7 +195,7 @@ class _AddSupplementState extends State<AddSupplement> {
           },
         ),
         TextButton(
-          child: const Text('Add'),
+          child: const Text('Update'),
           onPressed: () {
             handleSupplementAdd();
             Navigator.of(context).pop();
