@@ -21,44 +21,47 @@ class _HomeState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const AppBarAd(),
-      ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SideNavigation(
-            selectedIndex: currentPageIndex,
-            onItemTapped: (index) {
-              setState(() {
-                currentPageIndex = index;
-              });
-            },
-          ),
-          Expanded(
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: SizedBox(
-                width: 600,
-                child: currentPageIndex == 0
-                    ? Home()
-                    : currentPageIndex == 1
-                    ? All()
-                    : Settings(),
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const AppBarAd(),
+        ),
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SideNavigation(
+              selectedIndex: currentPageIndex,
+              onItemTapped: (index) {
+                setState(() {
+                  currentPageIndex = index;
+                });
+              },
+            ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: SizedBox(
+                  width: 600,
+                  child: currentPageIndex == 0
+                      ? Home()
+                      : currentPageIndex == 1
+                          ? All()
+                          : Settings(),
+                ),
               ),
             ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: NavigationBottom(
-        selectedIndex: currentPageIndex,
-        onItemTapped: (index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
+          ],
+        ),
+        bottomNavigationBar: NavigationBottom(
+          selectedIndex: currentPageIndex,
+          onItemTapped: (index) {
+            setState(() {
+              currentPageIndex = index;
+            });
+          },
+        ),
       ),
     );
   }
