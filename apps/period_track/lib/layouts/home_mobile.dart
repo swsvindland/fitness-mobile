@@ -75,7 +75,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
             "id": DateUtils.dateOnly(DateTime.now()).toIso8601String()
           });
         },
-        child: const Icon(Icons.note_add),
+        child: const Icon(Icons.add),
       ),
       bottomNavigationBar: NavigationBottom(
           selectedIndex: _selectedIndex, onItemTapped: _onItemTapped),

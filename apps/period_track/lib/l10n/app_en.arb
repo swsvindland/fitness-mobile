@@ -23,7 +23,7 @@
     "deleteAccount": "Delete Account",
     "deleteAccountConfirm": "This will delete your account and all user data forever. Are you sure?",
 
-    "noNotesError": "Looks like you have not recorded a period yet. Add a new note to get started.",
+    "noNotesError": "Looks like you have not recorded enough a periods yet. Check back after a few cycles to see your statistics.",
 
     "cycleBegin": "cycle begins",
     "estOvulation": "est. ovulation",

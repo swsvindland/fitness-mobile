@@ -66,9 +66,9 @@ class CalendarKey extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(width: 150),
+              const SizedBox(width: 175),
               CalendarKeyItem(
-                  icon: const CalendarKeyItemIconDot(color: primaryLight),
+                  icon: const CalendarKeyItemIconDot(color: ternaryAlt),
                   text: AppLocalizations.of(context)!.intimacy.toLowerCase()),
             ],
           ),
@@ -86,7 +86,7 @@ class CalendarKeyItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 150,
+      width: 175,
       height: 20,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -100,8 +100,9 @@ class CalendarKeyItem extends StatelessWidget {
           Text(
             text,
             style: GoogleFonts.josefinSans(
-                color: Theme.of(context).brightness == Brightness.light ? primaryDark : primaryLight,
-                fontSize: 12,
+                color: Theme.of(context).brightness == Brightness.light ? secondaryLight : primaryLight,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
                 letterSpacing: 0.12),
           )
         ],

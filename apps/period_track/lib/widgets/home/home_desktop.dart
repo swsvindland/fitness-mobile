@@ -33,7 +33,7 @@ class _HomeDesktopState extends State<HomeDesktop> {
               const SizedBox(height: 24),
               Card(
                 color: Theme.of(context).brightness == Brightness.light
-                    ? primaryAlt
+                    ? primaryDarkAlt
                     : Theme.of(context).cardColor,
                 child: const Padding(
                   padding: EdgeInsets.all(12),

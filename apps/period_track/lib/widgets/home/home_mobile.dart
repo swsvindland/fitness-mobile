@@ -18,7 +18,7 @@ class _HomeMobileState extends State<HomeMobile> {
   @override
   Widget build(BuildContext context) {
     return SlidingUpPanel(
-      color: Theme.of(context).brightness == Brightness.light ? primaryAlt : Theme.of(context).cardColor,
+      color: Theme.of(context).brightness == Brightness.light ? primaryDarkAlt : Theme.of(context).cardColor,
       borderRadius: const BorderRadius.vertical(
           top: Radius.circular(8), bottom: Radius.zero),
       minHeight: 36,
@@ -38,8 +38,8 @@ class _HomeMobileState extends State<HomeMobile> {
           width: MediaQuery.of(context).size.width,
           child: Center(
             child: drawerOpen
-                ? const Icon(Icons.keyboard_arrow_down)
-                : const Icon(Icons.keyboard_arrow_up),
+                ? const Icon(Icons.keyboard_arrow_down, color: secondaryLight)
+                : const Icon(Icons.keyboard_arrow_up, color: secondaryLight),
           )),
       panel: const Center(
         child: CalendarKey(),

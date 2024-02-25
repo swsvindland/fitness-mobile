@@ -198,7 +198,7 @@ class _CalendarState extends State<Calendar> {
                         padding:
                             EdgeInsets.symmetric(vertical: 0, horizontal: 2),
                         child: CircleAvatar(
-                          backgroundColor: primaryLight,
+                          backgroundColor: ternaryAlt,
                           maxRadius: 4,
                         ),
                       ),
@@ -247,7 +247,7 @@ class CalendarDay extends StatelessWidget {
       color:
           dateOnly == DateUtils.dateOnly(DateTime.now()) ? secondaryDark : text,
       fontSize: 16,
-      fontWeight: FontWeight.w400,
+      fontWeight: dateOnly == DateUtils.dateOnly(DateTime.now()) ? FontWeight.w600 : FontWeight.w300,
       letterSpacing: 0.05,
     );
 

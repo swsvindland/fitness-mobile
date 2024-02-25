@@ -5,9 +5,9 @@ import 'package:models/note.dart';
 import 'package:models/preferences.dart';
 import 'package:period_track/utils/colors.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../utils/helper.dart';
+import 'not_enough_data.dart';
 
 class FlowLength extends StatelessWidget {
   const FlowLength({super.key});
@@ -18,23 +18,16 @@ class FlowLength extends StatelessWidget {
     var notes = Provider.of<Iterable<NoteModel>>(context).toList();
 
     if (notes.isEmpty) {
-      return SizedBox(
-        height: 300,
-        width: 600,
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Center(
-            child: Text(
-              AppLocalizations.of(context)!.noNotesError,
-            ),
-          ),
-        ),
-      );
+      return const NotEnoughData();
     }
 
     var periodStarts = notes.where((element) => element.periodStart)
         .map((e) => e.date)
         .toList();
+
+    if (periodStarts.length < 2) {
+      return const NotEnoughData();
+    }
 
     var cycleLength = computeMenstrualLength(preferences.defaultCycleLength, periodStarts);
     var cycles = computeFlowLengthsForGraph(cycleLength, notes);

@@ -88,7 +88,7 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
             "id": DateUtils.dateOnly(DateTime.now()).toIso8601String()
           });
         },
-        child: const Icon(Icons.note_add),
+        child: const Icon(Icons.add),
       ),
     );
   }

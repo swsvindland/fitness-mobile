@@ -175,7 +175,7 @@ class _AppState extends State<App> {
                 return const IconThemeData(color: secondary);
               }),
             ),
-            cardTheme: const CardTheme(color: primaryAlt),
+            cardTheme: const CardTheme(color: secondaryLight),
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
                 fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
