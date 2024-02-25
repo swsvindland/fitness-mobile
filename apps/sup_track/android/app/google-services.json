@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:799108724870:android:e35e4e3110df2f35e47907",
+        "mobilesdk_app_id": "1:799108724870:android:1c59c3db53e38f49e47907",
         "android_client_info": {
-          "package_name": "com.example.sup_track"
+          "package_name": "com.svindland.sup_track"
         }
       },
       "oauth_client": [
         {
-          "client_id": "799108724870-bha47s9p9tt8hgoklt66i7e9e3pc9253.apps.googleusercontent.com",
+          "client_id": "799108724870-td2m5379k52k7dcpl2hhk6a77in322cs.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.sup_track",
+            "package_name": "com.svindland.sup_track",
             "certificate_hash": "1363226da8610ce9756ae3560839d70eeb3fa3dc"
           }
         },

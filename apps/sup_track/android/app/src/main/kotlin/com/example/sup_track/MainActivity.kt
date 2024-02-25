@@ -1,4 +1,4 @@
-package com.example.sup_track
+package com.svindland.sup_track
 
 import io.flutter.embedding.android.FlutterActivity
 

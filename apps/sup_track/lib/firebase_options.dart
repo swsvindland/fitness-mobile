@@ -70,6 +70,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '799108724870',
     projectId: 'suptrack-c8f9f',
     storageBucket: 'suptrack-c8f9f.appspot.com',
-    iosBundleId: 'com.example.supTrack',
+    iosBundleId: 'com.svindland.supTrack',
   );
 }
