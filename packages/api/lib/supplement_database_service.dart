@@ -7,7 +7,8 @@ class SupplementDatabaseService {
   var date = DateTime.now();
 
   final Timestamp today = Timestamp.fromDate(DateTime.now());
-  final Timestamp yesterday = Timestamp.fromDate(DateTime.now().subtract(Duration(days: 1)));
+  final Timestamp yesterday =
+      Timestamp.fromDate(DateTime.now().subtract(Duration(days: 1)));
 
   Stream<Iterable<Supplement>> streamAllSupplements() {
     return _db
@@ -21,29 +22,36 @@ class SupplementDatabaseService {
   }
 
   Future<void> addUserSupplement(String uid, String supplementId, String time) {
+    var userRef = _db.doc('users/$uid');
+    var supplementRef = _db.doc('supplements/$supplementId');
+
     return _db.collection('userSupplements').add({
-      "user": '/users/$uid',
-      "supplement": '/supplements/$supplementId',
+      "user": userRef,
+      "supplement": supplementRef,
       "date": date,
       "time": time,
     });
   }
 
-  Future<Stream<Iterable<UserSupplement>>> streamUserSupplements() async {
-    return _db.collection('userSupplements').snapshots().asyncMap((element) {
+  Future<Stream<Iterable<UserSupplement>>> streamUserSupplements(String uid) async {
+    var userRef = _db.doc('users/$uid');
+
+    return await _db
+        .collection('userSupplements')
+        .where('user', isEqualTo: userRef)
+        .snapshots()
+        .asyncMap((element) {
       return Stream.fromIterable(element.docs).asyncMap((e) async {
-        var user =
-            await _db.doc(e.data()['user']).get().then((value) => value.data());
-        var supplement = await _db
-            .doc(e.data()['supplement'])
-            .get()
-            .then((value) => value.data());
+        var supplementRef = e.data()['supplement'];
+
+        var user = await userRef.get();
+        var supplement = await supplementRef.get();
 
         return UserSupplement.fromMap({
           "id": e.id,
-          "user": user != null ? UserModel.fromMap(user) : null,
+          "user": user.data() != null ? UserModel.fromMap(user.data()!) : null,
           "supplement":
-              supplement != null ? Supplement.fromMap(supplement) : null,
+              supplement.data() != null ? Supplement.fromMap(supplement.data()!) : null,
           "date": e.data()['date'],
           "time": e.data()['time'],
         });
@@ -51,11 +59,16 @@ class SupplementDatabaseService {
     });
   }
 
-  Future<Iterable<UserSupplement>> getUserSupplementTimes(String uid, String supplementId) async {
+  Future<Iterable<UserSupplement>> getUserSupplementTimes(
+      String uid, String supplementId) async {
+
+    var userRef = _db.doc('users/$uid');
+    var supplementRef = _db.doc('supplements/$supplementId');
+
     var userSupplements = await _db
         .collection('userSupplements')
-        .where('user', isEqualTo: '/users/$uid')
-        .where('supplement', isEqualTo: '/supplements/$supplementId')
+        .where('user', isEqualTo: userRef)
+        .where('supplement', isEqualTo: supplementRef)
         .get()
         .then((value) => value.docs.map((e) => UserSupplement.fromMap({
               "id": e.id,
@@ -70,7 +83,8 @@ class SupplementDatabaseService {
 
   Stream<Iterable<UserSupplementActivity>> streamUserSupplementActivity(
       String uid, String? supplementId) {
-    if (supplementId == null) return List.empty() as Stream<Iterable<UserSupplementActivity>>;
+    if (supplementId == null)
+      return List.empty() as Stream<Iterable<UserSupplementActivity>>;
 
     var supplementRef = _db.doc('userSupplements/$supplementId');
 
@@ -80,7 +94,8 @@ class SupplementDatabaseService {
         .where('userSupplement', isEqualTo: supplementRef)
         .where('date', isGreaterThanOrEqualTo: yesterday)
         .snapshots()
-        .map((event) => event.docs.map((e) => UserSupplementActivity.fromMap(e.data())));
+        .map((event) =>
+            event.docs.map((e) => UserSupplementActivity.fromMap(e.data())));
   }
 
   Future<void> addUserSupplementActivity(String uid, String supplementId) {
@@ -118,7 +133,8 @@ class SupplementDatabaseService {
             }));
   }
 
-  Future<void> toggleUserSupplementActivity(String uid, String supplementId) async {
+  Future<void> toggleUserSupplementActivity(
+      String uid, String supplementId) async {
     var supplementRef = _db.doc('userSupplements/$supplementId');
 
     var activity = await _db

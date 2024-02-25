@@ -13,6 +13,8 @@ class UserSupplementListByTime extends StatelessWidget {
     var user = Provider.of<User?>(context);
     var userSupplements = Provider.of<Iterable<UserSupplement>>(context);
 
+    print(userSupplements);
+
     var filteredSupplements =
         userSupplements.where((element) => element.time?.toLowerCase() == time.toLowerCase());
 
