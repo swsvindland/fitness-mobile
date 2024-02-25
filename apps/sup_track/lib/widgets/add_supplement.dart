@@ -49,7 +49,8 @@ class _AddSupplementState extends State<AddSupplement> {
   }
 
   void handleTimes() async {
-    var userSupplements = await db.getUserSupplementTimes(widget.uid, widget.supplementId);
+    var userSupplements =
+        await db.getUserSupplementTimes(widget.uid, widget.supplementId);
     for (var element in userSupplements) {
       switch (element.time) {
         case 'morning':
@@ -104,87 +105,89 @@ class _AddSupplementState extends State<AddSupplement> {
       title: const Text('Add Supplement'),
       content: SizedBox(
         height: 425,
-        child: Column(
-          children: <Widget>[
-            const Text('Would you like to add this supplement to your list?'),
-            ListTile(
-              title: const Text('Morning'),
-              trailing: Switch(
-                value: morning,
-                onChanged: (bool value) {
-                  setState(() {
-                    morning = value;
-                  });
-                },
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              const Text('Would you like to add this supplement to your list?'),
+              ListTile(
+                title: const Text('Morning'),
+                trailing: Switch(
+                  value: morning,
+                  onChanged: (bool value) {
+                    setState(() {
+                      morning = value;
+                    });
+                  },
+                ),
               ),
-            ),
-            ListTile(
-              title: const Text('Breakfast'),
-              trailing: Switch(
-                value: breakfast,
-                onChanged: (bool value) {
-                  setState(() {
-                    breakfast = value;
-                  });
-                },
+              ListTile(
+                title: const Text('Breakfast'),
+                trailing: Switch(
+                  value: breakfast,
+                  onChanged: (bool value) {
+                    setState(() {
+                      breakfast = value;
+                    });
+                  },
+                ),
               ),
-            ),
-            ListTile(
-              title: const Text('Lunch'),
-              trailing: Switch(
-                value: lunch,
-                onChanged: (bool value) {
-                  setState(() {
-                    lunch = value;
-                  });
-                },
+              ListTile(
+                title: const Text('Lunch'),
+                trailing: Switch(
+                  value: lunch,
+                  onChanged: (bool value) {
+                    setState(() {
+                      lunch = value;
+                    });
+                  },
+                ),
               ),
-            ),
-            ListTile(
-              title: const Text('Pre-Workout'),
-              trailing: Switch(
-                value: preWorkout,
-                onChanged: (bool value) {
-                  setState(() {
-                    preWorkout = value;
-                  });
-                },
+              ListTile(
+                title: const Text('Pre-Workout'),
+                trailing: Switch(
+                  value: preWorkout,
+                  onChanged: (bool value) {
+                    setState(() {
+                      preWorkout = value;
+                    });
+                  },
+                ),
               ),
-            ),
-            ListTile(
-              title: const Text('Post-Workout'),
-              trailing: Switch(
-                value: postWorkout,
-                onChanged: (bool value) {
-                  setState(() {
-                    postWorkout = value;
-                  });
-                },
+              ListTile(
+                title: const Text('Post-Workout'),
+                trailing: Switch(
+                  value: postWorkout,
+                  onChanged: (bool value) {
+                    setState(() {
+                      postWorkout = value;
+                    });
+                  },
+                ),
               ),
-            ),
-            ListTile(
-              title: const Text('Dinner'),
-              trailing: Switch(
-                value: dinner,
-                onChanged: (bool value) {
-                  setState(() {
-                    dinner = value;
-                  });
-                },
+              ListTile(
+                title: const Text('Dinner'),
+                trailing: Switch(
+                  value: dinner,
+                  onChanged: (bool value) {
+                    setState(() {
+                      dinner = value;
+                    });
+                  },
+                ),
               ),
-            ),
-            ListTile(
-              title: const Text('Evening'),
-              trailing: Switch(
-                value: evening,
-                onChanged: (bool value) {
-                  setState(() {
-                    evening = value;
-                  });
-                },
+              ListTile(
+                title: const Text('Evening'),
+                trailing: Switch(
+                  value: evening,
+                  onChanged: (bool value) {
+                    setState(() {
+                      evening = value;
+                    });
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       actions: <Widget>[
