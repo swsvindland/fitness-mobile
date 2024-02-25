@@ -53,12 +53,12 @@ class Note extends StatelessWidget {
                 children: [
                   periodStart
                       ? const CircleAvatar(
-                          backgroundColor: primaryDark, maxRadius: 4)
+                          backgroundColor: primaryDark, maxRadius: 6)
                       : const SizedBox(width: 0),
                   SizedBox(width: periodStart ? 8 : 0),
                   intimacy
                       ? const CircleAvatar(
-                          backgroundColor: primaryLight, maxRadius: 4)
+                          backgroundColor: ternaryAlt, maxRadius: 6)
                       : const SizedBox(width: 0),
                   SizedBox(width: intimacy ? 8 : 0),
                   FlowIndicator(flow: flow)
