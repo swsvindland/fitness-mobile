@@ -57,7 +57,7 @@ Map<DateTime, DateTime> computeFertility(int cycleLength, Map<DateTime, DateTime
   return {for (var e in output) DateUtils.dateOnly(e): DateUtils.dateOnly(e)};
 }
 
-Map<DateTime, DateTime> computeNextFewYearsOfCycles(int cycleLength, Map<DateTime, DateTime> periodStartDates) {
+Map<DateTime, DateTime> computeNextSixMonthsOfCycles(int cycleLength, Map<DateTime, DateTime> periodStartDates) {
   var sorted = Map.fromEntries(
       periodStartDates.entries.toList()
         ..sort((e1, e2) => e1.value.compareTo(e2.value)));
@@ -70,7 +70,7 @@ Map<DateTime, DateTime> computeNextFewYearsOfCycles(int cycleLength, Map<DateTim
   DateTime temp = sorted.keys.last;
   List<DateTime> output = [];
 
-  for (int i = 0; i < 48; ++i) {
+  for (int i = 0; i < 6; ++i) {
     temp = temp.add(Duration(days: cycleLength));
     for (int j = 0; j < periodLength; ++j) {
       output.add(temp.add(Duration(days: j)));
@@ -103,7 +103,7 @@ List<Cycle> computeMenstrualLengthsForGraph(int cycleLength, List<DateTime> peri
 
   var keyedPeriodStarts = { for (var e in periodStarts) DateUtils.dateOnly(e) : DateUtils.dateOnly(e)};
 
-  var predictedNextPeriodStart = computeNextFewYearsOfCycles(cycleLength, keyedPeriodStarts).entries.first.value;
+  var predictedNextPeriodStart = computeNextSixMonthsOfCycles(cycleLength, keyedPeriodStarts).entries.first.value;
 
   output.add(Cycle(date: periodStarts[periodStarts.length - 1], length: predictedNextPeriodStart.difference(periodStarts[periodStarts.length - 1]).inDays));
 

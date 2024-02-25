@@ -56,7 +56,7 @@ class _CalendarState extends State<Calendar> {
     Map<DateTime, DateTime> fertileDays = computeFertility(menstrualCycleLength, ovulationDate);
 
     Map<DateTime, DateTime> predictedPeriodDays =
-        computeNextFewYearsOfCycles(menstrualCycleLength, periodStartDate);
+        computeNextSixMonthsOfCycles(menstrualCycleLength, periodStartDate);
 
     List<Event> getEventsFromNotes(DateTime day) {
       var key = DateUtils.dateOnly(day);
@@ -66,7 +66,9 @@ class _CalendarState extends State<Calendar> {
         return [];
       }
 
-      events.add(const Event('Note'));
+      if (keyedNotes[key]!.note.isNotEmpty) {
+        events.add(const Event('Note'));
+      }
 
       if (keyedNotes[key]?.intimacy ?? false) {
         events.add(const Event('Intimacy'));
