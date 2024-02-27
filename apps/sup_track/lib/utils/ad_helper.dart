@@ -15,9 +15,9 @@ class AdHelper {
     }
 
     if (Platform.isAndroid) {
-      return '';
+      return 'ca-app-pub-7533750599105635/4463229234';
     } else if (Platform.isIOS) {
-      return '';
+      return 'ca-app-pub-7533750599105635/5700768214';
     } else {
       throw UnsupportedError('Unsupported platform');
     }
