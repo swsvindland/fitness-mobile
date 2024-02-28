@@ -1,51 +1,26 @@
 {
   "project_info": {
-    "project_number": "799108724870",
-    "project_id": "liftTrack-c8f9f",
-    "storage_bucket": "liftTrack-c8f9f.appspot.com"
+    "project_number": "399751443280",
+    "project_id": "lifttrack-92082",
+    "storage_bucket": "lifttrack-92082.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:799108724870:android:1c59c3db53e38f49e47907",
+        "mobilesdk_app_id": "1:399751443280:android:42e94e51adb8e08a443255",
         "android_client_info": {
           "package_name": "com.svindland.lift_track"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "799108724870-td2m5379k52k7dcpl2hhk6a77in322cs.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.svindland.lift_track",
-            "certificate_hash": "1363226da8610ce9756ae3560839d70eeb3fa3dc"
-          }
-        },
-        {
-          "client_id": "799108724870-1i7go81vu00kboe7m60rdgc1s88m6rce.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC6nOh_0S6lxJ-JcFW7_O91dOhPygLyD9Y"
+          "current_key": "AIzaSyC7Yl2f3Z0sl030A2Xzv3oTzb0lGPQw2VE"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "799108724870-1i7go81vu00kboe7m60rdgc1s88m6rce.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "799108724870-04u1uam5qjdqg37e1dt884fj81o0425g.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.liftTrack"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

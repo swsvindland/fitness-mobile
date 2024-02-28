@@ -3,8 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:models/user_supplement_activity.dart';
 import 'package:provider/provider.dart';
-import 'package:sup_track/utils/colors.dart';
-import 'package:sup_track/widgets/add_supplement.dart';
+import 'package:lift_track/utils/colors.dart';
+import 'package:lift_track/widgets/add_supplement.dart';
 
 class SupplementCard extends StatelessWidget {
   final String name;

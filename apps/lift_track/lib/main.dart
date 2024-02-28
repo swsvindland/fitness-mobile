@@ -5,14 +5,14 @@ import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:sup_track/utils/colors.dart';
+import 'package:lift_track/utils/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:sup_track/layouts/layouts.dart';
+import 'package:lift_track/layouts/layouts.dart';
 import 'package:utils/graph_animation_provider.dart';
 import 'package:utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -24,6 +24,7 @@ const _kTestingCrashlytics = false;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
+    name: 'LiftTrack',
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
@@ -103,41 +104,6 @@ class _AppState extends State<App> {
         ],
         supportedLocales: const [
           Locale('en', ''), // English
-          Locale('es', ''), // Spanish
-          Locale('pt', ''), // Portuguese
-          Locale('fr', ''), // French
-          Locale('de', ''), // German
-          Locale('it', ''), // Italian
-          Locale('zh', ''), // Simplified Chinese
-          Locale('ko', ''), // Korean
-          Locale('ja', ''), // Japanese
-          Locale('ar', ''), // Arabic
-          Locale('hi', ''), // Hindi
-          Locale('ru', ''), // Russian
-          Locale('tr', ''), // Turkish
-          Locale('vi', ''), // Vietnamese
-          Locale('th', ''), // Thai
-          Locale('id', ''), // Indonesian
-          Locale('ms', ''), // Malay
-          Locale('fil', ''), // Filipino
-          Locale('pl', ''), // Polish
-          Locale('nl', ''), // Dutch
-          Locale('sv', ''), // Swedish
-          Locale('da', ''), // Danish
-          Locale('fi', ''), // Finnish
-          Locale('nb', ''), // Norwegian
-          Locale('el', ''), // Greek
-          Locale('hu', ''), // Hungarian
-          Locale('cs', ''), // Czech
-          Locale('he', ''), // Hebrew
-          Locale('ro', ''), // Romanian
-          Locale('sk', ''), // Slovak
-          Locale('uk', ''), // Ukrainian
-          Locale('hr', ''), // Croatian
-          Locale('ca', ''), // Catalan
-          Locale('eu', ''), // Basque
-          Locale('gl', ''), // Galician
-          Locale('fa', ''), // Persian
         ],
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

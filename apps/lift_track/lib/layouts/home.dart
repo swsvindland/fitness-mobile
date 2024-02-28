@@ -1,6 +1,6 @@
 import 'package:api/body_database_service.dart';
-import 'package:sup_track/widgets/app_bar_ad.dart';
-import 'package:sup_track/widgets/navigation/navigation_bottom.dart';
+import 'package:lift_track/widgets/app_bar_ad.dart';
+import 'package:lift_track/widgets/navigation/navigation_bottom.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/all.dart';

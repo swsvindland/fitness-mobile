@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:models/supplement.dart';
 import 'package:provider/provider.dart';
 import 'package:api/supplement_database_service.dart';
-import 'package:sup_track/widgets/supplement_list.dart';
+import 'package:lift_track/widgets/supplement_list.dart';
 
 class All extends StatelessWidget {
   All({super.key});

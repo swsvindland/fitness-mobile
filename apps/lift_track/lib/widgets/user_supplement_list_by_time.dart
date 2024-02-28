@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:models/user_supplement.dart';
 import 'package:provider/provider.dart';
-import 'package:sup_track/widgets/supplement_card.dart';
+import 'package:lift_track/widgets/supplement_card.dart';
 
 class UserSupplementListByTime extends StatelessWidget {
   final String time;

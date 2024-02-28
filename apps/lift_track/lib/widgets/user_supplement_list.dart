@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sup_track/widgets/user_supplement_list_by_time.dart';
+import 'package:lift_track/widgets/user_supplement_list_by_time.dart';
 
 class UserSupplementList extends StatelessWidget {
   const UserSupplementList({super.key});

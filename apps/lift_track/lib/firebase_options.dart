@@ -47,29 +47,29 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA8E4xrZ7nPpBj5Js3Ah7kNaw1liehW7cM',
-    appId: '1:799108724870:web:d054b7bf333bc52ae47907',
-    messagingSenderId: '799108724870',
-    projectId: 'liftTrack-c8f9f',
-    authDomain: 'liftTrack-c8f9f.firebaseapp.com',
-    storageBucket: 'liftTrack-c8f9f.appspot.com',
-    measurementId: 'G-EZ0NNP66PD',
+    apiKey: 'AIzaSyDyhBV3ZqAez69uItQBeDtBae190nAzl7I',
+    appId: '1:399751443280:web:20a18f9c589a2ba4443255',
+    messagingSenderId: '399751443280',
+    projectId: 'lifttrack-92082',
+    authDomain: 'lifttrack-92082.firebaseapp.com',
+    storageBucket: 'lifttrack-92082.appspot.com',
+    measurementId: 'G-WDF7BLSVGQ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC6nOh_0S6lxJ-JcFW7_O91dOhPygLyD9Y',
-    appId: '1:799108724870:android:e35e4e3110df2f35e47907',
-    messagingSenderId: '799108724870',
-    projectId: 'liftTrack-c8f9f',
-    storageBucket: 'liftTrack-c8f9f.appspot.com',
+    apiKey: 'AIzaSyC7Yl2f3Z0sl030A2Xzv3oTzb0lGPQw2VE',
+    appId: '1:399751443280:android:42e94e51adb8e08a443255',
+    messagingSenderId: '399751443280',
+    projectId: 'lifttrack-92082',
+    storageBucket: 'lifttrack-92082.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAVeYz5tEz6xtu_BPBMNZBxZnUw6gzFPgw',
-    appId: '1:799108724870:ios:56216bf3197fe6afe47907',
-    messagingSenderId: '799108724870',
-    projectId: 'liftTrack-c8f9f',
-    storageBucket: 'liftTrack-c8f9f.appspot.com',
+    apiKey: 'AIzaSyANHX9AW-r43rZiT-7kmHUmd-HCmPd2w_w',
+    appId: '1:399751443280:ios:c3c6cae32befcca3443255',
+    messagingSenderId: '399751443280',
+    projectId: 'lifttrack-92082',
+    storageBucket: 'lifttrack-92082.appspot.com',
     iosBundleId: 'com.svindland.liftTrack',
   );
 }
