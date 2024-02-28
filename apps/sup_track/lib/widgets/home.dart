@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:models/models.dart';
 import 'package:provider/provider.dart';
+import 'package:sup_track/utils/colors.dart';
 import 'package:sup_track/widgets/user_supplement_list.dart';
 
 class Home extends StatelessWidget {
@@ -22,6 +23,11 @@ class Home extends StatelessWidget {
     return FutureBuilder(
       future: db.streamUserSupplements(user.uid),
       builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(color: primary),
+          );
+        }
         if (snapshot.connectionState == ConnectionState.done) {
           return MultiProvider(
             providers: [

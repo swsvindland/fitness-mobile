@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "799108724870-2ca2kdld0l02km8qv8hdp7l2bg1ll51v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svindland.sup_track",
+            "certificate_hash": "415edb8f032c25330290867c83ac08c62dc4db96"
+          }
+        },
+        {
+          "client_id": "799108724870-8hsiph0ttao4ngagvsb733im3bf1qcip.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svindland.sup_track",
+            "certificate_hash": "09d776922a8772e0c5da5d78e58eea386234cee9"
+          }
+        },
+        {
           "client_id": "799108724870-td2m5379k52k7dcpl2hhk6a77in322cs.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
