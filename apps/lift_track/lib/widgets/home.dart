@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:models/models.dart';
 import 'package:provider/provider.dart';
-import 'package:lift_track/widgets/user_supplement_list.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
@@ -19,27 +18,6 @@ class Home extends StatelessWidget {
       );
     }
 
-    return FutureBuilder(
-      future: db.streamUserSupplements(user.uid),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          return MultiProvider(
-            providers: [
-              StreamProvider<Iterable<UserSupplement>>.value(
-                value: snapshot.data as Stream<Iterable<UserSupplement>>,
-                initialData: const [],
-                catchError: (context, error) => const [],
-              ),
-            ],
-            child: const Align(
-                alignment: Alignment.topCenter, child: UserSupplementList()),
-          );
-        } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-      },
-    );
+    return const Align(alignment: Alignment.topCenter, child: Text("Home"));
   }
 }
