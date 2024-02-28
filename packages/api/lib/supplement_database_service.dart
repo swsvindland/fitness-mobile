@@ -109,10 +109,13 @@ class SupplementDatabaseService {
   }
 
   Future<void> removeUserSupplement(String uid, String supplementId) {
+    var userRef = _db.doc('users/$uid');
+    var supplementRef = _db.doc('supplements/$supplementId');
+
     return _db
         .collection('userSupplements')
-        .where('user', isEqualTo: '/users/$uid')
-        .where('supplement', isEqualTo: '/supplements/$supplementId')
+        .where('user', isEqualTo: userRef)
+        .where('supplement', isEqualTo: supplementRef)
         .get()
         .then((value) => value.docs.forEach((element) {
               _db.collection('userSupplements').doc(element.id).delete();
