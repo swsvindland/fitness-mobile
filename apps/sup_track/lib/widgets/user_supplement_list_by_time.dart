@@ -11,16 +11,16 @@ class UserSupplementListByTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var user = Provider.of<User?>(context);
-    var userSupplements = Provider.of<Iterable<UserSupplement>>(context);
+    var userSupplements = Provider.of<Iterable<UserSupplement>?>(context);
 
     var filteredSupplements =
-        userSupplements.where((element) => element.time?.toLowerCase() == time.toLowerCase());
+        userSupplements?.where((element) => element.time?.toLowerCase() == time.toLowerCase());
 
     if (user == null) {
       return const CircularProgressIndicator();
     }
 
-    if (filteredSupplements.isEmpty) {
+    if (filteredSupplements == null || filteredSupplements.isEmpty) {
       return const SizedBox.shrink();
     }
 

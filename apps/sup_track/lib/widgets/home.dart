@@ -23,17 +23,12 @@ class Home extends StatelessWidget {
     return FutureBuilder(
       future: db.streamUserSupplements(user.uid),
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: CircularProgressIndicator(color: primary),
-          );
-        }
         if (snapshot.connectionState == ConnectionState.done) {
           return MultiProvider(
             providers: [
-              StreamProvider<Iterable<UserSupplement>>.value(
+              StreamProvider<Iterable<UserSupplement>?>.value(
                 value: snapshot.data as Stream<Iterable<UserSupplement>>,
-                initialData: const [],
+                initialData: null,
                 catchError: (context, error) => const [],
               ),
             ],
