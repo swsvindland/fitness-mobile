@@ -95,7 +95,7 @@ class _AppState extends State<App> {
             create: (_) => GraphAnimationProvider()),
       ],
       child: MaterialApp(
-        title: 'Supplement Track',
+        title: 'Lift Track',
         localizationsDelegates: const [
           AppLocalizations.delegate, // Add this line
           GlobalMaterialLocalizations.delegate,

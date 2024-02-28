@@ -1,12 +1,9 @@
-import 'package:api/supplement_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:models/models.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
-  Home({super.key});
-  final db = SupplementDatabaseService();
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
