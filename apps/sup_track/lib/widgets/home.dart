@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:models/models.dart';
 import 'package:provider/provider.dart';
-import 'package:sup_track/utils/colors.dart';
 import 'package:sup_track/widgets/user_supplement_list.dart';
 
 class Home extends StatelessWidget {
