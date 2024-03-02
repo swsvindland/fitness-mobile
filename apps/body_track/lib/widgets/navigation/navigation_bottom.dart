@@ -13,23 +13,23 @@ class NavigationBottom extends StatelessWidget {
       return const SizedBox();
     }
 
-    return BottomNavigationBar(
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
+    return NavigationBar(
+      destinations: <Widget>[
+        NavigationDestination(
           icon: const Icon(Icons.monitor_weight),
           label: AppLocalizations.of(context)!.weight,
         ),
-        BottomNavigationBarItem(
+        NavigationDestination(
           icon: const Icon(Icons.straighten),
           label: AppLocalizations.of(context)!.body,
         ),
-        BottomNavigationBarItem(
+        NavigationDestination(
           icon: const Icon(Icons.settings),
           label: AppLocalizations.of(context)!.settings,
         ),
       ],
-      currentIndex: selectedIndex,
-      onTap: onItemTapped,
+      selectedIndex: selectedIndex,
+      onDestinationSelected: onItemTapped,
     );
   }
 }

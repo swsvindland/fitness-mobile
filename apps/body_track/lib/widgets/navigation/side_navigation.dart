@@ -32,7 +32,7 @@ class SideNavigation extends StatelessWidget {
       destinations: <NavigationRailDestination>[
         NavigationRailDestination(
           padding: const EdgeInsets.all(8),
-          icon: const Icon(Icons.scale),
+          icon: const Icon(Icons.monitor_weight),
           label: Text(AppLocalizations.of(context)!.weight),
         ),
         NavigationRailDestination(
