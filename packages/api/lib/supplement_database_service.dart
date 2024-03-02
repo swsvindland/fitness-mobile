@@ -6,9 +6,7 @@ class SupplementDatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   var date = DateTime.now();
 
-  final Timestamp today = Timestamp.fromDate(DateTime.now());
-  final Timestamp yesterday =
-      Timestamp.fromDate(DateTime.now().subtract(Duration(days: 1)));
+  final Timestamp startOfToday = Timestamp.fromDate(DateTime.now().subtract(Duration(hours: DateTime.now().hour, minutes: DateTime.now().minute, seconds: DateTime.now().second, milliseconds: DateTime.now().millisecond)));
 
   Stream<Iterable<Supplement>> streamAllSupplements() {
     return _db
@@ -92,7 +90,7 @@ class SupplementDatabaseService {
         .collection('userSupplementActivity')
         .where('uid', isEqualTo: uid)
         .where('userSupplement', isEqualTo: supplementRef)
-        .where('date', isGreaterThanOrEqualTo: yesterday)
+        .where('date', isGreaterThanOrEqualTo: startOfToday)
         .snapshots()
         .map((event) =>
             event.docs.map((e) => UserSupplementActivity.fromMap(e.data())));
@@ -129,7 +127,7 @@ class SupplementDatabaseService {
         .collection('userSupplementActivity')
         .where('uid', isEqualTo: uid)
         .where('userSupplement', isEqualTo: supplementRef)
-        .where('date', isGreaterThanOrEqualTo: yesterday)
+        .where('date', isGreaterThanOrEqualTo: startOfToday)
         .get()
         .then((value) => value.docs.forEach((element) {
               _db.collection('userSupplementActivity').doc(element.id).delete();
@@ -144,7 +142,7 @@ class SupplementDatabaseService {
         .collection('userSupplementActivity')
         .where('uid', isEqualTo: uid)
         .where('userSupplement', isEqualTo: supplementRef)
-        .where('date', isGreaterThanOrEqualTo: yesterday)
+        .where('date', isGreaterThanOrEqualTo: startOfToday)
         .get();
 
     print(activity.docs.isEmpty);
