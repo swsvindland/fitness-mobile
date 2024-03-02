@@ -1,12 +1,12 @@
 {
   "@@locale": "sk",
-  "bpTrack": "Sledovanie krvného tlaku",
+  "supTrack": "Doplnková stopa",
   "settings": "nastavenie",
   "about": "O",
   "aboutPageCredits": "Navrhnuté a postavené",
   "aboutPageVersion": "Verzia",
   "logOut": "Odhlásiť sa",
-  "googleSignIn": "Pokračujte so službou Google",
+  "googleSignIn": "Pokračujte v službe Google",
   "appleSignIn": "Pokračujte s Apple",
   "anonSignIn": "Pokračujte bez účtu",
   "checkIn": "Check In",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Priemerný krvný tlak",
   "last30": "Posledných 30 dní",
   "home": "Domov",
-  "all": "Všetky"
+  "all": "Všetky",
+  "search": "Vyhľadávanie"
 }

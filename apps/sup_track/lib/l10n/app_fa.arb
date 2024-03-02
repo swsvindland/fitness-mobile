@@ -1,6 +1,6 @@
 {
   "@@locale": "fa",
-  "bpTrack": "آهنگ فشار خون",
+  "supTrack": "آهنگ مکمل",
   "settings": "تنظیمات",
   "about": "در باره",
   "aboutPageCredits": "طراحی و ساخت توسط",
@@ -9,7 +9,7 @@
   "googleSignIn": "با گوگل ادامه دهید",
   "appleSignIn": "با اپل ادامه دهید",
   "anonSignIn": "بدون حساب ادامه دهید",
-  "checkIn": "اعلام حضور کنید",
+  "checkIn": "بررسی کنید",
   "systolic": "سیستولیک",
   "diastolic": "دیاستولیک",
   "heartRate": "ضربان قلب",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "فشار خون متوسط",
   "last30": "30 روز گذشته",
   "home": "صفحه اصلی",
-  "all": "همه"
+  "all": "همه",
+  "search": "جستجو کردن"
 }

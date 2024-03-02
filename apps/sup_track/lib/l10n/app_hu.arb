@@ -1,6 +1,6 @@
 {
   "@@locale": "hu",
-  "bpTrack": "Vérnyomás pálya",
+  "supTrack": "Kiegészítő pálya",
   "settings": "Beállítások",
   "about": "Ról ről",
   "aboutPageCredits": "Tervezte és építette",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Átlagos vérnyomás",
   "last30": "Az elmúlt 30 nap",
   "home": "itthon",
-  "all": "Minden"
+  "all": "Minden",
+  "search": "Keresés"
 }

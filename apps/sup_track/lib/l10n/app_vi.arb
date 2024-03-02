@@ -1,6 +1,6 @@
 {
   "@@locale": "vi",
-  "bpTrack": "Theo dõi huyết áp",
+  "supTrack": "Theo dõi bổ sung",
   "settings": "Cài đặt",
   "about": "Về",
   "aboutPageCredits": "Thiết kế và xây dựng bởi",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Huyết áp trung bình",
   "last30": "30 ngày trước",
   "home": "Trang chủ",
-  "all": "Tất cả"
+  "all": "Tất cả",
+  "search": "Tìm kiếm"
 }

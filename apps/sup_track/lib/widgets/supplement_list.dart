@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:sup_track/widgets/supplement_card.dart';
 import 'package:widgets/input.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SupplementList extends StatefulWidget {
   const SupplementList({super.key});
@@ -47,7 +48,7 @@ class _SupplementListState extends State<SupplementList> {
     return Column(children: [
       Input(
         leading: const Icon(Icons.search),
-        label: "Search",
+        label: AppLocalizations.of(context)!.search,
         controller: searchController,
         keyboardType: TextInputType.text,
         onChanged: (value) {

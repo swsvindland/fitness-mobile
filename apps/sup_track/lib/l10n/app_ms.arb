@@ -1,6 +1,6 @@
 {
   "@@locale": "ms",
-  "bpTrack": "Trek Tekanan Darah",
+  "supTrack": "Trek Tambahan",
   "settings": "tetapan",
   "about": "Tentang",
   "aboutPageCredits": "Direka dan Dibina oleh",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Tekanan Darah Purata",
   "last30": "30 Hari Terakhir",
   "home": "Rumah",
-  "all": "Semua"
+  "all": "Semua",
+  "search": "Cari"
 }

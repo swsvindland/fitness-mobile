@@ -1,6 +1,6 @@
 {
   "@@locale": "zh",
-  "bpTrack": "血压追踪",
+  "supTrack": "补充曲目",
   "settings": "设置",
   "about": "关于",
   "aboutPageCredits": "设计和建造",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "平均血压",
   "last30": "过去 30 天",
   "home": "家",
-  "all": "全部"
+  "all": "全部",
+  "search": "搜索"
 }

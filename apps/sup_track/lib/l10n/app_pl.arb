@@ -1,6 +1,6 @@
 {
   "@@locale": "pl",
-  "bpTrack": "Tor ciśnienia krwi",
+  "supTrack": "Utwór uzupełniający",
   "settings": "Ustawienia",
   "about": "O",
   "aboutPageCredits": "Zaprojektowane i zbudowane przez",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Średnie ciśnienie krwi",
   "last30": "Ostatnie 30 dni",
   "home": "Dom",
-  "all": "Wszystko"
+  "all": "Wszystko",
+  "search": "Szukaj"
 }

@@ -1,6 +1,6 @@
 {
   "@@locale": "tr",
-  "bpTrack": "Kan Basıncı Takibi",
+  "supTrack": "Ek Parça",
   "settings": "Ayarlar",
   "about": "Hakkında",
   "aboutPageCredits": "Tarafından tasarlandı ve inşa edildi",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Ortalama Kan Basıncı",
   "last30": "Son 30 gün",
   "home": "Ev",
-  "all": "Tüm"
+  "all": "Tüm",
+  "search": "Aramak"
 }

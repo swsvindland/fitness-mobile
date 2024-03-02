@@ -1,6 +1,6 @@
 {
   "@@locale": "fi",
-  "bpTrack": "Verenpainerata",
+  "supTrack": "Täydennysraita",
   "settings": "asetukset",
   "about": "Noin",
   "aboutPageCredits": "Suunnitellut ja rakentanut",
@@ -21,12 +21,13 @@
   "deleteAccountConfirm": "Tämä poistaa tilisi ja kaikki käyttäjätiedot pysyvästi. Oletko varma?",
   "delete": "Poistaa",
   "cancel": "Peruuttaa",
-  "noHeartDate": "Sinulla ei näytä olevan sykettä. Aloita napsauttamalla plus-kuvaketta.",
-  "noBloodPressureData": "Sinulla ei näytä olevan verenpainetietoja. Aloita napsauttamalla plus-kuvaketta.",
+  "noHeartDate": "Näyttää siltä, että sinulla ei ole sykettä. Aloita napsauttamalla pluskuvaketta.",
+  "noBloodPressureData": "Sinulla ei näytä olevan verenpainetietoja. Aloita napsauttamalla pluskuvaketta.",
   "processingData": "Käsitellään tietoja...",
   "avgHeartRate": "Keskimääräinen syke",
   "avgBloodPressure": "Keskimääräinen verenpaine",
   "last30": "Viimeiset 30 päivää",
   "home": "Koti",
-  "all": "Kaikki"
+  "all": "Kaikki",
+  "search": "Hae"
 }

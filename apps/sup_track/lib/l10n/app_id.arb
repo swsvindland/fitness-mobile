@@ -1,6 +1,6 @@
 {
   "@@locale": "id",
-  "bpTrack": "Pelacakan Tekanan Darah",
+  "supTrack": "Jalur Tambahan",
   "settings": "Pengaturan",
   "about": "Tentang",
   "aboutPageCredits": "Dirancang dan Dibangun oleh",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Tekanan Darah Rata-rata",
   "last30": "30 hari terakhir",
   "home": "Rumah",
-  "all": "Semua"
+  "all": "Semua",
+  "search": "Mencari"
 }

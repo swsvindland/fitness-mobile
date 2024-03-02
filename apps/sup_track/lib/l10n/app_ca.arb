@@ -1,6 +1,6 @@
 {
   "@@locale": "ca",
-  "bpTrack": "Seguiment de la pressió arterial",
+  "supTrack": "Pista suplementària",
   "settings": "Configuració",
   "about": "Sobre",
   "aboutPageCredits": "Dissenyat i construït per",
@@ -27,6 +27,7 @@
   "avgHeartRate": "Freqüència cardíaca mitjana",
   "avgBloodPressure": "Tensió arterial mitjana",
   "last30": "Últims 30 dies",
-  "home": "a casa",
-  "all": "Tots"
+  "home": "Casa",
+  "all": "Tots",
+  "search": "Cerca"
 }

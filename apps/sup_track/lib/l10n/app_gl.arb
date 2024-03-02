@@ -1,6 +1,6 @@
 {
   "@@locale": "gl",
-  "bpTrack": "Pista da presión arterial",
+  "supTrack": "Pista suplementaria",
   "settings": "Configuración",
   "about": "Sobre",
   "aboutPageCredits": "Deseñado e construído por",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Presión arterial media",
   "last30": "Últimos 30 días",
   "home": "Casa",
-  "all": "Todos"
+  "all": "Todos",
+  "search": "Busca"
 }

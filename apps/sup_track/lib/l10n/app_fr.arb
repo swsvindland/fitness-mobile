@@ -1,6 +1,6 @@
 {
   "@@locale": "fr",
-  "bpTrack": "Suivi de la tension artérielle",
+  "supTrack": "Piste de supplément",
   "settings": "Paramètres",
   "about": "À propos",
   "aboutPageCredits": "Conçu et construit par",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Pression artérielle moyenne",
   "last30": "Les 30 derniers jours",
   "home": "Maison",
-  "all": "Tous"
+  "all": "Tous",
+  "search": "Recherche"
 }

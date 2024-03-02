@@ -1,6 +1,6 @@
 {
   "@@locale": "sv",
-  "bpTrack": "Blodtrycksspår",
+  "supTrack": "Tilläggsspår",
   "settings": "inställningar",
   "about": "Handla om",
   "aboutPageCredits": "Designad och byggd av",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Genomsnittligt blodtryck",
   "last30": "Senaste 30 dagarna",
   "home": "Hem",
-  "all": "Allt"
+  "all": "Allt",
+  "search": "Sök"
 }

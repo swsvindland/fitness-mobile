@@ -1,6 +1,6 @@
 {
   "@@locale": "it",
-  "bpTrack": "Traccia della pressione sanguigna",
+  "supTrack": "Traccia supplementare",
   "settings": "Impostazioni",
   "about": "Di",
   "aboutPageCredits": "Progettato e costruito da",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Pressione sanguigna media",
   "last30": "Ultimi 30 giorni",
   "home": "Casa",
-  "all": "Tutto"
+  "all": "Tutto",
+  "search": "Ricerca"
 }

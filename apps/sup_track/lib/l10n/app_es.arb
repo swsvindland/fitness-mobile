@@ -1,6 +1,6 @@
 {
   "@@locale": "es",
-  "bpTrack": "Seguimiento de la presión arterial",
+  "supTrack": "Pista complementaria",
   "settings": "Ajustes",
   "about": "Acerca de",
   "aboutPageCredits": "Diseñado y construido por",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Presión arterial promedio",
   "last30": "Últimos 30 días",
   "home": "Hogar",
-  "all": "Todo"
+  "all": "Todo",
+  "search": "Buscar"
 }

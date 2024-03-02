@@ -1,6 +1,6 @@
 {
   "@@locale": "he",
-  "bpTrack": "מסלול לחץ דם",
+  "supTrack": "מסלול משלים",
   "settings": "הגדרות",
   "about": "על אודות",
   "aboutPageCredits": "עוצב ונבנה על ידי",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "לחץ דם ממוצע",
   "last30": "30 הימים האחרונים",
   "home": "בית",
-  "all": "את כל"
+  "all": "את כל",
+  "search": "לחפש"
 }

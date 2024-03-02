@@ -1,6 +1,6 @@
 {
   "@@locale": "nl",
-  "bpTrack": "Bloeddrukspoor",
+  "supTrack": "Aanvulling spoor",
   "settings": "Instellingen",
   "about": "Over",
   "aboutPageCredits": "Ontworpen en gebouwd door",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Gemiddelde bloeddruk",
   "last30": "Laatste 30 dagen",
   "home": "Thuis",
-  "all": "Alle"
+  "all": "Alle",
+  "search": "Zoekopdracht"
 }

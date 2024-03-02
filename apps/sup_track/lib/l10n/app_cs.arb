@@ -1,6 +1,6 @@
 {
   "@@locale": "cs",
-  "bpTrack": "Sledování krevního tlaku",
+  "supTrack": "Doplňková stopa",
   "settings": "Nastavení",
   "about": "O",
   "aboutPageCredits": "Navrženo a vyrobeno",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Průměrný krevní tlak",
   "last30": "Posledních 30 dní",
   "home": "Domov",
-  "all": "Všechno"
+  "all": "Všechno",
+  "search": "Vyhledávání"
 }

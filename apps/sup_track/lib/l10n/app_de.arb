@@ -1,6 +1,6 @@
 {
   "@@locale": "de",
-  "bpTrack": "Blutdruckspur",
+  "supTrack": "Ergänzungsspur",
   "settings": "Einstellungen",
   "about": "Um",
   "aboutPageCredits": "Entworfen und gebaut von",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Durchschnittlicher Blutdruck",
   "last30": "Letzte 30 Tage",
   "home": "Heim",
-  "all": "Alle"
+  "all": "Alle",
+  "search": "Suchen"
 }

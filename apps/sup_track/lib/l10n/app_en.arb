@@ -32,5 +32,7 @@
    "last30": "Last 30 Days",
 
    "home": "Home",
-   "all": "All"
+   "all": "All",
+
+  "search": "Search"
 }

@@ -1,6 +1,6 @@
 {
   "@@locale": "ko",
-  "bpTrack": "혈압 트랙",
+  "supTrack": "보충 트랙",
   "settings": "설정",
   "about": "에 대한",
   "aboutPageCredits": "설계 및 제작:",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "평균 혈압",
   "last30": "지난 30일",
   "home": "집",
-  "all": "모두"
+  "all": "모두",
+  "search": "찾다"
 }

@@ -1,6 +1,6 @@
 {
   "@@locale": "eu",
-  "bpTrack": "Tentsio arterialaren pista",
+  "supTrack": "Pista osagarria",
   "settings": "Ezarpenak",
   "about": "Buruz",
   "aboutPageCredits": "Diseinatua eta Eraikia",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Batez besteko Odol Tentsioa",
   "last30": "Azken 30 egunak",
   "home": "Hasiera",
-  "all": "Denak"
+  "all": "Denak",
+  "search": "Bilatu"
 }

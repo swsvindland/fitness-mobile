@@ -1,6 +1,6 @@
 {
   "@@locale": "fil",
-  "bpTrack": "Track ng Presyon ng Dugo",
+  "supTrack": "Supplement Track",
   "settings": "Mga setting",
   "about": "Tungkol sa",
   "aboutPageCredits": "Dinisenyo at Binuo ni",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Average na Presyon ng Dugo",
   "last30": "Huling 30 Araw",
   "home": "Bahay",
-  "all": "Lahat"
+  "all": "Lahat",
+  "search": "Maghanap"
 }

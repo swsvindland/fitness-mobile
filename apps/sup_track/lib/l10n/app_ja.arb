@@ -1,6 +1,6 @@
 {
   "@@locale": "ja",
-  "bpTrack": "血圧追跡",
+  "supTrack": "サプリメントトラック",
   "settings": "設定",
   "about": "について",
   "aboutPageCredits": "によって設計および構築されました",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "平均血圧",
   "last30": "過去 30 日間",
   "home": "家",
-  "all": "全て"
+  "all": "全て",
+  "search": "検索"
 }

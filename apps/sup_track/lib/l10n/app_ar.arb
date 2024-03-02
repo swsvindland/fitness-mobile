@@ -1,6 +1,6 @@
 {
   "@@locale": "ar",
-  "bpTrack": "مسار ضغط الدم",
+  "supTrack": "المسار التكميلي",
   "settings": "إعدادات",
   "about": "عن",
   "aboutPageCredits": "تم تصميمه وبنائه بواسطة",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "متوسط ضغط الدم",
   "last30": "آخر 30 يومًا",
   "home": "بيت",
-  "all": "الجميع"
+  "all": "الجميع",
+  "search": "يبحث"
 }

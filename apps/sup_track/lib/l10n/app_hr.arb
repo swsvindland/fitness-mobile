@@ -1,6 +1,6 @@
 {
   "@@locale": "hr",
-  "bpTrack": "Praćenje krvnog tlaka",
+  "supTrack": "Dodatak Track",
   "settings": "postavke",
   "about": "Oko",
   "aboutPageCredits": "Dizajnirao i izgradio",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Prosječni krvni tlak",
   "last30": "Posljednjih 30 dana",
   "home": "Dom",
-  "all": "svi"
+  "all": "svi",
+  "search": "traži"
 }

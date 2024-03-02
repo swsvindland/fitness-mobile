@@ -1,6 +1,6 @@
 {
   "@@locale": "pt",
-  "bpTrack": "Monitoramento de pressão arterial",
+  "supTrack": "Faixa de Suplementos",
   "settings": "Configurações",
   "about": "Sobre",
   "aboutPageCredits": "Projetado e construído por",
@@ -28,5 +28,6 @@
   "avgBloodPressure": "Pressão Arterial Média",
   "last30": "Últimos 30 dias",
   "home": "Lar",
-  "all": "Todos"
+  "all": "Todos",
+  "search": "Procurar"
 }
