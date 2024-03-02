@@ -145,8 +145,6 @@ class SupplementDatabaseService {
         .where('date', isGreaterThanOrEqualTo: startOfToday)
         .get();
 
-    print(activity.docs.isEmpty);
-
     if (activity.docs.isEmpty) {
       addUserSupplementActivity(uid, supplementId);
     } else {
