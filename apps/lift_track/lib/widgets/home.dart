@@ -15,6 +15,38 @@ class Home extends StatelessWidget {
       );
     }
 
-    return const Align(alignment: Alignment.topCenter, child: Text("Home"));
+    return ExerciseList();
+  }
+}
+
+class ExerciseList extends StatelessWidget {
+  ExerciseList({super.key});
+
+  final exercises = ['Bench', 'Fly', 'Lateral Raise', 'Pushdown'];
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      padding: const EdgeInsets.all(8),
+      itemCount: exercises.length,
+      itemBuilder: (BuildContext context, int index) {
+        return ExerciseCard(data: exercises[index]);
+      },
+    );
+  }
+}
+
+class ExerciseCard extends StatelessWidget {
+  const ExerciseCard({super.key, required this.data});
+
+  final String data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        title: Text(data),
+      )
+    );
   }
 }

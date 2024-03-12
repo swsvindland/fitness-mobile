@@ -70,6 +70,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '399751443280',
     projectId: 'lifttrack-92082',
     storageBucket: 'lifttrack-92082.appspot.com',
+    iosClientId: '399751443280-s4kptrniolpjdpj78tf64a785tqratot.apps.googleusercontent.com',
     iosBundleId: 'com.svindland.liftTrack',
   );
 }

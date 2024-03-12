@@ -12,7 +12,12 @@
           "package_name": "com.svindland.lift_track"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "399751443280-fpsrs7jn4c2qsjpvjb2arliv7u0e8ge5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyC7Yl2f3Z0sl030A2Xzv3oTzb0lGPQw2VE"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "399751443280-fpsrs7jn4c2qsjpvjb2arliv7u0e8ge5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "399751443280-s4kptrniolpjdpj78tf64a785tqratot.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.svindland.liftTrack"
+              }
+            }
+          ]
         }
       }
     }
