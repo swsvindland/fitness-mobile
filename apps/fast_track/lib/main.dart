@@ -1,6 +1,12 @@
+import 'dart:ui';
+
 import 'package:fast_track/utils/colors.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +18,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'firebase_options.dart';
 
-// const _kTestingCrashlytics = false;
+const _kTestingCrashlytics = false;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,23 +26,23 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // await FirebaseAppCheck.instance.activate(
-  //   // You can also use a `ReCaptchaEnterpriseProvider` provider instance as an
-  //   // argument for `webProvider`
-  //   webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
-  //   androidProvider: AndroidProvider.playIntegrity,
-  //   appleProvider: AppleProvider.appAttest,
-  // );
+  await FirebaseAppCheck.instance.activate(
+    // You can also use a `ReCaptchaEnterpriseProvider` provider instance as an
+    // argument for `webProvider`
+    webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
+    androidProvider: AndroidProvider.playIntegrity,
+    appleProvider: AppleProvider.appAttest,
+  );
 
-  // // Non-async exceptions
-  // FlutterError.onError = (errorDetails) {
-  //   FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
-  // };
-  // // Async exceptions
-  // PlatformDispatcher.instance.onError = (error, stack) {
-  //   FirebaseCrashlytics.instance.recordError(error, stack);
-  //   return true;
-  // };
+  // Non-async exceptions
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
+  };
+  // Async exceptions
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack);
+    return true;
+  };
 
   // MobileAds.instance.initialize();
 
@@ -51,29 +57,29 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  // static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-  // static FirebaseAnalyticsObserver observer =
-  //     FirebaseAnalyticsObserver(analytics: analytics);
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  static FirebaseAnalyticsObserver observer =
+      FirebaseAnalyticsObserver(analytics: analytics);
 
-  // Future<void> _initializeFlutterFire() async {
-    // if (_kTestingCrashlytics) {
-    //   // Force enable crashlytics collection enabled if we're testing it.
-    //   await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-    // } else {
-    //   // Else only enable it in non-debug builds.
-    //   // You could additionally extend this to allow users to opt-in.
-    //   await FirebaseCrashlytics.instance
-    //       .setCrashlyticsCollectionEnabled(kReleaseMode);
-    // }
-    //
-    // analytics.logEvent(name: 'app_started');
-  // }
+  Future<void> _initializeFlutterFire() async {
+    if (_kTestingCrashlytics) {
+      // Force enable crashlytics collection enabled if we're testing it.
+      await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+    } else {
+      // Else only enable it in non-debug builds.
+      // You could additionally extend this to allow users to opt-in.
+      await FirebaseCrashlytics.instance
+          .setCrashlyticsCollectionEnabled(kReleaseMode);
+    }
+
+    analytics.logEvent(name: 'app_started');
+  }
 
   @override
   void initState() {
     super.initState();
 
-    // _initializeFlutterFire();
+    _initializeFlutterFire();
   }
 
   @override
@@ -144,7 +150,7 @@ class _AppState extends State<App> {
         ),
         themeMode: ThemeMode.system,
         navigatorKey: navigatorKey,
-        // navigatorObservers: <NavigatorObserver>[observer],
+        navigatorObservers: <NavigatorObserver>[observer],
         initialRoute: '/',
         routes: {
           '/': (context) => const SplashScreenPage(),
