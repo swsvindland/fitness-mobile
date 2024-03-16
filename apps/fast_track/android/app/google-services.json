@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "332264445318-9dtco5vbe0vk6pnpgns7bf3pvdln2p5v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svindland.fast_track",
+            "certificate_hash": "1363226da8610ce9756ae3560839d70eeb3fa3dc"
+          }
+        },
+        {
           "client_id": "332264445318-45k61je458tk1atlpqev5vkld8j24hna.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "332264445318-45k61je458tk1atlpqev5vkld8j24hna.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "332264445318-fun63v94e36tk3gj3rv1m7nj9sclcd39.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.svindland.fastTrack"
+              }
             }
           ]
         }
