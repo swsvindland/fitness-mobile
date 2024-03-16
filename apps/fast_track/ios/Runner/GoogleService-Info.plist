@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>332264445318-fun63v94e36tk3gj3rv1m7nj9sclcd39.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.332264445318-fun63v94e36tk3gj3rv1m7nj9sclcd39</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDhzDEgnPucf0vzP2_y8a8G2vZirjU4GNI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>332264445318</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.svindland.fastTrack</string>
+	<key>PROJECT_ID</key>
+	<string>fastingtrack-3d85e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fastingtrack-3d85e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:332264445318:ios:a43fc7fb73ba227df30807</string>
+</dict>
+</plist>
