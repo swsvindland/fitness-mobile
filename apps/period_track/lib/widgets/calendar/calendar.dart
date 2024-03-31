@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:models/note.dart';
 import 'package:models/preferences.dart';
 import 'package:period_track/utils/colors.dart';
@@ -88,6 +89,7 @@ class _CalendarState extends State<Calendar> {
               color: textSecondary,
               fontWeight: FontWeight.w700,
               letterSpacing: 0.12,
+              fontSize: 18,
             ),
           ),
           const SizedBox(height: 24),
@@ -113,14 +115,27 @@ class _CalendarState extends State<Calendar> {
               );
             },
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 16),
           TableCalendar(
-            daysOfWeekVisible: false,
+            daysOfWeekVisible: true,
             headerVisible: false,
             firstDay: DateTime.utc(2000, 01, 01),
             lastDay: DateTime.utc(2100, 01, 01),
             focusedDay: _focusedDay,
             eventLoader: getEventsFromNotes,
+            daysOfWeekStyle: DaysOfWeekStyle(
+              dowTextFormatter: (date, locale) => DateFormat.E(locale).format(date).substring(0, 1).toUpperCase(),
+              weekdayStyle: GoogleFonts.josefinSans(
+                color: ternaryAlt,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 0.10,
+              ),
+              weekendStyle: GoogleFonts.josefinSans(
+                color: ternaryAlt,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 0.10,
+              ),
+            ),
             onDaySelected: (day, day2) {
               navigatorKey.currentState!.pushNamed('/add-note',
                   arguments: {"id": DateUtils.dateOnly(day).toIso8601String()});

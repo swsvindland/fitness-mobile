@@ -31,7 +31,7 @@ class CalendarHeader extends StatelessWidget {
           ),
           Text(
               headerText.toLowerCase(),
-              style: GoogleFonts.josefinSlab(fontWeight: FontWeight.w600, fontSize: 36, letterSpacing: 0.15, color: text),
+              style: GoogleFonts.josefinSlab(fontWeight: FontWeight.w600, fontSize: 36, letterSpacing: 0.10, color: text),
             ),
           IconButton(
             icon: const Icon(Icons.chevron_right, color: text,),
