@@ -26,15 +26,15 @@ class CalendarHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           IconButton(
-            icon: const Icon(Icons.chevron_left, color: text,),
+            icon: const Icon(Icons.chevron_left, color: cream),
             onPressed: onLeftArrowTap,
           ),
           Text(
               headerText.toLowerCase(),
-              style: GoogleFonts.josefinSlab(fontWeight: FontWeight.w600, fontSize: 36, letterSpacing: 0.10, color: text),
+              style: GoogleFonts.josefinSlab(fontWeight: FontWeight.w600, fontSize: 36, letterSpacing: 0.10, color: yellow),
             ),
           IconButton(
-            icon: const Icon(Icons.chevron_right, color: text,),
+            icon: const Icon(Icons.chevron_right, color: cream),
             onPressed: onRightArrowTap,
           ),
         ],

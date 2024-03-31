@@ -9,7 +9,6 @@ import "package:os_detect/os_detect.dart" as platform;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:utils/sign_in.dart';
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -71,10 +70,10 @@ class _LoginPageState extends State<LoginPage> {
                               });
                             },
                             style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  secondaryLight),
+                              foregroundColor:
+                                  MaterialStateProperty.all<Color>(cream),
                               backgroundColor:
-                                  MaterialStateProperty.all<Color>(primaryDark),
+                                  MaterialStateProperty.all<Color>(purple3),
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -115,11 +114,10 @@ class _LoginPageState extends State<LoginPage> {
                                   },
                                   style: ButtonStyle(
                                     foregroundColor:
-                                        MaterialStateProperty.all<Color>(
-                                            secondaryLight),
+                                        MaterialStateProperty.all<Color>(cream),
                                     backgroundColor:
                                         MaterialStateProperty.all<Color>(
-                                            primaryDark),
+                                            purple3),
                                   ),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -166,7 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: Text(
                                   AppLocalizations.of(context)!.anonSignIn,
                                   style: const TextStyle(
-                                      fontSize: 16.0, color: text))),
+                                      fontSize: 16.0, color: cream))),
                         ],
                       ),
               ],

@@ -52,7 +52,7 @@ class FlowLength extends StatelessWidget {
     return [
       charts.Series<Cycle, String>(
         id: 'FlowLength',
-        colorFn: (_, __) => charts.ColorUtil.fromDartColor(primaryDark),
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(purple2),
         domainFn: (Cycle sales, _) =>
             DateFormat.MMM(Localizations.localeOf(context).languageCode)
                 .format(sales.date),

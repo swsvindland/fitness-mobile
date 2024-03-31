@@ -248,12 +248,11 @@ class _AddNotePageState extends State<AddNoteForm> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Entry', style: TextStyle(color: text)),
+        title: const Text('Entry'),
         elevation: 0,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
-            color: text,
           ),
           color: Colors.white,
           onPressed: () {
@@ -327,7 +326,7 @@ class _AddNotePageState extends State<AddNoteForm> {
                             ),
                             const Text('Flow'),
                             ToggleButtons(
-                              selectedBorderColor: primaryDark,
+                              selectedBorderColor: purple4,
                               onPressed: (int index) {
                                 setState(() {
                                   switch (index) {
@@ -626,8 +625,7 @@ class _AddNotePageState extends State<AddNoteForm> {
                                     });
                                   },
                                 ),
-                                Text(AppLocalizations.of(context)!
-                                    .energetic),
+                                Text(AppLocalizations.of(context)!.energetic),
                               ]),
                             ),
                             SizedBox(
@@ -655,8 +653,7 @@ class _AddNotePageState extends State<AddNoteForm> {
                                     });
                                   },
                                 ),
-                                Text(
-                                    AppLocalizations.of(context)!.irritated),
+                                Text(AppLocalizations.of(context)!.irritated),
                               ]),
                             ),
                             SizedBox(
@@ -754,8 +751,7 @@ class _AddNotePageState extends State<AddNoteForm> {
                                     });
                                   },
                                 ),
-                                Text(
-                                    AppLocalizations.of(context)!.overwhelmed),
+                                Text(AppLocalizations.of(context)!.overwhelmed),
                               ]),
                             ),
                           ],
@@ -781,8 +777,8 @@ class _AddNotePageState extends State<AddNoteForm> {
           ),
           const SizedBox(height: 16),
           FloatingActionButton(
-            backgroundColor: primaryDark,
-            foregroundColor: text,
+            backgroundColor: purple4,
+            foregroundColor: yellow,
             onPressed: () async {
               await _db.deleteNote(user.uid, date);
               navigatorKey.currentState!.pop();

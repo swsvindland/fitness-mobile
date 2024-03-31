@@ -86,7 +86,7 @@ class _CalendarState extends State<Calendar> {
             _focusedDay.year.toString(),
             textAlign: TextAlign.center,
             style: GoogleFonts.josefinSans(
-              color: textSecondary,
+              color: yellow,
               fontWeight: FontWeight.w700,
               letterSpacing: 0.12,
               fontSize: 18,
@@ -96,9 +96,9 @@ class _CalendarState extends State<Calendar> {
           notes.isEmpty
               ? const Text(
                   'Looks like you have not recorded a period yet. Add a new note or click on a day to get started.',
-                  style: TextStyle(color: text))
+                  style: TextStyle(color: yellow))
               : const SizedBox(),
-          const Divider(color: secondary),
+          const Divider(color: yellow),
           const SizedBox(height: 8),
           CalendarHeader(
             focusedDay: _focusedDay,
@@ -126,12 +126,12 @@ class _CalendarState extends State<Calendar> {
             daysOfWeekStyle: DaysOfWeekStyle(
               dowTextFormatter: (date, locale) => DateFormat.E(locale).format(date).substring(0, 1).toUpperCase(),
               weekdayStyle: GoogleFonts.josefinSans(
-                color: ternaryAlt,
+                color: green1,
                 fontWeight: FontWeight.w500,
                 letterSpacing: 0.10,
               ),
               weekendStyle: GoogleFonts.josefinSans(
-                color: ternaryAlt,
+                color: green1,
                 fontWeight: FontWeight.w500,
                 letterSpacing: 0.10,
               ),
@@ -202,7 +202,7 @@ class _CalendarState extends State<Calendar> {
                         padding:
                             EdgeInsets.symmetric(vertical: 0, horizontal: 2),
                         child: CircleAvatar(
-                          backgroundColor: secondary,
+                          backgroundColor: yellow,
                           maxRadius: 4,
                         ),
                       ),
@@ -215,7 +215,7 @@ class _CalendarState extends State<Calendar> {
                         padding:
                             EdgeInsets.symmetric(vertical: 0, horizontal: 2),
                         child: CircleAvatar(
-                          backgroundColor: ternaryAlt,
+                          backgroundColor: green2,
                           maxRadius: 4,
                         ),
                       ),
@@ -262,7 +262,7 @@ class CalendarDay extends StatelessWidget {
 
     final calendarTextStyle = GoogleFonts.josefinSans(
       color:
-          dateOnly == DateUtils.dateOnly(DateTime.now()) ? secondaryDark : text,
+          dateOnly == DateUtils.dateOnly(DateTime.now()) ? yellow : cream,
       fontSize: 16,
       fontWeight: dateOnly == DateUtils.dateOnly(DateTime.now()) ? FontWeight.w600 : FontWeight.w300,
       letterSpacing: 0.05,
@@ -281,9 +281,9 @@ class CalendarDay extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(3),
           decoration: BoxDecoration(
-              shape: BoxShape.circle, border: Border.all(color: secondary)),
+              shape: BoxShape.circle, border: Border.all(color: yellow)),
           child: CircleAvatar(
-            backgroundColor: primaryDark,
+            backgroundColor: purple3,
             child: SizedBox(
               height: 20,
               width: 20,
@@ -304,9 +304,9 @@ class CalendarDay extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(3),
           decoration: BoxDecoration(
-              shape: BoxShape.circle, border: Border.all(color: ternaryLight)),
+              shape: BoxShape.circle, border: Border.all(color: green1)),
           child: CircleAvatar(
-            backgroundColor: ternary,
+            backgroundColor: green3,
             child: SizedBox(
               height: 20,
               width: 20,
@@ -328,7 +328,7 @@ class CalendarDay extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-                shape: BoxShape.circle, border: Border.all(color: secondary)),
+                shape: BoxShape.circle, border: Border.all(color: yellow)),
             child: SizedBox(
               height: 20,
               width: 20,
@@ -349,7 +349,7 @@ class CalendarDay extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-              shape: BoxShape.circle, border: Border.all(color: ternaryLight)),
+              shape: BoxShape.circle, border: Border.all(color: green1)),
           child: SizedBox(
             height: 20,
             width: 20,
@@ -369,7 +369,7 @@ class CalendarDay extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-              shape: BoxShape.circle, border: Border.all(color: primaryLight)),
+              shape: BoxShape.circle, border: Border.all(color: cream)),
           child: SizedBox(
             height: 20,
             width: 20,

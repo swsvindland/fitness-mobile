@@ -35,7 +35,7 @@ class Note extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Divider(color: primaryDark),
+              const Divider(color: purple4),
               body.isEmpty ? const SizedBox() :
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -46,19 +46,19 @@ class Note extends StatelessWidget {
                     body,
                   ),
                   const SizedBox(height: 8),
-                  const Divider(color: primaryDark),
+                  const Divider(color: purple3),
                 ],
               ),
               Row(
                 children: [
                   periodStart
                       ? const CircleAvatar(
-                          backgroundColor: primaryDark, maxRadius: 6)
+                          backgroundColor: purple3, maxRadius: 6)
                       : const SizedBox(width: 0),
                   SizedBox(width: periodStart ? 8 : 0),
                   intimacy
                       ? const CircleAvatar(
-                          backgroundColor: ternaryAlt, maxRadius: 6)
+                          backgroundColor: green3, maxRadius: 6)
                       : const SizedBox(width: 0),
                   SizedBox(width: intimacy ? 8 : 0),
                   FlowIndicator(flow: flow)

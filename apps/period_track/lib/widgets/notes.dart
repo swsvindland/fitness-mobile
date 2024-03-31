@@ -20,7 +20,7 @@ class Notes extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: Text(
           AppLocalizations.of(context)!.noNotesError,
-          style: const TextStyle(color: text),
+          style: const TextStyle(color: yellow),
         ),
       );
     }

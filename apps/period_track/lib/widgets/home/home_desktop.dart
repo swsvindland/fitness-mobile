@@ -28,12 +28,12 @@ class _HomeDesktopState extends State<HomeDesktop> {
               const SizedBox(height: 24),
               const SizedBox(
                 width: 600,
-                child: Divider(color: secondary),
+                child: Divider(color: yellow),
               ),
               const SizedBox(height: 24),
               Card(
                 color: Theme.of(context).brightness == Brightness.light
-                    ? primaryDarkAlt
+                    ? purple4
                     : Theme.of(context).cardColor,
                 child: const Padding(
                   padding: EdgeInsets.all(12),

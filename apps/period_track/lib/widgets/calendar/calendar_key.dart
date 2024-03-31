@@ -19,10 +19,10 @@ class CalendarKey extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CalendarKeyItem(
-                  icon: const CalendarKeyItemIconCircle(color: primaryDark),
+                  icon: const CalendarKeyItemIconCircle(color: purple3),
                   text: AppLocalizations.of(context)!.cycleBegin.toLowerCase()),
               CalendarKeyItem(
-                  icon: const CalendarKeyItemIconCircle(color: ternary),
+                  icon: const CalendarKeyItemIconCircle(color: green2),
                   text: AppLocalizations.of(context)!.estOvulation.toLowerCase()),
             ],
           ),
@@ -35,11 +35,11 @@ class CalendarKey extends StatelessWidget {
             children: [
               CalendarKeyItem(
                   icon: const CalendarKeyItemIconOutlinedCircle(
-                      color: secondary),
+                      color: yellow),
                   text: AppLocalizations.of(context)!.period.toLowerCase()),
               CalendarKeyItem(
                   icon: const CalendarKeyItemIconOutlinedCircle(
-                      color: ternaryLight),
+                      color: green1),
                   text: AppLocalizations.of(context)!.estFertileDays.toLowerCase()),
             ],
           ),
@@ -52,10 +52,10 @@ class CalendarKey extends StatelessWidget {
             children: [
               CalendarKeyItem(
                   icon: const CalendarKeyItemIconOutlinedCircle(
-                      color: primaryLight),
+                      color: purple1),
                   text: AppLocalizations.of(context)!.estCycle.toLowerCase()),
               CalendarKeyItem(
-                  icon: const CalendarKeyItemIconDot(color: secondary),
+                  icon: const CalendarKeyItemIconDot(color: yellow),
                   text: AppLocalizations.of(context)!.notes.toLowerCase()),
             ],
           ),
@@ -68,7 +68,7 @@ class CalendarKey extends StatelessWidget {
             children: [
               const SizedBox(width: 175),
               CalendarKeyItem(
-                  icon: const CalendarKeyItemIconDot(color: ternaryAlt),
+                  icon: const CalendarKeyItemIconDot(color: green1),
                   text: AppLocalizations.of(context)!.intimacy.toLowerCase()),
             ],
           ),
@@ -100,7 +100,7 @@ class CalendarKeyItem extends StatelessWidget {
           Text(
             text,
             style: GoogleFonts.josefinSans(
-                color: Theme.of(context).brightness == Brightness.light ? secondaryLight : primaryLight,
+                color: cream,
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 0.12),

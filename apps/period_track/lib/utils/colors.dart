@@ -1,21 +1,14 @@
 import 'dart:ui';
 
-const callToAction = Color(0xffFFD4AD);
+const cream = Color(0xffFFF3E8);
 
-const primaryLight = Color(0xffFFF0F4);
-const primaryAlt = Color(0xffD6A5B3);
-const primary = Color(0xffac6d7e);
-const primaryDark = Color(0xff63465A);
-const primaryDarkAlt = Color(0xff82505E);
+const green1 = Color(0xffE3E3A7);
+const green2 = Color(0xffDEDE64);
+const green3 = Color(0xff989859);
 
-const secondaryLight = Color(0xffFFF3E8);
-const secondary = Color(0xffFFD5AD);
-const secondaryDark = Color(0xffFFBB7C);
+const yellow = Color(0xffFFBB7C);
 
-const ternaryLight = Color(0xffE3E3A7);
-const ternary = Color(0xff989859);
-const ternaryAlt = Color(0xffDEDE64);
-// const ternaryDark = Color(0xff989859);
-
-const text = secondaryLight;
-const textSecondary = secondaryDark;
+const purple1 = Color(0xffCBACB4);
+const purple2 = Color(0xff966673);
+const purple3 = Color(0xff63465A);
+const purple4 = Color(0xff82505E);

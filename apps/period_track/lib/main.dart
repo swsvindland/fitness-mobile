@@ -145,42 +145,42 @@ class _AppState extends State<App> {
             Locale('fa', ''), // Persian
           ],
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: primary),
+            colorScheme: ColorScheme.fromSeed(seedColor: purple2),
             textTheme: GoogleFonts.josefinSansTextTheme(),
-            scaffoldBackgroundColor: primary,
+            scaffoldBackgroundColor: purple2,
             appBarTheme: const AppBarTheme(
-              backgroundColor: primaryDark,
-              foregroundColor: secondary,
+              backgroundColor: purple3,
+              foregroundColor: cream,
             ),
             drawerTheme: const DrawerThemeData(
-              backgroundColor: primaryDark,
+              backgroundColor: purple3,
             ),
             navigationRailTheme: NavigationRailThemeData(
-              backgroundColor: primaryDark,
+              backgroundColor: purple3,
               selectedLabelTextStyle: TextStyle(
-                  color: secondaryLight,
+                  color: yellow,
                   fontFamily: GoogleFonts.josefinSans().fontFamily),
               unselectedLabelTextStyle: TextStyle(
-                  color: secondary,
+                  color: yellow,
                   fontFamily: GoogleFonts.josefinSans().fontFamily),
-              unselectedIconTheme: const IconThemeData(color: secondary),
+              unselectedIconTheme: const IconThemeData(color: yellow),
             ),
             navigationBarTheme: NavigationBarThemeData(
-              backgroundColor: primaryDark,
-              labelTextStyle: const MaterialStatePropertyAll(TextStyle(color: secondary)),
+              backgroundColor: purple3,
+              labelTextStyle: const MaterialStatePropertyAll(TextStyle(color: yellow)),
               iconTheme: MaterialStateProperty.resolveWith((states) {
                 if (states.contains(MaterialState.selected)) {
-                  return const IconThemeData(color: primaryDark);
+                  return const IconThemeData(color: purple3);
                 }
-                return const IconThemeData(color: secondary);
+                return const IconThemeData(color: yellow);
               }),
             ),
-            cardTheme: const CardTheme(color: secondaryLight),
+            cardTheme: const CardTheme(color: cream),
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
                 fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
-                foregroundColor: MaterialStateProperty.all<Color>(primaryDark),
-                backgroundColor: MaterialStateProperty.all<Color>(callToAction),
+                foregroundColor: MaterialStateProperty.all<Color>(purple3),
+                backgroundColor: MaterialStateProperty.all<Color>(cream),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25),
@@ -191,25 +191,25 @@ class _AppState extends State<App> {
             outlinedButtonTheme: OutlinedButtonThemeData(
               style: ButtonStyle(
                 fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
-                foregroundColor: MaterialStateProperty.all<Color>(primaryDark),
+                foregroundColor: MaterialStateProperty.all<Color>(purple3),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25),
                   ),
                 ),
                 side: MaterialStateProperty.all(
-                  const BorderSide(color: callToAction),
+                  const BorderSide(color: purple2),
                 ),
               ),
             ),
-            dialogBackgroundColor: primaryLight,
+            dialogBackgroundColor: cream,
             inputDecorationTheme: const InputDecorationTheme(
               border: OutlineInputBorder(),
             ),
           ),
           darkTheme: ThemeData(
             colorScheme: ColorScheme.fromSeed(
-                seedColor: primary, brightness: Brightness.dark),
+                seedColor: purple2, brightness: Brightness.dark),
             textTheme: GoogleFonts.josefinSansTextTheme(ThemeData.dark().textTheme),
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
@@ -235,8 +235,8 @@ class _AppState extends State<App> {
               ),
             ),
             bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-              unselectedItemColor: secondary,
-              selectedItemColor: secondaryLight,
+              unselectedItemColor: yellow,
+              selectedItemColor: yellow,
             ),
             inputDecorationTheme: const InputDecorationTheme(
               border: OutlineInputBorder(),
