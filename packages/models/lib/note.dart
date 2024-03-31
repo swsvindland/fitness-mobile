@@ -24,6 +24,20 @@ class NoteModel {
   bool? backache;
   bool? perineumPain;
 
+  // mood
+  bool? calm;
+  bool? happy;
+  bool? energetic;
+  bool? frisky;
+  bool? irritated;
+  bool? angry;
+  bool? sad;
+  bool? anxious;
+  bool? apathetic;
+  bool? confused;
+  bool? guilty;
+  bool? overwhelmed;
+
   NoteModel(
       {required this.uid,
       required this.date,
@@ -42,7 +56,19 @@ class NoteModel {
       this.cravings,
       this.bloating,
       this.backache,
-      this.perineumPain});
+      this.perineumPain,
+      this.calm,
+      this.happy,
+      this.energetic,
+      this.frisky,
+      this.irritated,
+      this.angry,
+      this.sad,
+      this.anxious,
+      this.apathetic,
+      this.confused,
+      this.guilty,
+      this.overwhelmed});
 
   factory NoteModel.fromMap(Map data) {
     data = data;
@@ -62,18 +88,30 @@ class NoteModel {
                     : data['flow'] == "3"
                         ? FlowRate.heavy
                         : null,
-      cramps: data['cramps'],
-      acne: data['acne'],
-      tenderBreasts: data['tenderBreasts'],
-      headache: data['headache'],
-      constipation: data['constipation'],
-      diarrhea: data['diarrhea'],
-      fatigue: data['fatigue'],
-      nausea: data['nausea'],
-      cravings: data['cravings'],
-      bloating: data['bloating'],
-      backache: data['backache'],
-      perineumPain: data['perineumPain']
+        cramps: data['cramps'],
+        acne: data['acne'],
+        tenderBreasts: data['tenderBreasts'],
+        headache: data['headache'],
+        constipation: data['constipation'],
+        diarrhea: data['diarrhea'],
+        fatigue: data['fatigue'],
+        nausea: data['nausea'],
+        cravings: data['cravings'],
+        bloating: data['bloating'],
+        backache: data['backache'],
+        perineumPain: data['perineumPain'],
+        calm: data['calm'],
+        happy: data['happy'],
+        energetic: data['energetic'],
+        frisky: data['frisky'],
+        irritated: data['irritated'],
+        angry: data['angry'],
+        sad: data['sad'],
+        anxious: data['anxious'],
+        apathetic: data['apathetic'],
+        confused: data['confused'],
+        guilty: data['guilty'],
+        overwhelmed: data['overwhelmed']
     );
   }
 
@@ -97,7 +135,19 @@ class NoteModel {
       'cravings': data.cravings,
       'bloating': data.bloating,
       'backache': data.backache,
-      'perineumPain': data.perineumPain
+      'perineumPain': data.perineumPain,
+      'calm': data.calm,
+      'happy': data.happy,
+      'energetic': data.energetic,
+      'frisky': data.frisky,
+      'irritated': data.irritated,
+      'angry': data.angry,
+      'sad': data.sad,
+      'anxious': data.anxious,
+      'apathetic': data.apathetic,
+      'confused': data.confused,
+      'guilty': data.guilty,
+      'overwhelmed': data.overwhelmed
     };
   }
 }

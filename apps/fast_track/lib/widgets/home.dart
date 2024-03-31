@@ -1,16 +1,12 @@
 import 'dart:async';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var user = Provider.of<User?>(context);
-
     return const FastDisplay();
   }
 }
@@ -51,10 +47,10 @@ class _FastDisplayState extends State<FastDisplay> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('Fast Display'),
+        const Text('Fast Display'),
         fastStart != null && now != null
             ? Text(seconds.toString())
-            : Text(''),
+            : const Text(''),
         FilledButton(
           onPressed: () {
             setState(() {
