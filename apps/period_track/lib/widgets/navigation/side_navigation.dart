@@ -34,22 +34,22 @@ class SideNavigation extends StatelessWidget {
         NavigationRailDestination(
           padding: const EdgeInsets.all(8),
           icon: const Icon(Icons.calendar_today),
-          label: Text(AppLocalizations.of(context)!.calendar),
+          label: Text(AppLocalizations.of(context)!.calendar.toUpperCase()),
         ),
         NavigationRailDestination(
           padding: const EdgeInsets.all(8),
           icon: const Icon(Icons.note_add),
-          label: Text(AppLocalizations.of(context)!.notes),
+          label: Text(AppLocalizations.of(context)!.notes.toUpperCase()),
         ),
         NavigationRailDestination(
           padding: const EdgeInsets.all(8),
           icon: const Icon(Icons.insights),
-          label: Text(AppLocalizations.of(context)!.statistics),
+          label: Text(AppLocalizations.of(context)!.statistics.toUpperCase()),
         ),
         NavigationRailDestination(
           padding: const EdgeInsets.all(8),
           icon: const Icon(Icons.settings),
-          label: Text(AppLocalizations.of(context)!.settings),
+          label: Text(AppLocalizations.of(context)!.settings.toUpperCase()),
         ),
       ],
     );

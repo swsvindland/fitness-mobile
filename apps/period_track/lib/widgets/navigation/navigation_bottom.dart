@@ -17,19 +17,19 @@ class NavigationBottom extends StatelessWidget {
       destinations: <Widget>[
         NavigationDestination(
           icon: const Icon(Icons.calendar_today),
-          label: AppLocalizations.of(context)!.calendar,
+          label: AppLocalizations.of(context)!.calendar.toUpperCase(),
         ),
         NavigationDestination(
           icon: const Icon(Icons.note_add),
-          label: AppLocalizations.of(context)!.notes,
+          label: AppLocalizations.of(context)!.notes.toUpperCase(),
         ),
         NavigationDestination(
           icon: const Icon(Icons.insights),
-          label: AppLocalizations.of(context)!.statistics,
+          label: AppLocalizations.of(context)!.statistics.toUpperCase(),
         ),
         NavigationDestination(
           icon: const Icon(Icons.settings),
-          label: AppLocalizations.of(context)!.settings,
+          label: AppLocalizations.of(context)!.settings.toUpperCase(),
         ),
       ],
       selectedIndex: selectedIndex,
