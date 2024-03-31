@@ -57,7 +57,7 @@ class CycleLength extends StatelessWidget {
             DateFormat.MMM(Localizations.localeOf(context).languageCode)
                 .format(sales.date),
         measureFn: (Cycle sales, _) => sales.length,
-        data: data.sublist(data.length - 12, data.length - 1),
+        data: data.length > 12 ? data.getRange(data.length - 12, data.length - 1).toList() : data,
       ),
     ];
   }
