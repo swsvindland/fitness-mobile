@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:sup_track/widgets/supplement_card.dart';
 import 'package:widgets/input.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sup_track/l10n/app_localizations.dart';
 
 class SupplementList extends StatefulWidget {
   const SupplementList({super.key});

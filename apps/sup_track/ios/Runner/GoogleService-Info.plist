@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>799108724870-7a9s350m7c242ani9f04ddg7hthoccuh.apps.googleusercontent.com</string>
+	<string>114986152997-fin68eubr3lqv169m5fdle7td40497ft.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.799108724870-7a9s350m7c242ani9f04ddg7hthoccuh</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>799108724870-bha47s9p9tt8hgoklt66i7e9e3pc9253.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.114986152997-fin68eubr3lqv169m5fdle7td40497ft</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAVeYz5tEz6xtu_BPBMNZBxZnUw6gzFPgw</string>
+	<string>AIzaSyAnWouS1rx80N_WA0RcSzWgmvYDWpXGAok</string>
 	<key>GCM_SENDER_ID</key>
-	<string>799108724870</string>
+	<string>114986152997</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.svindland.supTrack</string>
 	<key>PROJECT_ID</key>
-	<string>suptrack-c8f9f</string>
+	<string>fitness-mobile-dev-1</string>
 	<key>STORAGE_BUCKET</key>
-	<string>suptrack-c8f9f.appspot.com</string>
+	<string>fitness-mobile-dev-1.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:799108724870:ios:21b9b5ee4a33041ae47907</string>
+	<string>1:114986152997:ios:1fe0db80c904bb3156bbcc</string>
 </dict>
 </plist>

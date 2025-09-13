@@ -1,5 +1,4 @@
 import 'package:api/body_database_service.dart';
-import 'package:sup_track/widgets/app_bar_ad.dart';
 import 'package:sup_track/widgets/navigation/navigation_bottom.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +24,7 @@ class _HomeState extends State<HomePage> {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: const AppBarAd(),
+          title: Text('SupTrack'),
         ),
         body: Row(
           mainAxisAlignment: MainAxisAlignment.center,

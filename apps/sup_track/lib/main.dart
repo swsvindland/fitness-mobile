@@ -4,7 +4,6 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:sup_track/utils/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -15,7 +14,7 @@ import 'package:provider/provider.dart';
 import 'package:sup_track/layouts/layouts.dart';
 import 'package:utils/graph_animation_provider.dart';
 import 'package:utils/constants.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sup_track/l10n/app_localizations.dart';
 
 import 'firebase_options.dart';
 
@@ -44,8 +43,6 @@ void main() async {
     FirebaseCrashlytics.instance.recordError(error, stack);
     return true;
   };
-
-  MobileAds.instance.initialize();
 
   runApp(const App());
 }
