@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:utils/constants.dart';
 import 'package:utils/sign_in.dart';
 import "package:os_detect/os_detect.dart" as platform;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fast_track/l10n/app_localizations.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

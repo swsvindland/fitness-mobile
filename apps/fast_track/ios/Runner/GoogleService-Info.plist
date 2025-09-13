@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>332264445318-fun63v94e36tk3gj3rv1m7nj9sclcd39.apps.googleusercontent.com</string>
+	<string>114986152997-418n9psb7qnb8f1uf61gfq3u2o8i16cp.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.332264445318-fun63v94e36tk3gj3rv1m7nj9sclcd39</string>
+	<string>com.googleusercontent.apps.114986152997-418n9psb7qnb8f1uf61gfq3u2o8i16cp</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDhzDEgnPucf0vzP2_y8a8G2vZirjU4GNI</string>
+	<string>AIzaSyAnWouS1rx80N_WA0RcSzWgmvYDWpXGAok</string>
 	<key>GCM_SENDER_ID</key>
-	<string>332264445318</string>
+	<string>114986152997</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.svindland.fastTrack</string>
 	<key>PROJECT_ID</key>
-	<string>fastingtrack-3d85e</string>
+	<string>fitness-mobile-dev-1</string>
 	<key>STORAGE_BUCKET</key>
-	<string>fastingtrack-3d85e.appspot.com</string>
+	<string>fitness-mobile-dev-1.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:332264445318:ios:a43fc7fb73ba227df30807</string>
+	<string>1:114986152997:ios:fe1d7f5820e7777e56bbcc</string>
 </dict>
 </plist>

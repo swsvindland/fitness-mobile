@@ -1,4 +1,4 @@
-import 'package:fast_track/widgets/app_bar_ad.dart';
+import 'package:fast_track/l10n/app_localizations.dart';
 import 'package:fast_track/widgets/navigation/navigation_bottom.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +21,7 @@ class _HomeState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const AppBarAd(),
+        title: Text('Fast Track'),
       ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,

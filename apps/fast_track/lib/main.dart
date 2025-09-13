@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 import 'package:fast_track/layouts/layouts.dart';
 import 'package:utils/graph_animation_provider.dart';
 import 'package:utils/constants.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fast_track/l10n/app_localizations.dart';
 
 import 'firebase_options.dart';
 
