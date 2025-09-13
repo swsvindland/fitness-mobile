@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:body_track/l10n/app_localizations.dart';
 
 class SexForm extends StatefulWidget {
   final Preferences preferences;

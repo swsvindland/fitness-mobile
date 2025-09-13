@@ -8,17 +8,15 @@ import 'package:crypto/crypto.dart';
 import 'package:utils/constants.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
-final GoogleSignIn _googleSignIn = GoogleSignIn();
+final GoogleSignIn _googleSignIn = GoogleSignIn.instance;
 
 Future<User?> signInWithGoogle() async {
-  final GoogleSignInAccount googleSignInAccount =
-      (await _googleSignIn.signIn())!;
-  final GoogleSignInAuthentication gsa =
-      await googleSignInAccount.authentication;
+  final GoogleSignInAccount googleSignInAccount = await _googleSignIn.authenticate();
+  final GoogleSignInAuthentication gsa = await googleSignInAccount.authentication;
 
   final AuthCredential credential = GoogleAuthProvider.credential(
     idToken: gsa.idToken,
-    accessToken: gsa.accessToken,
+    accessToken: gsa.idToken,
   );
   final UserCredential authResult =
       await _auth.signInWithCredential(credential);

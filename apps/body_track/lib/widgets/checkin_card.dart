@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'dart:math';
 import 'package:models/models.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:body_track/l10n/app_localizations.dart';
 
 double log10(num x) => log(x) / ln10;
 

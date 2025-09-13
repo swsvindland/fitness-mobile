@@ -1,8 +1,1 @@
-{
-  "functions": {
-    "predeploy": [
-      "npm --prefix \"$RESOURCE_DIR\" run lint",
-      "npm --prefix \"$RESOURCE_DIR\" run build"
-    ]
-  }
-}
+{"flutter":{"platforms":{"android":{"default":{"projectId":"fitness-mobile-dev-1","appId":"1:114986152997:android:1a3f927619f945a056bbcc","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"fitness-mobile-dev-1","appId":"1:114986152997:ios:46301c8ec76ef0af56bbcc","uploadDebugSymbols":true,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"fitness-mobile-dev-1","configurations":{"android":"1:114986152997:android:1a3f927619f945a056bbcc","ios":"1:114986152997:ios:46301c8ec76ef0af56bbcc"}}}}}}

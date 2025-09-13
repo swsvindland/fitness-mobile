@@ -7,13 +7,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:body_track/l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'package:body_track/layouts/layouts.dart';
 import 'package:utils/graph_animation_provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:utils/constants.dart';
 
@@ -44,8 +42,6 @@ void main() async {
     FirebaseCrashlytics.instance.recordError(error, stack);
     return true;
   };
-
-  MobileAds.instance.initialize();
 
   runApp(const App());
 }
@@ -95,50 +91,8 @@ class _AppState extends State<App> {
       ],
       child: MaterialApp(
         title: 'BodyTrack',
-        localizationsDelegates: const [
-          AppLocalizations.delegate, // Add this line
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: const [
-          Locale('en', ''), // English
-          Locale('es', ''), // Spanish
-          Locale('pt', ''), // Portuguese
-          Locale('fr', ''), // French
-          Locale('de', ''), // German
-          Locale('it', ''), // Italian
-          Locale('zh', ''), // Simplified Chinese
-          Locale('ko', ''), // Korean
-          Locale('ja', ''), // Japanese
-          Locale('ar', ''), // Arabic
-          Locale('hi', ''), // Hindi
-          Locale('ru', ''), // Russian
-          Locale('tr', ''), // Turkish
-          Locale('vi', ''), // Vietnamese
-          Locale('th', ''), // Thai
-          Locale('id', ''), // Indonesian
-          Locale('ms', ''), // Malay
-          Locale('fil', ''), // Filipino
-          Locale('pl', ''), // Polish
-          Locale('nl', ''), // Dutch
-          Locale('sv', ''), // Swedish
-          Locale('da', ''), // Danish
-          Locale('fi', ''), // Finnish
-          Locale('nb', ''), // Norwegian
-          Locale('el', ''), // Greek
-          Locale('hu', ''), // Hungarian
-          Locale('cs', ''), // Czech
-          Locale('he', ''), // Hebrew
-          Locale('ro', ''), // Romanian
-          Locale('sk', ''), // Slovak
-          Locale('uk', ''), // Ukrainian
-          Locale('hr', ''), // Croatian
-          Locale('ca', ''), // Catalan
-          Locale('eu', ''), // Basque
-          Locale('gl', ''), // Galician
-          Locale('fa', ''), // Persian
-        ],
+        localizationsDelegates: AppLocalizations.localizationsDelegates, 
+        supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: primary),

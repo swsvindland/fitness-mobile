@@ -5,7 +5,7 @@ import 'package:body_track/widgets/settings/sex/sex.dart';
 import 'package:flutter/material.dart';
 import 'notification/notification.dart';
 import 'package:widgets/widgets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:body_track/l10n/app_localizations.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});

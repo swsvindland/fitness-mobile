@@ -1,80 +1,40 @@
 {
   "project_info": {
-    "project_number": "718751552748",
-    "project_id": "bodytrack-4805f",
-    "storage_bucket": "bodytrack-4805f.appspot.com"
+    "project_number": "114986152997",
+    "project_id": "fitness-mobile-dev-1",
+    "storage_bucket": "fitness-mobile-dev-1.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:718751552748:android:0dc0fed7fe7eeef27c41c9",
+        "mobilesdk_app_id": "1:114986152997:android:1a3f927619f945a056bbcc",
         "android_client_info": {
-          "package_name": "com.svindland.bodytrack"
+          "package_name": "com.svindland.body_track"
         }
       },
       "oauth_client": [
         {
-          "client_id": "718751552748-4r3fclb271osohrjvb4i8ljo6f8gogg6.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.svindland.bodytrack",
-            "certificate_hash": "1363226da8610ce9756ae3560839d70eeb3fa3dc"
-          }
-        },
-        {
-          "client_id": "718751552748-g7jjoui28ecfok2lehauiecp2n43c4bk.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.svindland.bodytrack",
-            "certificate_hash": "8dd5a4809c52154c40157130c3323cf2c6435067"
-          }
-        },
-        {
-          "client_id": "718751552748-h7vvl5ste38kvge940p3rvduhl23orld.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.svindland.bodytrack",
-            "certificate_hash": "a99e839a78a2a487beddf0382b36dc3a989688bd"
-          }
-        },
-        {
-          "client_id": "718751552748-lt7omnc41977lbtvnu2b4kk796esrg8b.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.svindland.bodytrack",
-            "certificate_hash": "ea11cf94007630919007f53cf7d39ba288eca60c"
-          }
-        },
-        {
-          "client_id": "718751552748-penk9f1dnsvp3a5sblfiugs6ntphhbgs.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.svindland.bodytrack",
-            "certificate_hash": "4e335544906a24049dc39253868ca9d9409716e2"
-          }
-        },
-        {
-          "client_id": "718751552748-un406g6o7edlo06mj83t64207c9oul2j.apps.googleusercontent.com",
+          "client_id": "114986152997-e3jktfqrtsgj9svhtpfhl2lpcpirsjgi.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCKgASd8Y-hfbJpWxxvEtnqMQG8Bv8GEhs"
+          "current_key": "AIzaSyA0MhseTjGxy2LdCbCP9d9wIabF1EvzEG4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "718751552748-un406g6o7edlo06mj83t64207c9oul2j.apps.googleusercontent.com",
+              "client_id": "114986152997-e3jktfqrtsgj9svhtpfhl2lpcpirsjgi.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "718751552748-d5eouhavqmlbe1glea6vcieaig2mj1i5.apps.googleusercontent.com",
+              "client_id": "114986152997-smsfb57ftb5vt3gvs5g5297ohoa5k1v3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.svindland.bodytrack"
+                "bundle_id": "com.svindland.bodyTrack"
               }
             }
           ]

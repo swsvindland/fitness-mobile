@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:utils/sign_in.dart';
 import 'package:utils/constants.dart';
 import "package:os_detect/os_detect.dart" as platform;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:body_track/l10n/app_localizations.dart';
 import 'package:api/api.dart';
 
 class LoginPage extends StatefulWidget {

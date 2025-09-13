@@ -1,4 +1,3 @@
-import 'package:body_track/widgets/app_bar_ad.dart';
 import 'package:body_track/widgets/navigation/side_navigation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +10,9 @@ import 'package:body_track/widgets/settings/settings.dart';
 import 'package:body_track/widgets/all.dart';
 import 'package:body_track/widgets/home.dart';
 import 'package:api/api.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../widgets/navigation/navigation_bottom.dart';
+import 'package:body_track/l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -100,7 +99,7 @@ class _HomeState extends State<HomePage> {
       ],
       child: Scaffold(
         appBar: AppBar(
-          title: const AppBarAd(),
+          title: Text('Body Track'),
           elevation: 0,
         ),
         body: Row(

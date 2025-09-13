@@ -14,8 +14,8 @@ description: An application for tracking menusral cycle.
 version: 2.2.0+43
 
 environment:
-  sdk: ">=3.3.3 <4.0.0"
-  flutter: "3.19.5"
+  sdk: ">=3.9.2 <4.0.0"
+  flutter: "3.35.3"
 
 dependencies:
   community_charts_flutter: ^1.0.2
@@ -34,7 +34,7 @@ dependencies:
   google_fonts: ^4.0.4
   google_mobile_ads: ^4.0.0
   google_sign_in: ^6.2.1
-  intl: ^0.18.0
+  intl: ^0.20.2
   os_detect: ^2.0.1
   provider: ^6.1.1
   sign_in_with_apple: ^5.0.0

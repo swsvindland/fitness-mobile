@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:utils/constants.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:body_track/l10n/app_localizations.dart';
 
 class NavigationBottom extends StatelessWidget {
   const NavigationBottom({super.key, required this.selectedIndex, required this.onItemTapped});

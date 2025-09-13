@@ -14,9 +14,8 @@ description: An application for tracking daily water intake.
 version: 4.0.0+50
 
 environment:
-  sdk: ">=3.3.0 <4.0.0"
-
-  flutter: "3.19.1"
+  sdk: ">=3.9.2 <4.0.0"
+  flutter: "3.35.3"
 
 dependencies:
   flutter:
@@ -24,7 +23,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  intl: ^0.18.0
+  intl: ^0.20.2
   carousel_slider: ^4.2.1
   google_fonts: ^4.0.4
   community_charts_flutter: ^1.0.1
