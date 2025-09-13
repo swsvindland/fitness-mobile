@@ -3,7 +3,7 @@ import 'package:models/note.dart';
 import 'package:period_track/utils/colors.dart';
 import 'package:period_track/widgets/note.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:period_track/l10n/app_localizations.dart';
 
 class Notes extends StatelessWidget {
   const Notes({super.key});

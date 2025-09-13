@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:period_track/l10n/app_localizations.dart';
 import 'package:utils/constants.dart';
 
 class DefaultCycleForm extends StatefulWidget {

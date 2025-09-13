@@ -7,9 +7,8 @@ import 'package:models/preferences.dart';
 import 'package:period_track/widgets/navigation/side_navigation.dart';
 import 'package:provider/provider.dart';
 import 'package:utils/constants.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:period_track/l10n/app_localizations.dart';
 
-import '../widgets/app_bar_ad.dart';
 import '../widgets/disclaimer_dialog.dart';
 import '../widgets/home/home.dart';
 import '../widgets/notes.dart';
@@ -49,8 +48,7 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
 
     return Scaffold(
       appBar: AppBar(
-          title:
-          preferences.adFree ? Text(AppLocalizations.of(context)!.periodTrack) : const AppBarAd(),
+          title: Text(AppLocalizations.of(context)!.periodTrack),
           elevation: 0
       ),
       body: MultiProvider(

@@ -2,7 +2,7 @@ import 'package:api/preferences_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:models/preferences.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:period_track/l10n/app_localizations.dart';
 
 Future<void> showDisclaimerDialog(BuildContext context, User user,
       Preferences preferences, PreferencesDatabaseService db) async {

@@ -4,11 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:models/note.dart';
 import 'package:models/preferences.dart';
-import 'package:period_track/widgets/app_bar_ad.dart';
 import 'package:provider/provider.dart';
 import 'package:utils/constants.dart';
 import 'package:period_track/widgets/navigation/navigation_bottom.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:period_track/l10n/app_localizations.dart';
 
 import '../widgets/home/home.dart';
 import '../widgets/notes.dart';
@@ -49,8 +48,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
 
     return Scaffold(
       appBar: AppBar(
-        title:
-            preferences.adFree ? Text(AppLocalizations.of(context)!.periodTrack) : const AppBarAd(),
+        title: Text(AppLocalizations.of(context)!.periodTrack),
         elevation: 0
       ),
       body: MultiProvider(

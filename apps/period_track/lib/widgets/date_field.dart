@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:datetime_picker_formfield_new/datetime_picker_formfield.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:period_track/l10n/app_localizations.dart';
 
 class DateField extends StatelessWidget {
   DateField({super.key, required this.controller, required this.onChanged});

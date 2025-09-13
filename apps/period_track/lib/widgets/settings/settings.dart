@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:period_track/widgets/delete_account.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:period_track/l10n/app_localizations.dart';
 
 import 'package:utils/constants.dart';
 import 'package:utils/sign_in.dart';

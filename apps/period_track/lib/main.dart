@@ -13,9 +13,8 @@ import 'package:period_track/utils/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:period_track/layouts/layouts.dart';
 import 'package:utils/constants.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:api/preferences_database_service.dart';
+import 'package:period_track/l10n/app_localizations.dart';
 
 import 'firebase_options.dart';
 import 'layouts/add_note.dart';
@@ -45,8 +44,6 @@ void main() async {
     FirebaseCrashlytics.instance.recordError(error, stack);
     return true;
   };
-
-  MobileAds.instance.initialize();
 
   runApp(const App());
 }
@@ -175,7 +172,7 @@ class _AppState extends State<App> {
                 return const IconThemeData(color: yellow);
               }),
             ),
-            cardTheme: const CardTheme(color: cream),
+            // cardTheme: const CardTheme(color: cream),
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
                 fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
