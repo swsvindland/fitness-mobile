@@ -1,5 +1,4 @@
 import 'package:api/body_database_service.dart';
-import 'package:bp_track/widgets/app_bar_ad.dart';
 import 'package:bp_track/widgets/navigation/navigation_bottom.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +31,7 @@ class _HomeState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const AppBarAd(),
+        title: const Text('Blood Pressure Tracker'),
       ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
