@@ -1,6 +1,7 @@
 export 'preferences.dart';
 export 'weight.dart';
 export 'checkin.dart';
+export 'height.dart';
 export 'drink.dart';
 export 'blood_pressure.dart';
 export 'note.dart';

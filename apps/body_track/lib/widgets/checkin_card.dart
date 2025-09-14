@@ -37,13 +37,17 @@ class CheckInCard extends StatelessWidget {
       );
     }
 
-    final bfMale = 86.010 * log10(data.navel - data.neck) -
-        70.041 * log10(preferences.height) +
-        36.76;
-    final bfFemale =
-        163.205 * log10(data.navel + (data.hip ?? data.navel) - data.neck) -
-            97.684 * log10(preferences.height) -
-            78.387;
+    final heights = Provider.of<Iterable<HeightModel>>(context).toList();
+    final double? heightInches = heights.isNotEmpty ? heights.first.height.toDouble() : null;
+
+    double? bf;
+    if (heightInches != null) {
+      if (preferences.sex == 'male') {
+        bf = 86.010 * log10(data.navel - data.neck) - 70.041 * log10(heightInches) + 36.76;
+      } else if (data.hip != null) {
+        bf = 163.205 * log10(data.navel + (data.hip ?? data.navel) - data.neck) - 97.684 * log10(heightInches) - 78.387;
+      }
+    }
 
     return InkWell(
       onTap: handleAction,
@@ -62,11 +66,9 @@ class CheckInCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Divider(),
-                preferences.sex == 'male'
-                    ? Text('BodyFat: ${bfMale.toStringAsFixed(2)}%')
-                    : data.hip != null
-                        ? Text('BodyFat: ${bfFemale.toStringAsFixed(2)}%')
-                        : const SizedBox(height: 0),
+                bf != null
+                    ? Text('BodyFat: ${bf!.toStringAsFixed(2)}%')
+                    : const SizedBox(height: 0),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,

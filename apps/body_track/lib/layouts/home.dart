@@ -1,9 +1,11 @@
+import 'package:body_track/widgets/height_list.dart';
 import 'package:body_track/widgets/navigation/side_navigation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:models/checkin.dart';
 import 'package:models/preferences.dart';
 import 'package:models/weight.dart';
+import 'package:models/height.dart';
 import 'package:provider/provider.dart';
 import 'package:utils/constants.dart';
 import 'package:body_track/widgets/settings/settings.dart';
@@ -26,48 +28,64 @@ class _HomeState extends State<HomePage> {
   final db = BodyDatabaseService();
   final pdb = PreferencesDatabaseService();
 
-  handleWeighIn() {
+  void handleWeighIn() {
     navigatorKey.currentState!.pushNamed('/weigh-in');
   }
 
-  handleCheckIn() {
+  void handleCheckIn() {
     navigatorKey.currentState!.pushNamed('/check-in');
   }
 
-  handleAction() {
+  void handleHeight() {
+    navigatorKey.currentState!.pushNamed('/height');
+  }
+
+  void handleAction() {
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
-        return SizedBox(
-          height: 200,
+        return SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            child: GridView.count(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              crossAxisCount: 2,
+              mainAxisSpacing: 12,
+              crossAxisSpacing: 12,
+              childAspectRatio: 1.8,
               children: [
                 FilledButton.tonal(
-                  onPressed: handleWeighIn,
-                  child: Padding(
-                    padding: const EdgeInsets.all(24),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.monitor_weight),
-                        Text(AppLocalizations.of(context)!.weighIn),
-                      ],
-                    ),
+                  onPressed: () { Navigator.of(context).pop(); handleWeighIn(); },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.monitor_weight),
+                      const SizedBox(width: 8),
+                      Text(AppLocalizations.of(context)!.weighIn),
+                    ],
                   ),
                 ),
                 FilledButton.tonal(
-                  onPressed: handleCheckIn,
-                  child: Padding(
-                    padding: const EdgeInsets.all(24),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.straighten),
-                        Text(AppLocalizations.of(context)!.checkIn),
-                      ],
-                    ),
+                  onPressed: () { Navigator.of(context).pop(); handleCheckIn(); },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.straighten),
+                      const SizedBox(width: 8),
+                      Text(AppLocalizations.of(context)!.checkIn),
+                    ],
+                  ),
+                ),
+                FilledButton.tonal(
+                  onPressed: () { Navigator.of(context).pop(); handleHeight(); },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.height),
+                      const SizedBox(width: 8),
+                      Text(AppLocalizations.of(context)!.height),
+                    ],
                   ),
                 ),
               ],
@@ -96,12 +114,13 @@ class _HomeState extends State<HomePage> {
           initialData: const [],
           value: db.streamCheckIns(user.uid),
         ),
+        StreamProvider<Iterable<HeightModel>>.value(
+          initialData: const [],
+          value: db.streamHeights(user.uid),
+        ),
       ],
       child: Scaffold(
-        appBar: AppBar(
-          title: Text('Body Track'),
-          elevation: 0,
-        ),
+        appBar: AppBar(title: Text('Body Track'), elevation: 0),
         body: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,8 +141,10 @@ class _HomeState extends State<HomePage> {
                   child: currentPageIndex == 0
                       ? Home()
                       : currentPageIndex == 1
-                          ? const All()
-                          : const Settings(),
+                      ? const All()
+                      : currentPageIndex == 2
+                      ? const HeightList()
+                      : const Settings(),
                 ),
               ),
             ),

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:body_track/utils/colors.dart';
+import 'package:body_track/widgets/height_form.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -97,11 +98,21 @@ class _AppState extends State<App> {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: primary),
           textTheme: GoogleFonts.oswaldTextTheme(),
+          filledButtonTheme: FilledButtonThemeData(
+            style: ButtonStyle(
+              padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
+            ),
+          ),
         ),
         darkTheme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
               seedColor: primary, brightness: Brightness.dark),
           textTheme: GoogleFonts.oswaldTextTheme(ThemeData.dark().textTheme),
+          filledButtonTheme: FilledButtonThemeData(
+            style: ButtonStyle(
+              padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
+            ),
+          ),
         ),
         themeMode: ThemeMode.system,
         navigatorKey: navigatorKey,
@@ -113,6 +124,7 @@ class _AppState extends State<App> {
           '/home': (context) => const HomePage(),
           '/weigh-in': (context) => const WeighIn(),
           '/check-in': (context) => const CheckIn(),
+          '/height': (context) => const Height(),
         },
       ),
     );

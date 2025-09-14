@@ -6,6 +6,35 @@ class BodyDatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   var date = DateTime.now();
 
+  // Heights
+  Stream<Iterable<HeightModel>> streamHeights(String id) {
+    return _db
+        .collection('height')
+        .where("uid", isEqualTo: id)
+        .orderBy("date", descending: true)
+        .snapshots()
+        .map((event) => event.docs.map((e) => HeightModel.fromMap({
+              "id": e.id,
+              "height": e.data()["height"],
+              "date": e.data()["date"]
+            })));
+  }
+
+  Future<void> addHeight(String uid, int height) {
+    return _db
+        .collection('height')
+        .doc()
+        .set({"uid": uid, "date": DateTime.now(), "height": height});
+  }
+
+  Future<void> deleteHeight(String id) {
+    return _db.collection('height').doc(id).delete();
+  }
+
+  Future<void> updateHeight(String id, int height) {
+    return _db.collection('height').doc(id).update({"height": height});
+  }
+
   Stream<Iterable<Weight>> streamWeighIns(String id) {
     return _db
         .collection('weight')

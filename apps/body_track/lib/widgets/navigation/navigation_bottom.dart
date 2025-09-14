@@ -24,6 +24,10 @@ class NavigationBottom extends StatelessWidget {
           label: AppLocalizations.of(context)!.body,
         ),
         NavigationDestination(
+          icon: const Icon(Icons.height),
+          label: AppLocalizations.of(context)!.height,
+        ),
+        NavigationDestination(
           icon: const Icon(Icons.settings),
           label: AppLocalizations.of(context)!.settings,
         ),

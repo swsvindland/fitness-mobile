@@ -1,5 +1,4 @@
 class Preferences {
-  int height;
   String sex;
   String unit;
   int waterGoal;
@@ -12,7 +11,6 @@ class Preferences {
   bool disclaimer;
 
   Preferences({
-    required this.height,
     required this.sex,
     required this.unit,
     required this.waterGoal,
@@ -24,14 +22,6 @@ class Preferences {
     required this.defaultCycleLength,
     required this.disclaimer,
   });
-
-  void setHeight(int feet, int inches) {
-    height = (12 * feet) + inches;
-  }
-
-  List<int> getHeight() {
-    return [(height / 12).floor(), height % 2];
-  }
 
   void setSex(String value) {
     sex = value;
@@ -88,14 +78,13 @@ class Preferences {
   }
 
   static Preferences empty() {
-    return Preferences(start: 7, height: 66, sex: 'male', adFree: false, unit: 'imperial', waterGoal: 96, totalGoal: 128, drinkSize: 8, end: 20, defaultCycleLength: 28, disclaimer: true);
+    return Preferences(start: 7, sex: 'male', adFree: false, unit: 'imperial', waterGoal: 96, totalGoal: 128, drinkSize: 8, end: 20, defaultCycleLength: 28, disclaimer: true);
   }
 
   factory Preferences.fromMap(Map data) {
     data = data;
 
     return Preferences(
-        height: data['height'],
         sex: data['sex'],
         unit: data['unit'] ?? 'imperial',
         waterGoal:
@@ -114,7 +103,6 @@ class Preferences {
   static Map<String, dynamic> toMap(Preferences data) {
     data = data;
     return {
-      'height': data.height,
       'sex': data.sex,
       'unit': data.unit,
       'waterGoal': data.waterGoal,
