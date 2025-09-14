@@ -7,7 +7,7 @@ import 'package:models/preferences.dart';
 import 'package:models/weight.dart';
 import 'package:models/height.dart';
 import 'package:provider/provider.dart';
-import 'package:utils/constants.dart';
+import 'package:go_router/go_router.dart';
 import 'package:body_track/widgets/settings/settings.dart';
 import 'package:body_track/widgets/all.dart';
 import 'package:body_track/widgets/home.dart';
@@ -29,15 +29,15 @@ class _HomeState extends State<HomePage> {
   final pdb = PreferencesDatabaseService();
 
   void handleWeighIn() {
-    navigatorKey.currentState!.pushNamed('/weigh-in');
+    context.push('/weigh-in');
   }
 
   void handleCheckIn() {
-    navigatorKey.currentState!.pushNamed('/check-in');
+    context.push('/check-in');
   }
 
   void handleHeight() {
-    navigatorKey.currentState!.pushNamed('/height');
+    context.push('/height');
   }
 
   void handleAction() {

@@ -1,6 +1,6 @@
 import 'package:body_track/widgets/body_measurements_form.dart';
 import 'package:flutter/material.dart';
-import 'package:utils/constants.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:body_track/l10n/app_localizations.dart';
 
@@ -21,7 +21,7 @@ class _CheckInState extends State<CheckIn> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            navigatorKey.currentState!.pop();
+            context.pop();
           },
         ),
       ),

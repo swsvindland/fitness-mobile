@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 import 'package:body_track/layouts/layouts.dart';
 import 'package:utils/graph_animation_provider.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:utils/constants.dart';
+import 'package:go_router/go_router.dart';
 
 import 'firebase_options.dart';
 
@@ -58,6 +58,37 @@ class _AppState extends State<App> {
   static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   static FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
 
+  // GoRouter configuration
+  late final GoRouter _router = GoRouter(
+    observers: <NavigatorObserver>[observer],
+    routes: <GoRoute>[
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const SplashScreenPage(),
+      ),
+      GoRoute(
+        path: '/login',
+        builder: (context, state) => const LoginPage(),
+      ),
+      GoRoute(
+        path: '/home',
+        builder: (context, state) => const HomePage(),
+      ),
+      GoRoute(
+        path: '/weigh-in',
+        builder: (context, state) => const WeighIn(),
+      ),
+      GoRoute(
+        path: '/check-in',
+        builder: (context, state) => const CheckIn(),
+      ),
+      GoRoute(
+        path: '/height',
+        builder: (context, state) => const Height(),
+      ),
+    ],
+  );
+
   Future<void> _initializeFlutterFire() async {
     if (_kTestingCrashlytics) {
       // Force enable crashlytics collection enabled if we're testing it.
@@ -90,9 +121,9 @@ class _AppState extends State<App> {
         ChangeNotifierProvider<GraphAnimationProvider>(
             create: (_) => GraphAnimationProvider()),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         title: 'BodyTrack',
-        localizationsDelegates: AppLocalizations.localizationsDelegates, 
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
@@ -115,17 +146,7 @@ class _AppState extends State<App> {
           ),
         ),
         themeMode: ThemeMode.system,
-        navigatorKey: navigatorKey,
-        navigatorObservers: <NavigatorObserver>[observer],
-        initialRoute: '/',
-        routes: {
-          '/': (context) => const SplashScreenPage(),
-          '/login': (context) => const LoginPage(),
-          '/home': (context) => const HomePage(),
-          '/weigh-in': (context) => const WeighIn(),
-          '/check-in': (context) => const CheckIn(),
-          '/height': (context) => const Height(),
-        },
+        routerConfig: _router,
       ),
     );
   }

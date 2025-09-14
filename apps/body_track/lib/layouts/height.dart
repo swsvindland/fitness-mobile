@@ -1,6 +1,6 @@
 import 'package:body_track/widgets/height_form.dart';
 import 'package:flutter/material.dart';
-import 'package:utils/constants.dart';
+import 'package:go_router/go_router.dart';
 import 'package:body_track/l10n/app_localizations.dart';
 
 class Height extends StatefulWidget {
@@ -22,7 +22,7 @@ class _HeightState extends State<Height> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            navigatorKey.currentState!.pop();
+            context.pop();
           },
         ),
       ),

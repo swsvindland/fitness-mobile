@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:models/models.dart';
-import 'package:utils/constants.dart';
+import 'package:go_router/go_router.dart';
 import 'package:utils/helper.dart';
 import 'package:widgets/widgets.dart';
 import 'package:body_track/l10n/app_localizations.dart';
@@ -85,7 +85,7 @@ class _WeighInFormState extends State<WeighInForm> {
                             Text(AppLocalizations.of(context)!.processingData)),
                   );
                   await submit();
-                  navigatorKey.currentState!.pop();
+                  context.pop();
                 }
               },
               child: Text(AppLocalizations.of(context)!.submit),
@@ -103,7 +103,7 @@ class _WeighInFormState extends State<WeighInForm> {
                                   .processingData)),
                         );
                         await delete();
-                        navigatorKey.currentState!.pop();
+                        context.pop();
                       }
                     },
                     child: Text(AppLocalizations.of(context)!.delete),

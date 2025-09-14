@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:utils/sign_in.dart';
-import 'package:utils/constants.dart';
+import 'package:go_router/go_router.dart';
 import "package:os_detect/os_detect.dart" as platform;
 import 'package:body_track/l10n/app_localizations.dart';
 import 'package:api/api.dart';
@@ -57,9 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                                   _udb.updateUserData(user);
                                   _pdb.createDefaultPreferences(user);
                                   _fdb.setFCMData(user);
-                                  navigatorKey.currentState!
-                                      .pushNamedAndRemoveUntil('/home',
-                                          (Route<dynamic> route) => false);
+                                  context.go('/home');
                                 }
                               });
                               setState(() {
@@ -90,11 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                                         _udb.updateUserData(user);
                                         _pdb.createDefaultPreferences(user);
                                         _fdb.setFCMData(user);
-                                        navigatorKey.currentState!
-                                            .pushNamedAndRemoveUntil(
-                                                '/home',
-                                                (Route<dynamic> route) =>
-                                                    false);
+                                        context.go('/home');
                                       }
                                     });
                                     setState(() {
@@ -130,9 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                                   _udb.updateUserData(user);
                                   _pdb.createDefaultPreferences(user);
                                   _fdb.setFCMData(user);
-                                  navigatorKey.currentState!
-                                      .pushNamedAndRemoveUntil('/home',
-                                          (Route<dynamic> route) => false);
+                                  context.go('/home');
                                 }
                               });
                               setState(() {
