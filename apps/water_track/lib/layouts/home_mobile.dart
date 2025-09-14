@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:water_track/widgets/app_bar_ad.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:water_track/l10n/app_localizations.dart';
 
 import '../widgets/home.dart';
 import '../widgets/reports.dart';
@@ -20,7 +19,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const AppBarAd(),
+          title: const Text('Water Track'),
           elevation: 0,
         ),
         body: currentPageIndex == 0

@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>490539529973-tsifrea5rut9asg4rrqsqhprakoo141c.apps.googleusercontent.com</string>
+	<string>114986152997-f3eofk1ofr7tl5bsl7tkmqm158ct0m91.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.490539529973-tsifrea5rut9asg4rrqsqhprakoo141c</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>490539529973-8gba1idnn93rmn6slhn2f7acab88qq7b.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.114986152997-f3eofk1ofr7tl5bsl7tkmqm158ct0m91</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDiIRq47FT5U5dfEAPDsYOvOxlYDi9oERs</string>
+	<string>AIzaSyAnWouS1rx80N_WA0RcSzWgmvYDWpXGAok</string>
 	<key>GCM_SENDER_ID</key>
-	<string>490539529973</string>
+	<string>114986152997</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.svindland.watertrack</string>
 	<key>PROJECT_ID</key>
-	<string>watertrack-dded0</string>
+	<string>fitness-mobile-dev-1</string>
 	<key>STORAGE_BUCKET</key>
-	<string>watertrack-dded0.appspot.com</string>
+	<string>fitness-mobile-dev-1.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,8 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:490539529973:ios:013cad5b6755b6df43f7bc</string>
-	<key>DATABASE_URL</key>
-	<string>https://watertrack-dded0.firebaseio.com</string>
+	<string>1:114986152997:ios:0dd31ad1e8ffb6c856bbcc</string>
 </dict>
 </plist>

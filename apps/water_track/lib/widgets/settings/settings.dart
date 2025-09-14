@@ -3,7 +3,7 @@ import 'package:utils/sign_in.dart';
 import 'package:water_track/widgets/settings/goals/goal.dart';
 import 'package:water_track/widgets/settings/units/unit.dart';
 import 'package:widgets/delete_account.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:water_track/l10n/app_localizations.dart';
 
 import 'package:utils/constants.dart';
 import 'notification/notification.dart';

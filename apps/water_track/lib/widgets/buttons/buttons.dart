@@ -7,7 +7,7 @@ import 'package:utils/graph_animation_provider.dart';
 import 'package:water_track/widgets/buttons/carousel.dart';
 import '../../utils/constants.dart';
 import 'drink_button.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:water_track/l10n/app_localizations.dart';
 
 class Buttons extends StatelessWidget {
   Buttons({super.key});

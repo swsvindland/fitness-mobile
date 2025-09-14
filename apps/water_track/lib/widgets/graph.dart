@@ -5,7 +5,7 @@ import 'package:models/models.dart';
 import 'package:utils/graph_animation_provider.dart';
 import 'package:water_track/utils/constants.dart';
 import 'package:water_track/widgets/progress_bar.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:water_track/l10n/app_localizations.dart';
 
 class Graph extends StatelessWidget {
   const Graph({super.key});

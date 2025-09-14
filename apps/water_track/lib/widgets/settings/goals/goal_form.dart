@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:models/models.dart';
 import 'package:utils/helper.dart';
 import 'package:widgets/widgets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:water_track/l10n/app_localizations.dart';
 
 class GoalForm extends StatefulWidget {
   final Preferences preferences;

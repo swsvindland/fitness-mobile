@@ -9,11 +9,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'package:api/api.dart';
 import 'package:water_track/utils/constants.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:water_track/l10n/app_localizations.dart';
 import 'package:utils/graph_animation_provider.dart';
 import 'package:utils/constants.dart';
 
@@ -47,8 +46,6 @@ void main() async {
     FirebaseCrashlytics.instance.recordError(error, stack);
     return true;
   };
-
-  MobileAds.instance.initialize();
 
   runApp(const App());
 }
