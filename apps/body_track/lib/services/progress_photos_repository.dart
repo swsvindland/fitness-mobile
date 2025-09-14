@@ -79,4 +79,25 @@ class ProgressPhotosRepository {
     entries.removeWhere((e) => e.id == id);
     await saveEntries(entries);
   }
+
+  Future<void> updateEntry(
+    String id, {
+    String? frontPath,
+    String? sidePath,
+    String? backPath,
+  }) async {
+    final entries = await loadEntries();
+    final index = entries.indexWhere((e) => e.id == id);
+    if (index == -1) return;
+    final current = entries[index];
+    final updated = ProgressPhotoEntry(
+      id: current.id,
+      date: current.date,
+      frontPath: frontPath ?? current.frontPath,
+      sidePath: sidePath ?? current.sidePath,
+      backPath: backPath ?? current.backPath,
+    );
+    entries[index] = updated;
+    await saveEntries(entries);
+  }
 }
