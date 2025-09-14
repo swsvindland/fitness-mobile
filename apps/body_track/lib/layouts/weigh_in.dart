@@ -2,6 +2,10 @@ import 'package:body_track/widgets/weigh_in_form.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:body_track/l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:models/models.dart';
+import 'package:api/api.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class WeighIn extends StatefulWidget {
   const WeighIn({super.key});
@@ -26,7 +30,16 @@ class _WeighInState extends State<WeighIn> {
           },
         ),
       ),
-      body: const WeighInForm(),
+      body: Builder(
+        builder: (context) {
+          final user = Provider.of<User?>(context);
+          return StreamProvider<Preferences>.value(
+            initialData: Preferences.empty(),
+            value: PreferencesDatabaseService().streamPreferences(user!.uid),
+            child: const WeighInForm(),
+          );
+        },
+      ),
     );
   }
 }

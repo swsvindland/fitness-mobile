@@ -38,16 +38,23 @@ class CheckInCard extends StatelessWidget {
     }
 
     final heights = Provider.of<Iterable<HeightModel>>(context).toList();
-    final double? heightInches = heights.isNotEmpty ? heights.first.height.toDouble() : null;
+    final double? heightInches = heights.isNotEmpty ? (heights.first.height / 2.54) : null;
 
     double? bf;
     if (heightInches != null) {
+      final neckIn = data.neck / 2.54;
+      final navelIn = data.navel / 2.54;
+      final hipIn = data.hip != null ? (data.hip! / 2.54) : null;
+
       if (preferences.sex == 'male') {
-        bf = 86.010 * log10(data.navel - data.neck) - 70.041 * log10(heightInches) + 36.76;
-      } else if (data.hip != null) {
-        bf = 163.205 * log10(data.navel + (data.hip ?? data.navel) - data.neck) - 97.684 * log10(heightInches) - 78.387;
+        bf = 86.010 * log10(navelIn - neckIn) - 70.041 * log10(heightInches) + 36.76;
+      } else if (hipIn != null) {
+        bf = 163.205 * log10(navelIn + (hipIn) - neckIn) - 97.684 * log10(heightInches) - 78.387;
       }
     }
+
+    final String unitLabel = preferences.unit == 'imperial' ? 'in' : 'cm';
+    String fmt(double cm) => (preferences.unit == 'imperial' ? (cm / 2.54) : cm).toStringAsFixed(1);
 
     return InkWell(
       onTap: handleAction,
@@ -73,32 +80,19 @@ class CheckInCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                        '${AppLocalizations.of(context)!.neck}: ${data.neck}\t\t\t'),
-                    Text(
-                        '${AppLocalizations.of(context)!.shoulders}: ${data.shoulders}\t\t\t'),
-                    Text(
-                        '${AppLocalizations.of(context)!.chest}: ${data.chest}\t\t\t'),
-                    Text(
-                        '${AppLocalizations.of(context)!.leftBicep}: ${data.leftBicep}\t\t\t'),
-                    Text(
-                        '${AppLocalizations.of(context)!.rightBicep}: ${data.rightBicep}\t\t\t'),
-                    Text(
-                        '${AppLocalizations.of(context)!.navel}: ${data.navel}\t\t\t'),
-                    Text(
-                        '${AppLocalizations.of(context)!.waist}: ${data.waist}\t\t\t'),
-                    data.hip != null
-                        ? Text(
-                            '${AppLocalizations.of(context)!.hip}: ${data.hip}\t\t\t')
-                        : const SizedBox(width: 0),
-                    Text(
-                        '${AppLocalizations.of(context)!.leftThigh}: ${data.leftThigh}\t\t\t'),
-                    Text(
-                        '${AppLocalizations.of(context)!.rightThigh}: ${data.rightThigh}\t\t\t'),
-                    Text(
-                        '${AppLocalizations.of(context)!.leftCalf}: ${data.leftCalf}\t\t\t'),
-                    Text(
-                        '${AppLocalizations.of(context)!.rightCalf}: ${data.rightCalf}\t\t\t'),
+                    Text('${AppLocalizations.of(context)!.neck}: ${fmt(data.neck)} $unitLabel'),
+                    Text('${AppLocalizations.of(context)!.shoulders}: ${fmt(data.shoulders)} $unitLabel'),
+                    Text('${AppLocalizations.of(context)!.chest}: ${fmt(data.chest)} $unitLabel'),
+                    Text('${AppLocalizations.of(context)!.leftBicep}: ${fmt(data.leftBicep)} $unitLabel'),
+                    Text('${AppLocalizations.of(context)!.rightBicep}: ${fmt(data.rightBicep)} $unitLabel'),
+                    Text('${AppLocalizations.of(context)!.navel}: ${fmt(data.navel)} $unitLabel'),
+                    Text('${AppLocalizations.of(context)!.waist}: ${fmt(data.waist)} $unitLabel'),
+                    if (data.hip != null)
+                      Text('${AppLocalizations.of(context)!.hip}: ${fmt(data.hip!)} $unitLabel'),
+                    Text('${AppLocalizations.of(context)!.leftThigh}: ${fmt(data.leftThigh)} $unitLabel'),
+                    Text('${AppLocalizations.of(context)!.rightThigh}: ${fmt(data.rightThigh)} $unitLabel'),
+                    Text('${AppLocalizations.of(context)!.leftCalf}: ${fmt(data.leftCalf)} $unitLabel'),
+                    Text('${AppLocalizations.of(context)!.rightCalf}: ${fmt(data.rightCalf)} $unitLabel'),
                   ],
                 ),
               ],

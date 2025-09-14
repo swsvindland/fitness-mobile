@@ -1,8 +1,11 @@
 import 'package:body_track/widgets/body_measurements_form.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 import 'package:body_track/l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:models/models.dart';
+import 'package:api/api.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class CheckIn extends StatefulWidget {
   const CheckIn({super.key});
@@ -25,7 +28,16 @@ class _CheckInState extends State<CheckIn> {
           },
         ),
       ),
-      body: const BodyMeasurementForm(),
+      body: Builder(
+        builder: (context) {
+          final user = Provider.of<User?>(context);
+          return StreamProvider<Preferences>.value(
+            initialData: Preferences.empty(),
+            value: PreferencesDatabaseService().streamPreferences(user!.uid),
+            child: const BodyMeasurementForm(),
+          );
+        },
+      ),
     );
   }
 }

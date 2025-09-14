@@ -32,25 +32,11 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
   final rightThighController = TextEditingController();
   final leftCalfController = TextEditingController();
   final rightCalfController = TextEditingController();
+  bool _initialized = false;
 
   @override
   void initState() {
     super.initState();
-
-    if (widget.data != null) {
-      neckController.text = widget.data!.neck.toString();
-      shouldersController.text = widget.data!.shoulders.toString();
-      chestController.text = widget.data!.chest.toString();
-      leftBicepController.text = widget.data!.leftBicep.toString();
-      rightBicepController.text = widget.data!.rightBicep.toString();
-      navelController.text = widget.data!.navel.toString();
-      waistController.text = widget.data!.waist.toString();
-      hipController.text = widget.data!.hip.toString();
-      leftThighController.text = widget.data!.leftThigh.toString();
-      rightThighController.text = widget.data!.rightThigh.toString();
-      leftCalfController.text = widget.data!.leftCalf.toString();
-      rightCalfController.text = widget.data!.rightCalf.toString();
-    }
   }
 
   @override
@@ -75,6 +61,29 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
   @override
   Widget build(BuildContext context) {
     var user = Provider.of<User?>(context);
+    final preferences = Provider.of<Preferences>(context);
+
+    // Initialize the controllers with the current data in the user's preferred display units
+    if (!_initialized && widget.data != null) {
+      double toDisplay(double cm) => preferences.unit == 'imperial' ? (cm / 2.54) : cm;
+
+      neckController.text = toDisplay(widget.data!.neck).toStringAsFixed(1);
+      shouldersController.text = toDisplay(widget.data!.shoulders).toStringAsFixed(1);
+      chestController.text = toDisplay(widget.data!.chest).toStringAsFixed(1);
+      leftBicepController.text = toDisplay(widget.data!.leftBicep).toStringAsFixed(1);
+      rightBicepController.text = toDisplay(widget.data!.rightBicep).toStringAsFixed(1);
+      navelController.text = toDisplay(widget.data!.navel).toStringAsFixed(1);
+      waistController.text = toDisplay(widget.data!.waist).toStringAsFixed(1);
+      if (widget.data!.hip != null) {
+        hipController.text = toDisplay(widget.data!.hip!).toStringAsFixed(1);
+      }
+      leftThighController.text = toDisplay(widget.data!.leftThigh).toStringAsFixed(1);
+      rightThighController.text = toDisplay(widget.data!.rightThigh).toStringAsFixed(1);
+      leftCalfController.text = toDisplay(widget.data!.leftCalf).toStringAsFixed(1);
+      rightCalfController.text = toDisplay(widget.data!.rightCalf).toStringAsFixed(1);
+
+      _initialized = true;
+    }
 
     delete() async {
       if (widget.data != null && widget.data!.id != null) {
@@ -85,20 +94,25 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
     submit() async {
       if (user == null) return;
 
+      double toCm(String txt) {
+        final val = double.parse(txt);
+        return preferences.unit == 'imperial' ? (val * 2.54) : val;
+      }
+
       await db.addCheckIn(
         user.uid,
-        double.parse(neckController.text),
-        double.parse(shouldersController.text),
-        double.parse(chestController.text),
-        double.parse(leftBicepController.text),
-        double.parse(rightBicepController.text),
-        double.parse(navelController.text),
-        double.parse(waistController.text),
-        double.parse(hipController.text),
-        double.parse(leftThighController.text),
-        double.parse(rightThighController.text),
-        double.parse(leftCalfController.text),
-        double.parse(rightCalfController.text),
+        toCm(neckController.text),
+        toCm(shouldersController.text),
+        toCm(chestController.text),
+        toCm(leftBicepController.text),
+        toCm(rightBicepController.text),
+        toCm(navelController.text),
+        toCm(waistController.text),
+        hipController.text.isEmpty ? 0.0 : toCm(hipController.text),
+        toCm(leftThighController.text),
+        toCm(rightThighController.text),
+        toCm(leftCalfController.text),
+        toCm(rightCalfController.text),
       );
     }
 
@@ -112,15 +126,15 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Input(
-                  label: AppLocalizations.of(context)!.neck,
+                  label: '${AppLocalizations.of(context)!.neck} (${preferences.unit == 'imperial' ? 'in' : 'cm'})',
                   controller: neckController,
                   validator: checkInValidator),
               Input(
-                  label: AppLocalizations.of(context)!.shoulders,
+                  label: '${AppLocalizations.of(context)!.shoulders} (${preferences.unit == 'imperial' ? 'in' : 'cm'})',
                   controller: shouldersController,
                   validator: checkInValidator),
               Input(
-                  label: AppLocalizations.of(context)!.chest,
+                  label: '${AppLocalizations.of(context)!.chest} (${preferences.unit == 'imperial' ? 'in' : 'cm'})',
                   controller: chestController,
                   validator: checkInValidator),
               Row(
@@ -129,28 +143,28 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
                 children: [
                   Expanded(
                     child: Input(
-                        label: AppLocalizations.of(context)!.leftBicep,
+                        label: '${AppLocalizations.of(context)!.leftBicep} (${preferences.unit == 'imperial' ? 'in' : 'cm'})',
                         controller: leftBicepController,
                         validator: checkInValidator),
                   ),
                   Expanded(
                     child: Input(
-                        label: AppLocalizations.of(context)!.rightBicep,
+                        label: '${AppLocalizations.of(context)!.rightBicep} (${preferences.unit == 'imperial' ? 'in' : 'cm'})',
                         controller: rightBicepController,
                         validator: checkInValidator),
                   ),
                 ],
               ),
               Input(
-                  label: AppLocalizations.of(context)!.navel,
+                  label: '${AppLocalizations.of(context)!.navel} (${preferences.unit == 'imperial' ? 'in' : 'cm'})',
                   controller: navelController,
                   validator: checkInValidator),
               Input(
-                  label: AppLocalizations.of(context)!.waist,
+                  label: '${AppLocalizations.of(context)!.waist} (${preferences.unit == 'imperial' ? 'in' : 'cm'})',
                   controller: waistController,
                   validator: checkInValidator),
               Input(
-                  label: AppLocalizations.of(context)!.hip,
+                  label: '${AppLocalizations.of(context)!.hip} (${preferences.unit == 'imperial' ? 'in' : 'cm'})',
                   controller: hipController,
                   validator: checkInValidator),
               Row(
@@ -159,13 +173,13 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
                 children: [
                   Expanded(
                     child: Input(
-                        label: AppLocalizations.of(context)!.leftThigh,
+                        label: '${AppLocalizations.of(context)!.leftThigh} (${preferences.unit == 'imperial' ? 'in' : 'cm'})',
                         controller: leftThighController,
                         validator: checkInValidator),
                   ),
                   Expanded(
                     child: Input(
-                        label: AppLocalizations.of(context)!.rightThigh,
+                        label: '${AppLocalizations.of(context)!.rightThigh} (${preferences.unit == 'imperial' ? 'in' : 'cm'})',
                         controller: rightThighController,
                         validator: checkInValidator),
                   ),
@@ -177,13 +191,13 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
                 children: [
                   Expanded(
                     child: Input(
-                        label: AppLocalizations.of(context)!.leftCalf,
+                        label: '${AppLocalizations.of(context)!.leftCalf} (${preferences.unit == 'imperial' ? 'in' : 'cm'})',
                         controller: leftCalfController,
                         validator: checkInValidator),
                   ),
                   Expanded(
                     child: Input(
-                        label: AppLocalizations.of(context)!.rightCalf,
+                        label: '${AppLocalizations.of(context)!.rightCalf} (${preferences.unit == 'imperial' ? 'in' : 'cm'})',
                         controller: rightCalfController,
                         validator: checkInValidator),
                   ),

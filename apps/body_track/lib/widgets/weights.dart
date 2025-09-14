@@ -38,8 +38,11 @@ class Weights extends StatelessWidget {
 
   static List<charts.Series<TimeSeriesWeight, DateTime>> _createSampleData(
       List<Weight> weights, BuildContext context) {
+    final preferences = Provider.of<Preferences>(context, listen: false);
+    double toDisplay(double kg) => preferences.unit == 'imperial' ? (kg * 2.2046226218) : kg;
+
     final data =
-        weights.map((e) => TimeSeriesWeight(e.date, e.weight)).toList();
+        weights.map((e) => TimeSeriesWeight(e.date, toDisplay(e.weight))).toList();
 
     data.sort((a, b) {
       return a.time.compareTo(b.time);

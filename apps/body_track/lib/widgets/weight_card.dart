@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:models/models.dart';
 import 'package:body_track/l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class WeightCard extends StatelessWidget {
   const WeightCard({super.key, required this.data});
@@ -10,6 +11,7 @@ class WeightCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final preferences = Provider.of<Preferences>(context);
     handleAction() {
       Navigator.push(
         context,
@@ -48,7 +50,7 @@ class WeightCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Divider(),
-                Text('${AppLocalizations.of(context)!.weight}: ${data.weight}')
+                Text('${AppLocalizations.of(context)!.weight}: ${(preferences.unit == 'imperial' ? (data.weight * 2.2046226218) : data.weight).toStringAsFixed(1)} ${preferences.unit == 'imperial' ? 'lbs' : 'kg'}')
               ],
             ),
           ),

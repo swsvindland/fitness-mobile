@@ -59,12 +59,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAnWouS1rx80N_WA0RcSzWgmvYDWpXGAok',
-    appId: '1:114986152997:ios:46301c8ec76ef0af56bbcc',
+    appId: '1:114986152997:ios:273843883a75746056bbcc',
     messagingSenderId: '114986152997',
     projectId: 'fitness-mobile-dev-1',
     storageBucket: 'fitness-mobile-dev-1.firebasestorage.app',
-    iosClientId: '114986152997-smsfb57ftb5vt3gvs5g5297ohoa5k1v3.apps.googleusercontent.com',
-    iosBundleId: 'com.svindland.bodyTrack',
+    iosClientId: '114986152997-0f0ec3r8m2scptp1thp99q0ui3lk80il.apps.googleusercontent.com',
+    iosBundleId: 'dev.svindland.body',
   );
-
 }

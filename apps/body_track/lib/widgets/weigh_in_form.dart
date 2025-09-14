@@ -21,14 +21,11 @@ class _WeighInFormState extends State<WeighInForm> {
   final db = BodyDatabaseService();
   final _formKey = GlobalKey<FormState>();
   final weightController = TextEditingController();
+  bool _initialized = false;
 
   @override
   void initState() {
     super.initState();
-
-    if (widget.data != null) {
-      weightController.text = widget.data!.weight.toString();
-    }
   }
 
   @override
@@ -41,6 +38,19 @@ class _WeighInFormState extends State<WeighInForm> {
   @override
   Widget build(BuildContext context) {
     var user = Provider.of<User?>(context);
+    final preferences = Provider.of<Preferences>(context);
+
+    // Initialize controller with display units based on preferences
+    if (!_initialized) {
+      if (widget.data != null) {
+        final storedKg = widget.data!.weight;
+        final display = preferences.unit == 'imperial'
+            ? storedKg * 2.2046226218
+            : storedKg;
+        weightController.text = display.toStringAsFixed(1);
+      }
+      _initialized = true;
+    }
 
     delete() async {
       if (widget.data != null && widget.data!.id != null) {
@@ -51,14 +61,15 @@ class _WeighInFormState extends State<WeighInForm> {
     submit() async {
       if (user == null) return;
 
-      if (widget.data != null && widget.data!.id != null) {
-        await db.updateWeighIn(
-            widget.data!.id!, double.parse(weightController.text));
+      final input = double.parse(weightController.text);
+      final kg = preferences.unit == 'imperial' ? (input / 2.2046226218) : input;
 
+      if (widget.data != null && widget.data!.id != null) {
+        await db.updateWeighIn(widget.data!.id!, kg);
         return;
       }
 
-      await db.addWeighIn(user.uid, double.parse(weightController.text));
+      await db.addWeighIn(user.uid, kg);
     }
 
     return Padding(
@@ -70,7 +81,7 @@ class _WeighInFormState extends State<WeighInForm> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Input(
-                label: AppLocalizations.of(context)!.weight,
+                label: '${AppLocalizations.of(context)!.weight} (${preferences.unit == 'imperial' ? 'lbs' : 'kg'})',
                 controller: weightController,
                 validator: checkInValidator),
             FilledButton(

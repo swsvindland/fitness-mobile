@@ -21,34 +21,37 @@ class _HeightFormState extends State<HeightForm> {
   final _formKey = GlobalKey<FormState>();
   final feetController = TextEditingController();
   final inchesController = TextEditingController();
+  final cmController = TextEditingController();
+  bool _initialized = false;
 
   @override
   void initState() {
     super.initState();
-
-    if (widget.data != null) {
-      final totalInches = widget.data!.height;
-      feetController.text = (totalInches ~/ 12).toString();
-      inchesController.text = (totalInches % 12).toString();
-    }
   }
 
   @override
   void dispose() {
     feetController.dispose();
     inchesController.dispose();
+    cmController.dispose();
     super.dispose();
   }
 
-  Future<void> submit(User user) async {
-    final inches = (int.parse(feetController.text) * 12) + int.parse(inchesController.text);
+  Future<void> submit(User user, Preferences preferences) async {
+    int cm;
+    if (preferences.unit == 'imperial') {
+      final inches = (int.parse(feetController.text) * 12) + int.parse(inchesController.text);
+      cm = (inches * 2.54).round();
+    } else {
+      cm = int.parse(cmController.text);
+    }
 
     if (widget.data != null && widget.data!.id != null) {
-      await db.updateHeight(widget.data!.id!, inches);
+      await db.updateHeight(widget.data!.id!, cm);
       return;
     }
 
-    await db.addHeight(user.uid, inches);
+    await db.addHeight(user.uid, cm);
   }
 
   Future<void> delete() async {
@@ -60,6 +63,20 @@ class _HeightFormState extends State<HeightForm> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User?>(context);
+    final preferences = Provider.of<Preferences>(context);
+
+    // Initialize controllers based on stored cm and user preference for display
+    if (!_initialized && widget.data != null) {
+      final storedCm = widget.data!.height;
+      if (preferences.unit == 'imperial') {
+        final totalInches = (storedCm / 2.54).round();
+        feetController.text = (totalInches ~/ 12).toString();
+        inchesController.text = (totalInches % 12).toString();
+      } else {
+        cmController.text = storedCm.toString();
+      }
+      _initialized = true;
+    }
 
     return Padding(
       padding: const EdgeInsets.all(24),
@@ -69,27 +86,35 @@ class _HeightFormState extends State<HeightForm> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Input(
-                    label: AppLocalizations.of(context)!.feet,
-                    decimal: false,
-                    controller: feetController,
-                    validator: checkInValidator,
+            if (preferences.unit == 'imperial')
+              Row(
+                children: [
+                  Expanded(
+                    child: Input(
+                      label: AppLocalizations.of(context)!.feet,
+                      decimal: false,
+                      controller: feetController,
+                      validator: checkInValidator,
+                    ),
                   ),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Input(
-                    label: AppLocalizations.of(context)!.inches,
-                    decimal: false,
-                    controller: inchesController,
-                    validator: checkInValidator,
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Input(
+                      label: AppLocalizations.of(context)!.inches,
+                      decimal: false,
+                      controller: inchesController,
+                      validator: checkInValidator,
+                    ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              )
+            else
+              Input(
+                label: '${AppLocalizations.of(context)!.height} (cm)',
+                decimal: false,
+                controller: cmController,
+                validator: checkInValidator,
+              ),
             const SizedBox(height: 12),
             FilledButton(
               onPressed: () async {
@@ -98,7 +123,7 @@ class _HeightFormState extends State<HeightForm> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text(AppLocalizations.of(context)!.processingData)),
                   );
-                  await submit(user);
+                  await submit(user, preferences);
                   Navigator.of(context).pop();
                 }
               },

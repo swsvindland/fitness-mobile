@@ -31,10 +31,154 @@
               "client_type": 3
             },
             {
-              "client_id": "114986152997-smsfb57ftb5vt3gvs5g5297ohoa5k1v3.apps.googleusercontent.com",
+              "client_id": "114986152997-418n9psb7qnb8f1uf61gfq3u2o8i16cp.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.svindland.bodyTrack"
+                "bundle_id": "com.svindland.fastTrack"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114986152997:android:02cbdc182827379956bbcc",
+        "android_client_info": {
+          "package_name": "com.svindland.bptrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114986152997-e3jktfqrtsgj9svhtpfhl2lpcpirsjgi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0MhseTjGxy2LdCbCP9d9wIabF1EvzEG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114986152997-e3jktfqrtsgj9svhtpfhl2lpcpirsjgi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "114986152997-418n9psb7qnb8f1uf61gfq3u2o8i16cp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.svindland.fastTrack"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114986152997:android:098c327b9d67fedd56bbcc",
+        "android_client_info": {
+          "package_name": "com.svindland.fast_track"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114986152997-e3jktfqrtsgj9svhtpfhl2lpcpirsjgi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0MhseTjGxy2LdCbCP9d9wIabF1EvzEG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114986152997-e3jktfqrtsgj9svhtpfhl2lpcpirsjgi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "114986152997-418n9psb7qnb8f1uf61gfq3u2o8i16cp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.svindland.fastTrack"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114986152997:android:507308394112460f56bbcc",
+        "android_client_info": {
+          "package_name": "com.svindland.sup_track"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114986152997-e3jktfqrtsgj9svhtpfhl2lpcpirsjgi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0MhseTjGxy2LdCbCP9d9wIabF1EvzEG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114986152997-e3jktfqrtsgj9svhtpfhl2lpcpirsjgi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "114986152997-418n9psb7qnb8f1uf61gfq3u2o8i16cp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.svindland.fastTrack"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114986152997:android:aafcbb6ff5e6d37c56bbcc",
+        "android_client_info": {
+          "package_name": "com.svindland.watertrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114986152997-e3jktfqrtsgj9svhtpfhl2lpcpirsjgi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0MhseTjGxy2LdCbCP9d9wIabF1EvzEG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114986152997-e3jktfqrtsgj9svhtpfhl2lpcpirsjgi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "114986152997-418n9psb7qnb8f1uf61gfq3u2o8i16cp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.svindland.fastTrack"
               }
             }
           ]
