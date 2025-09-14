@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import "package:os_detect/os_detect.dart" as platform;
 import 'package:body_track/l10n/app_localizations.dart';
 import 'package:api/api.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -29,6 +30,15 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Auto-redirect to home when already authenticated (e.g., after Apple sign-in returns)
+    final user = Provider.of<User?>(context);
+    if (user != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        context.go('/home');
+      });
+    }
+
     return Scaffold(
       body: Center(
         child: Padding(
@@ -48,21 +58,25 @@ class _LoginPageState extends State<LoginPage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
                               setState(() {
                                 loggingIn = true;
                               });
-                              signInWithGoogle().then((User? user) {
+                              try {
+                                final user = await signInWithGoogle();
                                 if (user != null) {
                                   _udb.updateUserData(user);
                                   _pdb.createDefaultPreferences(user);
                                   _fdb.setFCMData(user);
-                                  context.go('/home');
+                                  if (mounted) context.go('/home');
                                 }
-                              });
-                              setState(() {
-                                loggingIn = false;
-                              });
+                              } finally {
+                                if (mounted) {
+                                  setState(() {
+                                    loggingIn = false;
+                                  });
+                                }
+                              }
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -79,21 +93,25 @@ class _LoginPageState extends State<LoginPage> {
                           const SizedBox(height: 16),
                           platform.isIOS
                               ? ElevatedButton(
-                                  onPressed: () {
+                                  onPressed: () async {
                                     setState(() {
                                       loggingIn = true;
                                     });
-                                    signInWithApple().then((User? user) {
+                                    try {
+                                      final user = await signInWithApple();
                                       if (user != null) {
                                         _udb.updateUserData(user);
                                         _pdb.createDefaultPreferences(user);
                                         _fdb.setFCMData(user);
-                                        context.go('/home');
+                                        if (mounted) context.go('/home');
                                       }
-                                    });
-                                    setState(() {
-                                      loggingIn = false;
-                                    });
+                                    } finally {
+                                      if (mounted) {
+                                        setState(() {
+                                          loggingIn = false;
+                                        });
+                                      }
+                                    }
                                   },
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -115,21 +133,25 @@ class _LoginPageState extends State<LoginPage> {
                               : const SizedBox(),
                           SizedBox(height: platform.isIOS ? 16 : 0),
                           TextButton(
-                            onPressed: () {
+                            onPressed: () async {
                               setState(() {
                                 loggingIn = true;
                               });
-                              signInAnon().then((User? user) {
+                              try {
+                                final user = await signInAnon();
                                 if (user != null) {
                                   _udb.updateUserData(user);
                                   _pdb.createDefaultPreferences(user);
                                   _fdb.setFCMData(user);
-                                  context.go('/home');
+                                  if (mounted) context.go('/home');
                                 }
-                              });
-                              setState(() {
-                                loggingIn = false;
-                              });
+                              } finally {
+                                if (mounted) {
+                                  setState(() {
+                                    loggingIn = false;
+                                  });
+                                }
+                              }
                             },
                             child: Text(
                               AppLocalizations.of(context)!.anonSignIn,
