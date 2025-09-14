@@ -71,5 +71,12 @@
 	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<!-- Permissions for camera and photo library access -->
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs camera access to take your progress photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs photo library access to choose your progress photos.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app needs permission to save your progress photos.</string>
 </dict>
 </plist>

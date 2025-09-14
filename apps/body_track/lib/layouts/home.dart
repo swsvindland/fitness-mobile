@@ -1,4 +1,5 @@
 import 'package:body_track/widgets/height_list.dart';
+import 'package:body_track/widgets/progress_photos_list.dart';
 import 'package:body_track/widgets/navigation/side_navigation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,10 @@ class _HomeState extends State<HomePage> {
 
   void handleHeight() {
     context.push('/height');
+  }
+
+  void handleProgressPhotosAdd() {
+    context.push('/progress-photos/add');
   }
 
   void handleAction() {
@@ -85,6 +90,17 @@ class _HomeState extends State<HomePage> {
                       const Icon(Icons.height),
                       const SizedBox(width: 8),
                       Text(AppLocalizations.of(context)!.height),
+                    ],
+                  ),
+                ),
+                FilledButton.tonal(
+                  onPressed: () { Navigator.of(context).pop(); handleProgressPhotosAdd(); },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.photo_camera),
+                      const SizedBox(width: 8),
+                      const Text('Progress Photos'),
                     ],
                   ),
                 ),
@@ -141,10 +157,12 @@ class _HomeState extends State<HomePage> {
                   child: currentPageIndex == 0
                       ? Home()
                       : currentPageIndex == 1
-                      ? const All()
-                      : currentPageIndex == 2
-                      ? const HeightList()
-                      : const Settings(),
+                          ? const All()
+                          : currentPageIndex == 2
+                              ? const HeightList()
+                              : currentPageIndex == 3
+                                  ? const ProgressPhotosList()
+                                  : const Settings(),
                 ),
               ),
             ),

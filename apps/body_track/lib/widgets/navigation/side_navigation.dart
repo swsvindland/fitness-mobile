@@ -47,6 +47,11 @@ class SideNavigation extends StatelessWidget {
         ),
         NavigationRailDestination(
           padding: const EdgeInsets.all(8),
+          icon: const Icon(Icons.photo_camera),
+          label: const Text('Photos'),
+        ),
+        NavigationRailDestination(
+          padding: const EdgeInsets.all(8),
           icon: const Icon(Icons.settings),
           label: Text(AppLocalizations.of(context)!.settings),
         ),

@@ -28,6 +28,10 @@ class NavigationBottom extends StatelessWidget {
           label: AppLocalizations.of(context)!.height,
         ),
         NavigationDestination(
+          icon: const Icon(Icons.photo_camera),
+          label: 'Photos',
+        ),
+        NavigationDestination(
           icon: const Icon(Icons.settings),
           label: AppLocalizations.of(context)!.settings,
         ),

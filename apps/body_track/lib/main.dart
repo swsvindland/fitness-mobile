@@ -86,6 +86,10 @@ class _AppState extends State<App> {
         path: '/height',
         builder: (context, state) => const Height(),
       ),
+      GoRoute(
+        path: '/progress-photos/add',
+        builder: (context, state) => const ProgressPhotosAddPage(),
+      ),
     ],
   );
 
