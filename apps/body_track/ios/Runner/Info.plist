@@ -52,6 +52,10 @@
 	<string>This app needs permission to save your progress photos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs photo library access to choose your progress photos.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Body Track reads your weight, height, and waist measurements from Apple Health to keep your progress in sync.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Body Track may write health data you choose to sync in the future.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>

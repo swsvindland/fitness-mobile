@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:utils/helper.dart';
 import 'package:widgets/widgets.dart';
 import 'package:body_track/l10n/app_localizations.dart';
+import 'package:body_track/services/health_sync_service.dart' as health_sync;
 
 class BodyMeasurementForm extends StatefulWidget {
   final CheckInModel? data;
@@ -99,6 +100,9 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
         return preferences.unit == 'imperial' ? (val * 2.54) : val;
       }
 
+      final sync = health_sync.HealthSyncService();
+      final waistCm = toCm(waistController.text);
+
       await db.addCheckIn(
         user.uid,
         toCm(neckController.text),
@@ -107,13 +111,15 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
         toCm(leftBicepController.text),
         toCm(rightBicepController.text),
         toCm(navelController.text),
-        toCm(waistController.text),
+        waistCm,
         hipController.text.isEmpty ? 0.0 : toCm(hipController.text),
         toCm(leftThighController.text),
         toCm(rightThighController.text),
         toCm(leftCalfController.text),
         toCm(rightCalfController.text),
       );
+
+      await sync.writeWaistIfEnabled(user, preferences, waistCm);
     }
 
     return SingleChildScrollView(

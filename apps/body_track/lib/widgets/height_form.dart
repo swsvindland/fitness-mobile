@@ -6,6 +6,7 @@ import 'package:utils/helper.dart';
 import 'package:widgets/widgets.dart';
 import 'package:body_track/l10n/app_localizations.dart';
 import 'package:models/models.dart';
+import 'package:body_track/services/health_sync_service.dart' as health_sync;
 
 class HeightForm extends StatefulWidget {
   final HeightModel? data;
@@ -46,12 +47,16 @@ class _HeightFormState extends State<HeightForm> {
       cm = int.parse(cmController.text);
     }
 
+    final sync = health_sync.HealthSyncService();
+
     if (widget.data != null && widget.data!.id != null) {
       await db.updateHeight(widget.data!.id!, cm);
+      await sync.writeHeightIfEnabled(user, preferences, cm, date: widget.data!.date);
       return;
     }
 
     await db.addHeight(user.uid, cm);
+    await sync.writeHeightIfEnabled(user, preferences, cm);
   }
 
   Future<void> delete() async {

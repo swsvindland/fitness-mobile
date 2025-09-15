@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:utils/helper.dart';
 import 'package:widgets/widgets.dart';
 import 'package:body_track/l10n/app_localizations.dart';
+import 'package:body_track/services/health_sync_service.dart' as health_sync;
 
 class WeighInForm extends StatefulWidget {
   final Weight? data;
@@ -64,12 +65,16 @@ class _WeighInFormState extends State<WeighInForm> {
       final input = double.parse(weightController.text);
       final kg = preferences.unit == 'imperial' ? (input / 2.2046226218) : input;
 
+      final sync = health_sync.HealthSyncService();
+
       if (widget.data != null && widget.data!.id != null) {
         await db.updateWeighIn(widget.data!.id!, kg);
+        await sync.writeWeightIfEnabled(user, preferences, kg, date: widget.data!.date);
         return;
       }
 
       await db.addWeighIn(user.uid, kg);
+      await sync.writeWeightIfEnabled(user, preferences, kg);
     }
 
     return Padding(
