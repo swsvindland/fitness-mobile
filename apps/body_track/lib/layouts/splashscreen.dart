@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:utils/sign_in.dart';
 import "package:os_detect/os_detect.dart" as platform;
 
 class SplashScreenPage extends StatefulWidget {
@@ -39,12 +40,26 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     navigateUser();
   }
 
-  navigateUser() {
+  navigateUser() async {
     User? currentUser = FirebaseAuth.instance.currentUser;
 
     if (currentUser == null) {
-      Timer(const Duration(milliseconds: 850),
-          () => context.go('/login'));
+      // Perform anonymous sign-in then navigate to home
+      try {
+        final user = await signInAnon();
+        if (user != null) {
+          _udb.updateUserData(user);
+          _pdb.createDefaultPreferences(user);
+          _fdb.setFCMData(user);
+          Timer(const Duration(milliseconds: 500), () => context.go('/home'));
+        } else {
+          // Fallback: if sign-in fails, stay on splash briefly then retry
+          Timer(const Duration(milliseconds: 850), () => navigateUser());
+        }
+      } catch (_) {
+        // If any error occurs, try again after a short delay
+        Timer(const Duration(milliseconds: 850), () => navigateUser());
+      }
     } else {
       Timer(
         const Duration(milliseconds: 500),

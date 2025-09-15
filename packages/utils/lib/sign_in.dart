@@ -84,5 +84,8 @@ Future<User?> signInAnon() async {
 void signOut() async {
   await _googleSignIn.signOut();
   await _auth.signOut();
-  navigatorKey.currentState!.pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
+  // Let the caller handle navigation. If a Navigator is attached to navigatorKey, try to go to root.
+  if (navigatorKey.currentState != null) {
+    navigatorKey.currentState!.pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+  }
 }

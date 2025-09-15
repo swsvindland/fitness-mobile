@@ -7,13 +7,15 @@ import 'notification/notification.dart';
 import 'package:widgets/widgets.dart';
 import 'package:body_track/l10n/app_localizations.dart';
 import 'package:body_track/widgets/settings/health_sync.dart';
+import 'package:body_track/widgets/settings/account_linking.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
 
   void handleSignOut(BuildContext context) {
     signOut();
-    context.go('/login');
+    // After signing out, return to splash so the app will sign in anonymously and go home
+    context.go('/');
   }
 
   @override
@@ -28,6 +30,7 @@ class Settings extends StatelessWidget {
           const Sex(),
           const Notifications(),
           const HealthSyncSettings(),
+          const AccountLinkingSettings(),
           FilledButton(
               onPressed: () => handleSignOut(context),
               child: Text(AppLocalizations.of(context)!.logOut)),
