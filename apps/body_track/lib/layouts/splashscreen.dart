@@ -1,11 +1,9 @@
 import 'dart:async';
 import 'package:api/api.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:utils/sign_in.dart';
-import "package:os_detect/os_detect.dart" as platform;
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
@@ -17,26 +15,10 @@ class SplashScreenPage extends StatefulWidget {
 class _SplashScreenPageState extends State<SplashScreenPage> {
   final _udb = UserDatabaseService();
   final _pdb = PreferencesDatabaseService();
-  final _fdb = FCMDatabaseService();
-  final FirebaseMessaging _fcm = FirebaseMessaging.instance;
-  late StreamSubscription iosSubscription;
 
   @override
   void initState() {
     super.initState();
-
-    if (platform.isIOS) {
-      _fcm.requestPermission(
-        alert: true,
-        announcement: false,
-        badge: true,
-        carPlay: false,
-        criticalAlert: false,
-        provisional: false,
-        sound: true,
-      );
-    }
-
     navigateUser();
   }
 
@@ -50,7 +32,6 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         if (user != null) {
           _udb.updateUserData(user);
           _pdb.createDefaultPreferences(user);
-          _fdb.setFCMData(user);
           Timer(const Duration(milliseconds: 500), () => context.go('/home'));
         } else {
           // Fallback: if sign-in fails, stay on splash briefly then retry
@@ -66,7 +47,6 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         () {
           _udb.updateUserData(currentUser);
           _pdb.createDefaultPreferences(currentUser);
-          _fdb.setFCMData(currentUser);
           context.go('/home');
         },
       );

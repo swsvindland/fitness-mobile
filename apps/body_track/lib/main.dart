@@ -1,7 +1,4 @@
-import 'dart:ui';
-
 import 'package:body_track/utils/colors.dart';
-import 'package:body_track/widgets/height_form.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';

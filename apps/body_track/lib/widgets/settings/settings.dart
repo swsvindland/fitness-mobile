@@ -3,7 +3,6 @@ import 'package:utils/sign_in.dart';
 import 'package:go_router/go_router.dart';
 import 'package:body_track/widgets/settings/sex/sex.dart';
 import 'package:flutter/material.dart';
-import 'notification/notification.dart';
 import 'package:widgets/widgets.dart';
 import 'package:body_track/l10n/app_localizations.dart';
 import 'package:body_track/widgets/settings/health_sync.dart';
@@ -28,7 +27,6 @@ class Settings extends StatelessWidget {
         children: <Widget>[
           const Unit(),
           const Sex(),
-          const Notifications(),
           const HealthSyncSettings(),
           const AccountLinkingSettings(),
           FilledButton(
