@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:utils/constants.dart';
-
+import 'package:go_router/go_router.dart'; // Added for go_router
+import 'package:utils/sign_in.dart';
 
 class DeleteAccount extends StatelessWidget {
   final String title;
@@ -11,19 +11,25 @@ class DeleteAccount extends StatelessWidget {
 
   const DeleteAccount({super.key, required this.title, required this.content, required this.accept, required this.cancel});
 
-  handleDeleteAccount() {
+  Future<void> handleDeleteAccount(BuildContext context) async { // Added BuildContext
+    var user = FirebaseAuth.instance.currentUser;
     try {
-      var user = FirebaseAuth.instance.currentUser;
-      FirebaseAuth.instance.signOut();
-      user?.delete();
+      if (user != null) {
+        await user.delete();
+      }
+      await signInAnon();
+    } catch (e, s) {
+      debugPrint('Error during account deletion or anonymous sign-in: $e');
+      debugPrint('Stack trace: $s');
     } finally {
-      navigatorKey.currentState!
-          .pushNamedAndRemoveUntil("/", (route) => false);
+      // Use context.go for navigation if context is available and mounted
+      if (context.mounted) {
+        context.go('/');
+      }
     }
   }
 
   showAlertDialog(BuildContext context) {
-    // set up the buttons
     Widget cancelButton = TextButton(
       child: Text(cancel),
       onPressed:  () {
@@ -31,10 +37,12 @@ class DeleteAccount extends StatelessWidget {
       },
     );
     Widget continueButton = TextButton(
-      onPressed: handleDeleteAccount,
+      onPressed: () {
+        Navigator.of(context).pop(); 
+        handleDeleteAccount(context); // Pass context      
+      },
       child: Text(accept),
     );
-    // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text(title),
       content: Text(content),
@@ -43,7 +51,6 @@ class DeleteAccount extends StatelessWidget {
         continueButton,
       ],
     );
-    // show the dialog
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -55,7 +62,6 @@ class DeleteAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FilledButton(
-
       onPressed: () {
         showAlertDialog(context);
       },
