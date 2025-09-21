@@ -128,23 +128,24 @@ class _AppState extends State<App> {
         supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: primary),
-          textTheme: GoogleFonts.oswaldTextTheme(),
-          filledButtonTheme: FilledButtonThemeData(
-            style: ButtonStyle(
-              padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
-            ),
+          colorScheme: ColorScheme.fromSeed(seedColor: primary).copyWith(
+            primary: primary,
+            secondary: secondary,
+            tertiary: tertiary,
+            error: error,
+            brightness: Brightness.light
           ),
+          textTheme: GoogleFonts.oswaldTextTheme(),
         ),
         darkTheme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: primary, brightness: Brightness.dark),
-          textTheme: GoogleFonts.oswaldTextTheme(ThemeData.dark().textTheme),
-          filledButtonTheme: FilledButtonThemeData(
-            style: ButtonStyle(
-              padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
-            ),
+          colorScheme: ColorScheme.fromSeed(seedColor: primary, brightness: Brightness.dark).copyWith(
+              primary: primary,
+              secondary: secondary,
+              tertiary: tertiary,
+              error: error,
+              brightness: Brightness.dark
           ),
+          textTheme: GoogleFonts.oswaldTextTheme(ThemeData.dark().textTheme),
         ),
         themeMode: ThemeMode.system,
         routerConfig: _router,
