@@ -1,4 +1,5 @@
 class Preferences {
+  String uid; // New field
   String sex;
   String unit;
   int waterGoal;
@@ -9,11 +10,11 @@ class Preferences {
   bool adFree;
   int defaultCycleLength;
   bool disclaimer;
-  // New: Health integrations
   bool healthKitEnabled; // iOS
   bool healthConnectEnabled; // Android
 
   Preferences({
+    required this.uid, // Added uid
     required this.sex,
     required this.unit,
     required this.waterGoal,
@@ -82,8 +83,9 @@ class Preferences {
     }
   }
 
-  static Preferences empty() {
+  static Preferences empty(String uid) { // Added uid parameter
     return Preferences(
+      uid: uid, // Added uid
       start: 7,
       sex: 'male',
       adFree: false,
@@ -99,10 +101,12 @@ class Preferences {
     );
   }
 
-  factory Preferences.fromMap(Map data) {
-    data = data;
-
+  factory Preferences.fromMap(Map data, String uid) { // Added uid parameter, or expect it in data
+    // Assuming uid might also be in the data map, prioritize parameter if available
+    // Or, if uid is always expected to be part of the document data:
+    // final String docUid = data['uid'] ?? uid;
     return Preferences(
+      uid: data['uid'], // Expect uid in the map
       sex: data['sex'],
       unit: data['unit'] ?? 'imperial',
       waterGoal: data['waterGoal'] ?? (data['unit'] == 'imperial' ? 96 : 3000),
@@ -119,8 +123,8 @@ class Preferences {
   }
 
   static Map<String, dynamic> toMap(Preferences data) {
-    data = data;
     return {
+      'uid': data.uid, // Added uid
       'sex': data.sex,
       'unit': data.unit,
       'waterGoal': data.waterGoal,

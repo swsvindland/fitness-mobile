@@ -21,7 +21,7 @@ class AllWeights extends StatelessWidget {
             value: db.streamWeighIns(user!.uid),
           ),
           StreamProvider<Preferences>.value(
-            initialData: Preferences.empty(),
+            initialData: Preferences.empty(user.uid),
             value: pdb.streamPreferences(user.uid),
           ),
           StreamProvider<Iterable<CheckInModel>>.value(

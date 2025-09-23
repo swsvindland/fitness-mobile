@@ -32,8 +32,8 @@ class _CheckInState extends State<CheckIn> {
         builder: (context) {
           final user = Provider.of<User?>(context);
           return StreamProvider<Preferences>.value(
-            initialData: Preferences.empty(),
-            value: PreferencesDatabaseService().streamPreferences(user!.uid),
+            initialData: Preferences.empty(user!.uid),
+            value: PreferencesDatabaseService().streamPreferences(user.uid),
             child: const BodyMeasurementForm(),
           );
         },

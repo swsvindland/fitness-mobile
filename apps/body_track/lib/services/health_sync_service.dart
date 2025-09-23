@@ -12,22 +12,18 @@ class HealthSyncService {
   final Health _health = Health();
   final BodyDatabaseService _db = BodyDatabaseService();
 
-  List<HealthDataType> get _types => const [
+  // Data types that this service reads from the Health platform
+  List<HealthDataType> get _readDataTypes => const [
+        HealthDataType.WEIGHT,
+        HealthDataType.HEIGHT,
+        // WAIST_CIRCUMFERENCE removed as it's write-only to health platform
+      ];
+
+  // Data types that this service can write to the Health platform
+  List<HealthDataType> get _writeDataTypes => const [
         HealthDataType.WEIGHT,
         HealthDataType.HEIGHT,
         HealthDataType.WAIST_CIRCUMFERENCE,
-      ];
-
-  List<HealthDataAccess> get _readPermissions => const [
-        HealthDataAccess.READ,
-        HealthDataAccess.READ,
-        HealthDataAccess.READ,
-      ];
-
-  List<HealthDataAccess> get _writePermissions => const [
-        HealthDataAccess.WRITE,
-        HealthDataAccess.WRITE,
-        HealthDataAccess.WRITE,
       ];
 
   bool _isEnabled(Preferences prefs) {
@@ -36,123 +32,120 @@ class HealthSyncService {
 
   Future<bool> ensurePermissions() async {
     try {
-      final has = await _health.hasPermissions(_types, permissions: _readPermissions) ?? false;
-      if (!has) {
-        return await _health.requestAuthorization(_types, permissions: _readPermissions);
+      // Ensure read permissions for read types
+      if (_readDataTypes.isNotEmpty) {
+        final readPermissions = List.generate(_readDataTypes.length, (_) => HealthDataAccess.READ);
+        bool hasReadPerms = await _health.hasPermissions(_readDataTypes, permissions: readPermissions) ?? false;
+        if (!hasReadPerms) {
+          hasReadPerms = await _health.requestAuthorization(_readDataTypes, permissions: readPermissions);
+        }
+        if (!hasReadPerms) {
+          if (kDebugMode) {
+            print('HealthSyncService: Failed to obtain read permissions for: ${_readDataTypes.map((t) => t.name).join(', ')}');
+          }
+          return false;
+        }
       }
-      return true;
+
+      // Ensure write permissions for write types
+      if (_writeDataTypes.isNotEmpty) {
+        final writePermissions = List.generate(_writeDataTypes.length, (_) => HealthDataAccess.WRITE);
+        bool hasWritePerms = await _health.hasPermissions(_writeDataTypes, permissions: writePermissions) ?? false;
+        if (!hasWritePerms) {
+          hasWritePerms = await _health.requestAuthorization(_writeDataTypes, permissions: writePermissions);
+        }
+        if (!hasWritePerms) {
+          if (kDebugMode) {
+            print('HealthSyncService: Failed to obtain write permissions for: ${_writeDataTypes.map((t) => t.name).join(', ')}');
+          }
+          return false;
+        }
+      }
+      return true; // All necessary permissions granted
     } catch (e) {
       if (kDebugMode) {
-        print('Health permissions error: $e');
+        print('HealthSyncService: Permissions error during ensurePermissions: $e');
       }
       return false;
     }
   }
 
-  Future<bool> ensureWritePermissions() async {
-    try {
-      final has = await _health.hasPermissions(_types, permissions: _writePermissions) ?? false;
-      if (!has) {
-        return await _health.requestAuthorization(_types, permissions: _writePermissions);
-      }
+  /// Called when the user toggles HealthKit/Health Connect settings.
+  /// If sync is enabled, this will trigger a permission request.
+  Future<bool> requestPermissionsAfterToggle(Preferences prefs) async {
+    if (_isEnabled(prefs)) {
+      return await ensurePermissions();
+    } else {
+      // If sync is not enabled, no permissions need to be requested.
+      // Return true to indicate success in this context (no action needed).
       return true;
-    } catch (e) {
-      if (kDebugMode) {
-        print('Health write permissions error: $e');
-      }
-      return false;
     }
   }
 
   Future<void> syncIfEnabled(User? user, Preferences prefs) async {
     if (user == null) return;
     // Only proceed if enabled on this platform
-    if ((Platform.isIOS && !prefs.healthKitEnabled) ||
-        (Platform.isAndroid && !prefs.healthConnectEnabled)) {
+    if (!_isEnabled(prefs)) {
       return;
     }
 
     final ok = await ensurePermissions();
     if (!ok) return;
 
-    // Fetch last year's data to be safe; we'll pick the most recent entries by type
+    // Fetch last 90 days' data
     final now = DateTime.now();
-    final start = now.subtract(const Duration(days: 365));
+    final start = now.subtract(const Duration(days: 90));
 
     try {
-      final data = await _health.getHealthDataFromTypes(
-        types: _types,
-        startTime: start,
-        endTime: now,
-      );
+      if (_readDataTypes.isNotEmpty) { // Only fetch if there are types to read
+        final data = await _health.getHealthDataFromTypes(
+          types: _readDataTypes, // Use specific read types
+          startTime: start,
+          endTime: now,
+        );
 
-      HealthDataPoint? latestOf(HealthDataType t) {
-        final items = data.where((e) => e.type == t).toList();
-        if (items.isEmpty) return null;
-        items.sort((a, b) => (a.dateTo).compareTo(b.dateTo));
-        return items.last;
-      }
+        HealthDataPoint? latestOf(HealthDataType t) {
+          final items = data.where((e) => e.type == t).toList();
+          if (items.isEmpty) return null;
+          items.sort((a, b) => (a.dateTo).compareTo(b.dateTo));
+          return items.last;
+        }
 
-      // Weight (kg)
-      final latestWeight = latestOf(HealthDataType.WEIGHT);
-      if (latestWeight != null) {
-        final w = (latestWeight.value is NumericHealthValue)
-            ? (latestWeight.value as NumericHealthValue).numericValue.toDouble()
-            : double.tryParse(latestWeight.value.toString());
-        if (w != null && w > 0) {
-          await _db.addWeighIn(user.uid, w);
+        // Weight (kg)
+        final latestWeight = latestOf(HealthDataType.WEIGHT);
+        if (latestWeight != null) {
+          final w = (latestWeight.value is NumericHealthValue)
+              ? (latestWeight.value as NumericHealthValue).numericValue.toDouble()
+              : double.tryParse(latestWeight.value.toString());
+          if (w != null && w > 0) {
+            await _db.addWeighIn(user.uid, w);
+          }
+        }
+
+        // Height (cm) - health plugin usually reports meters
+        final latestHeight = latestOf(HealthDataType.HEIGHT);
+        if (latestHeight != null) {
+          final h = (latestHeight.value is NumericHealthValue)
+              ? (latestHeight.value as NumericHealthValue).numericValue.toDouble()
+              : double.tryParse(latestHeight.value.toString());
+          if (h != null && h > 0) {
+            // convert meters to cm if likely in meters
+            final cm = h < 3.5 ? (h * 100).round() : h.round();
+            await _db.addHeight(user.uid, cm);
+          }
         }
       }
-
-      // Height (cm) - health plugin usually reports meters
-      final latestHeight = latestOf(HealthDataType.HEIGHT);
-      if (latestHeight != null) {
-        final h = (latestHeight.value is NumericHealthValue)
-            ? (latestHeight.value as NumericHealthValue).numericValue.toDouble()
-            : double.tryParse(latestHeight.value.toString());
-        if (h != null && h > 0) {
-          // convert meters to cm if likely in meters
-          final cm = h < 3.5 ? (h * 100).round() : h.round();
-          await _db.addHeight(user.uid, cm);
-        }
-      }
-
-      // Waist circumference (cm) - plugin likely returns meters
-      final latestWaist = latestOf(HealthDataType.WAIST_CIRCUMFERENCE);
-      if (latestWaist != null) {
-        final v = (latestWaist.value is NumericHealthValue)
-            ? (latestWaist.value as NumericHealthValue).numericValue.toDouble()
-            : double.tryParse(latestWaist.value.toString());
-        if (v != null && v > 0) {
-          final cm = v < 3.5 ? (v * 100) : v; // if meters, convert to cm
-          // Create a minimal check-in with only waist populated
-          await _db.addCheckIn(
-            user.uid,
-            0.0, // neck
-            0.0, // shoulders
-            0.0, // chest
-            0.0, // leftBicep
-            0.0, // rightBicep
-            0.0, // navel
-            cm, // waist
-            0.0, // hip
-            0.0, // leftThigh
-            0.0, // rightThigh
-            0.0, // leftCalf
-            0.0, // rightCalf
-          );
-        }
-      }
+      // Waist circumference sync is removed from read operations
     } catch (e) {
       if (kDebugMode) {
-        print('Health sync error: $e');
+        print('HealthSyncService: Sync error: $e');
       }
     }
   }
 
   Future<void> writeWeightIfEnabled(User? user, Preferences prefs, double kg, {DateTime? date}) async {
-    if (!_isEnabled(prefs)) return;
-    final ok = await ensureWritePermissions();
+    if (user == null || !_isEnabled(prefs)) return;
+    final ok = await ensurePermissions(); // Use unified permissions check
     if (!ok) return;
     final t = date ?? DateTime.now();
     try {
@@ -164,14 +157,14 @@ class HealthSyncService {
       );
     } catch (e) {
       if (kDebugMode) {
-        print('Health write weight error: $e');
+        print('HealthSyncService: Write weight error: $e');
       }
     }
   }
 
   Future<void> writeHeightIfEnabled(User? user, Preferences prefs, int cm, {DateTime? date}) async {
-    if (!_isEnabled(prefs)) return;
-    final ok = await ensureWritePermissions();
+    if (user == null || !_isEnabled(prefs)) return;
+    final ok = await ensurePermissions(); // Use unified permissions check
     if (!ok) return;
     final t = date ?? DateTime.now();
     final meters = cm / 100.0;
@@ -184,15 +177,15 @@ class HealthSyncService {
       );
     } catch (e) {
       if (kDebugMode) {
-        print('Health write height error: $e');
+        print('HealthSyncService: Write height error: $e');
       }
     }
   }
 
   Future<void> writeWaistIfEnabled(User? user, Preferences prefs, double cm, {DateTime? date}) async {
-    if (!_isEnabled(prefs)) return;
+    if (user == null || !_isEnabled(prefs)) return;
     if (cm <= 0) return;
-    final ok = await ensureWritePermissions();
+    final ok = await ensurePermissions(); // Use unified permissions check
     if (!ok) return;
     final t = date ?? DateTime.now();
     final meters = cm / 100.0;
@@ -205,7 +198,7 @@ class HealthSyncService {
       );
     } catch (e) {
       if (kDebugMode) {
-        print('Health write waist error: $e');
+        print('HealthSyncService: Write waist error: $e');
       }
     }
   }
