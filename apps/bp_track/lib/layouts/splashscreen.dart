@@ -3,7 +3,7 @@ import 'package:api/user_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:utils/constants.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
@@ -28,14 +28,13 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
     if (currentUser == null) {
       Timer(const Duration(milliseconds: 850),
-          () => navigatorKey.currentState!.pushReplacementNamed("/login"));
+          () => context.go('/login'));
     } else {
       Timer(
         const Duration(milliseconds: 500),
         () {
           _db.updateUserData(currentUser);
-          navigatorKey.currentState!.pushNamedAndRemoveUntil(
-              '/home', (Route<dynamic> route) => false);
+          context.go('/home');
         },
       );
     }

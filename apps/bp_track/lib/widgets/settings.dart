@@ -1,5 +1,5 @@
 import 'package:api/blood_pressure_database_service.dart';
-import 'package:utils/constants.dart';
+import 'package:go_router/go_router.dart';
 import 'package:utils/sign_in.dart';
 import 'package:widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +9,9 @@ class Settings extends StatelessWidget {
   Settings({super.key});
   final db = BloodPressureDatabaseService();
 
-  handleSignOut() {
+  void handleSignOut(BuildContext context) {
     signOut();
-    navigatorKey.currentState!
-        .pushNamedAndRemoveUntil('/login', (route) => false);
+    context.go('/login');
   }
 
   @override
@@ -21,7 +20,7 @@ class Settings extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Column(
         children: <Widget>[
-          FilledButton(onPressed: handleSignOut, child: Text(AppLocalizations.of(context)!.logOut)),
+          FilledButton(onPressed: () => handleSignOut(context), child: Text(AppLocalizations.of(context)!.logOut)),
           DeleteAccount(
             title: AppLocalizations.of(context)!.deleteAccount,
             content: AppLocalizations.of(context)!.deleteAccountConfirm,

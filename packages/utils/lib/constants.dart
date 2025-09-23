@@ -6,4 +6,4 @@ const int md = 900;
 const int lg = 1200;
 const int xl = 1536;
 
-final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+// final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();

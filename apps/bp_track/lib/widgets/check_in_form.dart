@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:models/models.dart';
 import 'package:provider/provider.dart';
 import 'package:bp_track/l10n/app_localizations.dart';
-import 'package:utils/constants.dart';
+import 'package:go_router/go_router.dart';
 import 'package:utils/helper.dart';
 import 'package:widgets/widgets.dart';
 
@@ -117,7 +117,7 @@ class _CheckInState extends State<CheckInForm> {
                               AppLocalizations.of(context)!.processingData)),
                     );
                     await delete();
-                    navigatorKey.currentState!.pop();
+                    context.pop();
                   }
                 },
                 child: Text(AppLocalizations.of(context)!.delete),
@@ -125,7 +125,7 @@ class _CheckInState extends State<CheckInForm> {
             : const SizedBox(),
         TextButton(
           onPressed: () {
-            navigatorKey.currentState!.pop();
+            context.pop();
           },
           child: Text(AppLocalizations.of(context)!.cancel),
         ),
@@ -140,7 +140,7 @@ class _CheckInState extends State<CheckInForm> {
                         Text(AppLocalizations.of(context)!.processingData)),
               );
               await submit();
-              navigatorKey.currentState!.pop();
+              context.pop();
             }
           },
           child: Text(AppLocalizations.of(context)!.submit),

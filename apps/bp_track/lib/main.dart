@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:bp_track/utils/colors.dart';
+import 'package:utils/colors.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -8,11 +8,11 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:bp_track/layouts/layouts.dart';
 import 'package:utils/graph_animation_provider.dart';
-import 'package:utils/constants.dart';
 import 'package:bp_track/l10n/app_localizations.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 
@@ -56,8 +56,25 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-  static FirebaseAnalyticsObserver observer =
-      FirebaseAnalyticsObserver(analytics: analytics);
+  static FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
+
+  late final GoRouter _router = GoRouter(
+    observers: <NavigatorObserver>[observer],
+    routes: <RouteBase>[
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const SplashScreenPage(),
+      ),
+      GoRoute(
+        path: '/login',
+        builder: (context, state) => const LoginPage(),
+      ),
+      GoRoute(
+        path: '/home',
+        builder: (context, state) => const HomePage(),
+      ),
+    ],
+  );
 
   Future<void> _initializeFlutterFire() async {
     if (_kTestingCrashlytics) {
@@ -90,7 +107,7 @@ class _AppState extends State<App> {
         ChangeNotifierProvider<GraphAnimationProvider>(
             create: (_) => GraphAnimationProvider()),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         title: 'Blood Pressure Track',
         localizationsDelegates: const [
           AppLocalizations.delegate, // Add this line
@@ -138,23 +155,27 @@ class _AppState extends State<App> {
         ],
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: primary),
+          colorScheme: ColorScheme.fromSeed(seedColor: primary).copyWith(
+              primary: primary,
+              secondary: secondary,
+              tertiary: tertiary,
+              error: error,
+              brightness: Brightness.light
+          ),
           textTheme: GoogleFonts.oswaldTextTheme(),
         ),
         darkTheme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: primary, brightness: Brightness.dark),
+          colorScheme: ColorScheme.fromSeed(seedColor: primary, brightness: Brightness.dark).copyWith(
+              primary: primary,
+              secondary: secondary,
+              tertiary: tertiary,
+              error: error,
+              brightness: Brightness.dark
+          ),
           textTheme: GoogleFonts.oswaldTextTheme(ThemeData.dark().textTheme),
         ),
         themeMode: ThemeMode.system,
-        navigatorKey: navigatorKey,
-        navigatorObservers: <NavigatorObserver>[observer],
-        initialRoute: '/',
-        routes: {
-          '/': (context) => const SplashScreenPage(),
-          '/login': (context) => const LoginPage(),
-          '/home': (context) => const HomePage(),
-        },
+        routerConfig: _router,
       ),
     );
   }

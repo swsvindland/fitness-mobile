@@ -2,7 +2,7 @@ import 'package:api/user_database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:utils/constants.dart';
+import 'package:go_router/go_router.dart';
 import 'package:utils/sign_in.dart';
 import "package:os_detect/os_detect.dart" as platform;
 import 'package:bp_track/l10n/app_localizations.dart';
@@ -33,8 +33,7 @@ class _LoginPageState extends State<LoginPage> {
     signInWithGoogle().then((User? user) {
       if (user != null) {
         _db.updateUserData(user);
-        navigatorKey.currentState!
-            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+        context.go('/home');
       }
     });
     setState(() {
@@ -49,8 +48,7 @@ class _LoginPageState extends State<LoginPage> {
     signInWithApple().then((User? user) {
       if (user != null) {
         _db.updateUserData(user);
-        navigatorKey.currentState!
-            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+        context.go('/home');
       }
     });
     setState(() {
@@ -65,8 +63,7 @@ class _LoginPageState extends State<LoginPage> {
     signInAnon().then((User? user) {
       if (user != null) {
         _db.updateUserData(user);
-        navigatorKey.currentState!
-            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+        context.go('/home');
       }
     });
     setState(() {
