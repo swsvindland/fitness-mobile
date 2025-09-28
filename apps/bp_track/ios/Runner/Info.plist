@@ -45,5 +45,20 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	
+	<!-- Google Sign-In configuration -->
+	<key>GIDClientID</key>
+	<string>114986152997-kvm18il4d06nh1sbf0ede4lu2obiueqr.apps.googleusercontent.com</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.114986152997-kvm18il4d06nh1sbf0ede4lu2obiueqr</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
