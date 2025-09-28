@@ -1,11 +1,7 @@
-import 'dart:ui';
-
 import 'package:utils/colors.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
@@ -14,11 +10,8 @@ import 'package:provider/provider.dart';
 import 'package:bp_track/layouts/layouts.dart';
 import 'package:utils/graph_animation_provider.dart';
 import 'package:bp_track/l10n/app_localizations.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
 
 import 'firebase_options.dart';
-
-const _kTestingCrashlytics = false;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,16 +27,6 @@ void main() async {
     appleProvider: AppleProvider.appAttest,
   );
 
-  // Non-async exceptions
-  FlutterError.onError = (errorDetails) {
-    FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
-  };
-  // Async exceptions
-  PlatformDispatcher.instance.onError = (error, stack) {
-    FirebaseCrashlytics.instance.recordError(error, stack);
-    return true;
-  };
-
   runApp(const App());
 }
 
@@ -55,11 +38,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-  static FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
-
   late final GoRouter _router = GoRouter(
-    observers: <NavigatorObserver>[observer],
     routes: <RouteBase>[
       GoRoute(
         path: '/',
@@ -76,25 +55,9 @@ class _AppState extends State<App> {
     ],
   );
 
-  Future<void> _initializeFlutterFire() async {
-    if (_kTestingCrashlytics) {
-      // Force enable crashlytics collection enabled if we're testing it.
-      await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-    } else {
-      // Else only enable it in non-debug builds.
-      // You could additionally extend this to allow users to opt-in.
-      await FirebaseCrashlytics.instance
-          .setCrashlyticsCollectionEnabled(kReleaseMode);
-    }
-
-    analytics.logEvent(name: 'app_started');
-  }
-
   @override
   void initState() {
     super.initState();
-
-    _initializeFlutterFire();
   }
 
   @override

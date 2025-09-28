@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>114986152997-grlatrnib6i3hgg3if82pr6m2pdverk2.apps.googleusercontent.com</string>
+	<string>114986152997-kvm18il4d06nh1sbf0ede4lu2obiueqr.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.114986152997-grlatrnib6i3hgg3if82pr6m2pdverk2</string>
+	<string>com.googleusercontent.apps.114986152997-kvm18il4d06nh1sbf0ede4lu2obiueqr</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAnWouS1rx80N_WA0RcSzWgmvYDWpXGAok</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.svindland.bptrack</string>
+	<string>dev.svindland.bp</string>
 	<key>PROJECT_ID</key>
 	<string>fitness-mobile-dev-1</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:114986152997:ios:5f6eea3e978a489456bbcc</string>
+	<string>1:114986152997:ios:bcd1ec8852c0297c56bbcc</string>
 </dict>
 </plist>

@@ -21,6 +21,25 @@ class BloodPressureDatabaseService {
             })));
   }
 
+  Future<List<BloodPressure>> listBloodPressuresSince(String uid, DateTime from) async {
+    final query = await _db
+        .collection('bps')
+        .where("uid", isEqualTo: uid)
+        .where("date", isGreaterThanOrEqualTo: from)
+        .get();
+
+    return query.docs
+        .map((e) => BloodPressure.fromMap({
+              "id": e.id,
+              "uid": e.data()["uid"],
+              "systolic": e.data()["systolic"],
+              "diastolic": e.data()["diastolic"],
+              "heartRate": e.data()["heartRate"],
+              "date": e.data()["date"]
+            }))
+        .toList();
+  }
+
   Future<void> deleteBloodPressure(String id) {
     return _db
         .collection('bps')
@@ -57,6 +76,17 @@ class BloodPressureDatabaseService {
     return _db.collection('bps').doc().set({
       "uid": id,
       "date": DateTime.now(),
+      "systolic": systolic,
+      'diastolic': diastolic,
+      'heartRate': heartRate
+    });
+  }
+
+  Future<void> addBloodPressureAt(
+      String id, int systolic, int diastolic, int? heartRate, DateTime date) {
+    return _db.collection('bps').doc().set({
+      "uid": id,
+      "date": date,
       "systolic": systolic,
       'diastolic': diastolic,
       'heartRate': heartRate
