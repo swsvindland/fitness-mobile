@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:utils/colors.dart';
 import 'package:utils/sign_in.dart';
 import "package:os_detect/os_detect.dart" as platform;
 import 'package:bp_track/l10n/app_localizations.dart';
@@ -85,6 +86,7 @@ class _LoginPageState extends State<LoginPage> {
               children: <Widget>[
                 SvgPicture.asset(
                     'images/logo.svg',
+                    color: primary,
                     semanticsLabel: 'Blood Pressure Track Logo',
                     width: 200,
                     height: 200

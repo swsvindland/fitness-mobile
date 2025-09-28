@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:utils/colors.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
@@ -52,6 +53,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
             children: <Widget>[
               SvgPicture.asset(
                   'images/logo.svg',
+                  color: primary,
                   semanticsLabel: 'Blood Pressure Track Logo',
                   width: 200,
                   height: 200
