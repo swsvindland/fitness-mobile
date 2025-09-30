@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:utils/colors.dart';
+import 'package:utils/sign_in.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
@@ -21,23 +22,36 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   void initState() {
     super.initState();
 
-    navigateUser();
+    // Defer navigation until after the first frame to avoid triggering
+    // Router rebuilds during the build phase.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        navigateUser();
+      }
+    });
   }
 
-  navigateUser() {
+  Future<void> navigateUser() async {
     User? currentUser = FirebaseAuth.instance.currentUser;
 
     if (currentUser == null) {
-      Timer(const Duration(milliseconds: 850),
-          () => context.go('/login'));
+      try {
+        // Fast anonymous sign-in to get user into the app quickly
+        final user = await signInAnon();
+        if (!mounted) return;
+        if (user != null) {
+          _db.updateUserData(user);
+        }
+        context.go('/home');
+      } catch (e) {
+        // If anon sign-in fails, still navigate to home to avoid blocking UI
+        if (!mounted) return;
+        context.go('/home');
+      }
     } else {
-      Timer(
-        const Duration(milliseconds: 500),
-        () {
-          _db.updateUserData(currentUser);
-          context.go('/home');
-        },
-      );
+      _db.updateUserData(currentUser);
+      if (!mounted) return;
+      context.go('/home');
     }
   }
 
