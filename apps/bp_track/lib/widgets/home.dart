@@ -17,11 +17,15 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     var user = Provider.of<User?>(context);
 
+    if (user == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
     return MultiProvider(
       providers: [
         StreamProvider<Iterable<BloodPressure>>.value(
           initialData: const [],
-          value: db.streamBloodPressures(user!.uid),
+          value: db.streamBloodPressures(user.uid),
         ),
       ],
       child: const Align(
