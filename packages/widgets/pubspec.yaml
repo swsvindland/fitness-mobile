@@ -3,7 +3,7 @@ version: 1.0.0+1
 
 environment:
   sdk: ">=3.9.2 <4.0.0"
-  flutter: "3.35.3"
+  flutter: "3.35.5"
 
 dependencies:
   flutter:
@@ -11,6 +11,8 @@ dependencies:
   go_router: ^16.2.1
   utils: ^1.0.0+1
   firebase_auth: ^6.0.2
+  models: ^1.0.0+1
+  api: ^1.0.0+1
 
 
 dev_dependencies:

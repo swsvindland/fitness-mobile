@@ -6,6 +6,7 @@ import 'package:utils/sign_in.dart';
 import 'package:widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:bp_track/l10n/app_localizations.dart';
+import 'package:bp_track/widgets/health_sync_settings.dart';
 
 class Settings extends StatelessWidget {
   Settings({super.key});
@@ -37,6 +38,9 @@ class Settings extends StatelessWidget {
             AccountLink(
               onSignedIn: (User user) => _onLinked(user, context),
             ),
+            const SizedBox(height: 24),
+            // Health sync toggle
+            const HealthSyncSettings(),
             const SizedBox(height: 24),
             FilledButton(
               onPressed: () => handleSignOut(context),

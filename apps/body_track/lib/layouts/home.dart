@@ -114,13 +114,17 @@ class _HomeState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var user = Provider.of<User?>(context);
+    final user = Provider.of<User?>(context);
+
+    if (user == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
 
     return MultiProvider(
       providers: [
         StreamProvider<Iterable<Weight>>.value(
           initialData: const [],
-          value: db.streamWeighIns(user!.uid),
+          value: db.streamWeighIns(user.uid),
         ),
         StreamProvider<Preferences>.value(
           initialData: Preferences.empty(user.uid),

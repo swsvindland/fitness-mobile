@@ -2,43 +2,28 @@ import 'dart:async';
 
 import 'package:api/blood_pressure_database_service.dart';
 import 'package:health/health.dart';
+import 'package:utils/health_sync.dart';
 
 class HealthSyncService {
-  HealthSyncService._internal();
+  HealthSyncService._internal()
+      : _core = HealthSync(
+          readTypes: const [
+            HealthDataType.BLOOD_PRESSURE_SYSTOLIC,
+            HealthDataType.BLOOD_PRESSURE_DIASTOLIC,
+            HealthDataType.HEART_RATE,
+          ],
+          writeTypes: const [
+            HealthDataType.BLOOD_PRESSURE_SYSTOLIC,
+            HealthDataType.BLOOD_PRESSURE_DIASTOLIC,
+          ],
+        );
   static final HealthSyncService _instance = HealthSyncService._internal();
   factory HealthSyncService() => _instance;
 
-  final Health _health = Health();
-
-  static final List<HealthDataType> _readTypes = <HealthDataType>[
-    HealthDataType.BLOOD_PRESSURE_SYSTOLIC,
-    HealthDataType.BLOOD_PRESSURE_DIASTOLIC,
-    HealthDataType.HEART_RATE,
-  ];
-
-  static final List<HealthDataAccess> _readPerms = <HealthDataAccess>[
-    HealthDataAccess.READ,
-    HealthDataAccess.READ,
-    HealthDataAccess.READ,
-  ];
-
-  static final List<HealthDataType> _writeTypes = <HealthDataType>[
-    HealthDataType.BLOOD_PRESSURE_SYSTOLIC,
-    HealthDataType.BLOOD_PRESSURE_DIASTOLIC,
-  ];
-
-  static final List<HealthDataAccess> _writePerms = <HealthDataAccess>[
-    HealthDataAccess.WRITE,
-    HealthDataAccess.WRITE,
-  ];
+  final HealthSync _core;
 
   Future<bool> _ensurePermissions() async {
-    // Request both read and write permissions in one call when possible
-    final types = [..._readTypes, ..._writeTypes];
-    final perms = [..._readPerms, ..._writePerms];
-
-    bool granted = await _health.requestAuthorization(types, permissions: perms);
-    return granted;
+    return _core.ensurePermissions();
   }
 
   /// Resync last 90 days of blood pressure readings from HealthKit/Health Connect into Firestore.
@@ -51,11 +36,7 @@ class HealthSyncService {
 
     List<HealthDataPoint> points = [];
     try {
-      points = await _health.getHealthDataFromTypes(
-        startTime: start,
-        endTime: end,
-        types: _readTypes,
-      );
+      points = await _core.readBetween(start: start, end: end);
     } catch (_) {
       // ignore errors; just abort quietly
       return;
@@ -131,17 +112,15 @@ class HealthSyncService {
     final when = date ?? DateTime.now();
 
     try {
-      await _health.writeHealthData(
-        value: systolic.toDouble(),
+      await _core.writeNumeric(
         type: HealthDataType.BLOOD_PRESSURE_SYSTOLIC,
-        startTime: when,
-        endTime: when,
+        value: systolic,
+        when: when,
       );
-      await _health.writeHealthData(
-        value: diastolic.toDouble(),
+      await _core.writeNumeric(
         type: HealthDataType.BLOOD_PRESSURE_DIASTOLIC,
-        startTime: when,
-        endTime: when,
+        value: diastolic,
+        when: when,
       );
     } catch (_) {
       // ignore write failure
